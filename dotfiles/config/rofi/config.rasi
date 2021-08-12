@@ -1,0 +1,3 @@
+configuration {
+	theme: "flat-orange.rasi";
+}

@@ -1,0 +1,85 @@
+config:
+  backup: true
+  banner: true
+  create: true
+  dotpath: dotfiles
+  keepdot: false
+  link_dotfile_default: link
+  link_on_import: link
+  longkey: false
+dotfiles:
+  f_custom.aliases.bash:
+    src: bash_it/aliases/custom.aliases.bash
+    dst: ~/.bash_it/aliases/custom.aliases.bash
+    link: link
+  f_custom.completion.bash:
+    src: bash_it/completion/custom.completion.bash
+    dst: ~/.bash_it/completion/custom.completion.bash
+  f_custom.bash:
+    src: bash_it/lib/custom.bash
+    dst: ~/.bash_it/lib/custom.bash
+  f_rc.conf:
+    src: config/ranger/rc.conf
+    dst: ~/.config/ranger/rc.conf
+  f_face:
+    src: face
+    dst: ~/.face
+    link: link
+  d_kitty:
+    src: config/kitty
+    dst: ~/.config/kitty
+    link: link
+  d_bspwm:
+    src: config/bspwm
+    dst: ~/.config/bspwm
+  d_espanso:
+    src: config/espanso
+    dst: ~/.config/espanso
+  d_polybar:
+    src: config/polybar
+    dst: ~/.config/polybar
+  d_rofi:
+    src: config/rofi
+    dst: ~/.config/rofi
+  d_sxhkd:
+    src: config/sxhkd
+    dst: ~/.config/sxhkd
+  f_vimrc:
+    src: vim/vimrc
+    dst: ~/.vim/vimrc
+  f_init.vim:
+    src: config/nvim/init.vim
+    dst: ~/.config/nvim/init.vim
+    link: link
+  f_plug.vim:
+    src: config/nvim/plug.vim
+    dst: ~/.config/nvim/plug.vim
+    link: link
+  f_maps.vim:
+    src: config/nvim/maps.vim
+    dst: ~/.config/nvim/maps.vim
+    link: link
+  f_bashrc:
+    src: bashrc
+    dst: ~/.bashrc
+    link: link
+    chmod: '644'
+profiles:
+  gk55:
+    dotfiles:
+    - f_custom.aliases.bash
+    - f_custom.completion.bash
+    - f_custom.bash
+    - f_rc.conf
+    - f_face
+    - d_kitty
+    - d_bspwm
+    - d_espanso
+    - d_polybar
+    - d_rofi
+    - d_sxhkd
+    - f_vimrc
+    - f_init.vim
+    - f_plug.vim
+    - f_maps.vim
+    - f_bashrc

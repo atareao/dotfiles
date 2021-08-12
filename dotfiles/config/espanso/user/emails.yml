@@ -1,0 +1,8 @@
+name: emails
+parent: default
+
+matches:
+  - trigger: ";firma"
+    replace: |
+      Saludos
+      Lorenzo <a.k.a atareao>
