@@ -17,8 +17,8 @@ bspc monitor eDP-1 -d VII VIII IX
 bspc config border_width          2
 bspc config window_gap            5
 bspc config top_padding           0
-# bspc config bottom_padding       80
-bspc config bottom_padding        0
+bspc config bottom_padding       80
+# bspc config bottom_padding        0
 bspc config left_padding          0
 bspc config right_padding         0
 

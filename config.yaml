@@ -4,14 +4,11 @@ config:
   create: true
   dotpath: dotfiles
   keepdot: false
-  link_dotfile_default: link
-  link_on_import: link
   longkey: false
 dotfiles:
   f_custom.aliases.bash:
     src: bash_it/aliases/custom.aliases.bash
     dst: ~/.bash_it/aliases/custom.aliases.bash
-    link: link
   f_custom.completion.bash:
     src: bash_it/completion/custom.completion.bash
     dst: ~/.bash_it/completion/custom.completion.bash
@@ -24,11 +21,9 @@ dotfiles:
   f_face:
     src: face
     dst: ~/.face
-    link: link
   d_kitty:
     src: config/kitty
     dst: ~/.config/kitty
-    link: link
   d_bspwm:
     src: config/bspwm
     dst: ~/.config/bspwm
@@ -50,20 +45,25 @@ dotfiles:
   f_init.vim:
     src: config/nvim/init.vim
     dst: ~/.config/nvim/init.vim
-    link: link
   f_plug.vim:
     src: config/nvim/plug.vim
     dst: ~/.config/nvim/plug.vim
-    link: link
   f_maps.vim:
     src: config/nvim/maps.vim
     dst: ~/.config/nvim/maps.vim
-    link: link
   f_bashrc:
     src: bashrc
     dst: ~/.bashrc
-    link: link
     chmod: '644'
+  f_imp3.sh:
+    src: bash_it/lib/imp3.sh
+    dst: ~/.bash_it/lib/imp3.sh
+  f_minify.sh:
+    src: bash_it/lib/minify.sh
+    dst: ~/.bash_it/lib/minify.sh
+  d_lib:
+    src: bash_it/lib
+    dst: ~/.bash_it/lib
 profiles:
   gk55:
     dotfiles:
@@ -83,3 +83,6 @@ profiles:
     - f_plug.vim
     - f_maps.vim
     - f_bashrc
+    - f_imp3.sh
+    - f_minify.sh
+    - d_lib

@@ -1,9 +1,10 @@
 " Auto installation of Plug
-if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
+
 if has('nvim')
   let g:plug_home = stdpath('data') . '/plugged'
 endif
@@ -14,12 +15,13 @@ Plug 'davidhalter/jedi-vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'dense-analysis/ale'
+Plug 'jiangmiao/auto-pairs'
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'jiangmiao/auto-pairs'
+"Plug 'jiangmiao/auto-pairs'
 " Rust
-Plug 'vim-test/vim-test'
+" Plug 'vim-test/vim-test'
 Plug 'rust-lang/rust.vim'
 " Git integration
 Plug 'airblade/vim-gitgutter'
@@ -28,6 +30,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'wincent/terminus'
 " Color scheme
 Plug 'ayu-theme/ayu-vim'
+Plug 'junegunn/limelight.vim'
 " NeoVim
 if has('nvim')
     Plug 'nvim-treesitter/nvim-treesitter'
@@ -38,6 +41,7 @@ endif
 " -------------------------------
 call plug#end()
 " -------------- personal ---------------
+nmap 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 " -------------- Airline ---------------
