@@ -85,7 +85,8 @@ content = |
 
 [bar/bar2]
 inherit = bar/bar1
-monitor = DVI-I-1-1
+monitor = ${env:MONITOR:HDMI-2}
+;monitor = DVI-I-1-1
 fixed-center=true
 modules-left = bspwm
 modules-center =
@@ -96,7 +97,7 @@ tray-position = None
 enable-ipc = false
 
 [bar/bar1]
-;monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:HDMI-1}
 width = 100%:-4
 height = 32
 offset-x = 2

@@ -1,6 +1,8 @@
 alias vim=nvim
 alias vimdiff='nvim -d'
 alias j=autojump
-alias dotdrop='/datos/misdotfiles/dotdrop.sh --cfg=/datos/misdotfiles/config.yaml'
+alias dotdrop='eval $(grep -v "^#" /datos/misdotfiles/.env);/datos/misdotfiles/dotdrop.sh --cfg=/datos/misdotfiles/config.yaml'
 alias screenkey='/datos/programacion/python/screenkey/screenkey'
-alias ssh='kitty +kitten ssh'
+alias sshk='kitty +kitten ssh'
+alias icat="kitty +kitten icat"
+alias mydiff="kitty +kitten diff"

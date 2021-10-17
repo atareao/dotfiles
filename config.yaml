@@ -39,31 +39,16 @@ dotfiles:
   d_sxhkd:
     src: config/sxhkd
     dst: ~/.config/sxhkd
-  f_vimrc:
-    src: vim/vimrc
-    dst: ~/.vim/vimrc
-  f_init.vim:
-    src: config/nvim/init.vim
-    dst: ~/.config/nvim/init.vim
-  f_plug.vim:
-    src: config/nvim/plug.vim
-    dst: ~/.config/nvim/plug.vim
-  f_maps.vim:
-    src: config/nvim/maps.vim
-    dst: ~/.config/nvim/maps.vim
   f_bashrc:
     src: bashrc
     dst: ~/.bashrc
     chmod: '644'
-  f_imp3.sh:
-    src: bash_it/lib/imp3.sh
-    dst: ~/.bash_it/lib/imp3.sh
-  f_minify.sh:
-    src: bash_it/lib/minify.sh
-    dst: ~/.bash_it/lib/minify.sh
   d_lib:
     src: bash_it/lib
     dst: ~/.bash_it/lib
+  d_nvim:
+    src: config/nvim
+    dst: ~/.config/nvim
 profiles:
   gk55:
     dotfiles:
@@ -78,11 +63,6 @@ profiles:
     - d_polybar
     - d_rofi
     - d_sxhkd
-    - f_vimrc
-    - f_init.vim
-    - f_plug.vim
-    - f_maps.vim
     - f_bashrc
-    - f_imp3.sh
-    - f_minify.sh
     - d_lib
+    - d_nvim

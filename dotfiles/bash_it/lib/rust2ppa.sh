@@ -23,7 +23,7 @@
 
 
 function rust2ppa(){
-    KEY="726BF28194F177B10C85F46D0AD17DF58AA94BFB"
+    KEY={{@@ env['KEY'] @@}}
     PPA="atareao/test"
     MAIN_DIR=${PWD}
     BASENAME=$(basename ${PWD})

@@ -29,6 +29,9 @@ super + ctrl + z
 super + ctrl + a
 	/bin/bash /home/lorenzo/.config/rofi/scripts/atareao.sh
 
+super + ctrl + e
+	rofimoji
+
 super + plus
 	pamixer -i 10
 

@@ -75,7 +75,7 @@ export SCM_CHECK=true
 
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
-export PATH=${PATH}:/home/lorenzo/.local/bin:/home/lorenzo/.local/bin/Telegram
-eval "$(jump shell bash)"
+export PATH=${PATH}:/home/lorenzo/.local/bin:/home/lorenzo/.local/bin/Telegram:/home/lorenzo/go/bin
+eval "$(jump shell)"
 export EDITOR=/home/lorenzo/.local/bin/nvim
 alias dotdrop=/datos/misdotfiles/dotdrop.sh
