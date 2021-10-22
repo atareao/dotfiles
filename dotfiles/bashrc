@@ -78,4 +78,11 @@ source "$BASH_IT"/bash_it.sh
 export PATH=${PATH}:/home/lorenzo/.local/bin:/home/lorenzo/.local/bin/Telegram:/home/lorenzo/go/bin
 eval "$(jump shell)"
 export EDITOR=/home/lorenzo/.local/bin/nvim
-alias dotdrop=/datos/misdotfiles/dotdrop.sh
+# fzf & Bash integration
+source ~/.bash_it/completion/fzf-completion.bash
+source ~/.bash_it/completion/fzf-key-bindings.bash
+FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+export FZF_ALT_C_COMMAND='fd --type d . --color=never'
+export FZF_DEFAULT_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null ||
+cat {} || tree -C {}) 2> /dev/null | head -200'"
+

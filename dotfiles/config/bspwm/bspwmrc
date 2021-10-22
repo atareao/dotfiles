@@ -2,12 +2,12 @@
 
 pkill sxhkd
 sxhkd &
-
-$HOME/.config/polybar/launcher.sh
-# compton --config $HOME/.config/compton/compton.conf &
 pkill picom
 picom --daemon --config $HOME/.config/picom/picom.conf &
 feh --bg-scale $HOME/.config/daily-wallpaper/potd.jpg &
+dunst -conf ~/.config/dunst/dunstrc &
+
+$HOME/.config/polybar/launcher.sh
 
 # bspc monitor -d I II III IV V VI VII VIII IX X
 # bspc monitor DVI-I-1-1 -d I II III IV V
@@ -16,7 +16,7 @@ bspc monitor HDMI-2 -d I II III IV
 # bspc monitor eDP-1 -d VII VIII IX
 
 bspc config border_width          2
-bspc config window_gap            5
+bspc config window_gap            10
 bspc config top_padding           0
 #bspc config bottom_padding       80
 bspc config bottom_padding        0
@@ -49,4 +49,3 @@ bspc rule -a Ardour desktop='^8'
 bspc rule -a Evince desktop='^1'
 bspc rule -a TelegramDesktop desktop='^1'
 
-dunst -conf ~/.config/dunst/dunstrc &
