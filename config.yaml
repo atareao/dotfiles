@@ -49,6 +49,12 @@ dotfiles:
   d_nvim:
     src: config/nvim
     dst: ~/.config/nvim
+  f_fzf-completion.bash:
+    src: bash_it/completion/fzf-completion.bash
+    dst: ~/.bash_it/completion/fzf-completion.bash
+  f_fzf-key-bindings.bash:
+    src: bash_it/completion/fzf-key-bindings.bash
+    dst: ~/.bash_it/completion/fzf-key-bindings.bash
 profiles:
   gk55:
     dotfiles:
@@ -66,3 +72,16 @@ profiles:
     - f_bashrc
     - d_lib
     - d_nvim
+    - f_fzf-completion.bash
+    - f_fzf-key-bindings.bash
+  raspiarch:
+    dotfiles:
+    - f_custom.aliases.bash
+    - f_custom.completion.bash
+    - f_custom.bash
+    - f_rc.conf
+    - f_bashrc
+    - d_lib
+    - d_nvim
+    - f_fzf-completion.bash
+    - f_fzf-key-bindings.bash
