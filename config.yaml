@@ -55,6 +55,8 @@ dotfiles:
   f_fzf-key-bindings.bash:
     src: bash_it/completion/fzf-key-bindings.bash
     dst: ~/.bash_it/completion/fzf-key-bindings.bash
+variables:
+  dotfilesdir: /datos/misdotfiles
 profiles:
   gk55:
     dotfiles:
@@ -85,3 +87,5 @@ profiles:
     - d_nvim
     - f_fzf-completion.bash
     - f_fzf-key-bindings.bash
+    variables:
+      dotfilesdir: ~/dotfiles
