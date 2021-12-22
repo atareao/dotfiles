@@ -20,13 +20,18 @@ Website: https://github.com/brainfucksec/neovim-lua
 -----------------------------------------------------------
 require('settings')                 -- settings
 require('keymaps')                  -- keymaps
-require('plugins/paq-nvim')         -- plugin manager
-require('plugins/feline')           -- statusline
+require('plugins/packer')         -- plugin manager
+
+require('plugins/nvim-tree')
+require('plugins/indent-blankline')
+
+--require('plugins/feline')           -- statusline
 require('plugins/nvim-cmp')         -- autocomplete
 require('plugins/nvim-autopairs')   -- autopairs
 require('plugins/nvim-lspconfig')   -- LSP settings
 require('plugins/vista')            -- tag viewer
 require('plugins/nvim-treesitter')  -- tree-sitter interface
 require('plugins/gitsigns')         -- git decorations
+require('plugins/rust-tools')         -- autocomplete
 require('plugins/telescope-nvim')
 require('plugins/galaxyline')

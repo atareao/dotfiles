@@ -169,7 +169,7 @@ label-mounted = %mountpoint%: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${color.foreground-alt}
 
-format-mounted-prefix = 󰒋 
+format-mounted-prefix = 󰒋
 format-mounted = <ramp-capacity> <label-mounted>
 
 ramp-capacity-0 = 󰫈
@@ -201,10 +201,10 @@ label-occupied-foreground = ${color.cyan}
 label-urgent-foreground = ${color.red}
 label-empty-foreground = ${color.foreground}
 
-label-focused = 󰍹 
-label-occupied = 󰍹 
-label-urgent = 󰍹 
-label-empty = 󰍹 
+label-focused = 󰍹
+label-occupied = 󰍹
+label-urgent = 󰍹
+label-empty = 󰍹
 
 label-focused-font = 4
 label-occupied-font = 4
@@ -249,7 +249,7 @@ type = internal/memory
 interval = 2
 label = %percentage_used%%
 format = <ramp-used> <label>
-format-prefix = 󰍛 
+format-prefix = 󰍛
 
 ramp-used-0 = 󰪞
 ramp-used-1 = 󰪟
@@ -315,14 +315,14 @@ date =
 date-alt = " %Y-%m-%d"
 
 time = %H:%M
-time-alt = 
+time-alt =
 
 format-prefix = 󱑏
 format-prefix-foreground = ${color.sep}
 format-underline = #0a6cf5
 format-alt-prefix = 󰸗
 format-alt-prefix-foreground = ${color.sep}
-format-alt-prefix-font = 4
+format-alt-prefix-font = 3
 
 label = %date% %time%
 
@@ -337,11 +337,11 @@ label-volume = %percentage%%
 label-muted = 󰖁
 label-muted-foreground = ${color.sep}
 
-ramp-volume-0 = 󰕿 
+ramp-volume-0 = 󰕿
 ramp-volume-0-foreground = ${color.sep}
-ramp-volume-1 = 󰖀 
+ramp-volume-1 = 󰖀
 ramp-volume-1-foreground = ${color.sep}
-ramp-volume-2 = 󰕾 
+ramp-volume-2 = 󰕾
 ramp-volume-2-foreground = ${color.sep}
 
 ; Only applies if <bar-volume> is used
@@ -435,7 +435,7 @@ animation-charging-6 = 󰂅
 animation-charging-foreground = ${color.foreground-alt}
 animation-charging-framerate = 750
 
-animation-discharging-0 =󰁹  
+animation-discharging-0 =󰁹
 animation-discharging-1 = 󰂂
 animation-discharging-2 = 󰂁
 animation-discharging-3 = 󰂀
@@ -658,12 +658,12 @@ icon-pause = 󰏤
 icon-stop = 󰄮
 icon-next = 󰒭
 icon-prev = 󰒮
-icon-seekf = 
+icon-seekf =
 icon-seekb = 󰑟
-icon-random =  
-icon-repeat = 
-icon-repeatone = 
-icon-single = 
+icon-random =
+icon-repeat =
+icon-repeatone =
+icon-single =
 icon-consume =
 
 ; Used to display the state of random/repeat/repeatone/single

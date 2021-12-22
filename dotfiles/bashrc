@@ -86,3 +86,4 @@ export FZF_ALT_C_COMMAND='fd --type d . --color=never'
 export FZF_DEFAULT_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null ||
 cat {} || tree -C {}) 2> /dev/null | head -200'"
 
+. "$HOME/.cargo/env"
