@@ -61,6 +61,9 @@ dotfiles:
   d_atareao:
     src: oh-my-zsh/custom/plugins/atareao
     dst: ~/.oh-my-zsh/custom/plugins/atareao
+  f_zshrc:
+    src: zshrc
+    dst: ~/.zshrc
 variables:
   dotfilesdir: /datos/misdotfiles
 profiles:
@@ -84,6 +87,7 @@ profiles:
     - f_fzf-key-bindings.bash
     - f_aliases.zsh
     - d_atareao
+    - f_zshrc
   raspiarch:
     dotfiles:
     - f_custom.aliases.bash
