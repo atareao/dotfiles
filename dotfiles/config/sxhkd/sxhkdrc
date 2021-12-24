@@ -38,6 +38,8 @@ super + plus
 super + minus
 	pamixer -d 10
 
+super + ctrl + x
+    betterlockscreen -l dim
 @Print
     scrot -ozsf /home/lorenzo/Imágenes/%Y%m%dT%H%M%S.png
     #flameshot gui -p ~/Imágenes
