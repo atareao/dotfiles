@@ -6,15 +6,6 @@ config:
   keepdot: false
   longkey: false
 dotfiles:
-  f_custom.aliases.bash:
-    src: bash_it/aliases/custom.aliases.bash
-    dst: ~/.bash_it/aliases/custom.aliases.bash
-  f_custom.completion.bash:
-    src: bash_it/completion/custom.completion.bash
-    dst: ~/.bash_it/completion/custom.completion.bash
-  f_custom.bash:
-    src: bash_it/lib/custom.bash
-    dst: ~/.bash_it/lib/custom.bash
   f_rc.conf:
     src: config/ranger/rc.conf
     dst: ~/.config/ranger/rc.conf
@@ -39,22 +30,9 @@ dotfiles:
   d_sxhkd:
     src: config/sxhkd
     dst: ~/.config/sxhkd
-  f_bashrc:
-    src: bashrc
-    dst: ~/.bashrc
-    chmod: '644'
-  d_lib:
-    src: bash_it/lib
-    dst: ~/.bash_it/lib
   d_nvim:
     src: config/nvim
     dst: ~/.config/nvim
-  f_fzf-completion.bash:
-    src: bash_it/completion/fzf-completion.bash
-    dst: ~/.bash_it/completion/fzf-completion.bash
-  f_fzf-key-bindings.bash:
-    src: bash_it/completion/fzf-key-bindings.bash
-    dst: ~/.bash_it/completion/fzf-key-bindings.bash
   f_aliases.zsh:
     src: oh-my-zsh/custom/aliases.zsh
     dst: ~/.oh-my-zsh/custom/aliases.zsh
@@ -75,9 +53,6 @@ variables:
 profiles:
   gk55:
     dotfiles:
-    - f_custom.aliases.bash
-    - f_custom.completion.bash
-    - f_custom.bash
     - f_rc.conf
     - f_face
     - d_kitty
@@ -86,11 +61,7 @@ profiles:
     - d_polybar
     - d_rofi
     - d_sxhkd
-    - f_bashrc
-    - d_lib
     - d_nvim
-    - f_fzf-completion.bash
-    - f_fzf-key-bindings.bash
     - f_aliases.zsh
     - d_atareao
     - f_zshrc
@@ -98,14 +69,7 @@ profiles:
     - f_dunstrc
   raspiarch:
     dotfiles:
-    - f_custom.aliases.bash
-    - f_custom.completion.bash
-    - f_custom.bash
     - f_rc.conf
-    - f_bashrc
-    - d_lib
     - d_nvim
-    - f_fzf-completion.bash
-    - f_fzf-key-bindings.bash
     variables:
       dotfilesdir: ~/dotfiles
