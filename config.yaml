@@ -64,6 +64,12 @@ dotfiles:
   f_zshrc:
     src: zshrc
     dst: ~/.zshrc
+  f_picom.conf:
+    src: config/picom/picom.conf
+    dst: ~/.config/picom/picom.conf
+  f_dunstrc:
+    src: config/dunst/dunstrc
+    dst: ~/.config/dunst/dunstrc
 variables:
   dotfilesdir: /datos/misdotfiles
 profiles:
@@ -88,6 +94,8 @@ profiles:
     - f_aliases.zsh
     - d_atareao
     - f_zshrc
+    - f_picom.conf
+    - f_dunstrc
   raspiarch:
     dotfiles:
     - f_custom.aliases.bash
