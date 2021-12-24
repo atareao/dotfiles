@@ -3,7 +3,7 @@
 pkill sxhkd
 sxhkd &
 pkill picom
-picom --daemon --config $HOME/.config/picom/picom.conf &
+picom -f --daemon --config $HOME/.config/picom/picom.conf &
 feh --bg-scale $HOME/.config/daily-wallpaper/potd.jpg &
 dunst -conf ~/.config/dunst/dunstrc &
 

@@ -61,47 +61,47 @@ element {
 
 element normal.normal {
    padding: 0px 15px;
-   background-color: @blackentry;
+   background-color: @blackdarkest;
    text-color: @fgwhite;
 }
 
 element normal.urgent {
-   background-color: @blackentry;
+   background-color: @blackdarkest;
    text-color: @urgentcolor;
 }
 
 element normal.active {
-   background-color: @blackentry;
+   background-color: @blackdarkest;
    text-color: @maincolor;
 }
 
 element selected.normal {
-    background-color: @blackselect;
+    background-color: @blackdarkest;
     text-color:       @fgwhite;
 }
 
 element selected.urgent {
-    background-color: @urgentcolor;
-    text-color:       @blackdarkest;
+    background-color: @blackdarkest;
+    text-color:       @urgentcolor;
 }
 
 element selected.active {
-    background-color: @maincolor;
-    text-color:       @blackdarkest;
+    background-color: @blackdarkest;
+    text-color:       @maincolor;
 }
 
 element alternate.normal {
-    background-color: @blackentry;
+    background-color: @blackdarkest;
     text-color:       @fgwhite;
 }
 
 element alternate.urgent {
-    background-color: @blackentry;
+    background-color: @blackdarkest;
     text-color:       @urgentcolor;
 }
 
 element alternate.active {
-    background-color: @blackentry;
+    background-color: @blackdarkest;
     text-color:       @maincolor;
 }
 
@@ -139,6 +139,9 @@ entry {
    padding:6px 10px;
    background-color:@blackwidget;
    text-color:@fgwhite;
+}
+entry.selected{
+   text-color:@darkgray;
 }
 
 case-indicator {

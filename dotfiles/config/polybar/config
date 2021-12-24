@@ -29,9 +29,9 @@
 ;==========================================================
 
 [bar]
-fill = 󰨓
-empty = 󰨔
-indicator = 󰧞
+fill = 
+empty = 
+indicator = 
 
 [color]
 ;background = ${xrdb:color0:#222}
@@ -114,7 +114,7 @@ padding-right = 5
 font-0 = Ubuntu:style=Regular:size=10:antialias=true;2
 font-1 = FontAwesome:style=Regular:size=12:antialias=true;2
 font-2 = typicons:style=Regular:size=12:antialias=true;2
-font-3 = Material Design Icons:style=Regular:size=12:antialias=true;2
+font-3 = Material Icons:style=Regular:size=12:antialias=true;2
 
 modules-left = powermenu sep bspwm sep cpu sep memory sep filesystem
 modules-center = mplayer sep date
@@ -146,7 +146,7 @@ label = %title:0:30:...%
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${color.foreground-alt}
 format-prefix-underline = ${color.secondary}
 
@@ -163,7 +163,7 @@ type = internal/fs
 interval = 25
 
 mount-0 = /
-mount-1 = /datos
+mount-1 = /home
 
 label-mounted = %mountpoint%: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
@@ -172,12 +172,11 @@ label-unmounted-foreground = ${color.foreground-alt}
 format-mounted-prefix = 󰒋
 format-mounted = <ramp-capacity> <label-mounted>
 
-ramp-capacity-0 = 󰫈
-ramp-capacity-1 = 󰫇
-ramp-capacity-2 = 󰫆
-ramp-capacity-3 = 󰫅
-ramp-capacity-4 = 󰫄
-ramp-capacity-5 = 󰫃
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 
 ramp-capacity-0-foreground = ${color.color-7}
 ramp-capacity-1-foreground = ${color.color-6}
@@ -201,10 +200,10 @@ label-occupied-foreground = ${color.cyan}
 label-urgent-foreground = ${color.red}
 label-empty-foreground = ${color.foreground}
 
-label-focused = 󰍹
-label-occupied = 󰍹
-label-urgent = 󰍹
-label-empty = 󰍹
+label-focused = 
+label-occupied = 
+label-urgent = 
+label-empty = 
 
 label-focused-font = 4
 label-occupied-font = 4
@@ -219,20 +218,17 @@ label-empty-padding = 1
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = 󰻠
+format-prefix = 
 format-prefix-foreground = #ffffff
 format = <ramp-load> <label>
 format-underline = #f90000
 label = %percentage:2%%
 
-ramp-load-0 = 󰪞
-ramp-load-1 = 󰪟
-ramp-load-2 = 󰪠
-ramp-load-3 = 󰪡
-ramp-load-4 = 󰪢
-ramp-load-5 = 󰪣
-ramp-load-6 = 󰪤
-ramp-load-7 = 󰪥
+ramp-load-0 = 
+ramp-load-1 = 
+ramp-load-2 = 
+ramp-load-3 = 
+ramp-load-4 = 
 
 ramp-load-0-foreground = ffffaa
 ramp-load-1-foreground = ffff00
@@ -249,16 +245,13 @@ type = internal/memory
 interval = 2
 label = %percentage_used%%
 format = <ramp-used> <label>
-format-prefix = 󰍛
+format-prefix = 
 
-ramp-used-0 = 󰪞
-ramp-used-1 = 󰪟
-ramp-used-2 = 󰪠
-ramp-used-3 = 󰪡
-ramp-used-4 = 󰪢
-ramp-used-5 = 󰪣
-ramp-used-6 = 󰪤
-ramp-used-7 = 󰪥
+ramp-used-0 = 
+ramp-used-1 = 
+ramp-used-2 = 
+ramp-used-3 = 
+ramp-used-4 = 
 
 ramp-used-0-foreground = ff0000
 ramp-used-1-foreground = ffaa00
@@ -334,14 +327,14 @@ format-volume = <ramp-volume> <bar-volume>
 label-volume = %percentage%%
 ;label-volume-foreground = ${root.foreground}
 
-label-muted = 󰖁
+label-muted = 
 label-muted-foreground = ${color.sep}
 
-ramp-volume-0 = 󰕿
+ramp-volume-0 = 
 ramp-volume-0-foreground = ${color.sep}
-ramp-volume-1 = 󰖀
+ramp-volume-1 = 
 ramp-volume-1-foreground = ${color.sep}
-ramp-volume-2 = 󰕾
+ramp-volume-2 = 
 ramp-volume-2-foreground = ${color.sep}
 
 ; Only applies if <bar-volume> is used
@@ -425,7 +418,7 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-foreground = ${color.foreground-alt}
 
-animation-charging-0 = 󰂆
+animation-charging-0 = 
 animation-charging-1 = 󰂇
 animation-charging-2 = 󰂈
 animation-charging-3 = 󰂉
@@ -477,9 +470,9 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = 󰕈
+label-open = 
 label-open-foreground = ${color.ubuntu}
-label-close = 󰕍  cancelar
+label-close =  cancelar
 label-close-foreground = ${color.secondary}
 label-separator = |
 label-separator-foreground = ${color.foreground-alt}
@@ -531,12 +524,12 @@ enable-scroll = true
 ; NOTE: The desktop name needs to match the name configured by the WM
 ; You can get a list of the defined desktops using:
 ; $ xprop -root _NET_DESKTOP_NAMES
-icon-0 = 1;
+icon-0 = 1;
 icon-1 = 2;
 icon-2 = 3;
 icon-3 = 4;
 icon-4 = 5;
-icon-default = 
+icon-default = 
 
 ; Available tags:
 ;   <label-monitor>

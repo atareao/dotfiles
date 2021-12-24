@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 alt + @space
-	rofi -combi-modi drun,window,ssh -show combi -modi combi
+	rofi -combi-modi drun,window,ssh -show combi -modi combi -matching fuzzy
 
 # make sxhkd reload its configuration files:
 super + Escape
