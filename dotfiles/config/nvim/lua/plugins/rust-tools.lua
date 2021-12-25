@@ -5,6 +5,10 @@
 -- Plugin: simrat39/rust-tools.nvim
 -- https://github.com/simrat39/rust-tools.nvim
 
+local extension_path = '/home/lorenzo/.vscode-oss/extensions/vadimcn.vscode-lldb-1.6.10/'
+local codelldb_path = extension_path .. 'adapter/codelldb'
+local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
+
 require('rust-tools').setup({
   tools = { -- rust-tools options
         autoSetHints = true,
@@ -104,12 +108,16 @@ require('rust-tools').setup({
             }
         }
     },
+    -- dap = {
+    --     adapter = {
+    --         type = 'executable',
+    --         command = 'lldb-vscode-13',
+    --         name = "rt_lldb"
+    --     }
+    -- }
     dap = {
-        adapter = {
-            type = 'executable',
-            command = 'lldb-vscode-13',
-            name = "rt_lldb"
-        }
+        adapter = require('rust-tools.dap').get_codelldb_adapter(
+            codelldb_path, liblldb_path)
     }
 })
 require('rust-tools.inlay_hints').set_inlay_hints()
