@@ -48,6 +48,10 @@ dotfiles:
   f_dunstrc:
     src: config/dunst/dunstrc
     dst: ~/.config/dunst/dunstrc
+  f_backup.sh:
+    src: local/bin/backup.sh
+    dst: ~/.local/bin/backup.sh
+    chmod: '755'
 variables:
   dotfilesdir: /datos/misdotfiles
 profiles:
@@ -67,6 +71,7 @@ profiles:
     - f_zshrc
     - f_picom.conf
     - f_dunstrc
+    - f_backup.sh
   raspiarch:
     dotfiles:
     - f_rc.conf
