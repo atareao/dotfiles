@@ -55,6 +55,9 @@ dotfiles:
   d_user:
     src: config/systemd/user
     dst: ~/.config/systemd/user
+  d_gitui:
+    src: config/gitui
+    dst: ~/.config/gitui
 variables:
   dotfilesdir: /datos/misdotfiles
 profiles:
@@ -76,6 +79,7 @@ profiles:
     - f_dunstrc
     - f_backup.sh
     - d_user
+    - d_gitui
   raspiarch:
     dotfiles:
     - f_rc.conf
