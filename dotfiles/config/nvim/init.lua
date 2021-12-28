@@ -35,3 +35,4 @@ require('plugins/rust-tools')          -- autocomplete
 require('plugins/telescope-nvim')      --
 require('plugins/telescope-ui-select') --
 require('plugins/galaxyline')          -- statusline
+require('plugins/tabby')               -- tabs

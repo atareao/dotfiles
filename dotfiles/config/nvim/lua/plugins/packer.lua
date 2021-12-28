@@ -77,6 +77,12 @@ return require('packer').startup(function(use)
     requires = { 'kyazdani42/nvim-web-devicons' },
   }
 
+  -- tabs
+  use {
+    'nanozuki/tabby.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+  }
+
   -- fuzzy finder
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'

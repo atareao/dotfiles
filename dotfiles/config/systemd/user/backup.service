@@ -1,0 +1,6 @@
+[Unit]
+Description=Borg Backup
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /home/lorenzo/.local/bin/backup.sh

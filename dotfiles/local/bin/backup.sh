@@ -23,14 +23,10 @@
 
 #!/bin/sh
 
-REPO_A=co1:/home/lorenzo/backup/repo_manjaro
-REPO_B=/home/lorenzo/borgbackup
-REPO_C=belcar:/var/services/homes/lorenzo/backup/repo_manjaro
-REPOS=(
-    $REPO_A
-    $REPO_B
-    $REPO_C
-    )
+REPO_A='/home/lorenzo/borgbackup|/usr/bin/borg'
+REPO_B='belcar:/var/services/homes/lorenzo/backup/repo_manjaro|/usr/local/bin/borg'
+REPO_C='co1:/home/lorenzo/backup/repo_manjaro|/usr/bin/borg'
+REPOS=($REPO_A $REPO_B $REPO_C)
 
 #Bail if borg is already running, maybe previous run didn't finish
 if pidof -x borg >/dev/null; then
@@ -39,8 +35,11 @@ if pidof -x borg >/dev/null; then
 fi
 
 export BORG_PASSPHRASE="{{@@ env['BORGBACKUP'] @@}}"
-for REPOSITORY in $REPOS
+for ITEM in ${REPOS[@]}
 do
+    REPOSITORY=${ITEM%%|*}
+    BORGPATH=${ITEM##*|}
+    echo "=== Start backup at $REPOSITORY ==="
     borg create -v --stats                          \
         $REPOSITORY::'{hostname}-{now:%Y-%m-%d}'    \
         /home/lorenzo/atareao.es                    \
@@ -54,8 +53,12 @@ do
         /home/lorenzo/rust                          \
         --exclude '*.aup'                           \
         --exclude '*.au'                            \
-        --info 2>>/tmp/borg.log
+        --remote-path "${BORGPATH}"                 \
+        --info
     # Use the `prune` subcommand to maintain 7 daily, 4 weekly and 6 monthly
     borg prune -v --list $REPOSITORY --prefix '{hostname}-' \
-        --keep-daily=7 --keep-weekly=4 --keep-monthly=6
+        --keep-daily=7 --keep-weekly=4 --keep-monthly=6     \
+        --remote-path "${BORGPATH}"
+    echo "=== End backup at $REPOSITORY ==="
 done
+

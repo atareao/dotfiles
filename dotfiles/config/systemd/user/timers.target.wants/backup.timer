@@ -1,0 +1,9 @@
+[Unit]
+Description=Create backup every day at 5:00
+
+[Timer]
+OnCalendar=*-*-* 05:00:00
+WantedBy=timers.target
+
+[Install]
+WantedBy=timers.target

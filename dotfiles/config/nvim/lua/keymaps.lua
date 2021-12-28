@@ -41,6 +41,11 @@ map('n', '<leader>q', ':quitall<CR>', default_opts)
 -----------------------------------------------------------
 -- open terminal
 map('n', '<C-t>', ':Term<CR>', {noremap = true})
+map('t', '<C-w>h', '<C-\\><C-n><C-w>h', {noremap = true})
+map('t', '<C-w>j', '<C-\\><C-n><C-w>j', {noremap = true})
+map('t', '<C-w>k', '<C-\\><C-n><C-w>k', {noremap = true})
+map('t', '<C-w>l', '<C-\\><C-n><C-w>l', {noremap = true})
+map('t', '<C-w><C-w>', '<C-\\><C-n><C-w><C-w>', {noremap = true})
 
 -- nvim-tree
 map('n', '<C-n>', ':NvimTreeToggle<CR>', default_opts)       -- open/close

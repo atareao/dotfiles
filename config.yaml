@@ -52,6 +52,9 @@ dotfiles:
     src: local/bin/backup.sh
     dst: ~/.local/bin/backup.sh
     chmod: '755'
+  d_user:
+    src: config/systemd/user
+    dst: ~/.config/systemd/user
 variables:
   dotfilesdir: /datos/misdotfiles
 profiles:
@@ -72,6 +75,7 @@ profiles:
     - f_picom.conf
     - f_dunstrc
     - f_backup.sh
+    - d_user
   raspiarch:
     dotfiles:
     - f_rc.conf
