@@ -51,6 +51,7 @@ do
         /home/lorenzo/bash                          \
         /home/lorenzo/javascript                    \
         /home/lorenzo/rust                          \
+        /home/lorenzo/.ssh                          \
         --exclude '*.aup'                           \
         --exclude '*.au'                            \
         --remote-path "${BORGPATH}"                 \
@@ -61,4 +62,3 @@ do
         --remote-path "${BORGPATH}"
     echo "=== End backup at $REPOSITORY ==="
 done
-
