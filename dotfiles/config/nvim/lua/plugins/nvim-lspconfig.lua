@@ -115,3 +115,27 @@ require "lspconfig".efm.setup {
     --    }
     --}
 }
+require "lspconfig".intelephense.setup({
+  settings = {
+        intelephense = {
+            stubs = {
+                "bcmath",
+                "bz2",
+                "calendar",
+                "Core",
+                "curl",
+                "zip",
+                "zlib",
+                "wordpress",
+                "acf-pro",
+                "wordpress-globals",
+                "wp-cli",
+                "polylang",
+                "standard"
+            },
+            files = {
+                maxSize = 5000000;
+            };
+        };
+    }
+});

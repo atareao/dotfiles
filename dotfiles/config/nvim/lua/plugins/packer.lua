@@ -55,6 +55,12 @@ return require('packer').startup(function(use)
   -- LSP
   use 'neovim/nvim-lspconfig'
 
+  -- LSP Installer
+  use {
+    'williamboman/nvim-lsp-installer',
+    requires = {'neovim/nvim-lspconfig'},
+  }
+
   -- Snippet engine
   use 'hrsh7th/vim-vsnip'
 
