@@ -7,4 +7,3 @@ alias mydiff='kitty +kitten diff'
 alias ls=lsd
 alias cat='bat --paging=never'
 alias du=dust
-alias find=fd
