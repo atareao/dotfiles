@@ -5,6 +5,6 @@ alias sshk='kitty +kitten ssh'
 alias icat='kitty +kitten icat'
 alias mydiff='kitty +kitten diff'
 alias ls=lsd
-alias cat=bat
+alias cat='bat --paging=never'
 alias du=dust
 alias find=fd
