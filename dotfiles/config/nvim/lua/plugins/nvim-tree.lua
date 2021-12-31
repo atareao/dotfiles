@@ -28,7 +28,16 @@ g.nvim_tree_show_icons = {
 }
 
 g.nvim_tree_icons = {
-	default = "‣ "
+	default = "‣ ",
+  git = {
+    unstaged  = "✗",
+    staged    = "✓",
+    unmerged  = "",
+    renamed   = "➜",
+    untracked = "★",
+    deleted   = "",
+    ignored   = "◌"
+  }
 }
 
 require('nvim-tree').setup {
