@@ -103,6 +103,8 @@ return require('packer').startup(function(use)
       require('gitsigns').setup()
     end
   }
+  -- help for git
+  use 'kdheepak/lazygit.nvim'
 
   -- rust
   use 'simrat39/rust-tools.nvim'
