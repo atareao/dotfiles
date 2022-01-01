@@ -28,6 +28,11 @@ bspc config borderless_monocle    true
 bspc config gapless_monocle       true
 bspc config pointer_follows_focus true
 
+bspc config automatic_scheme  	  alternate
+bspc config removal_adjustment
+bspc config honor_size_hints
+bspc config ignore_ewmh_struts
+
 # For Pycharm and Intellj
 wmname LG3D
 

@@ -703,5 +703,6 @@ pseudo-transparency = true
 [global/wm]
 margin-top = 5
 margin-bottom = 5
+border-left-size = 50
 
 ; vim:ft=dosini
