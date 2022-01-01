@@ -58,6 +58,9 @@ dotfiles:
   d_gitui:
     src: config/gitui
     dst: ~/.config/gitui
+  f_betterlockscreenrc:
+    src: config/betterlockscreenrc
+    dst: ~/.config/betterlockscreenrc
 variables:
   dotfilesdir: /datos/misdotfiles
 profiles:
@@ -80,6 +83,7 @@ profiles:
     - f_backup.sh
     - d_user
     - d_gitui
+    - f_betterlockscreenrc
   raspiarch:
     dotfiles:
     - f_rc.conf
