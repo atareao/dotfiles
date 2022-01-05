@@ -126,6 +126,7 @@ require "lspconfig".intelephense.setup({
                 "curl",
                 "zip",
                 "zlib",
+                "json",
                 "wordpress",
                 "acf-pro",
                 "wordpress-globals",

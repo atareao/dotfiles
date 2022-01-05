@@ -61,6 +61,15 @@ dotfiles:
   f_betterlockscreenrc:
     src: config/betterlockscreenrc
     dst: ~/.config/betterlockscreenrc
+  f_backup.service:
+    src: config/systemd/user/backup.service
+    dst: ~/.config/systemd/user/backup.service
+  f_backup.timer:
+    src: config/systemd/user/backup.timer
+    dst: ~/.config/systemd/user/backup.timer
+  f_betterlockscreen@.service:
+    src: config/systemd/user/betterlockscreen@.service
+    dst: ~/.config/systemd/user/betterlockscreen@.service
 variables:
   dotfilesdir: /datos/misdotfiles
 profiles:
@@ -84,6 +93,9 @@ profiles:
     - d_user
     - d_gitui
     - f_betterlockscreenrc
+    - f_backup.service
+    - f_backup.timer
+    - f_betterlockscreen@.service
   raspiarch:
     dotfiles:
     - f_rc.conf

@@ -47,6 +47,9 @@ map('t', '<C-w>k', '<C-\\><C-n><C-w>k', {noremap = true})
 map('t', '<C-w>l', '<C-\\><C-n><C-w>l', {noremap = true})
 map('t', '<C-w><C-w>', '<C-\\><C-n><C-w><C-w>', {noremap = true})
 
+--nvim-lazygit
+map('n', '<C-g>', ':LazyGit<CR>', default_opts)       -- open/close
+
 -- nvim-tree
 map('n', '<C-n>', ':NvimTreeToggle<CR>', default_opts)       -- open/close
 map('n', '<leader>r', ':NvimTreeRefresh<CR>', default_opts)  -- refresh
