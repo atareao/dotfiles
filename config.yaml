@@ -52,9 +52,6 @@ dotfiles:
     src: local/bin/backup.sh
     dst: ~/.local/bin/backup.sh
     chmod: '755'
-  d_user:
-    src: config/systemd/user
-    dst: ~/.config/systemd/user
   d_gitui:
     src: config/gitui
     dst: ~/.config/gitui
@@ -90,7 +87,6 @@ profiles:
     - f_picom.conf
     - f_dunstrc
     - f_backup.sh
-    - d_user
     - d_gitui
     - f_betterlockscreenrc
     - f_backup.service
