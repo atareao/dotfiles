@@ -36,3 +36,7 @@ require('plugins/telescope-nvim')      --
 require('plugins/telescope-ui-select') --
 require('plugins/galaxyline')          -- statusline
 require('plugins/tabby')               -- tabs
+
+require('plugins/telescope-media-files')
+require('plugins/telekasten')
+require('plugins/todo-comments')

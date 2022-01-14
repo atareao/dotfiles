@@ -57,3 +57,11 @@ map('n', '<leader>n', ':NvimTreeFindFile<CR>', default_opts) -- search file
 
 -- Vista tag-viewer
 map('n', '<C-m>', ':Vista!!<CR>', default_opts)   -- open/close
+
+map('n', '<leader>zf', ':lua require(\'telekasten\').find_notes()<CR>', default_opts)
+map('n', '<leader>zd', ':lua require(\'telekasten\').find_daily_notes()<CR>', default_opts)
+map('n', '<leader>zg', ':lua require(\'telekasten\').search_notes()<CR>', default_opts)
+map('n', '<leader>zz', ':lua require(\'telekasten\').follow_link()<CR>', default_opts)
+
+-- on hesitation, bring up the panel
+map('n', '<leader>z', ':lua require(\'telekasten\').panel()<CR>', default_opts)

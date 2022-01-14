@@ -94,6 +94,13 @@ return require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-ui-select.nvim'
+  use 'nvim-telescope/telescope-symbols.nvim'
+  use 'nvim-telescope/telescope-media-files.nvim'
+
+  -- zettelkasten
+  use 'renerocksai/telekasten.nvim'
+  use 'renerocksai/calendar-vim'
+  use 'folke/todo-comments.nvim'
 
   -- git labels
   use {
