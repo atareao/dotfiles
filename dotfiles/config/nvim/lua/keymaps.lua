@@ -50,6 +50,9 @@ map('t', '<C-w><C-w>', '<C-\\><C-n><C-w><C-w>', {noremap = true})
 --nvim-lazygit
 map('n', '<C-g>', ':LazyGit<CR>', default_opts)       -- open/close
 
+--nvim-fzf-lua
+map('n', '<C-p>', ':FzfLua files<CR>', default_opts)       -- open/close
+
 -- nvim-tree
 map('n', '<C-n>', ':NvimTreeToggle<CR>', default_opts)       -- open/close
 map('n', '<leader>r', ':NvimTreeRefresh<CR>', default_opts)  -- refresh
@@ -63,5 +66,10 @@ map('n', '<leader>zd', ':lua require(\'telekasten\').find_daily_notes()<CR>', de
 map('n', '<leader>zg', ':lua require(\'telekasten\').search_notes()<CR>', default_opts)
 map('n', '<leader>zz', ':lua require(\'telekasten\').follow_link()<CR>', default_opts)
 
+map('n', '<leader>tf', ':Telescope file_browser<CR>', default_opts)
+map('n', '<leader>ts', ':Telescope symbols<CR>', default_opts)
+
 -- on hesitation, bring up the panel
 map('n', '<leader>z', ':lua require(\'telekasten\').panel()<CR>', default_opts)
+
+map('n', '<C-s>', ':SidebarNvimToggle<CR>', default_opts)

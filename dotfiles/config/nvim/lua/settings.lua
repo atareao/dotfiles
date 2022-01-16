@@ -15,7 +15,7 @@ local opt = vim.opt         		-- global/buffer/windows-scoped options
 -----------------------------------------------------------
 -- General
 -----------------------------------------------------------
-g.mapleader = ','             -- change leader to a comma
+g.mapleader = ';'             -- change leader to a comma
 opt.mouse = 'a'               -- enable mouse support
 opt.clipboard = 'unnamedplus' -- copy/paste to system clipboard
 opt.swapfile = false          -- don't use swapfile
@@ -39,9 +39,16 @@ opt.list = true
 opt.listchars = 'tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»'
 
 -- set spell
+-- exec ([[
+--   setlocal spell spelllang=es
+--   set spell
+--   ]], false)
 exec ([[
-  setlocal spell spelllang=es
-  set spell
+    augroup markdownSpell
+        autocmd!
+        autocmd FileType markdown setlocal spell spelllang=es
+        autocmd BufRead,BufNewFile *.md setlocal spell spelllang=es
+    augroup END
   ]], false)
 
 -- remove whitespace on save
@@ -84,16 +91,6 @@ opt.hidden = true         -- enable background buffers
 opt.history = 100         -- remember n lines in history
 opt.lazyredraw = true     -- faster scrolling
 opt.synmaxcol = 1000      -- max column for syntax highlight
-
------------------------------------------------------------
--- Colorscheme
------------------------------------------------------------
-opt.termguicolors = true      -- enable 24-bit RGB colors
-cmd [[colorscheme ayu]]
-require('ayu').setup({
-  mirage = false,
-  overrides = {},
-})
 
 -----------------------------------------------------------
 -- Tabs, indent

@@ -59,7 +59,7 @@ require('telekasten').setup({
     insert_after_inserting = true,
 
     -- tag notation: '#tag', ':tag:', 'yaml-bare'
-    tag_notation = "yaml-bare",
+    tag_notation = "#tag",
 
     -- command palette theme: dropdown (window) or ivy (bottom panel)
     command_palette_theme = "dropdown",

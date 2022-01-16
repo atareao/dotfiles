@@ -26,6 +26,7 @@ return require('packer').startup(function(use)
 
   -- file explorer
   use 'kyazdani42/nvim-tree.lua'
+  use 'sidebar-nvim/sidebar.nvim'
 
   -- indent line
   use 'lukas-reineke/indent-blankline.nvim'
@@ -49,6 +50,7 @@ return require('packer').startup(function(use)
 
   -- colorschemes
   use 'Shatur/neovim-ayu'
+  use 'navarasu/onedark.nvim'
 
   use { 'rose-pine/neovim', as = 'rose-pine' }
 
@@ -96,11 +98,12 @@ return require('packer').startup(function(use)
   use 'nvim-telescope/telescope-ui-select.nvim'
   use 'nvim-telescope/telescope-symbols.nvim'
   use 'nvim-telescope/telescope-media-files.nvim'
+  use 'nvim-telescope/telescope-file-browser.nvim'
+  use 'ibhagwan/fzf-lua'
 
   -- zettelkasten
   use 'renerocksai/telekasten.nvim'
   use 'renerocksai/calendar-vim'
-  use 'folke/todo-comments.nvim'
 
   -- git labels
   use {

@@ -39,4 +39,5 @@ require('plugins/tabby')               -- tabs
 
 require('plugins/telescope-media-files')
 require('plugins/telekasten')
-require('plugins/todo-comments')
+require('plugins/sidebar-nvim')
+require('plugins/ayu')
