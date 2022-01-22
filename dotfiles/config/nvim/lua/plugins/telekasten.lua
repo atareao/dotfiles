@@ -1,4 +1,6 @@
-local home = vim.fn.expand("~/zettelkasten")
+local home = vim.fn.expand("~/atareao.es")
+local tk_home = vim.fn.expand("~/zettelkasten")
+local gj_home = vim.fn.expand("~/gitjournal")
 require('telekasten').setup({
     home         = home,
 
@@ -9,9 +11,9 @@ require('telekasten').setup({
     --                               and thus the telekasten syntax will not be loaded either
     auto_set_filetype = true,
 
-    dailies      = home .. '/' .. 'daily',
-    weeklies     = home .. '/' .. 'weekly',
-    templates    = home .. '/' .. 'templates',
+    dailies      = gj_home .. '/' .. 'diario',
+    weeklies     = gj_home .. '/' .. 'semanal',
+    templates    = tk_home .. '/' .. 'templates',
 
     -- image subdir for pasting
     -- subdir name
@@ -28,15 +30,15 @@ require('telekasten').setup({
 
     -- template for new notes (new_note, follow_link)
     -- set to `nil` or do not specify if you do not want a template
-    template_new_note = home .. '/' .. 'templates/note.md',
+    template_new_note = tk_home .. '/' .. 'templates/note.md',
 
     -- template for newly created daily notes (goto_today)
     -- set to `nil` or do not specify if you do not want a template
-    template_new_daily = home .. '/' .. 'templates/daily.md',
+    template_new_daily = tk_home .. '/' .. 'templates/daily.md',
 
     -- template for newly created weekly notes (goto_thisweek)
     -- set to `nil` or do not specify if you do not want a template
-    template_new_weekly= home .. '/' .. 'templates/weekly.md',
+    template_new_weekly= tk_home .. '/' .. 'templates/weekly.md',
 
     -- image link style
     -- wiki:     ![[image name]]

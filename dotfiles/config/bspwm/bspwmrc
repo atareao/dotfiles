@@ -6,8 +6,8 @@ pkill picom
 picom -f --daemon --config $HOME/.config/picom/picom.conf &
 feh --bg-scale $HOME/.config/daily-wallpaper/potd.jpg &
 dunst -conf ~/.config/dunst/dunstrc &
+$HOME/.config/polybar/material/launch.sh
 
-$HOME/.config/polybar/launcher.sh
 
 # bspc monitor -d I II III IV V VI VII VIII IX X
 # bspc monitor DVI-I-1-1 -d I II III IV V
@@ -53,4 +53,5 @@ bspc rule -a Firefox desktop='^1'
 bspc rule -a Ardour desktop='^8'
 bspc rule -a Evince desktop='^1'
 bspc rule -a TelegramDesktop desktop='^1'
+
 

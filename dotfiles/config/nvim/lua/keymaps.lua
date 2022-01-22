@@ -23,6 +23,11 @@ map('', '<down>', '<nop>', {noremap = true})
 map('', '<left>', '<nop>', {noremap = true})
 map('', '<right>', '<nop>', {noremap = true})
 
+map('i', '<C-h>', '<left>', default_opts)
+map('i', '<C-j>', '<down>', default_opts)
+map('i', '<C-k>', '<up>', default_opts)
+map('i', '<C-l>', '<right>', default_opts)
+
 -- fast saving with <leader> and s
 map('n', '<leader>s', ':w<CR>', default_opts)
 map('i', '<leader>s', '<C-c>:w<CR>', default_opts)
