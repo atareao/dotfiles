@@ -34,7 +34,7 @@ require('plugins/gitsigns')            -- git decorations
 require('plugins/rust-tools')          -- autocomplete
 require('plugins/telescope-nvim')      --
 require('plugins/telescope-ui-select') --
-require('plugins/galaxyline')          -- statusline
+require('plugins/lualine')          -- statusline
 require('plugins/tabby')               -- tabs
 
 require('plugins/telescope-media-files')

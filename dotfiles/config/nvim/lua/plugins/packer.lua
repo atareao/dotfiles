@@ -77,11 +77,10 @@ return require('packer').startup(function(use)
     },
   }
 
-
   -- statusline
   use {
-    'glepnir/galaxyline.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' , opt = true},
   }
 
   -- tabs
