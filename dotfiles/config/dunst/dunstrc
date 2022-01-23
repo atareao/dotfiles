@@ -33,7 +33,7 @@
     origin = top-right
 
     # Offset from the origin
-    offset = 10x50
+    offset = 5x30
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -86,10 +86,10 @@
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
-    frame_width = 3
+    frame_width = 2
 
     # Defines color of the frame around the notification window.
-    frame_color = "#aaaaaa"
+    frame_color = "#f3a262"
 
     # Define a color for the separator.
     # possible values are:
@@ -111,7 +111,7 @@
 
     ### Text ###
 
-    font = Monospace 8
+    font = Noto Sans 10
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -229,7 +229,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 0
+    corner_radius = 15
 
     # Ignore the dbus closeNotification message.
     # Useful to enforce the timeout set by dunst configuration. Without this
@@ -292,26 +292,23 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#222222"
-    foreground = "#888888"
+    background = "#d4edda"
+    foreground = "#155724"
     timeout = 10
-    # Icon for notifications with low urgency, uncomment to enable
-    #default_icon = /path/to/icon
+    default_icon = /usr/share/icons/ePapirus/symbolic/status/dialog-information-symbolic.svg
 
 [urgency_normal]
-    background = "#285577"
-    foreground = "#ffffff"
+    background = "#cce5ff"
+    foreground = "#004085"
     timeout = 10
-    # Icon for notifications with normal urgency, uncomment to enable
-    #default_icon = /path/to/icon
+    default_icon = /usr/share/icons/ePapirus/symbolic/status/dialog-warning-symbolic.svg
 
 [urgency_critical]
-    background = "#900000"
-    foreground = "#ffffff"
+    background = "#f8d7da"
+    foreground = "#721c24"
     frame_color = "#ff0000"
     timeout = 0
-    # Icon for notifications with critical urgency, uncomment to enable
-    #default_icon = /path/to/icon
+    default_icon = /usr/share/icons/ePapirus/symbolic/status/dialog-error-symbolic.svg
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
