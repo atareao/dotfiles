@@ -63,9 +63,6 @@ return require('packer').startup(function(use)
     requires = {'neovim/nvim-lspconfig'},
   }
 
-  -- Snippet engine
-  use 'hrsh7th/vim-vsnip'
-
   -- autocomplete
   use {
     'hrsh7th/nvim-cmp',
@@ -75,9 +72,11 @@ return require('packer').startup(function(use)
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-vsnip',
+      'hrsh7th/vim-vsnip-integ',
       'saadparwaiz1/cmp_luasnip',
     },
   }
+
 
   -- statusline
   use {
