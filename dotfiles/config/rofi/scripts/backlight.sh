@@ -5,14 +5,11 @@
 ## Github  : @adi1090x
 ## Twitter : @adi1090x
 
-style="$($HOME/.config/rofi/applets/menu/style.sh)"
-
-dir="$HOME/.config/rofi/applets/menu/configs/$style"
-rofi_command="rofi -theme $dir/backlight.rasi"
+rofi_command="rofi"
 
 # Error msg
 msg() {
-	rofi -theme "$HOME/.config/rofi/applets/styles/message.rasi" -e "$1"
+	rofi -e "$1"
 }
 
 ## Get Brightness

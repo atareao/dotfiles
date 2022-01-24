@@ -30,9 +30,9 @@ else
 fi
 
 ## Icons
-ICON_UP=" Subir"
-ICON_DOWN=" Bajar"
-ICON_MUTED=" Mutear"
+ICON_UP="👍 Subir"
+ICON_DOWN="👎 Bajar"
+ICON_MUTED="🔇 Mutear"
 
 options="$ICON_UP\n$ICON_MUTED\n$ICON_DOWN"
 
