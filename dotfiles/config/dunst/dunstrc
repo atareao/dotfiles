@@ -24,7 +24,7 @@
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width of 300
-    width = 300
+    width = (0, 500)
 
     # The maximum height of a single notification, excluding the frame.
     height = 300
@@ -33,7 +33,7 @@
     origin = top-right
 
     # Offset from the origin
-    offset = 5x30
+    offset = 15x30
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -68,7 +68,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.). (X11 only)
-    transparency = 0
+    transparency = 30
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
@@ -88,8 +88,13 @@
     # Set to 0 to disable.
     frame_width = 2
 
+    # Basic colors
+    # alert = "#ffb300"
+    # background = "#1f1f1f"
+
     # Defines color of the frame around the notification window.
-    frame_color = "#f3a262"
+    #frame_color = "#f3a262"
+    frame_color = "#ffb300"
 
     # Define a color for the separator.
     # possible values are:
@@ -210,7 +215,8 @@
     ### Misc/Advanced ###
 
     # dmenu path.
-    dmenu = /usr/bin/dmenu -p dunst:
+    # dmenu = /usr/bin/dmenu -p dunst:
+    dmenu = rofi -dmenu -p dunst:
 
     # Browser for opening urls in context menu.
     browser = /usr/bin/xdg-open
@@ -292,20 +298,27 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#d4edda"
-    foreground = "#155724"
+    # background = "#d4edda"
+    # foreground = "#155724"
+    background = "#1f1f1f"
+    foreground = "#ffffff"
+    frame_color = "#00ff00"
     timeout = 10
     default_icon = /usr/share/icons/ePapirus/symbolic/status/dialog-information-symbolic.svg
 
 [urgency_normal]
-    background = "#cce5ff"
-    foreground = "#004085"
+    # background = "#cce5ff"
+    # foreground = "#004085"
+    background = "#1f1f1f"
+    foreground = "#ffffff"
     timeout = 10
     default_icon = /usr/share/icons/ePapirus/symbolic/status/dialog-warning-symbolic.svg
 
 [urgency_critical]
-    background = "#f8d7da"
-    foreground = "#721c24"
+    # background = "#f8d7da"
+    # foreground = "#721c24"
+    background = "#1f1f1f"
+    foreground = "#ffffff"
     frame_color = "#ff0000"
     timeout = 0
     default_icon = /usr/share/icons/ePapirus/symbolic/status/dialog-error-symbolic.svg
