@@ -47,6 +47,7 @@ return require('packer').startup(function(use)
 
   -- treesitter interface
   use 'nvim-treesitter/nvim-treesitter'
+  use 'p00f/nvim-ts-rainbow'
 
   -- colorschemes
   use 'Shatur/neovim-ayu'
@@ -76,6 +77,12 @@ return require('packer').startup(function(use)
       'saadparwaiz1/cmp_luasnip',
     },
   }
+  use {'tzachar/cmp-tabnine',
+       run='./install.sh',
+       requires = 'hrsh7th/nvim-cmp'
+  }
+  use {'onsails/lspkind-nvim'}
+
 
   -- statusline
   use {
