@@ -8,3 +8,4 @@ source ${SCRIPTDIR}/rust2ppa.sh
 source ${SCRIPTDIR}/mybuilder.sh
 source ${SCRIPTDIR}/toclip.sh
 source ${SCRIPTDIR}/helper_python.sh
+source ${SCRIPTDIR}/vcover.sh
