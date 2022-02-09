@@ -63,7 +63,8 @@ cmp.setup {
     { name = 'luasnip' },
     { name = 'path' },
     { name = 'buffer' },
-    { name = 'cmp_tabnine' },
+    { name = 'spell' },
+    --{ name = 'cmp_tabnine' },
   },
 
   formatting = {
@@ -82,7 +83,7 @@ cmp.setup {
   sorting = {
     priority_weight = 2,
     comparators = {
-      require('cmp_tabnine.compare'),
+      --require('cmp_tabnine.compare'),
       compare.offset,
       compare.exact,
       compare.score,

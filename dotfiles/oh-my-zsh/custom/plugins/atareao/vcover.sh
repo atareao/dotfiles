@@ -1,15 +1,15 @@
 #!/bin/bash
 
 function vcover(){
-    title=$1
-    subtitle=$2
+    portadajpg=$1
+    title=$2
+    subtitle=$3
     if [[ -z "${title}" || -z "${subtitle}" ]]
     then
         echo "El título y el subtítulo son obligatorios"
         exit 1
     fi
-    portadajpg=$(ls -1 *.jpg | head -1)
-    if [ ! -f "$portadajpg" ]
+    if [ ! -f "${portadajpg}" ]
     then
         echo No existe la portada JPG
         exit 1
