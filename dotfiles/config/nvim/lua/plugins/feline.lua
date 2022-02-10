@@ -1,408 +1,376 @@
---[[
-  __      _ _                         _
- / _| ___| (_)_ __   ___   _ ____   _(_)_ __ ___
-| |_ / _ \ | | '_ \ / _ \ | '_ \ \ / / | '_ ` _ \
-|  _|  __/ | | | | |  __/_| | | \ V /| | | | | | |
-|_|  \___|_|_|_| |_|\___(_)_| |_|\_/ |_|_| |_| |_|
+require('feline').setup({})
+local lsp = require('feline.providers.lsp')
+local vi_mode_utils = require('feline.providers.vi_mode')
 
-	/* IMPORTS */
---]]
+local force_inactive = {
+  filetypes = {},
+  buftypes = {},
+  bufnames = {}
+}
 
-local highlight = require('highlite').highlight
+local components = {
+  active = {{}, {}, {}},
+  inactive = {{}, {}, {}},
+}
 
---[[/* CONSTANTS */]]
+local colors = {
+  bg = '#282828',
+  black = '#282828',
+  yellow = '#d8a657',
+  cyan = '#89b482',
+  oceanblue = '#45707a',
+  green = '#a9b665',
+  orange = '#e78a4e',
+  violet = '#d3869b',
+  magenta = '#c14a4a',
+  white = '#a89984',
+  fg = '#a89984',
+  skyblue = '#7daea3',
+  red = '#ea6962',
+}
 
-local _BUF_ICON =
-{ -- {{{
-	dbui     = '  ',
-	diff     = ' 繁',
-	help     = '  ',
-	NvimTree = ' פּ ',
-	packer   = '  ',
-	qf       = '  ',
-	undotree = '  ',
-	vista    = '  ',
-	vista_kind = '  ',
-	vista_markdown = '  ',
-} -- }}}
+local vi_mode_colors = {
+  NORMAL = 'green',
+  OP = 'green',
+  INSERT = 'red',
+  VISUAL = 'skyblue',
+  LINES = 'skyblue',
+  BLOCK = 'skyblue',
+  REPLACE = 'violet',
+  ['V-REPLACE'] = 'violet',
+  ENTER = 'cyan',
+  MORE = 'cyan',
+  SELECT = 'orange',
+  COMMAND = 'green',
+  SHELL = 'green',
+  TERM = 'green',
+  NONE = 'yellow'
+}
 
--- Defined in https://github.com/Iron-E/nvim-highlite
-local _BLACK       = {'#202020', 235, 'black'}
-local _GRAY        = {'#808080', 244, 'gray'}
-local _GRAY_DARK   = {'#353535', 236, 'darkgrey'}
---local _GRAY_DARKER = {'#505050', 239, 'gray'}
-local _GRAY_LIGHT  = {'#c0c0c0', 250, 'gray'}
-local _WHITE       = {'#ffffff', 231, 'white'}
+local vi_mode_text = {
+  NORMAL = '<|',
+  OP = '<|',
+  INSERT = '|>',
+  VISUAL = '<>',
+  LINES = '<>',
+  BLOCK = '<>',
+  REPLACE = '<>',
+  ['V-REPLACE'] = '<>',
+  ENTER = '<>',
+  MORE = '<>',
+  SELECT = '<>',
+  COMMAND = '<|',
+  SHELL = '<|',
+  TERM = '<|',
+  NONE = '<>'
+}
 
-local _TAN = {'#f4c069', 221, 'yellow'}
-
-local _RED       = {'#ee4a59', 203, 'red'}
-local _RED_DARK  = {'#a80000', 124, 'darkred'}
-local _RED_LIGHT = {'#ff4090', 205, 'red'}
-
-local _ORANGE       = {'#ff8900', 208, 'darkyellow'}
-local _ORANGE_LIGHT = {'#f0af00', 214, 'darkyellow'}
-
-local _YELLOW = {'#f0df33', 227, 'yellow'}
-
-local _GREEN_DARK  = {'#70d533', 113, 'darkgreen'}
-local _GREEN       = {'#22ff22', 46,  'green'}
-local _GREEN_LIGHT = {'#99ff99', 120, 'green'}
-local _TURQOISE    = {'#2bff99', 48,  'green'}
-local _BLUE = {'#7766ff', 63,  'darkblue'}
-local _CYAN = {'#33dbc3', 80,  'cyan'}
-local _ICE  = {'#95c5ff', 111, 'cyan'}
-local _TEAL = {'#60afff', 75,  'blue'}
-
-local _MAGENTA      = {'#d5508f', 168, 'magenta'}
-local _MAGENTA_DARK = {'#bb0099', 126, 'darkmagenta'}
-local _PINK         = {'#ffa6ff', 219, 'magenta'}
-local _PINK_LIGHT   = {'#ffb7b7', 217, 'white'}
-local _PURPLE       = {'#cf55f0', 171, 'magenta'}
-local _PURPLE_LIGHT = {'#af60af', 133, 'darkmagenta'}
-
-local _SIDEBAR = _BLACK
-local _MIDBAR = _GRAY_DARK
-local _TEXT = _GRAY_LIGHT
-
-local _MODES =
-{ -- {{{
-	['c']  = {'COMMAND-LINE',      _RED},
-	['ce'] = {'NORMAL EX',         _RED_DARK},
-	['cv'] = {'EX',                _RED_LIGHT},
-	['i']  = {'INSERT',            _GREEN},
-	['ic'] = {'INS-COMPLETE',      _GREEN_LIGHT},
-	['n']  = {'NORMAL',            _PURPLE_LIGHT},
-	['no'] = {'OPERATOR-PENDING',  _PURPLE},
-	['r']  = {'HIT-ENTER',         _CYAN},
-	['r?'] = {':CONFIRM',          _CYAN},
-	['rm'] = {'--MORE',            _ICE},
-	['R']  = {'REPLACE',           _PINK},
-	['Rv'] = {'VIRTUAL',           _PINK_LIGHT},
-	['s']  = {'SELECT',            _TURQOISE},
-	['S']  = {'SELECT',            _TURQOISE},
-	[''] = {'SELECT',            _TURQOISE},
-	['t']  = {'TERMINAL',          _ORANGE},
-	['v']  = {'VISUAL',            _BLUE},
-	['V']  = {'VISUAL LINE',       _BLUE},
-	[''] = {'VISUAL BLOCK',      _BLUE},
-	['!']  = {'SHELL',             _YELLOW},
-
-	-- libmodal
-	['BUFFERS'] = _TEAL,
-	['TABLES']  = _ORANGE_LIGHT,
-	['TABS']    = _TAN,
-} -- }}}
-
-local _LEFT_SEPARATOR = ''
-local _RIGHT_SEPARATOR = ''
-
---[[/* HELPERS */]]
-
---- @return boolean is_not_empty
-local function buffer_not_empty()
-	return vim.api.nvim_buf_line_count(0) > 1 or #vim.api.nvim_buf_get_lines(0, 0, 1, true) > 0
+local buffer_not_empty = function()
+  if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then
+    return true
+  end
+  return false
 end
 
---- @return boolean wide_enough
-local function checkwidth()
-	return (vim.api.nvim_win_get_width(0) / 2) > 40
+local checkwidth = function()
+  local squeeze_width  = vim.fn.winwidth(0) / 2
+  if squeeze_width > 40 then
+    return true
+  end
+  return false
 end
 
---- Set buffer variables for file icon and color.
-local function set_devicons()
-	local icon, color = require('nvim-web-devicons').get_icon(vim.fn.expand '%:t', vim.fn.expand '%:e', {default = true})
-	vim.b.file_icon = icon
-	vim.b.file_color = string.format('#%06x', vim.api.nvim_get_hl_by_name(color, true).foreground)
-end
+force_inactive.filetypes = {
+  'NvimTree',
+  'dbui',
+  'packer',
+  'startify',
+  'fugitive',
+  'fugitiveblame'
+}
 
---- @return string color
-local function file_color()
-	if not vim.b.file_color then set_devicons() end
+force_inactive.buftypes = {
+  'terminal'
+}
 
-	return vim.b.file_color
-end
+-- LEFT
 
---- @return string icon
-local function file_icon()
-	if not vim.b.file_icon then set_devicons() end
+-- vi-mode
+components.active[1][1] = {
+  provider = ' NV-IDE ',
+  hl = function()
+    local val = {}
 
-	return vim.b.file_icon
-end
+    val.bg = vi_mode_utils.get_mode_color()
+    val.fg = 'black'
+    val.style = 'bold'
 
-vim.cmd 'hi clear FelineViMode'
+    return val
+  end,
+  right_sep = ' '
+}
+-- vi-symbol
+components.active[1][2] = {
+  provider = function()
+    return vi_mode_text[vi_mode_utils.get_vim_mode()]
+  end,
+  hl = function()
+    local val = {}
+    val.fg = vi_mode_utils.get_mode_color()
+    val.bg = 'bg'
+    val.style = 'bold'
+    return val
+  end,
+  right_sep = ' '
+}
+-- filename
+components.active[1][3] = {
+  provider = function()
+    return vim.fn.expand("%:F")
+  end,
+  hl = {
+    fg = 'white',
+    bg = 'bg',
+    style = 'bold'
+  },
+  right_sep = {
+    str = ' > ',
+    hl = {
+      fg = 'white',
+      bg = 'bg',
+      style = 'bold'
+    },
+  }
+}
+-- MID
 
---[[/* FELINE CONFIG */]]
+-- gitBranch
+components.active[2][1] = {
+  provider = 'git_branch',
+  hl = {
+    fg = 'yellow',
+    bg = 'bg',
+    style = 'bold'
+  }
+}
+-- diffAdd
+components.active[2][2] = {
+  provider = 'git_diff_added',
+  hl = {
+    fg = 'green',
+    bg = 'bg',
+    style = 'bold'
+  }
+}
+-- diffModfified
+components.active[2][3] = {
+  provider = 'git_diff_changed',
+  hl = {
+    fg = 'orange',
+    bg = 'bg',
+    style = 'bold'
+  }
+}
+-- diffRemove
+components.active[2][4] = {
+  provider = 'git_diff_removed',
+  hl = {
+    fg = 'red',
+    bg = 'bg',
+    style = 'bold'
+  },
+}
+-- diagnosticErrors
+components.active[2][5] = {
+  provider = 'diagnostic_errors',
+  enabled = function() return lsp.diagnostics_exist(vim.diagnostic.severity.ERROR) end,
+  hl = {
+    fg = 'red',
+    style = 'bold'
+  }
+}
+-- diagnosticWarn
+components.active[2][6] = {
+  provider = 'diagnostic_warnings',
+  enabled = function() return lsp.diagnostics_exist(vim.diagnostic.severity.WARN) end,
+  hl = {
+    fg = 'yellow',
+    style = 'bold'
+  }
+}
+-- diagnosticHint
+components.active[2][7] = {
+  provider = 'diagnostic_hints',
+  enabled = function() return lsp.diagnostics_exist(vim.diagnostic.severity.HINT) end,
+  hl = {
+    fg = 'cyan',
+    style = 'bold'
+  }
+}
+-- diagnosticInfo
+components.active[2][8] = {
+  provider = 'diagnostic_info',
+  enabled = function() return lsp.diagnostics_exist(vim.diagnostic.severity.INFO) end,
+  hl = {
+    fg = 'skyblue',
+    style = 'bold'
+  }
+}
 
-require('feline').setup(
-{
-	colors = {bg = _MIDBAR[1]},
-	components =
-	{ -- {{{
-		active =
-		{
-			{ -- Left {{{
-				{
-					icon = '▊ ',
-					hl = 'FelineViMode',
-					provider = function() -- auto change color according the vim mode
-						local mode_color
-						local mode_name
+-- RIGHT
 
-						if vim.g.libmodalActiveModeName then
-							mode_name = vim.g.libmodalActiveModeName
-							mode_color = _MODES[mode_name]
-						else
-							local current_mode = _MODES[vim.api.nvim_get_mode().mode]
+-- LspName
+components.active[3][1] = {
+  provider = 'lsp_client_names',
+  hl = {
+    fg = 'yellow',
+    bg = 'bg',
+    style = 'bold'
+  },
+  right_sep = ' '
+}
+-- fileIcon
+components.active[3][2] = {
+  provider = function()
+    local filename = vim.fn.expand('%:t')
+    local extension = vim.fn.expand('%:e')
+    local icon  = require'nvim-web-devicons'.get_icon(filename, extension)
+    if icon == nil then
+      icon = ''
+    end
+    return icon
+  end,
+  hl = function()
+    local val = {}
+    local filename = vim.fn.expand('%:t')
+    local extension = vim.fn.expand('%:e')
+    local icon, name  = require'nvim-web-devicons'.get_icon(filename, extension)
+    if icon ~= nil then
+      val.fg = vim.fn.synIDattr(vim.fn.hlID(name), 'fg')
+    else
+      val.fg = 'white'
+    end
+    val.bg = 'bg'
+    val.style = 'bold'
+    return val
+  end,
+  right_sep = ' '
+}
+-- fileType
+components.active[3][3] = {
+  provider = 'file_type',
+  hl = function()
+    local val = {}
+    local filename = vim.fn.expand('%:t')
+    local extension = vim.fn.expand('%:e')
+    local icon, name  = require'nvim-web-devicons'.get_icon(filename, extension)
+    if icon ~= nil then
+      val.fg = vim.fn.synIDattr(vim.fn.hlID(name), 'fg')
+    else
+      val.fg = 'white'
+    end
+    val.bg = 'bg'
+    val.style = 'bold'
+    return val
+  end,
+  right_sep = ' '
+}
+-- fileSize
+components.active[3][4] = {
+  provider = 'file_size',
+  enabled = function() return vim.fn.getfsize(vim.fn.expand('%:t')) > 0 end,
+  hl = {
+    fg = 'skyblue',
+    bg = 'bg',
+    style = 'bold'
+  },
+  right_sep = ' '
+}
+-- fileFormat
+components.active[3][5] = {
+  provider = function() return '' .. vim.bo.fileformat:upper() .. '' end,
+  hl = {
+    fg = 'white',
+    bg = 'bg',
+    style = 'bold'
+  },
+  right_sep = ' '
+}
+-- fileEncode
+components.active[3][6] = {
+  provider = 'file_encoding',
+  hl = {
+    fg = 'white',
+    bg = 'bg',
+    style = 'bold'
+  },
+  right_sep = ' '
+}
+-- lineInfo
+components.active[3][8] = {
+  provider = 'position',
+  hl = {
+    fg = 'white',
+    bg = 'bg',
+    style = 'bold'
+  },
+  right_sep = ' '
+}
+-- linePercent
+components.active[3][9] = {
+  provider = 'line_percentage',
+  hl = {
+    fg = 'white',
+    bg = 'bg',
+    style = 'bold'
+  },
+  right_sep = ' '
+}
+-- scrollBar
+components.active[3][10] = {
+  provider = 'scroll_bar',
+  hl = {
+    fg = 'yellow',
+    bg = 'bg',
+  },
+}
 
-							if not current_mode then
-								Dump(vim.api.nvim_get_mode())
-							end
+-- INACTIVE
 
-							mode_name = current_mode[1]
-							mode_color = current_mode[2]
-						end
+-- fileType
+components.inactive[1][1] = {
+  provider = 'file_type',
+  hl = {
+    fg = 'black',
+    bg = 'cyan',
+    style = 'bold'
+  },
+  left_sep = {
+    str = ' ',
+    hl = {
+      fg = 'NONE',
+      bg = 'cyan'
+    }
+  },
+  right_sep = {
+    {
+      str = ' ',
+      hl = {
+        fg = 'NONE',
+        bg = 'cyan'
+      }
+    },
+    ' '
+  }
+}
 
-						highlight('FelineViMode', {fg=mode_color, style='bold'})
-
-						return mode_name..' '
-					end,
-					right_sep = function() return
-						{
-							hl = {fg = _SIDEBAR[1], bg = file_color()},
-							str = _RIGHT_SEPARATOR,
-						}
-					end,
-				},
-
-				{
-					hl = function() return {fg = _SIDEBAR[1], bg = file_color()} end,
-					provider  = function() return ' '..file_icon()..' ' end,
-					right_sep = function() return
-						{
-							hl = {fg = _SIDEBAR[1], bg = file_color()},
-							str = _LEFT_SEPARATOR,
-						}
-					end,
-				},
-
-				{
-					colored_icon = false,
-					enabled = buffer_not_empty,
-					file_modified_icon = '',
-					hl = {fg = _TEXT[1], bg = _SIDEBAR[1], style = 'bold'},
-					icon = '',
-					provider  = 'file_info',
-					right_sep =
-					{
-						hl = {bg = _SIDEBAR[1]},
-						str = ' ',
-					},
-					type = 'relative-short',
-				},
-
-				{
-					enabled = buffer_not_empty,
-					hl = {fg = _TEXT[1], bg = _SIDEBAR[1], style = 'bold'},
-					provider  = 'file_size',
-					right_sep =
-					{
-						hl = {bg = _SIDEBAR[1]},
-						str = ' ',
-					},
-				},
-
-				{
-					hl = {fg = _SIDEBAR[1], bg = _GREEN_DARK[1], style = 'bold'},
-					icon = '  ',
-					left_sep =
-					{
-						always_visible = true,
-						hl = {fg = _SIDEBAR[1], bg = _GREEN_DARK[1]},
-						str = _RIGHT_SEPARATOR,
-					},
-					provider = 'git_branch',
-				},
-
-				{
-					hl = {bg = _MIDBAR[1]},
-					left_sep =
-					{
-						always_visible = true,
-						hl = {fg = _MIDBAR[1], bg = _GREEN_DARK[1]},
-						str = ' '.._LEFT_SEPARATOR,
-					},
-					provider = '',
-				},
-
-				{
-					enabled = checkwidth,
-					hl = {fg = _GREEN_LIGHT[1], bg = _MIDBAR[1]},
-					icon = '+',
-					provider = 'git_diff_added',
-				},
-
-				{
-					enabled = checkwidth,
-					hl = {fg = _ORANGE_LIGHT[1], bg = _MIDBAR[1]},
-					icon = '~',
-					provider = 'git_diff_changed',
-				},
-
-				{
-					enabled = checkwidth,
-					hl = {fg = _RED_LIGHT[1], bg = _MIDBAR[1]},
-					icon = '-',
-					provider = 'git_diff_removed',
-				},
-
-				{
-					hl = {fg = _RED[1], bg = _MIDBAR[1]},
-					icon = ' Ⓧ ',
-					provider = 'diagnostic_errors',
-				},
-
-				{
-					hl = {fg = _YELLOW[1], bg = _MIDBAR[1]},
-					icon = ' ⚠️ ',
-					provider = 'diagnostic_warnings',
-				},
-
-				{
-					hl = {fg = _MAGENTA[1], bg = _MIDBAR[1]},
-					icon = ' 💡',
-					provider = 'diagnostic_hints',
-				},
-
-				{
-					hl = {fg = _WHITE[1], bg = _MIDBAR[1]},
-					icon = ' ⓘ ',
-					provider = 'diagnostic_info',
-				},
-			}, -- }}}
-
-			{{ -- Middle {{{
-				enabled = function() return checkwidth() and vim.lsp.buf.server_ready() end,
-				hl = {fg = _ICE[1], bg = _MIDBAR[1]},
-				icon = ' ',
-				provider = function() return vim.b.vista_nearest_method_or_function or '' end,
-			}}, -- }}}
-
-			{ -- Right {{{
-				{
-					hl = {fg = _TEXT[1], bg = _SIDEBAR[1]},
-					left_sep =
-					{
-						hl = {fg = _MIDBAR[1], bg = _SIDEBAR[1]},
-						str = _RIGHT_SEPARATOR..' ',
-					},
-					provider = 'file_encoding',
-					right_sep =
-					{
-						hl = {bg = _SIDEBAR[1]},
-						str = ' ',
-					},
-				},
-
-				{
-					hl = function() return {fg = _BLACK[1], bg = file_color(), style = 'bold'} end,
-					left_sep = function() return
-						{
-							hl = {fg = file_color(), bg = _SIDEBAR[1]},
-							str = _LEFT_SEPARATOR,
-						}
-					end,
-					provider = 'file_type',
-					right_sep = function() return
-						{
-							hl = {fg = file_color(), bg = _SIDEBAR[1]},
-							str = _RIGHT_SEPARATOR..' ',
-						}
-					end,
-				},
-
-				{
-					enabled = buffer_not_empty,
-					hl = {fg = _TEXT[1], bg = _SIDEBAR[1]},
-					provider = function()
-						return ' '..(vim.api.nvim_win_get_cursor(0)[2] + 1)
-					end,
-				},
-
-				{
-					hl = {fg = _WHITE[1], bg = _MAGENTA_DARK[1]},
-					left_sep =
-					{
-						hl = {fg = _MAGENTA_DARK[1], bg = _SIDEBAR[1]},
-						str = ' '.._LEFT_SEPARATOR,
-					},
-					provider = 'line_percentage',
-					right_sep =
-					{
-						hl = {bg = _MAGENTA_DARK[1]},
-						str = ' ',
-					},
-				},
-
-				{
-					hl = {fg = _GRAY[1], bg = _MAGENTA_DARK[1]},
-					provider = 'scroll_bar',
-				},
-			}, -- }}}
-		},
-
-		inactive =
-		{
-			{ -- Left {{{
-				{
-					hl = {fg = _BLACK[1], bg = _PURPLE[1], style = 'bold'},
-					left_sep =
-					{
-						hl = {bg = _PURPLE[1]},
-						str = ' ',
-					},
-					provider = 'file_type',
-				},
-				{
-					hl = {bg = _PURPLE[1]},
-					provider = ' ',
-					right_sep =
-					{
-						hl = {fg = _PURPLE[1], bg = _MIDBAR[1]},
-						str = _RIGHT_SEPARATOR,
-					},
-				},
-			}, -- }}}
-
-			{{ -- Right {{{
-				hl = {fg = _BLACK[1], bg = _PURPLE[1], style = 'bold'},
-				left_sep =
-				{
-					hl = {fg = _PURPLE[1], bg = _MIDBAR[1]},
-					str = _LEFT_SEPARATOR,
-				},
-				provider = function(_, win_id) return _BUF_ICON[vim.bo[vim.api.nvim_win_get_buf(win_id or 0)].filetype] or '' end,
-			}}, -- }}}
-		},
-	}, -- }}}
-
-	force_inactive =
-	{ -- {{{
-		bufnames = {},
-		buftypes = {'help', 'prompt', 'terminal'},
-		filetypes =
-		{
-			'dbui',
-			'diff',
-			'help',
-			'NvimTree',
-			'packer',
-			'qf',
-			'undotree',
-			'vista',
-			'vista_kind',
-			'vista_markdown',
-		},
-	}, -- }}}
+require('feline').setup({
+  theme = colors,
+  default_bg = bg,
+  default_fg = fg,
+  vi_mode_colors = vi_mode_colors,
+  components = components,
+  force_inactive = force_inactive,
 })
+
 
