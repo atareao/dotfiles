@@ -34,6 +34,7 @@ opt.ignorecase = true         -- ignore case letters when search
 opt.smartcase = true          -- ignore lowercase for the whole pattern
 opt.linebreak = true          -- wrap on word boundary
 opt.conceallevel = 0
+opt.termguicolors = true
 
 opt.list = true
 opt.listchars = 'tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»'

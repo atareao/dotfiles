@@ -86,9 +86,17 @@ return require('packer').startup(function(use)
 
 
   -- statusline
+  -- use {
+  --   'nvim-lualine/lualine.nvim',
+  --   requires = { 'kyazdani42/nvim-web-devicons' , opt = true},
+  -- }
+  use ('Iron-E/nvim-highlite')
   use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' , opt = true},
+     'feline-nvim/feline.nvim',
+      requires = {
+        'gitsigns.nvim',
+        'nvim-web-devicons'
+    },
   }
 
   -- tabs
