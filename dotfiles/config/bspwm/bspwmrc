@@ -51,14 +51,14 @@ bspc config presel_feedback_color	"#5e81ac"
 #bspc config urgent_border_color 	"#dd2727"
 
 bspc rule -a Gimp desktop='^2' state=floating follow=on
-bspc rule -a Chromium desktop='^1'
+bspc rule -a Chromium desktop='^7'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Rofi focus=on
 bspc rule -a Screenkey manage=off
-bspc rule -a kitty desktop='^2'
+bspc rule -a kitty desktop='^1'
 bspc rule -a Firefox desktop='^7'
 bspc rule -a Ardour desktop='^8'
-bspc rule -a Evince desktop='^1'
-bspc rule -a TelegramDesktop desktop='^1'
+bspc rule -a Evince desktop='^2'
+bspc rule -a TelegramDesktop desktop='^2'
 
 
