@@ -78,3 +78,12 @@ map('n', '<leader>ts', ':Telescope symbols<CR>', default_opts)
 map('n', '<leader>z', ':lua require(\'telekasten\').panel()<CR>', default_opts)
 
 map('n', '<C-s>', ':SidebarNvimToggle<CR>', default_opts)
+
+-- Trouble
+
+map("n", "<leader>xx", "<cmd>Trouble<cr>", {silent = true, noremap = true})
+map("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", {silent = true, noremap = true})
+map("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", {silent = true, noremap = true})
+map("n", "<leader>xl", "<cmd>Trouble loclist<cr>", {silent = true, noremap = true})
+map("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", {silent = true, noremap = true})
+map("n", "gR", "<cmd>Trouble lsp_references<cr>", {silent = true, noremap = true})

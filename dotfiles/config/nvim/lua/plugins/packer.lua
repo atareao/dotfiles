@@ -57,7 +57,12 @@ return require('packer').startup(function(use)
 
   -- LSP
   use 'neovim/nvim-lspconfig'
-
+ use {
+    'folke/trouble.nvim',
+    requires = {
+        'kyazdani42/nvim-web-devicons',
+    }
+  }
   -- LSP Installer
   use {
     'williamboman/nvim-lsp-installer',
