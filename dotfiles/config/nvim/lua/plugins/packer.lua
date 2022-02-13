@@ -47,6 +47,7 @@ return require('packer').startup(function(use)
 
   -- treesitter interface
   use 'nvim-treesitter/nvim-treesitter'
+  use 'nvim-treesitter/nvim-tree-docs'
   use 'p00f/nvim-ts-rainbow'
 
   -- colorschemes
@@ -56,18 +57,14 @@ return require('packer').startup(function(use)
   use { 'rose-pine/neovim', as = 'rose-pine' }
 
   -- LSP
-  use 'neovim/nvim-lspconfig'
+ use 'neovim/nvim-lspconfig'
  use {
     'folke/trouble.nvim',
     requires = {
         'kyazdani42/nvim-web-devicons',
     }
   }
-  -- LSP Installer
-  use {
-    'williamboman/nvim-lsp-installer',
-    requires = {'neovim/nvim-lspconfig'},
-  }
+  use 'kkoomen/vim-doge'
 
   -- autocomplete
   use {
