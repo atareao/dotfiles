@@ -22,7 +22,7 @@
 # SOFTWARE.
 
 function ipodcast(){
-    input="$1"
+    input=$(ls -1 *.jpg | grep -v "$(basename $PWD).jpg" | head -n1)
     output="$(basename $PWD).jpg"
     if [[ -z "${input}" || ! -f "${input}" ]]
     then
@@ -33,7 +33,7 @@ function ipodcast(){
     then
         rm "${output}"
     fi
-    convert -resize 1200x800 "${input}" "${output}"
+    convert -resize 1200x800! "${input}" "${output}"
     cwebp "${output}" -o "${output//.jpg/.webp}"
     rm "${input}"
 }
