@@ -332,26 +332,26 @@ ls.snippets = {
 			condition = conds.line_begin,
 		}),
 		-- The last entry of args passed to the user-function is the surrounding snippet.
-		s(
-			{ trig = "a%d", regTrig = true },
-			f(function(_, snip)
-				return "Triggered with " .. snip.trigger .. "."
-			end, {})
-		),
+		-- s(
+		-- 	{ trig = "a%d", regTrig = true },
+		-- 	f(function(_, snip)
+		-- 		return "Triggered with " .. snip.trigger .. "."
+		-- 	end, {})
+		-- ),
 		-- It's possible to use capture-groups inside regex-triggers.
-		s(
-			{ trig = "b(%d)", regTrig = true },
-			f(function(_, snip)
-				return "Captured Text: " .. snip.captures[1] .. "."
-			end, {})
-		),
-		s({ trig = "c(%d+)", regTrig = true }, {
-			t("will only expand for even numbers"),
-		}, {
-			condition = function(line_to_cursor, matched_trigger, captures)
-				return tonumber(captures[1]) % 2 == 0
-			end,
-		}),
+		-- s(
+		-- 	{ trig = "b(%d)", regTrig = true },
+		-- 	f(function(_, snip)
+		-- 		return "Captured Text: " .. snip.captures[1] .. "."
+		-- 	end, {})
+		-- ),
+		-- s({ trig = "c(%d+)", regTrig = true }, {
+		-- 	t("will only expand for even numbers"),
+		-- }, {
+		-- 	condition = function(line_to_cursor, matched_trigger, captures)
+		-- 		return tonumber(captures[1]) % 2 == 0
+		-- 	end,
+		-- }),
 		-- Use a function to execute any shell command and print its text.
 		s("bash", f(bash, {}, "ls")),
 		-- Short version for applying String transformations using function nodes.

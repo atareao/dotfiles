@@ -15,11 +15,11 @@ fi
 # or this to ask an external program to supply the passphrase:
 export BORG_PASSCOMMAND='gkeyring -g -k borgbackup'
 
-for REPOSITORY in $REPO_A $REPO_B #$REPO_C
+for REPOSITORY in ${REPO_A} ${REPO_B} ${REPO_C}
 do
     # Backup all of /dats/Sync except a few excluded directories
     borg create -v --stats                          \
-        $REPOSITORY::'{hostname}-{now:%Y-%m-%d}'    \
+        "${REPOSITORY}"::'{hostname}-{now:%Y-%m-%d}'    \
         /datos/dotfiles                             \
         /datos/Sync                                 \
         --exclude '/datos/Sync/Ansible'             \
@@ -37,6 +37,6 @@ do
     # archives of THIS machine. The '{hostname}-' prefix is very important to
     # limit prune's operation to this machine's archives and not apply to
     # other machine's archives also.
-    borg prune -v --list $REPOSITORY --prefix '{hostname}-' \
+    borg prune -v --list "${REPOSITORY}" --prefix '{hostname}-' \
         --keep-daily=3 --keep-weekly=2 --keep-monthly=3
 done
