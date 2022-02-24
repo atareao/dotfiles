@@ -1,45 +1,45 @@
 #!/bin/bash
-package=`jq '.name' metadata.json`
+package=$(jq '.name' metadata.json)
 package=${package//\"/}
-version=`jq '.version' metadata.json`
-uuid=`jq '.uuid' metadata.json`
+version=$(jq '.version' metadata.json)
+uuid=$(jq '.uuid' metadata.json)
 uuid=${uuid//\"/}
 
 function translate()
 {
     echo '==== Update translations ===='
     echo ''
-    if [ -f po/messages.pot ];then
+    if [[ -f po/messages.pot ]];then
         rm po/messages.pot
     fi
     touch po/messages.pot
     find schemas/ -iname "*.xml" | xargs xgettext -j -L GSettings --from-code=UTF-8 -k_ -kN_ -o po/messages.pot
-    find . -iname "*.js" | xargs xgettext -j -L JavaScript --from-code=UTF-8 -k_ -kN_ -o po/messages.pot
-    if [ -d locale ];then
+    find . -iname "*.js" | xargs xgettext -j -L JavaScript --from-code=UTF-8 -k_ -kN_ -o "po/messages.pot"
+    if [[ -d locale ]];then
         rm -rf locale/
     fi
     for i in po/*.po;do
-        echo "=== $i ==="
-        filename=$(basename "$i")
+        echo "=== ${i} ==="
+        filename=$(basename "${i}")
         lang=${filename/.po}
-        file_size=`wc -c < $i`
-        if [ $file_size -gt 0 ];then
-            msgmerge -U $i po/messages.pot
+        file_size=$(wc -c < "${i}")
+        if [[ "${file_size}" -gt 0 ]];then
+            msgmerge -U "${i}" "po/messages.pot"
         else
-            msginit --output-file=$i --input=po/messages.pot --locale=$lang
+            msginit --output-file="${i}" --input=po/messages.pot --locale="${lang}"
         fi
-        sed -i -e 's/charset=ASCII/charset=UTF-8/g' $i
-        sed -i -e "s/PACKAGE VERSION/$package - $version/g" $i
-        sed -i -e "s/PACKAGE package/$package package/g" $i
+        sed -i -e 's/charset=ASCII/charset=UTF-8/g' "${i}"
+        sed -i -e "s/PACKAGE VERSION/${package} - ${version}/g" "${i}"
+        sed -i -e "s/PACKAGE package/${package} package/g" "${i}"
         ## Translations
-        if [ ! -d locale/$lang ];then
-            mkdir -p locale/$lang/LC_MESSAGES
+        if [[ ! -d "locale/${lang}" ]];then
+            mkdir -p "locale/${lang}/LC_MESSAGES"
         fi
-        msgfmt $i -o locale/$lang/LC_MESSAGES/$uuid.mo
+        msgfmt "${i}" -o "locale/${lang}/LC_MESSAGES/${uuid}.mo"
     done
     for i in po/*.po~;do
-        if [ -f $i ];then
-            rm $i
+        if [[ -f "${i}" ]];then
+            rm "${i}"
         fi
     done
 }
@@ -56,9 +56,9 @@ function compress()
     echo '==== Compress directory ===='
     echo ''
     file="../${PWD##*/}.zip"
-    echo $file
-    if [ -f $file ];then
-        rm $file
+    echo "${file}"
+    if [[ -f "${file}" ]];then
+        rm "${file}"
     fi
     zip -r --exclude=*.git* \
            --exclude=*.vscode* \
@@ -66,7 +66,7 @@ function compress()
            --exclude=schemas/*.xml \
            --exclude=screenshots/* \
            --exclude=helper.sh \
-           $file *
+           "${file}" ./*
 }
 
 function usage()
@@ -81,7 +81,7 @@ function usage()
     echo "    -z    compress directory"
 
 }
-if [ $# -gt 0 ]; then
+if [[ $# -gt 0 ]]; then
     case $1 in
         -h) usage
             ;;

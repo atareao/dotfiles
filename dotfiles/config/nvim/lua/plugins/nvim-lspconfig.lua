@@ -119,6 +119,19 @@ for _, lsp in ipairs(servers) do
 end
 require "lspconfig".efm.setup {
     init_options = {documentFormatting = true},
+    settings = {
+        rootMarkers = {".git/"},
+        languages = {
+            sh = {
+                {LintCommand = "shellcheck -f gcc -x",
+                 LintFormats = {
+                     "%f:%l:%c: %trror: %m",
+                     "%f:%l:%c: %tarning: %m",
+                     "%f:%l:%c: %tote: %m"}
+                 }
+            }
+        }
+    }
     --settings = {
     --    filetypes = {"python"},
     --    languages = {
