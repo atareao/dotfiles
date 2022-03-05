@@ -129,6 +129,36 @@ require "lspconfig".efm.setup {
                      "%f:%l:%c: %tarning: %m",
                      "%f:%l:%c: %tote: %m"}
                  }
+            },
+            dockerfile = {
+                {
+                    LintCommand = "hadolint --no-color",
+                    LintFormats = {
+                        "%f:%l %m",
+                    }
+                }
+            },
+            python = {
+                {
+                    LintCommand = "mypy --show-column-numbers",
+                    LintFormats = {
+                        "%f:%l:%c: %trror: %m",
+                        "%f:%l:%c: %tarning: %m",
+                        "%f:%l:%c: %tote: %m"
+                    }
+                },
+                {
+                    LintCommand = "flake8 --stdin-display-name ${INPUT} -",
+                    LintFormats = {
+                        "%f:%l:%c: %m"
+                    }
+                },
+                {
+                    LintCommand = "pylint --output-format text --score no --msg-template {path}:{line}:{column}:{C}:{msg} ${INPUT}",
+                    LintFormats = {
+                        "%f:%l:%c:%t:%m"
+                    }
+                }
             }
         }
     }

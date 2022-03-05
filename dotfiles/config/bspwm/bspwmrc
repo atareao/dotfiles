@@ -4,7 +4,7 @@ pkill sxhkd
 sxhkd &
 
 pkill picom
-picom -f --daemon --config $HOME/.config/picom/picom.conf &
+picom -f --daemon --config "${HOME}/.config/picom/picom.conf" &
 
 pkill dunst
 dunst -conf ~/.config/dunst/dunstrc &
@@ -12,9 +12,9 @@ dunst -conf ~/.config/dunst/dunstrc &
 pkill xautolock
 xautolock -time 5 -locker "betterlockscreen -l" -notify 30 -notifier "notify-send 'Locker' 'Locking screen in 30 seconds'" -killtime 5 -killer "systemctl suspend" &
 
-$HOME/.config/polybar/material/launch.sh
+"${HOME}/.config/polybar/material/launch.sh"
 
-feh --bg-scale $HOME/.config/daily-wallpaper/potd.jpg &
+feh --bg-scale "${HOME}/.config/daily-wallpaper/potd.jpg" &
 
 # bspc monitor -d I II III IV V VI VII VIII IX X
 # bspc monitor DVI-I-1-1 -d I II III IV V
