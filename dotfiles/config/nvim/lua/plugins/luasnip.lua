@@ -446,15 +446,6 @@ ls.snippets = {
 			t({ "", "" }),
 			dl(3, l._1:gsub("\n", " linebreak ") .. l._2, { 1, 2 }),
 		}),
-        s("ic", {
-            t({"`"}), i(2),
-            t({""}), i(1),
-            t({"`"}), i(0),
-        }),
-        s("code", {
-            t({"```", ""}), i(1),
-            t({"```", ""}), i(0),
-        }),
 	},
 	java = {
 		-- Very long example for a java class.
@@ -501,12 +492,21 @@ ls.snippets = {
 			t({ "", "\\end{itemize}" }),
 		}),
 	},
-    md = {
+    markdown = {
         s("trigger", t("Hola mundo")),
         s("lor", sn(1, {
  	        t("basically just text "),
  	        i(1, "And an insertNode.")
         })),
+        s("ic", {
+            t({"`"}), i(2),
+            t({""}), i(1),
+            t({"`"}), i(0),
+        }),
+        s("code", {
+            t({"```", ""}), i(1),
+            t({"```", ""}), i(0),
+        }),
     },
 }
 
