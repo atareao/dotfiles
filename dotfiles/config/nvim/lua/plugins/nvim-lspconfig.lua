@@ -158,7 +158,13 @@ require "lspconfig".efm.setup {
                     LintFormats = {
                         "%f:%l:%c:%t:%m"
                     }
+                },
+                {
+                    FormatCommand = "autopep8 -"
                 }
+                --{
+                --    FormatCommand = {"autopep8 -", FormatStdin = true}
+                --}
             }
         }
     }
