@@ -1,0 +1,105 @@
+* Intro
+  It's so diffcuclt for me to remember various parameters and keybinds.
+
+  I find rofi could help me do that, just write them into files and then use =rofi= to query. So I wrote a litte script and a concise rofi theme.
+
+  Currently I am using org-mode for formatting cheatsheet files, and maybe I would write a script to do that someday.
+
+  Hope this script could help people facing the problem of reciting parameters and keybinds.
+
+  Share your cheasheet.
+  
+  open for PR.
+
+** ToDo
+  - Add script for formatting cheatsheet file
+  - Add button for add new record
+  - Add more apps/commands cheatsheets
+ 
+
+** Supported cheatsheets
+   - git:  https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf
+   - mpv: [[https://mpv.io/manual/master/]]
+   - ranger: [[https://gist.github.com/heroheman/aba73e47443340c35526755ef79647eb]]
+   - ncmpcpp: [[https://pkgbuild.com/~jelle/ncmpcpp/]]
+   - org-mode: [[https://orgmode.org/worg/orgcard.html]]
+   - convert: 
+   - *Tell me which app/command you want to add here.*
+
+ 
+** Cheatsheet file structure
+   #+BEGIN_SRC 
+   | App or command | keybind or parameter | Description |   
+   #+END_SRC
+
+	- The first line is for prompt, just copy this line
+	- The other lines should be contents
+	- Note: 
+	The cheatsheet file also support this format:
+   #+BEGIN_SRC 
+   | App or command | keybind or parameter | Description | Note |   
+   #+END_SRC
+
+   The fourth column is "Note" that you could add something important or some personal considerations which only shows in the detail page.
+
+* Preview & Usage
+** All cheatsheets mode
+   Show all apps/commands cheatsheets in one page. command:
+
+   #+BEGIN_SRC shell
+   ~/.cheeet/cheatsheet.sh all
+   #+END_SRC
+
+   Preview:
+   [[https://raw.githubusercontent.com/wangzme/cheeet/master/mode_all.png]]
+   
+** Single app mode
+   
+	The first page shows all apps/commands, then enter an specific app cheatsheet.
+
+	Both in All cheatsheets mdoe and single app mode you can enter the detail page.
+
+	command:
+
+	#+BEGIN_SRC shell
+	~/.cheeet/cheatsheet.sh sgl
+	#+END_SRC
+
+	Preview:
+	[[https://raw.githubusercontent.com/wangzme/cheeet/master/mode_sgl.png]]
+
+** With i3
+   If you are using i3-wm, just add this line into you i3-wm config:
+ #+BEGIN_SRC 
+     bindsym $mod+x exec "~/.cheeet/cheatsheet.sh all" # all cheatsheets mode
+ #+END_SRC
+
+** Add /Note/ column
+   For example, command =convert -> -append= in the orginal cheatsheet file (lib/convert) like:
+   #+BEGIN_SRC org
+   | convert | -append                            | append an image sequence | 
+   #+END_SRC
+
+   Then the detail page is:
+
+   #+BEGIN_SRC 
+   Command: convert
+   Parameter: -append
+   Description: append an image sequense
+   #+END_SRC
+
+   As we know =+append= is appending images horizontally and =-append= is appending images vertically.
+   So you can append it after the third column.
+
+   The detail page after editing.
+   #+BEGIN_SRC 
+   Command: convert
+   Parameter: -append
+   Description: append an image sequense
+   Note: +append is appending images horizontally and -append is appending images vertically.
+   #+END_SRC
+
+* Install 
+  Clone this repo into ~/.cheeet
+
+
