@@ -29,6 +29,9 @@ super + ctrl + z
 super + ctrl + a
 	/bin/bash /home/lorenzo/.config/rofi/scripts/atareao.sh
 
+super + ctrl + c
+	/bin/bash /home/lorenzo/.config/rofi/scripts/cheeet/cheatsheet.sh all all
+
 super + ctrl + e
 	rofimoji
 
