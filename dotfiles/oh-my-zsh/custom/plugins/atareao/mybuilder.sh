@@ -22,11 +22,10 @@
 # SOFTWARE.
 
 mybuilder() {
-    echo $(pwd)
+    pwd
     KEY=726BF28194F177B10C85F46D0AD17DF58AA94BFB
     PPA="atareao/test"
     MAIN_DIR=$PWD
-    DEBIAN_DIR=$PWD'/debian'
     SRCDIR=$PWD'/src'
     METADATA="${PWD}/metadata.json"
     if [ -f "${METADATA}" ]
@@ -43,33 +42,32 @@ mybuilder() {
         echo "Esto no es para empaquetar"
         return 1
     fi
-    if [ -d $PYCACHEDIR ]; then
+    if [[ -d "$PYCACHEDIR" ]]; then
         echo '====================================='
         echo "Removing cache directory: $PYCACHEDIR"
-        rm -rf $PYCACHEDIR
+        rm -rf "$PYCACHEDIR"
     fi
-    if [ -d $LOCALE ]; then
+    if [ -d "$LOCALE" ]; then
         echo '====================================='
         echo "Removing locale directory: $LOCALE"
-        rm -rf $LOCALE
+        rm -rf "$LOCALE"
     fi
-    firstline=$(head -n 1 $CHANGELOG)
-    app=$(echo $firstline | grep -oP "^[^\s]*")
+    firstline=$(head -n 1 "$CHANGELOG")
+    app=$(echo "$firstline" | grep -oP "^[^\s]*")
     app=${app:l} #lowercase
-    appname=${app:u} #uppercase
-    version=$(echo $firstline | grep -oP "\s\(\K[^\)]*")
+    version=$(echo "$firstline" | grep -oP "\s\(\K[^\)]*")
     #
     echo '=========================='
     echo 'Building debian package...'
     # debuild --to-tgz-check -S -sa -d -k"$KEY"
     debuild --no-tgz-check -S -sa -d -k"$KEY"
-    package="$PARENDIR/$app"_"$version"_source.changes
-    if [ -f $package ]; then
+    package="${PARENDIR}/${app}_${version}_source.changes"
+    if [ -f "$package" ]; then
         echo '==========================='
         echo "Uploading debian package..."
-        dput ppa:"$PPA" "$PARENDIR/$app"_"$version"_source.changes
+        dput ppa:"$PPA" "${PARENDIR}/${app}_${version}_source.changes"
     else
         echo "Error: package not build"
     fi
-    rm "$PARENDIR/$app"_"$version"*
+    rm "${PARENDIR}/${app}_${version}*"
 }
