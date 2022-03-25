@@ -22,7 +22,8 @@ require('settings')                    -- settings
 require('keymaps')                     -- keymaps
 require('plugins/packer')              -- plugin manager
 
-require('plugins/nvim-tree')           -- filebrowser
+--require('plugins/nvim-tree')           -- filebrowser
+require('plugins/neo-tree')           -- filebrowser
 require('plugins/indent-blankline')    -- indentation
 
 require('plugins/nvim-cmp')            -- autocomplete
