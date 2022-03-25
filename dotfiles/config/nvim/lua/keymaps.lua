@@ -59,9 +59,9 @@ map('n', '<C-g>', ':LazyGit<CR>', default_opts)       -- open/close
 map('n', '<C-p>', ':FzfLua files<CR>', default_opts)       -- open/close
 
 -- nvim-tree
-map('n', '<C-n>', ':NvimTreeToggle<CR>', default_opts)       -- open/close
-map('n', '<leader>r', ':NvimTreeRefresh<CR>', default_opts)  -- refresh
-map('n', '<leader>n', ':NvimTreeFindFile<CR>', default_opts) -- search file
+map('n', '<C-n>', ':NeoTreeShowToggle<CR>', default_opts)       -- open/close
+--map('n', '<leader>r', ':NvimTreeRefresh<CR>', default_opts)  -- refresh
+--map('n', '<leader>n', ':NvimTreeFindFile<CR>', default_opts) -- search file
 
 -- Vista tag-viewer
 map('n', '<C-m>', ':Vista!!<CR>', default_opts)   -- open/close
