@@ -22,8 +22,8 @@
 # SOFTWARE.
 
 function ipodcast(){
-    input=$(ls -1 *.jpg | grep -v "$(basename $PWD).jpg" | head -n1)
-    output="$(basename $PWD).jpg"
+    input=$(find . -type f -name "*.jpg" | grep -v "$(basename "$PWD").jpg | head -n1")
+    output="$(basename "$PWD").jpg"
     if [[ -z "${input}" || ! -f "${input}" ]]
     then
         echo "You must provide a file as parameter"
@@ -34,6 +34,10 @@ function ipodcast(){
         rm "${output}"
     fi
     convert -resize 1200x800! "${input}" "${output}"
-    cwebp "${output}" -o "${output//.jpg/.webp}"
+    size=$(/bin/du -k "${output}" | cut -f1)
+    if [[ "${size}" -gt 120 ]]
+    then
+        jpegoptim --size=100k "${output}"
+    fi
     rm "${input}"
 }
