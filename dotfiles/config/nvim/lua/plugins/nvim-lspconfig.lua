@@ -97,7 +97,7 @@ https://github.com/typescript-language-server/typescript-language-server
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'bashls', 'pyright', 'clangd', 'html', 'tsserver'}
+local servers = { 'bashls', 'pyright', 'clangd', 'html'}--, 'tsserver'
 
 -- Set settings for language servers below
 --
@@ -117,11 +117,30 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
+-- require "lspconfig".tsserver.setup {
+--     on_attach = function(client)
+--         if client.config.flags then
+--           client.config.flags.allow_incremental_sync = true
+--         end
+--         client.resolved_capabilities.document_formatting = false
+--         set_lsp_config(client)
+--     end
+-- }
 require "lspconfig".efm.setup {
     init_options = {documentFormatting = true},
     settings = {
         rootMarkers = {".git/"},
         languages = {
+            javascript = {
+                lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
+                lintStdin = true,
+                lintFormats = {
+                    "%f:%l:%c: %m"
+                },
+                lintIgnoreExitCode = true,
+                formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
+                formatStdin = true
+            },
             sh = {
                 {LintCommand = "shellcheck -f gcc -x",
                  LintFormats = {

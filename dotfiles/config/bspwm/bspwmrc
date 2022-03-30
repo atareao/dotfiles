@@ -25,8 +25,8 @@ bspc monitor HDMI-2 -d I II III IV
 bspc config border_width          2
 bspc config window_gap            10
 bspc config top_padding           0
-#bspc config bottom_padding       80
-bspc config bottom_padding        0
+bspc config bottom_padding       80
+#bspc config bottom_padding        0
 bspc config left_padding          0
 bspc config right_padding         0
 
@@ -39,6 +39,9 @@ bspc config automatic_scheme  	  alternate
 bspc config removal_adjustment
 bspc config honor_size_hints
 bspc config ignore_ewmh_struts
+
+bspc config pointer_follows_focus false
+bspc config pointer_follows_monitor true
 
 # For Pycharm and Intellj
 wmname LG3D
