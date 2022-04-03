@@ -446,6 +446,7 @@ ls.snippets = {
 			t({ "", "" }),
 			dl(3, l._1:gsub("\n", " linebreak ") .. l._2, { 1, 2 }),
 		}),
+        s("tititi", t("Hola mundo")),
 	},
 	java = {
 		-- Very long example for a java class.

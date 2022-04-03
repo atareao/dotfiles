@@ -83,12 +83,11 @@ return require('packer').startup(function(use)
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-buffer',
-      'hrsh7th/cmp-vsnip',
-      'hrsh7th/vim-vsnip-integ',
       'f3fora/cmp-spell',
       'saadparwaiz1/cmp_luasnip',
     },
   }
+  use 'rafamadriz/friendly-snippets'
   -- use {'tzachar/cmp-tabnine',
   --      run='./install.sh',
   --      requires = 'hrsh7th/nvim-cmp'

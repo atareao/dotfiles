@@ -41,26 +41,30 @@ cmp.setup {
     ['<C-e>'] = cmp.mapping.close(),
 
     -- Tab mapping
-    ['<Tab>'] = function(fallback)
+    ['<Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
       else
         fallback()
       end
-    end,
-    ['<S-Tab>'] = function(fallback)
+    end, {"i", "s"}),
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
       else
         fallback()
       end
-    end
+    end, {"i", "s"}),
   },
 
   -- load sources, see: https://github.com/topics/nvim-cmp
   sources = {
     { name = 'nvim_lsp' },
-    { name = 'luasnip' },
+    { name = 'luasnip', option = {use_show_condition=false}},
     { name = 'path' },
     { name = 'buffer' },
     { name = 'spell' },
@@ -69,7 +73,7 @@ cmp.setup {
 
   formatting = {
     format = lspkind.cmp_format({
-      mode = 'symbol', -- show only symbol annotations
+      --mode = 'symbol', -- show only symbol annotations
       maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
 
       -- The function below will be called before any actual modifications from lspkind
