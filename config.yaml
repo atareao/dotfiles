@@ -70,7 +70,7 @@ dotfiles:
 variables:
   dotfilesdir: /datos/misdotfiles
 profiles:
-  gk55:
+  one:
     dotfiles:
     - f_rc.conf
     - f_face
