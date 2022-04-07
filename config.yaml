@@ -67,6 +67,9 @@ dotfiles:
   f_betterlockscreen@.service:
     src: config/systemd/user/betterlockscreen@.service
     dst: ~/.config/systemd/user/betterlockscreen@.service
+  f_config.yaml:
+    src: config/efm-langserver/config.yaml
+    dst: ~/.config/efm-langserver/config.yaml
 variables:
   dotfilesdir: /datos/misdotfiles
 profiles:
@@ -92,6 +95,7 @@ profiles:
     - f_backup.service
     - f_backup.timer
     - f_betterlockscreen@.service
+    - f_config.yaml
   raspiarch:
     dotfiles:
     - f_rc.conf
