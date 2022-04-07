@@ -70,6 +70,9 @@ dotfiles:
   f_config.yaml:
     src: config/efm-langserver/config.yaml
     dst: ~/.config/efm-langserver/config.yaml
+  f_dnoterc:
+    src: config/dnote/dnoterc
+    dst: ~/.config/dnote/dnoterc
 variables:
   dotfilesdir: /datos/misdotfiles
 profiles:
@@ -96,6 +99,7 @@ profiles:
     - f_backup.timer
     - f_betterlockscreen@.service
     - f_config.yaml
+    - f_dnoterc
   raspiarch:
     dotfiles:
     - f_rc.conf
