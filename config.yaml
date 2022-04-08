@@ -73,6 +73,12 @@ dotfiles:
   f_dnoterc:
     src: config/dnote/dnoterc
     dst: ~/.config/dnote/dnoterc
+  f_rofimoji.rc:
+    src: config/rofimoji.rc
+    dst: ~/.config/rofimoji.rc
+  f_fonts.conf:
+    src: config/fontconfig/fonts.conf
+    dst: ~/.config/fontconfig/fonts.conf
 variables:
   dotfilesdir: /datos/misdotfiles
 profiles:
@@ -100,6 +106,8 @@ profiles:
     - f_betterlockscreen@.service
     - f_config.yaml
     - f_dnoterc
+    - f_rofimoji.rc
+    - f_fonts.conf
   raspiarch:
     dotfiles:
     - f_rc.conf
