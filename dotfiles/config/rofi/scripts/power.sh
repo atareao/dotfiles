@@ -1,39 +1,35 @@
 #!/bin/bash
 
-apagar="Apagar"
-reiniciar="Reiniciar"
-suspender="Suspender"
+apagar=" Apagar"
+reiniciar=" Reiniciar"
+suspender=" Suspender"
 salvapantallas="Salvapantallas"
-bloquear="Bloquear"
-logout="Cerrar sesión"
+bloquear=" Bloquear"
+logout=" Cerrar sesión"
 
 options="${apagar}\n${reiniciar}\n${suspender}\n${salvapantallas}\n${bloquear}"
-ans=$(echo -e $options | rofi -p "Selecciona:" -dmenu)
+ans=$(echo -e $options | rofi -p "Elige:" -dmenu)
 rs=$?
 if [ $rs -eq 0 ]
 then
-    echo $ans
+    echo "$ans"
     case "$ans" in
-        $apagar)
-            bus-send --system --print-reply --dest=org.freedesktop.login1 \
-            /org/freedesktop/login1 "org.freedesktop.login1.Manager.PowerOff" \
-            boolean:true
+        "$apagar")
+            systemctl poweroff
             ;;
-        $reiniciar)
-            dbus-send --system --print-reply --dest=org.freedesktop.login1 \
-            /org/freedesktop/login1 "org.freedesktop.login1.Manager.Reboot" \
-            boolean:true
+        "$reiniciar")
+            systemctl reboot
             ;;
-        $suspender)
+        "$suspender")
             systemctl suspend
             ;;
-        $salvapantallas)
-            gnome-screensaver-command --activate
+        "$salvapantallas")
+			betterlockscreen
             ;;
-        $bloquear)
-            gnome-screensaver-command --lock
+        "$bloquear")
+			betterlockscreen -l
             ;;
-        $logout)
+        "$logout")
             bspc quit
             ;;
     esac

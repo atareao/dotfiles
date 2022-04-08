@@ -73,11 +73,6 @@ map('n', '<leader>zz', ':lua require(\'telekasten\').follow_link()<CR>', default
 
 map('n', '<leader>tf', ':Telescope file_browser<CR>', default_opts)
 map('n', '<leader>ts', ':Telescope symbols<CR>', default_opts)
-map('n', '<leader>tg', ':Telescope git_files<CR>', default_opts)
-map('n', '<leader>tb', ':Telescope buffers<CR>', default_opts)
-map('n', '<leader>th', ':Telescope help_tags<CR>', default_opts)
-map('n', '<leader>ff', ':Telescope find_files<CR>', default_opts)
-map('n', '<leader>fg', ':Telescope live_grep<CR>', default_opts)
 
 -- on hesitation, bring up the panel
 map('n', '<leader>z', ':lua require(\'telekasten\').panel()<CR>', default_opts)

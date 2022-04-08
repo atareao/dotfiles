@@ -125,4 +125,3 @@ export BH_URL=https://bashhub.territoriolinux.es
 if [ -f ~/.bashhub/bashhub.zsh ]; then
     source ~/.bashhub/bashhub.zsh
 fi
-
