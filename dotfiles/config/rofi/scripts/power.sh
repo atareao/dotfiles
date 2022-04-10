@@ -7,12 +7,11 @@ salvapantallas="Salvapantallas"
 bloquear=" Bloquear"
 logout=" Cerrar sesión"
 
-options="${apagar}\n${reiniciar}\n${suspender}\n${salvapantallas}\n${bloquear}"
-ans=$(echo -e $options | rofi -p "Elige:" -dmenu)
+OPTIONS="${apagar}\n${reiniciar}\n${suspender}\n${salvapantallas}\n${bloquear}\n${logout}"
+ans=$(echo -e "${OPTIONS}" | rofi -p "Elige:" -dmenu)
 rs=$?
 if [ $rs -eq 0 ]
 then
-    echo "$ans"
     case "$ans" in
         "$apagar")
             systemctl poweroff

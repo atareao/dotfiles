@@ -79,6 +79,15 @@ dotfiles:
   f_fonts.conf:
     src: config/fontconfig/fonts.conf
     dst: ~/.config/fontconfig/fonts.conf
+  f_default.pa:
+    src: config/pulse/default.pa
+    dst: ~/.config/pulse/default.pa
+  d_basic:
+    src: config/obs-studio/basic
+    dst: ~/.config/obs-studio/basic
+  f_global.ini:
+    src: config/obs-studio/global.ini
+    dst: ~/.config/obs-studio/global.ini
 variables:
   dotfilesdir: /datos/misdotfiles
 profiles:
@@ -108,6 +117,9 @@ profiles:
     - f_dnoterc
     - f_rofimoji.rc
     - f_fonts.conf
+    - f_default.pa
+    - d_basic
+    - f_global.ini
   raspiarch:
     dotfiles:
     - f_rc.conf
