@@ -4,31 +4,31 @@
 matches:
   - trigger: ;mail
     replace: lorenzo.carbonell.cerezo@gmail.com
-  - trigger: ;ja
-    replace: 😂😂😂😂😂😂
-  - trigger: ;oh
-    replace: 😱
-  - trigger: ;caca
-    replace: 💩
-  - trigger: ;uhm
-    replace: 🤔
-  - trigger: ;ssh
-    replace: 🤫
-  - trigger: ;zzz
-    replace: 🥱 😴
-  - trigger: ;espanso
-    replace: Hi there!!!
-  - trigger: ;fix
-    replace: 🐛
-  - trigger: ;feature
-    replace: ✨
-  - trigger: ;update
-    replace: ⚡️
-  - trigger: ;doc
-    replace: 📚
-  - trigger: ;ic
+  - trigger: ";ja"
+    replace: "😂😂😂😂😂😂"
+  - trigger: ";oh"
+    replace: "😱"
+  - trigger: ";caca"
+    replace: "💩"
+  - trigger: ";uhm"
+    replace: "🤔"
+  - trigger: ";ssh"
+    replace: "🤫"
+  - trigger: ";zzz"
+    replace: "🥱 😴"
+  - trigger: ";espanso"
+    replace: "Hi there!!!"
+  - trigger: ";fix"
+    replace: "🐛"
+  - trigger: ";feature"
+    replace: "✨"
+  - trigger: ";update"
+    replace: "⚡️"
+  - trigger: ";doc"
+    replace: "📚"
+  - trigger: ";ic"
     replace: "`$|$`"
-  - trigger: ;fecha
+  - trigger: ";fecha"
     replace: "{{mydate}}"
     vars:
       - name: mydate

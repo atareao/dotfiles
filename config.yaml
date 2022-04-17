@@ -88,6 +88,9 @@ dotfiles:
   f_global.ini:
     src: config/obs-studio/global.ini
     dst: ~/.config/obs-studio/global.ini
+  f_starship.toml:
+    src: config/starship/starship.toml
+    dst: ~/.config/starship/starship.toml
 variables:
   dotfilesdir: /datos/misdotfiles
 profiles:
@@ -120,6 +123,7 @@ profiles:
     - f_default.pa
     - d_basic
     - f_global.ini
+    - f_starship.toml
   raspiarch:
     dotfiles:
     - f_rc.conf
