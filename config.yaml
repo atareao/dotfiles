@@ -91,6 +91,9 @@ dotfiles:
   f_starship.toml:
     src: config/starship/starship.toml
     dst: ~/.config/starship/starship.toml
+  d_sway:
+    src: config/sway
+    dst: ~/.config/sway
 variables:
   dotfilesdir: /datos/misdotfiles
 profiles:
@@ -124,6 +127,7 @@ profiles:
     - d_basic
     - f_global.ini
     - f_starship.toml
+    - d_sway
   raspiarch:
     dotfiles:
     - f_rc.conf
