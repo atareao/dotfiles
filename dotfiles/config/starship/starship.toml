@@ -11,19 +11,22 @@
 
 format = """
 [](#9A348E)\
+$sudo\
 $username\
 [](bg:#DA627D fg:#9A348E)\
 $directory\
 [](fg:#DA627D bg:#FCA17D)\
+$git_metrics\
+$git_commit\
 $git_branch\
 $git_status\
 [](fg:#FCA17D bg:#86BBD8)\
-$nodejs\
 $php\
 $docker_context\
 $python\
 $rust\
 [](fg:#86BBD8 bg:#33658A)\
+$character\
 $time\
 [ ](fg:#33658A)\
 """
@@ -37,6 +40,11 @@ show_always = true
 style_user = "bg:#9A348E"
 style_root = "bg:#9A348E"
 format = '[$user ]($style)'
+
+[sudo]
+style = "bold green bg:#9A348E"
+symbol = "👩 "
+disabled = false
 
 [directory]
 style = "bg:#DA627D"
@@ -57,19 +65,37 @@ truncation_symbol = "…/"
 # So either put "Important Documents" before "Documents" or use the substituted version:
 # "Important  " = "  "
 
+[git_commit]
+commit_hash_length = 4
+tag_symbol = "🔖 "
+
 [git_branch]
-symbol = ""
+symbol = "🌱 "
 style = "bg:#FCA17D"
 format = '[[ $symbol $branch ](bg:#FCA17D)]($style)'
+truncation_length = 4
+truncation_symbol = ""
+ignore_branches = ["master", "main"]
 
 [git_status]
 style = "bg:#FCA17D"
-format = '[[($all_status$ahead_behind )](bg:#FCA17D)]($style)'
+format = '[[( $all_status$ahead_behind )](bg:#FCA17D)]($style)'
+conflicted = "🏳"
+ahead = "🏎💨"
+behind = "😰"
+diverged = "😵"
+up_to_date = "✓"
+untracked = "🤷"
+stashed = "📦"
+modified = "📝"
+staged = '[++\($count\)](green)'
+renamed = "👅"
+deleted = "🗑"
 
-[nodejs]
-symbol = ""
-style = "bg:#86BBD8"
-format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
+[git_metrics]
+added_style = "bold blue"
+format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+
 
 [rust]
 symbol = ""
@@ -81,4 +107,9 @@ disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#33658A"
 format = '[[ ♥ $time ](bg:#33658A)]($style)'
+
+[character]
+format = '[[ $symbol ](bg:#33658A)]($style)'
+success_symbol = "[✓](bold green bg:#33658A)"
+error_symbol = "[✗](bold red bg:#33658A)"
 
