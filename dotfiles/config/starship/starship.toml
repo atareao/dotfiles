@@ -98,7 +98,7 @@ format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
 
 
 [rust]
-symbol = ""
+symbol = "🦀"
 style = "bg:#86BBD8"
 format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 
@@ -106,7 +106,7 @@ format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#33658A"
-format = '[[ ♥ $time ](bg:#33658A)]($style)'
+format = '[[ 🐧 $time ](bg:#33658A)]($style)'
 
 [character]
 format = '[[ $symbol ](bg:#33658A)]($style)'
