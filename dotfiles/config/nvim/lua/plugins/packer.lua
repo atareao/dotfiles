@@ -145,6 +145,9 @@ return require('packer').startup(function(use)
   use 'mfussenegger/nvim-dap'
   use 'rcarriga/nvim-dap-ui'
 
+  use 'norcalli/nvim-colorizer.lua'
+  require'colorizer'.setup()
+
   if packer_bootstrap then
     require('packer').sync()
   end

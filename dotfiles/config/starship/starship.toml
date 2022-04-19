@@ -10,25 +10,25 @@
 #disabled = true
 
 format = """
-[](#9A348E)\
-$sudo\
+[](fg:#94348E)\
 $username\
-[](bg:#DA627D fg:#9A348E)\
+$sudo\
 $directory\
-[](fg:#DA627D bg:#FCA17D)\
+(↓ Source control - for right side ↓)\
 $git_metrics\
 $git_commit\
 $git_branch\
 $git_status\
-[](fg:#FCA17D bg:#86BBD8)\
-$php\
+(↑ Source control - for right side ↑)\
+(↓ Toolchain version modules ↓)\
 $docker_context\
+$php\
 $python\
 $rust\
-[](fg:#86BBD8 bg:#33658A)\
+(↓ Toolchain version modules ↓)\
 $character\
 $time\
-[ ](fg:#33658A)\
+[ ](fg:#464347)\
 """
 
 # Disable the blank line at the start of the prompt
@@ -37,9 +37,9 @@ $time\
 # You can also replace your username with a neat symbol like  to save some space
 [username]
 show_always = true
-style_user = "bg:#9A348E"
-style_root = "bg:#9A348E"
-format = '[$user ]($style)'
+style_root = "bold bg:#9A348E fg:#FF5511"
+style_user = "bg:#9A348E fg:#EEEEEE"
+format = "[[ ](bg:#9A348E fg:#464347)$user[](bg:#464347 fg:#9A348E)]($style)"
 
 [sudo]
 style = "bold green bg:#9A348E"
@@ -48,9 +48,9 @@ disabled = false
 
 [directory]
 style = "bg:#DA627D"
-format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
+format = "[[](bg:#DA627D fg:#464347)$path[](bg:#464347 fg:#DA627D)]($style)"
 
 # Here is how you can shorten some long paths by text replacement
 # similar to mapped_locations in Oh My Posh:
@@ -78,25 +78,32 @@ truncation_symbol = ""
 ignore_branches = ["master", "main"]
 
 [git_status]
-style = "bg:#FCA17D"
-format = '[[( $all_status$ahead_behind )](bg:#FCA17D)]($style)'
+style = "bg:#FCA17D fg:#fff"
 conflicted = "🏳"
-ahead = "🏎💨"
-behind = "😰"
-diverged = "😵"
-up_to_date = "✓"
-untracked = "🤷"
-stashed = "📦"
-modified = "📝"
-staged = '[++\($count\)](green)'
-renamed = "👅"
-deleted = "🗑"
+ahead = "🏎💨 ${count}"
+behind = "😰 ${count}"
+diverged = "😵 ${count}"
+up_to_date = "✓ ${count}"
+untracked = "🤷 ${count}"
+stashed = "📦 ${count}"
+modified = "📝 ${count}"
+staged = '[++\($count\)](green bg:#FCA17D)'
+renamed = "👅 ${count}"
+deleted = "🗑 ${count}"
+format = "[[](bg:#FCA17D fg:#464347)[( $all_status$ahead_behind )](bold bg:#FCA17D)[](bg:#464347 fg:#FCA17D)]($style)"
 
 [git_metrics]
-added_style = "bold blue"
-format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
+added_style = "bold blue bg:#FCA17D"
+format = '[$added]($added_style)/[-$deleted]($deleted_style)'
 
-
+[python]
+# disabled = true
+symbol = " "
+style = "bg:#EBD45B fg:#111111"
+# pyenv_version_name = true
+pyenv_prefix = "pyenv "
+python_binary = "python3"
+format = '[[](fg:#464347 bg:#EBD45B)$symbol$pyenv_prefix$version(\($virtualenv\))[](bg:#464347 fg:#EBD45B)]($style)'
 [rust]
 symbol = "🦀"
 style = "bg:#86BBD8"
@@ -106,10 +113,10 @@ format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
 disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#33658A"
-format = '[[ 🐧 $time ](bg:#33658A)]($style)'
+format = '[[](fg:#464347 bg:#33658A)[ 🐧 $time ](bg:#33658A)[](bg:#464347 fg:#33658A)]($style)'
 
 [character]
-format = '[[ $symbol ](bg:#33658A)]($style)'
 success_symbol = "[✓](bold green bg:#33658A)"
 error_symbol = "[✗](bold red bg:#33658A)"
+format = '[[](fg:#464347 bg:#33658A)[ $symbol ](bg:#33658A)[](bg:#464347 fg:#33658A)]($style)'
 
