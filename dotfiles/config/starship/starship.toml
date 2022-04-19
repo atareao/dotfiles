@@ -10,7 +10,7 @@
 #disabled = true
 
 format = """
-[](fg:#94348E)\
+[](fg:#464347)\
 $username\
 $sudo\
 $directory\
@@ -26,9 +26,15 @@ $php\
 $python\
 $rust\
 (↓ Toolchain version modules ↓)\
-$character\
+(↓ on input line ↓)\
 $time\
-[ ](fg:#464347)\
+[](fg:#464347)\
+$line_break\
+[](fg:#464347)\
+$jobs\
+$cmd_duration\
+$status\
+$character
 """
 
 # Disable the blank line at the start of the prompt
@@ -39,15 +45,24 @@ $time\
 show_always = true
 style_root = "bold bg:#9A348E fg:#FF5511"
 style_user = "bg:#9A348E fg:#EEEEEE"
-format = "[[ ](bg:#9A348E fg:#464347)$user[](bg:#464347 fg:#9A348E)]($style)"
+format = "[[](bg:#9A348E fg:#464347)$user[](bg:#464347 fg:#9A348E)]($style)"
 
 [sudo]
 style = "bold green bg:#9A348E"
 symbol = "👩 "
 disabled = false
 
+[cmd_duration]
+# disabled = true
+style = "bg:#464347 fg:#FBDE2D"
+min_time = 2_000
+show_milliseconds = true
+show_notifications = false
+min_time_to_notify = 45_000
+format = "[ 祥$duration]($style)"
+
 [directory]
-style = "bg:#DA627D"
+style = "bg:#DA627D fg:#111111"
 truncation_length = 3
 truncation_symbol = "…/"
 format = "[[](bg:#DA627D fg:#464347)$path[](bg:#464347 fg:#DA627D)]($style)"
@@ -70,15 +85,15 @@ commit_hash_length = 4
 tag_symbol = "🔖 "
 
 [git_branch]
-symbol = "🌱 "
-style = "bg:#FCA17D"
-format = '[[ $symbol $branch ](bg:#FCA17D)]($style)'
+symbol = "🌱"
+style = "bg:#FCA17D fg:#111111"
 truncation_length = 4
 truncation_symbol = ""
 ignore_branches = ["master", "main"]
+format = "[[](bg:#FCA17D fg:#464347)( $symbol$branch )[](bg:#464347 fg:#FCA17D)]($style)"
 
 [git_status]
-style = "bg:#FCA17D fg:#fff"
+style = "bg:#FCA17D fg:#111111"
 conflicted = "🏳"
 ahead = "🏎💨 ${count}"
 behind = "😰 ${count}"
@@ -90,11 +105,22 @@ modified = "📝 ${count}"
 staged = '[++\($count\)](green bg:#FCA17D)'
 renamed = "👅 ${count}"
 deleted = "🗑 ${count}"
-format = "[[](bg:#FCA17D fg:#464347)[( $all_status$ahead_behind )](bold bg:#FCA17D)[](bg:#464347 fg:#FCA17D)]($style)"
+format = "[[](bg:#FCA17D fg:#464347)( $all_status$ahead_behind )[](bg:#464347 fg:#FCA17D)]($style)"
 
 [git_metrics]
 added_style = "bold blue bg:#FCA17D"
 format = '[$added]($added_style)/[-$deleted]($deleted_style)'
+
+[jobs]
+# disabled = true
+symbol = "  "
+style = "bold bg:#464347 fg:#FFA200"
+# threshold = 1
+format = "[$symbol$number]($style)"
+
+
+[line_break]
+disabled = false
 
 [python]
 # disabled = true
@@ -104,19 +130,27 @@ style = "bg:#EBD45B fg:#111111"
 pyenv_prefix = "pyenv "
 python_binary = "python3"
 format = '[[](fg:#464347 bg:#EBD45B)$symbol$pyenv_prefix$version(\($virtualenv\))[](bg:#464347 fg:#EBD45B)]($style)'
+
 [rust]
-symbol = "🦀"
-style = "bg:#86BBD8"
-format = '[[ $symbol ($version) ](bg:#86BBD8)]($style)'
+symbol = "🦀 "
+style = "bg:#A72145 fg:#EEEEEE"
+format = "[[](bg:#A72145 fg:#464347)( $symbol$version )[](bg:#464347 fg:#A72145)]($style)"
+
+[status]
+# disabled = false
+symbol = ""
+style = "bg:#464347 fg:#ff3322"
+format = "[$symbol$status]($style)"
 
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
-style = "bg:#33658A"
-format = '[[](fg:#464347 bg:#33658A)[ 🐧 $time ](bg:#33658A)[](bg:#464347 fg:#33658A)]($style)'
+style = "bg:#33658A fg:#111111"
+format = '[[](fg:#464347 bg:#33658A) 🐧 $time [](bg:#464347 fg:#33658A)]($style)'
 
 [character]
-success_symbol = "[✓](bold green bg:#33658A)"
-error_symbol = "[✗](bold red bg:#33658A)"
-format = '[[](fg:#464347 bg:#33658A)[ $symbol ](bg:#33658A)[](bg:#464347 fg:#33658A)]($style)'
+success_symbol = "[[](bg:#AFD700 fg:#464347)](fg:#AFD700)"
+error_symbol = "[[](bg:#ff3322 fg:#464347)](fg:#ff3322)"
+vicmd_symbol = "[[](bg:#6f6a70 fg:#464347)[](bg:#464347 fg:#6f6a70)](bold bg:#6f6a70 fg:#ff3322)"
+format = "[[](bg:#464347)$symbol ]($style)"
 
