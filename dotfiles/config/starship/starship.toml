@@ -7,11 +7,10 @@
 
 # Disable the package module, hiding it from the prompt completely
 #[package]
-#disabled = true
+#disabled = true
 
 format = """
-[](fg:#464347)\
-$username\
+[](bg:#464347 fg:#625d63)\
 $sudo\
 $directory\
 (↓ Source control - for right side ↓)\
@@ -30,7 +29,7 @@ $rust\
 $time\
 [](fg:#464347)\
 $line_break\
-[](fg:#464347)\
+[](bg:#464347 fg:#625d63)\
 $jobs\
 $cmd_duration\
 $status\
@@ -54,12 +53,12 @@ disabled = false
 
 [cmd_duration]
 # disabled = true
-style = "bg:#464347 fg:#FBDE2D"
+style = "bg:#625d63 fg:#FBDE2D"
 min_time = 2_000
 show_milliseconds = true
 show_notifications = false
 min_time_to_notify = 45_000
-format = "[ 祥$duration]($style)"
+format = "[[](bg:#625d63 fg:#464347) 祥$duration[](bg:#464347 fg:#625d63)]($style)"
 
 [directory]
 style = "bg:#DA627D fg:#111111"
@@ -114,7 +113,7 @@ format = '[$added]($added_style)/[-$deleted]($deleted_style)'
 [jobs]
 # disabled = true
 symbol = "  "
-style = "bold bg:#464347 fg:#FFA200"
+style = "bold bg:#625d63 fg:#FFA200"
 # threshold = 1
 format = "[$symbol$number]($style)"
 
