@@ -58,7 +58,7 @@ min_time = 2_000
 show_milliseconds = true
 show_notifications = false
 min_time_to_notify = 45_000
-format = "[[](bg:#625d63 fg:#464347) 祥$duration[](bg:#464347 fg:#625d63)]($style)"
+format = "[[](bg:#625d63 fg:#464347) ⏱️ $duration[](bg:#464347 fg:#625d63)]($style)"
 
 [directory]
 style = "bg:#DA627D fg:#111111"

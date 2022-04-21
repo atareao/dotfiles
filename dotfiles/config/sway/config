@@ -30,7 +30,7 @@ set $term kitty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu "rofi -combi-modi drun,window,ssh -show combi -modi combi -matching fuzzy"
+set $menu "/bin/bash ~/.config/sway/scripts/rofi.sh"
 
 gaps inner 10
 gaps outer 10
@@ -121,7 +121,8 @@ exec_always python ${HOME}/.config/sway/scripts/autoname-workspaces.py
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec wlogout
+    #bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
