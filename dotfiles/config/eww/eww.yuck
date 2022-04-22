@@ -1,0 +1,91 @@
+(defvar workspace "1")
+(defwidget bar []
+  (centerbox :orientation "h"
+    (workspaces)
+    (music)
+    (sidestuff)))
+
+(defwidget sidestuff []
+  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
+    (metric :label "🔊"
+            :value volume
+            :onchange "amixer -D pulse sset Master {}%")
+    (metric :label ""
+            :value {EWW_RAM.used_mem_perc}
+            :onchange "")
+    (metric :label "💾"
+            :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
+            :onchange "")
+    time))
+
+(defwidget workspaces []
+  (box :class "workspaces"
+       :orientation "h"
+       :space-evenly true
+       :halign "start"
+       :spacing 10
+    (button :class {workspace == "1" ? "active" : "inactive"}
+            :onclick "python ~/.config/sway/scripts/change-to-workspace.py 1" 1)
+    (button :class {workspace == "2" ? "active" : "inactive"}
+            :onclick "python ~/.config/sway/scripts/change-to-workspace.py 2" 2)
+    (button :class {workspace == "3" ? "active" : "inactive"}
+            :onclick "python ~/.config/sway/scripts/change-to-workspace.py 3" 3)
+    (button :class {workspace == "4" ? "active" : "inactive"}
+            :onclick "python ~/.config/sway/scripts/change-to-workspace.py 4" 4)
+    (button :class {workspace == "5" ? "active" : "inactive"}
+            :onclick "python ~/.config/sway/scripts/change-to-workspace.py 5" 5)
+    (button :class {workspace == "6" ? "active" : "inactive"}
+            :onclick "python ~/.config/sway/scripts/change-to-workspace.py 6" 6)
+    (button :class {workspace == "7" ? "active" : "inactive"}
+            :onclick "python ~/.config/sway/scripts/change-to-workspace.py 7" 7)
+    (button :class {workspace == "8" ? "active" : "inactive"}
+            :onclick "python ~/.config/sway/scripts/change-to-workspace.py 8" 8)
+    (button :class {workspace == "9" ? "active" : "inactive"}
+            :onclick "python ~/.config/sway/scripts/change-to-workspace.py 9" 9)
+    (button :class {workspace == "0" ? "active" : "inactive"}
+            :onclick "python ~/.config/sway/scripts/change-to-workspace.py 0" 0)
+    )
+  )
+
+(defwidget music []
+  (box :class "music"
+       :orientation "h"
+       :space-evenly false
+       :halign "center"
+    {music != "" ? "🎵${music}" : ""}))
+
+
+(defwidget metric [label value onchange]
+  (box :orientation "h"
+       :class "metric"
+       :space-evenly false
+    (box :class "label" label)
+    (scale :min 0
+           :max 101
+           :active {onchange != ""}
+           :value value
+           :onchange onchange)))
+
+
+
+(deflisten music :initial ""
+  "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
+
+(defpoll volume :interval "1s"
+  "scripts/getvol")
+
+(defpoll time :interval "10s"
+  "date '+%H:%M %b %d, %Y'")
+
+(defwindow bar
+  :monitor 1
+  :stacing "overlay"
+  :exclusive true
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "100%"
+                      :height "10px"
+                      :anchor "top center")
+  :reserve (struts :side "top" :distance "5px")
+  (bar))
+
