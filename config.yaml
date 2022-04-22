@@ -94,6 +94,9 @@ dotfiles:
   d_sway:
     src: config/sway
     dst: ~/.config/sway
+  d_eww:
+    src: config/eww
+    dst: ~/.config/eww
 variables:
   dotfilesdir: /datos/misdotfiles
 profiles:
@@ -128,6 +131,7 @@ profiles:
     - f_global.ini
     - f_starship.toml
     - d_sway
+    - d_eww
   raspiarch:
     dotfiles:
     - f_rc.conf
