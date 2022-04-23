@@ -29,10 +29,12 @@
 # transparency strength in range of 0…1 or use the command line argument -o.
 
 import argparse
+from math import sin
 import i3ipc
 import signal
 import sys
 from functools import partial
+from tendo import singleton
 
 def on_window_focus(inactive_opacity, ipc, event):
     global prev_focused
@@ -63,6 +65,7 @@ def remove_opacity(ipc):
 
 
 if __name__ == "__main__":
+    me = singleton.SingleInstance()
     transparency_val = "0.80"
 
     parser = argparse.ArgumentParser(

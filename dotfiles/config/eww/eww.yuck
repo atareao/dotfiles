@@ -1,4 +1,11 @@
 (defvar workspace "1")
+(defvar calendarvisible "false")
+
+(defpoll time_poll :interval "1s" "date +%H:%M")
+(defpoll date_poll :interval "1m" "date +%d-%m-%y")
+(defpoll sink_volume :interval "1s" "scripts/get_sink_volume.sh")
+(defpoll source_volume :interval "1s" "scripts/get_source_volume.sh")
+
 (defwidget bar []
   (centerbox :orientation "h"
     (workspaces)
@@ -6,17 +13,25 @@
     (sidestuff)))
 
 (defwidget sidestuff []
-  (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
-    (metric :label "🔊"
-            :value volume
-            :onchange "amixer -D pulse sset Master {}%")
-    (metric :label ""
-            :value {EWW_RAM.used_mem_perc}
-            :onchange "")
-    (metric :label "💾"
-            :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
-            :onchange "")
-    time))
+    (box :class "sidestuff" :orientation "h" :space-evenly false :halign "end"
+        (metric :label "🎙️"
+                :value source_volume
+                :onchange "pactl -- set-source-volume @DEFAULT_SOURCE@ {}%")
+        (metric :label "🔊"
+                :value sink_volume
+                :onchange "pactl -- set-sink-volume @DEFAULT_SINK@ {}%")
+        (metric :label ""
+                :value {EWW_RAM.used_mem_perc}
+                :onchange "")
+        (metric :label "💾"
+                :value {round((1 - (EWW_DISK["/"].free / EWW_DISK["/"].total)) * 100, 0)}
+                :onchange "")
+        (datetime :label "🗓️"
+                  :value date_poll)
+        (datetime :label "⏰"
+                  :value time_poll)
+    )
+)
 
 (defwidget workspaces []
   (box :class "workspaces"
@@ -55,6 +70,15 @@
     {music != "" ? "🎵${music}" : ""}))
 
 
+(defwidget datetime [label value]
+    (box :orientation "h"
+         :class "metric"
+         :space-evenly false
+        (box :class "label" label)
+        (box :class "label" value)
+    )
+)
+
 (defwidget metric [label value onchange]
   (box :orientation "h"
        :class "metric"
@@ -66,16 +90,12 @@
            :value value
            :onchange onchange)))
 
-
-
 (deflisten music :initial ""
   "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
 
 (defpoll volume :interval "1s"
   "scripts/getvol")
 
-(defpoll time :interval "10s"
-  "date '+%H:%M %b %d, %Y'")
 
 (defwindow bar
   :monitor 1
@@ -89,3 +109,22 @@
   :reserve (struts :side "top" :distance "5px")
   (bar))
 
+
+
+(defwidget cal []
+    (box :class "cal-box"
+         :orientation "v"
+        (box :class "cal-inner-box"
+            (calendar :timeout 5)
+        )
+    )
+)
+
+;; Calendar Windows ;;
+(defwindow calendar
+    :monitor 1
+    :geometry (geometry :x "1630px"
+                        :y "10px"
+                        :width "270px"
+                        :height "60px")
+(cal))

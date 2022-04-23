@@ -27,9 +27,12 @@ import logging
 import re
 import signal
 import sys
+from tendo import singleton
+
 
 WINDOW_ICONS = {
     "firefox": "",
+    "telegramdesktop": "",
     "kitty": "🐱"
 }
 
@@ -41,13 +44,14 @@ def icon_for_window(window):
     if window.app_id is not None and len(window.app_id) > 0:
         name = window.app_id.lower()
     elif window.window_class is not None and len(window.window_class) > 0:
-        name =  window.window_class.lower()
+        name = window.window_class.lower()
 
     if name in WINDOW_ICONS:
         return WINDOW_ICONS[name]
 
     logging.info("No icon available for window with name: %s" % str(name))
     return DEFAULT_ICON
+
 
 def rename_workspaces(ipc):
     for workspace in ipc.get_tree().workspaces():
@@ -61,7 +65,7 @@ def rename_workspaces(ipc):
                 icon_tuple += (icon,)
         name_parts["icons"] = "  ".join(icon_tuple) + " "
         new_name = construct_workspace_name(name_parts)
-        ipc.command('rename workspace "%s" to "%s"' % (workspace.name, new_name))
+        ipc.command(f"rename workspace \"{workspace.name}\" to \"{new_name}\"")
 
 
 def undo_window_renaming(ipc):
@@ -69,14 +73,15 @@ def undo_window_renaming(ipc):
         name_parts = parse_workspace_name(workspace.name)
         name_parts["icons"] = None
         new_name = construct_workspace_name(name_parts)
-        ipc.command('rename workspace "%s" to "%s"' % (workspace.name, new_name))
+        ipc.command(f"rename workspace \"{workspace.name}\" to \"{new_name}\"")
     ipc.main_quit()
     sys.exit(0)
 
 
 def parse_workspace_name(name):
     return re.match(
-        "(?P<num>[0-9]+):?(?P<shortname>\w+)? ?(?P<icons>.+)?", name
+        "(?P<num>[0-9]+):?(?P<shortname>\w+)? ?(?P<icons>.+)?",
+        name
     ).groupdict()
 
 
@@ -95,14 +100,17 @@ def construct_workspace_name(parts):
 
 
 if __name__ == "__main__":
+    me = singleton.SingleInstance()
     parser = argparse.ArgumentParser(
-        description="This script automatically changes the workspace name in sway depending on your open applications."
+        description=("This script automatically changes the workspace name "
+                     "in sway depending on your open applications.")
     )
     parser.add_argument(
         "--duplicates",
         "-d",
         action="store_true",
-        help="Set it when you want an icon for each instance of the same application per workspace.",
+        help=("Set it when you want an icon for each instance of the same "
+              "application per workspace."),
     )
     parser.add_argument(
         "--logfile",
@@ -136,5 +144,3 @@ if __name__ == "__main__":
     rename_workspaces(ipc)
 
     ipc.main()
-
-

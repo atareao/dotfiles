@@ -7,3 +7,4 @@ inject_delay: 500
 preserve_clipboard: false
 keyboard_layout:
   layout: "es"
+search_shortcut: ALT+SHIFT+SPACE

@@ -179,9 +179,9 @@
         "icon-size": 20,
         "icon-theme": "Star",
         "tooltip-format": "{title}",
-        "on-click": "minimize",
-        "on-click-middle": "close",
-        "on-click-right": "activate"
+        "on-click": "activate",
+        "on-click-middle": "minimize",
+        "on-click-right": "close"
     }
 }
 ]

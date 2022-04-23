@@ -9,7 +9,7 @@ for_window [title="^.*"] border pixel 1, title_format "%class >> %title"
 
 # class                 border   backgr.  text    indicator child_border
 
-client.focused          #94a8a7  #94a8a7  #ffffff #cf7479   #94a8a7
+client.focused          #900000  #94a8a7  #ffffff #cf7479   #94a8a7
 client.focused_inactive #445767  #445767  #888888 #6c6e70   #445767
 client.unfocused        #2e3440  #2e3440  #888888 #474d51   #2e3440
 client.urgent           #2f343a  #900000  #ffffff #900000   #2f343a
@@ -78,6 +78,7 @@ exec_always dunst
 exec env RUST_BACKTRACE=1 RUST_LOG=swayr=debug swayrd > /tmp/swayrd.log 2>&1
 exec_always python ${HOME}/.config/sway/scripts/inactive-windows-transparency.py
 exec_always python ${HOME}/.config/sway/scripts/autoname-workspaces.py
+exec_always python ${HOME}/.config/sway/scripts/autotiling.py
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -108,7 +109,7 @@ exec_always python ${HOME}/.config/sway/scripts/autoname-workspaces.py
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym Alt+space exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -241,6 +242,7 @@ bindsym $mod+g exec env RUST_BACKTRACE=1 \
 
 # Custom bindings
 bindsym $mod+Control+e exec --no-startup-id /home/lorenzo/.local/bin/rofimoji
+bindsym Print exec grim -g "$(slurp)" - | wl-copy
 
 #
 # Status Bar:
