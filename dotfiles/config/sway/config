@@ -70,9 +70,9 @@ output * bg ~/Imágenes/potd.jpg fill
 # Example configuration:
 #
 exec swayidle -w \
-     timeout 300 'swaylock -f -c 000000' \
+     timeout 300 'bash ${HOME}/.config/swaylock/lock.sh 50' \
      timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-     before-sleep 'swaylock -f -c 000000'
+     before-sleep 'bash ${HOME}/.config/swaylock/lock.sh 50'
 
 exec_always dunst
 exec env RUST_BACKTRACE=1 RUST_LOG=swayr=debug swayrd > /tmp/swayrd.log 2>&1

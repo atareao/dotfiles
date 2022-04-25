@@ -36,7 +36,7 @@ WINDOW_ICONS = {
     "kitty": "🐱"
 }
 
-DEFAULT_ICON = "󰀏"
+DEFAULT_ICON = ""
 
 
 def icon_for_window(window):
