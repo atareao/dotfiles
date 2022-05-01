@@ -123,17 +123,22 @@ disabled = false
 
 [python]
 # disabled = true
-symbol = " "
+symbol = "  "
 style = "bg:#EBD45B fg:#111111"
 # pyenv_version_name = true
 pyenv_prefix = "pyenv "
 python_binary = "python3"
 format = '[[](fg:#464347 bg:#EBD45B)$symbol$pyenv_prefix$version(\($virtualenv\))[](bg:#464347 fg:#EBD45B)]($style)'
 
+[php]
+symbol = " 🐘 "
+style = "bg:#4D588E fg:#EEEEEE"
+format = "[[](bg:#4D588E fg:#464347)$symbol$version[](bg:#464347 fg:#4D588E)]($style)"
+
 [rust]
-symbol = "🦀 "
-style = "bg:#A72145 fg:#EEEEEE"
-format = "[[](bg:#A72145 fg:#464347)( $symbol$version )[](bg:#464347 fg:#A72145)]($style)"
+symbol = " 🦀 "
+style = "bg:#ef4a00 fg:#EEEEEE"
+format = "[[](bg:#ef4a00 fg:#464347)$symbol$version[](bg:#464347 fg:#ef4a00)]($style)"
 
 [status]
 # disabled = false
