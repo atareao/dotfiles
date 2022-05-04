@@ -1,0 +1,4 @@
+filter_class: kitty
+enable: true
+backend: Clipboard
+inject_delay: 1000
