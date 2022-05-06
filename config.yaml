@@ -103,6 +103,9 @@ dotfiles:
   d_swaylock:
     src: config/swaylock
     dst: ~/.config/swaylock
+  f_config:
+    src: config/cava/config
+    dst: ~/.config/cava/config
 variables:
   dotfilesdir: /datos/misdotfiles
 profiles:
@@ -140,6 +143,7 @@ profiles:
     - d_eww
     - d_waybar
     - d_swaylock
+    - f_config
   raspiarch:
     dotfiles:
     - f_rc.conf
