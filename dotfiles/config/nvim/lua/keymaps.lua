@@ -14,9 +14,6 @@ local cmd = vim.cmd
 -- clear search highlighting
 map('n', '<leader>c', ':nohl<CR>', default_opts)
 
--- map Esc to kk
-map('i', 'kk', '<Esc>', {noremap = true})
-
 -- don't use arrow keys
 map('', '<up>', '<nop>', {noremap = true})
 map('', '<down>', '<nop>', {noremap = true})
@@ -64,7 +61,8 @@ map('n', '<C-n>', ':Neotree toggle<CR>', default_opts)       -- open/close
 --map('n', '<leader>n', ':NvimTreeFindFile<CR>', default_opts) -- search file
 
 -- Vista tag-viewer
-map('n', '<C-m>', ':Vista!!<CR>', default_opts)   -- open/close
+map('n', '<leader>m', ':Vista!!<CR>', default_opts)   -- open/close
+map('i', '<leader>m', ':Vista!!<CR>', default_opts)   -- open/close
 
 map('n', '<leader>zf', ':lua require(\'telekasten\').find_notes()<CR>', default_opts)
 map('n', '<leader>zd', ':lua require(\'telekasten\').find_daily_notes()<CR>', default_opts)

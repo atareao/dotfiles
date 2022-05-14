@@ -137,8 +137,8 @@ format = "[[](bg:#4D588E fg:#464347)$symbol$version[](bg:#464347 fg:#4D588
 
 [rust]
 symbol = " 🦀 "
-style = "bg:#ef4a00 fg:#EEEEEE"
-format = "[[](bg:#ef4a00 fg:#464347)$symbol$version[](bg:#464347 fg:#ef4a00)]($style)"
+style = "bg:#ffb347 fg:#464347"
+format = "[[](bg:#ffb347 fg:#464347)$symbol$version[](bg:#464347 fg:#ffb347)]($style)"
 
 [status]
 # disabled = false
