@@ -67,6 +67,7 @@ return require('packer').startup(function(use)
 
   -- LSP
  use 'neovim/nvim-lspconfig'
+ use 'folke/lsp-colors.nvim'
  use {
     'folke/trouble.nvim',
     requires = {

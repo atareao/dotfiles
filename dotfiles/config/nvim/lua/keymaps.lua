@@ -61,8 +61,8 @@ map('n', '<C-n>', ':Neotree toggle<CR>', default_opts)       -- open/close
 --map('n', '<leader>n', ':NvimTreeFindFile<CR>', default_opts) -- search file
 
 -- Vista tag-viewer
-map('n', '<leader>m', ':Vista!!<CR>', default_opts)   -- open/close
-map('i', '<leader>m', ':Vista!!<CR>', default_opts)   -- open/close
+map('n', '<C-q>', ':Vista!!<CR>', default_opts)   -- open/close
+map('i', '<C-q>', ':Vista!!<CR>', default_opts)   -- open/close
 
 map('n', '<leader>zf', ':lua require(\'telekasten\').find_notes()<CR>', default_opts)
 map('n', '<leader>zd', ':lua require(\'telekasten\').find_daily_notes()<CR>', default_opts)
@@ -74,7 +74,6 @@ map('n', '<leader>ts', ':Telescope symbols<CR>', default_opts)
 
 -- on hesitation, bring up the panel
 map('n', '<leader>z', ':lua require(\'telekasten\').panel()<CR>', default_opts)
-
 map('n', '<C-s>', ':SidebarNvimToggle<CR>', default_opts)
 
 -- Trouble
