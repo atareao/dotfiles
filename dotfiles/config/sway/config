@@ -240,7 +240,7 @@ bindsym $mod+r mode "resize"
 bindsym $mod+g exec env RUST_BACKTRACE=1 \
     swayr switch-window >> /tmp/swayr.log 2>&1
 
-bindsym $mod+c exec bash ~/.config/sway/scripts/wl-color-picker.sh
+bindsym $mod+Control+c exec bash ~/.config/sway/scripts/wl-color-picker.sh
 
 # Custom bindings
 bindsym $mod+Control+e exec --no-startup-id /home/lorenzo/.local/bin/rofimoji
