@@ -106,6 +106,9 @@ dotfiles:
   f_config:
     src: config/cava/config
     dst: ~/.config/cava/config
+  f_zellij_config.yaml:
+    src: config/zellij/config.yaml
+    dst: ~/.config/zellij/config.yaml
 variables:
   dotfilesdir: /datos/misdotfiles
 profiles:
@@ -144,6 +147,7 @@ profiles:
     - d_waybar
     - d_swaylock
     - f_config
+    - f_zellij_config.yaml
   raspiarch:
     dotfiles:
     - f_rc.conf
