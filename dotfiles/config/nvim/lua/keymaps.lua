@@ -84,3 +84,32 @@ map("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", {silent = true, 
 map("n", "<leader>xl", "<cmd>Trouble loclist<cr>", {silent = true, noremap = true})
 map("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", {silent = true, noremap = true})
 map("n", "gR", "<cmd>Trouble lsp_references<cr>", {silent = true, noremap = true})
+
+-- dap
+map('n', '<leader>dc', '<cmd>lua require"dap".continue()<CR>', default_opts)
+map('n', '<leader>dsv', '<cmd>lua require"dap".step_over()<CR>', default_opts)
+map('n', '<leader>dsi', '<cmd>lua require"dap".step_into()<CR>', default_opts)
+map('n', '<leader>dso', '<cmd>lua require"dap".step_out()<CR>', default_opts)
+map('n', '<leader>dtb', '<cmd>lua require"dap".toggle_breakpoint()<CR>', default_opts)
+map('n', '<leader>dsbr', '<cmd>lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>', default_opts)
+map('n', '<leader>dsbm', '<cmd>lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>', default_opts)
+map('n', '<leader>dro', '<cmd>lua require"dap".repl.open()<CR>', default_opts)
+map('n', '<leader>drl', '<cmd>lua require"dap".repl.run_last()<CR>', default_opts)
+
+-- telescope-dap
+map('n', '<leader>dcc', '<cmd>lua require"telescope".extensions.dap.commands{}<CR>', default_opts)
+map('n', '<leader>dco', '<cmd>lua require"telescope".extensions.dap.configurations{}<CR>', default_opts)
+map('n', '<leader>dlb', '<cmd>lua require"telescope".extensions.dap.list_breakpoints{}<CR>', default_opts)
+map('n', '<leader>dv', '<cmd>lua require"telescope".extensions.dap.variables{}<CR>', default_opts)
+map('n', '<leader>df', '<cmd>lua require"telescope".extensions.dap.frames{}<CR>', default_opts)
+
+-- tabby
+vim.api.nvim_set_keymap("n", "<leader>ta", ":$tabnew<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>tc", ":tabclose<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>to", ":tabonly<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>tn", ":tabn<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<leader>tp", ":tabp<CR>", { noremap = true })
+-- move current tab to previous position
+vim.api.nvim_set_keymap("n", "<leader>tmp", ":-tabmove<CR>", { noremap = true })
+-- move current tab to next position
+vim.api.nvim_set_keymap("n", "<leader>tmn", ":+tabmove<CR>", { noremap = true })

@@ -124,6 +124,7 @@ return require('packer').startup(function(use)
   use 'nvim-telescope/telescope-symbols.nvim'
   use 'nvim-telescope/telescope-media-files.nvim'
   use 'nvim-telescope/telescope-file-browser.nvim'
+  use 'nvim-telescope/telescope-dap.nvim'
   use 'ibhagwan/fzf-lua'
 
   -- zettelkasten

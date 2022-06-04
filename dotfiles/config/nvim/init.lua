@@ -46,3 +46,5 @@ require('plugins/luasnip')
 --require('plugins/tabnine')
 require('plugins/trouble')
 require('plugins/nvim-dap-ui')
+
+require('dbg')
