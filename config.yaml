@@ -109,6 +109,9 @@ dotfiles:
   f_zellij_config.yaml:
     src: config/zellij/config.yaml
     dst: ~/.config/zellij/config.yaml
+  f_wezterm.lua:
+    src: config/wezterm/wezterm.lua
+    dst: ~/.config/wezterm/wezterm.lua
 variables:
   dotfilesdir: /datos/misdotfiles
 profiles:
@@ -148,6 +151,7 @@ profiles:
     - d_swaylock
     - f_config
     - f_zellij_config.yaml
+    - f_wezterm.lua
   raspiarch:
     dotfiles:
     - f_rc.conf
