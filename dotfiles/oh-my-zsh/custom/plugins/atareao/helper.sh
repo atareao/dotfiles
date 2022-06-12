@@ -1,12 +1,13 @@
 #!/bin/bash
-package=$(jq '.name' metadata.json)
-package=${package//\"/}
-version=$(jq '.version' metadata.json)
-uuid=$(jq '.uuid' metadata.json)
-uuid=${uuid//\"/}
 
 function translate()
 {
+    package=$(jq '.name' metadata.json)
+    package=${package//\"/}
+    version=$(jq '.version' metadata.json)
+    uuid=$(jq '.uuid' metadata.json)
+    uuid=${uuid//\"/}
+
     echo '==== Update translations ===='
     echo ''
     if [[ -f po/messages.pot ]];then
@@ -60,13 +61,15 @@ function compress()
     if [[ -f "${file}" ]];then
         rm "${file}"
     fi
-    zip -r --exclude=*.git* \
-           --exclude=*.vscode* \
-           --exclude=po/* \
-           --exclude=schemas/*.xml \
-           --exclude=screenshots/* \
+    zip -r --exclude=.git/\* \
+           --exclude=\*.vscode\* \
+           --exclude=po/\* \
+           --exclude=scripts/\* \
+           --exclude=schemas/\*.xml \
+           --exclude=screenshots/\* \
+           --exclude=.gitignore \
            --exclude=helper.sh \
-           "${file}" ./*
+           "${file}" .
 }
 
 function usage()
@@ -81,19 +84,22 @@ function usage()
     echo "    -z    compress directory"
 
 }
-if [[ $# -gt 0 ]]; then
-    case $1 in
-        -h) usage
-            ;;
-        -t) translate
-            ;;
-        -c) compile
-            ;;
-        -z) compress
-            ;;
-        * ) usage
-            ;;
-    esac
-else
-    usage
-fi
+function helpere()
+{
+    if [[ $# -gt 0 ]]; then
+        case $1 in
+            -h) usage
+                ;;
+            -t) translate
+                ;;
+            -c) compile
+                ;;
+            -z) compress
+                ;;
+            * ) usage
+                ;;
+        esac
+    else
+        usage
+    fi
+}

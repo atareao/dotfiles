@@ -10,3 +10,4 @@ source ${SCRIPTDIR}/toclip.sh
 source ${SCRIPTDIR}/helper_python.sh
 source ${SCRIPTDIR}/vcover.sh
 source ${SCRIPTDIR}/ipodcast.sh
+source ${SCRIPTDIR}/helper.sh
