@@ -1,4 +1,3 @@
-require('feline').setup({})
 local lsp = require('feline.providers.lsp')
 local vi_mode_utils = require('feline.providers.vi_mode')
 
@@ -383,5 +382,3 @@ require('feline').setup({
   components = components,
   force_inactive = force_inactive,
 })
-
-
