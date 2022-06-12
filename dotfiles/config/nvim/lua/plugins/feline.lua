@@ -306,6 +306,17 @@ components.active[3][6] = {
   },
   right_sep = ' '
 }
+-- WordCount
+components.active[3][7] = {
+  provider = function()
+    return ' ' .. tostring(vim.fn.wordcount().words)
+  end,
+  hl = {
+    fg = 'yellow',
+    bg = 'bg',
+  },
+  right_sep = ' '
+}
 -- lineInfo
 components.active[3][8] = {
   provider = 'position',
