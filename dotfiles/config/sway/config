@@ -25,7 +25,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term kitty
+set $term wezterm
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -216,7 +216,6 @@ exec_always python ${HOME}/.config/sway/scripts/autotiling.py
 # Resizing containers:
 #
 mode "resize" {
-    # left will shrink the containers width
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
@@ -240,7 +239,7 @@ bindsym $mod+r mode "resize"
 bindsym $mod+g exec env RUST_BACKTRACE=1 \
     swayr switch-window >> /tmp/swayr.log 2>&1
 
-bindsym $mod+Control+c exec bash ~/.config/sway/scripts/wl-color-picker.sh
+bindsym $mod+Control+p exec bash ~/.config/sway/scripts/wl-color-picker.sh
 
 # Custom bindings
 bindsym $mod+Control+e exec --no-startup-id /home/lorenzo/.local/bin/rofimoji
