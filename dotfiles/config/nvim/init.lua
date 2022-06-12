@@ -39,6 +39,8 @@ require('plugins/telescope-ui-select') --
 require('plugins/feline')              -- statusline
 require('plugins/tabby')               -- tabs
 
+require('plugins/telekasten')
+
 require('plugins/telescope-media-files')
 require('plugins/sidebar-nvim')
 require('plugins/ayu')
