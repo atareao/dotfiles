@@ -1,6 +1,7 @@
 local wezterm = require 'wezterm';
 return {
     enable_wayland = true,
+    window_background_opacity = 0.90,
     font = wezterm.font({
         family="JetBrains Mono",
         harfbuzz_features={"calt=1", "clig=1", "liga=1"}

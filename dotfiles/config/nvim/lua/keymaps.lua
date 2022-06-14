@@ -63,6 +63,7 @@ map('n', '<C-n>', ':Neotree toggle<CR>', default_opts)       -- open/close
 -- Vista tag-viewer
 map('n', '<C-q>', ':Vista!!<CR>', default_opts)   -- open/close
 map('i', '<C-q>', ':Vista!!<CR>', default_opts)   -- open/close
+map('n', '<leader>m', ':Vista!!<CR>', default_opts)
 
 map('n', '<leader>zf', ':lua require(\'telekasten\').find_notes()<CR>', default_opts)
 map('n', '<leader>zd', ':lua require(\'telekasten\').find_daily_notes()<CR>', default_opts)
