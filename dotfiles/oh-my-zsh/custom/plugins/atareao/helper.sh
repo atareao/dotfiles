@@ -65,7 +65,6 @@ function compress()
            --exclude=\*.vscode\* \
            --exclude=po/\* \
            --exclude=scripts/\* \
-           --exclude=schemas/\*.xml \
            --exclude=screenshots/\* \
            --exclude=.gitignore \
            --exclude=helper.sh \
