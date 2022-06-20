@@ -5,7 +5,7 @@
 # Read `man 5 sway` for a complete reference.
 
 # border & title.. Must be set to border pixel for gaps to work
-for_window [title="^.*"] border pixel 1, title_format "%class >> %title"
+for_window [title="^.*"] border pixel 4, title_format "%class >> %title"
 
 # class                 border   backgr.  text    indicator child_border
 
@@ -25,7 +25,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term wezterm
+set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -35,7 +35,7 @@ set $menu "/bin/bash ~/.config/sway/scripts/rofi.sh"
 gaps inner 10
 gaps outer 10
 smart_gaps on
-default_border pixel 2
+default_border pixel 4
 
 set $opacity 0.5
 

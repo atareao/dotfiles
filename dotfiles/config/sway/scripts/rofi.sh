@@ -21,6 +21,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+ROFIPID=$(pgrep rofi)
+if [[ -n $ROFIPID ]];then
+    kill "$ROFIPID"
+fi
+
 MON_NAME=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused==true) | .name')
 if [[ "${MON_NAME}" == "DP-1" ]]
 then
