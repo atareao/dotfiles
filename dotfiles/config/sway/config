@@ -5,11 +5,11 @@
 # Read `man 5 sway` for a complete reference.
 
 # border & title.. Must be set to border pixel for gaps to work
-for_window [title="^.*"] border pixel 4, title_format "%class >> %title"
+for_window [title="^.*"] border pixel 2, title_format "%class >> %title"
 
 # class                 border   backgr.  text    indicator child_border
 
-client.focused          #900000  #94a8a7  #ffffff #cf7479   #94a8a7
+client.focused          #900000  #94a8a7  #ffffff #cf7479   #cf7479
 client.focused_inactive #445767  #445767  #888888 #6c6e70   #445767
 client.unfocused        #2e3440  #2e3440  #888888 #474d51   #2e3440
 client.urgent           #2f343a  #900000  #ffffff #900000   #2f343a
