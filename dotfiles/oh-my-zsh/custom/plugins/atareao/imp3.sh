@@ -11,7 +11,7 @@ function imp3(){
     eyeD3 -P itunes-podcast --add "$MP3_FILE"
     eyeD3 -P itunes-podcast "$MP3_FILE"
     eyeD3 "$MP3_FILE"
-    title=$(head -n1 "${MD_FILE}")
+    title=$(grep "^# " "${MD_FILE}" | head -n1)
     title="${title:2}"
     track=$(basename "$(pwd)")
     track="${track:1}"
