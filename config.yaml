@@ -156,5 +156,6 @@ profiles:
     dotfiles:
     - f_rc.conf
     - d_nvim
+    - f_wezterm.lua
     variables:
       dotfilesdir: ~/dotfiles
