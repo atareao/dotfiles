@@ -1,4 +1,4 @@
-local home = "/data/notas"
+local home = "/data/atareao.es"
 
 require('telekasten').setup({
     home = home,

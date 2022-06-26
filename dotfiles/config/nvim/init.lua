@@ -18,35 +18,31 @@ Website: https://github.com/brainfucksec/neovim-lua
 -----------------------------------------------------------
 -- Import Lua modules
 -----------------------------------------------------------
-require('settings')                    -- settings
-require('keymaps')                     -- keymaps
-require('plugins/packer')              -- plugin manager
+require('settings')                      -- settings
+require('keymaps')                       -- keymaps
+require('plugins/packer')                -- plugin manager
 
---require('plugins/nvim-tree')           -- filebrowser
-require('plugins/neo-tree')           -- filebrowser
-require('plugins/indent-blankline')    -- indentation
+require('plugins/ayu')                   -- theme
+require('plugins/feline')                -- statusline
+--require('plugins/fzf')                   -- fuzzy
+require('plugins/gitsigns')              -- git decorations
+require('plugins/indent-blankline')      -- indentation
+require('plugins/luasnip')               -- snippets
+require('plugins/neo-tree')              -- filebrowser
+require('plugins/neogen')                -- documentation
+require('plugins/nvim-autopairs')        -- autopairs
+require('plugins/nvim-cmp')              -- autocomplete
+require('plugins/nvim-dap-ui')           -- debug
+require('plugins/nvim-lspconfig')        -- LSP settings
+require('plugins/nvim-treesitter')       -- tree-sitter interface
+require('plugins/rust-tools')            -- rust tools
+require('plugins/sidebar-nvim')          -- sidebar
+require('plugins/tabby')                 -- tabs
+require('plugins/telekasten')            -- zettelkasten
+require('plugins/telescope-media-files') -- telescope media files
+require('plugins/telescope-nvim')        -- telescope
+require('plugins/telescope-ui-select')   -- telescope select
+require('plugins/trouble')               -- errors manager
+require('plugins/vista')                 -- tag viewer
 
-require('plugins/nvim-cmp')            -- autocomplete
-require('plugins/nvim-autopairs')      -- autopairs
-require('plugins/nvim-lspconfig')      -- LSP settings
-require('plugins/vista')               -- tag viewer
-require('plugins/nvim-treesitter')     -- tree-sitter interface
-require('plugins/gitsigns')            -- git decorations
-require('plugins/rust-tools')          -- autocomplete
-require('plugins/telescope-nvim')      --
-require('plugins/telescope-ui-select') --
---require('plugins/lualine')           -- statusline
-require('plugins/feline')              -- statusline
-require('plugins/tabby')               -- tabs
-
-require('plugins/telekasten')
-
-require('plugins/telescope-media-files')
-require('plugins/sidebar-nvim')
-require('plugins/ayu')
-require('plugins/luasnip')
---require('plugins/tabnine')
-require('plugins/trouble')
-require('plugins/nvim-dap-ui')
-
-require('dbg')
+require('dbg')                           -- debug

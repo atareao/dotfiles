@@ -142,6 +142,14 @@ return require('packer').startup(function(use)
   -- help for git
   use 'kdheepak/lazygit.nvim'
 
+  -- documentation
+  use {
+    "danymat/neogen",
+    requires = "nvim-treesitter/nvim-treesitter",
+    -- Uncomment next line if you want to follow only stable versions
+    -- tag = "*"
+  }
+
   -- rust
   use 'simrat39/rust-tools.nvim'
   use 'mfussenegger/nvim-dap'

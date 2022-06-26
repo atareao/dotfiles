@@ -493,6 +493,22 @@ ls.snippets = {
 			t({ "", "\\end{itemize}" }),
 		}),
 	},
+    telekasten = {
+        s("trigger", t("Hola mundo")),
+        s("lor", sn(1, {
+ 	        t("basically just text "),
+ 	        i(1, "And an insertNode.")
+        })),
+        s("ic", {
+            t({"`"}), i(2),
+            t({""}), i(1),
+            t({"`"}), i(0),
+        }),
+        s("code", {
+            t({"```", ""}), i(1),
+            t({"```", ""}), i(0),
+        }),
+    },
     markdown = {
         s("trigger", t("Hola mundo")),
         s("lor", sn(1, {
