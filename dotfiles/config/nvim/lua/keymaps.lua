@@ -13,6 +13,8 @@ local cmd = vim.cmd
 
 -- clear search highlighting
 map('n', '<leader>c', ':nohl<CR>', default_opts)
+-- reload configuracion
+map('n', '<leader>r', ':source % <CR>', default_opts)
 
 -- don't use arrow keys
 map('', '<up>', '<nop>', {noremap = true})
