@@ -194,7 +194,29 @@ require "lspconfig".efm.setup {
     --    }
     --}
 }
-require "lspconfig".intelephense.setup({
+nvim_lsp.rust_analyzer.setup({
+    on_attach=on_attach,
+    settings = {
+        ["rust-analyzer"] = {
+            assist = {
+                importGranularity = "module",
+                importPrefix = "self",
+            },
+            cargo = {
+                loadOutDirsFromCheck = true
+            },
+            procMacro = {
+                enable = true
+            },
+            diagnostics = {
+              enable = true,
+              disabled = {"unresolved-proc-macro", "macro-error"},
+              enableExperimental = true,
+          },
+        }
+    }
+})
+nvim_lsp.intelephense.setup({
   settings = {
         intelephense = {
             stubs = {

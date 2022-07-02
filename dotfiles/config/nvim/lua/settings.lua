@@ -35,6 +35,8 @@ opt.smartcase = true          -- ignore lowercase for the whole pattern
 opt.linebreak = true          -- wrap on word boundary
 opt.conceallevel = 0
 opt.termguicolors = true
+opt.guifont = "JetBrainsMono Nerd Font"
+g.neovide_cursor_vfx_mode = "railgun"
 
 opt.list = true
 opt.listchars = 'tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»'
