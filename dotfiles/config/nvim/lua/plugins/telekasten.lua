@@ -1,4 +1,4 @@
-local home = "/data/atareao.es"
+local home = "/data/zn"
 
 require('telekasten').setup({
     home = home,
@@ -10,9 +10,9 @@ require('telekasten').setup({
     auto_set_filetype = true,
 
     -- dir names for special notes (absolute path or subdir name)
-    dailies      = home .. '/' .. 'diario',
-    weeklies     = home .. '/' .. 'semanal',
-    templates    = home .. '/' .. 'plantillas',
+    dailies      = home .. '/' .. 'diary',
+    weeklies     = home .. '/' .. 'weekly',
+    templates    = home .. '/' .. 'templates',
 
     -- image (sub)dir for pasting
     -- dir name (absolute path or subdir name)
@@ -27,9 +27,9 @@ require('telekasten').setup({
     -- "uuid" - Use uuid
     -- "uuid-title" - Prefix title by uuid
     -- "title-uuid" - Suffix title with uuid
-    new_note_filename = "title",
+    new_note_filename = "uuid",
     -- file uuid type ("rand" or input for os.date()")
-    uuid_type = "%Y%m%d%H%M",
+    uuid_type = "%Y%m%d%H%M%S",
     -- UUID separator
     uuid_sep = "-",
 
@@ -43,15 +43,15 @@ require('telekasten').setup({
 
     -- template for new notes (new_note, follow_link)
     -- set to `nil` or do not specify if you do not want a template
-    template_new_note = home .. '/' .. 'planillas/nota.md',
+    template_new_note = home .. '/' .. 'templates/note.md',
 
     -- template for newly created daily notes (goto_today)
     -- set to `nil` or do not specify if you do not want a template
-    template_new_daily = home .. '/' .. 'plantillas/diario.md',
+    template_new_daily = home .. '/' .. 'templates/diary.md',
 
     -- template for newly created weekly notes (goto_thisweek)
     -- set to `nil` or do not specify if you do not want a template
-    template_new_weekly= home .. '/' .. 'plantillas/semanal.md',
+    template_new_weekly= home .. '/' .. 'templates/weekly.md',
 
     -- image link style
     -- wiki:     ![[image name]]
