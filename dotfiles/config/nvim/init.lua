@@ -38,11 +38,11 @@ require('plugins/nvim-treesitter')       -- tree-sitter interface
 require('plugins/rust-tools')            -- rust tools
 require('plugins/sidebar-nvim')          -- sidebar
 require('plugins/tabby')                 -- tabs
-require('plugins/telekasten')            -- zettelkasten
 require('plugins/telescope-media-files') -- telescope media files
 require('plugins/telescope-nvim')        -- telescope
 require('plugins/telescope-ui-select')   -- telescope select
 require('plugins/trouble')               -- errors manager
 require('plugins/vista')                 -- tag viewer
+require('plugins/mkdnflow')              -- markdown flow
 
 require('dbg')                           -- debug

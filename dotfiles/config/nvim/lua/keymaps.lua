@@ -67,41 +67,10 @@ map('n', '<C-q>', ':Vista!!<CR>', default_opts)   -- open/close
 map('i', '<C-q>', ':Vista!!<CR>', default_opts)   -- open/close
 map('n', '<leader>m', ':Vista!!<CR>', default_opts)
 
-map('n', '<leader>zf', ':lua require(\'telekasten\').find_notes()<CR>', default_opts)
-map('n', '<leader>zd', ':lua require(\'telekasten\').find_daily_notes()<CR>', default_opts)
-map('n', '<leader>zg', ':lua require(\'telekasten\').search_notes()<CR>', default_opts)
-map('n', '<leader>zz', ':lua require(\'telekasten\').follow_link()<CR>', default_opts)
-map('n', '<leader>zn', ':lua require(\'telekasten\').goto_today()<CR>', default_opts)
-
-map('n', '<leader>zT', ':lua require(\'telekasten\').goto_today()<CR>', default_opts)
-map('n', '<leader>zW', ':lua require(\'telekasten\').goto_thisweek()<CR>', default_opts)
-map('n', '<leader>zw', ':lua require(\'telekasten\').find_weekly_notes()<CR>', default_opts)
-map('n', '<leader>zn', ':lua require(\'telekasten\').new_note()<CR>', default_opts)
-map('n', '<leader>zN', ':lua require(\'telekasten\').new_templated_note()<CR>', default_opts)
-map('n', '<leader>zy', ':lua require(\'telekasten\').yank_notelink()<CR>', default_opts)
-map('n', '<leader>zc', ':lua require(\'telekasten\').show_calendar()<CR>', default_opts)
-map('n', '<leader>zC', ':CalendarT<CR>', default_opts)
-map('n', '<leader>zi', ':lua require(\'telekasten\').paste_img_and_link()<CR>', default_opts)
-map('n', '<leader>zt', ':lua require(\'telekasten\').toggle_todo()<CR>', default_opts)
-map('n', '<leader>zb', ':lua require(\'telekasten\').show_backlinks()<CR>', default_opts)
-map('n', '<leader>zF', ':lua require(\'telekasten\').find_friends()<CR>', default_opts)
-map('n', '<leader>zI', ':lua require(\'telekasten\').insert_img_link({ i=true })<CR>', default_opts)
-map('n', '<leader>zp', ':lua require(\'telekasten\').preview_img()<CR>', default_opts)
-map('n', '<leader>zm', ':lua require(\'telekasten\').browse_media()<CR>', default_opts)
-map('n', '<leader>za', ':lua require(\'telekasten\').show_tags()<CR>', default_opts)
-map('n', '<leader>#',  ':lua require(\'telekasten\').show_tags()<CR>', default_opts)
-map('n', '<leader>zr', ':lua require(\'telekasten\').rename_note()<CR>', default_opts)
-
-map('n', '<leader>[',  ':lua require(\'telekasten\').insert_link()<CR>', default_opts)
-map('n', '<leader>[[', ':lua require(\'telekasten\').insert_link({ i=true })<CR>', default_opts)
-map('n', '<leader>zt', ':lua require(\'telekasten\').toggle_todo({ i=true })<CR>', default_opts)
-map('n', '<leader>#',  ':lua require(\'telekasten\').show_tags({i = true})<CR>', default_opts)
-
 map('n', '<leader>tf', ':Telescope file_browser<CR>', default_opts)
 map('n', '<leader>ts', ':Telescope symbols<CR>', default_opts)
 
 -- on hesitation, bring up the panel
-map('n', '<leader>z', ':lua require(\'telekasten\').panel()<CR>', default_opts)
 map('n', '<C-s>', ':SidebarNvimToggle<CR>', default_opts)
 
 -- Trouble

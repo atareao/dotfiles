@@ -128,8 +128,7 @@ return require('packer').startup(function(use)
   use 'ibhagwan/fzf-lua'
 
   -- zettelkasten
-  use 'renerocksai/telekasten.nvim'
-  use 'renerocksai/calendar-vim'
+  use 'jakewvincent/mkdnflow.nvim'
 
   -- git labels
   use {
