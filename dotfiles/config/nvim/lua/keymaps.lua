@@ -101,15 +101,22 @@ map('n', '<leader>dv', '<cmd>lua require"telescope".extensions.dap.variables{}<C
 map('n', '<leader>df', '<cmd>lua require"telescope".extensions.dap.frames{}<CR>', default_opts)
 
 -- tabby
-vim.api.nvim_set_keymap("n", "<leader>ta", ":$tabnew<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>tc", ":tabclose<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>to", ":tabonly<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>tn", ":tabn<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>tp", ":tabp<CR>", { noremap = true })
+map("n", "<leader>ta", ":$tabnew<CR>", { noremap = true })
+map("n", "<leader>tc", ":tabclose<CR>", { noremap = true })
+map("n", "<leader>to", ":tabonly<CR>", { noremap = true })
+map("n", "<leader>tn", ":tabn<CR>", { noremap = true })
+map("n", "<leader>tp", ":tabp<CR>", { noremap = true })
 -- move current tab to previous position
-vim.api.nvim_set_keymap("n", "<leader>tmp", ":-tabmove<CR>", { noremap = true })
+map("n", "<leader>tmp", ":-tabmove<CR>", { noremap = true })
 -- move current tab to next position
-vim.api.nvim_set_keymap("n", "<leader>tmn", ":+tabmove<CR>", { noremap = true })
+map("n", "<leader>tmn", ":+tabmove<CR>", { noremap = true })
 
 -- Neogen
-vim.api.nvim_set_keymap("n", "<leader>ng", ":lua require('neogen').generate()<CR>", { noremap = true })
+map("n", "<leader>ng", ":lua require('neogen').generate()<CR>", { noremap = true })
+
+-- hop
+-- place this in one of your configuration file(s)
+map('n', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
+map('n', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
+map('n', 't', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>", {})
+map('n', 'T', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>", {})

@@ -140,6 +140,16 @@ return require('packer').startup(function(use)
   }
   -- help for git
   use 'kdheepak/lazygit.nvim'
+  -- diffview
+  use {
+      'sindrets/diffview.nvim',
+      requires = 'nvim-lua/plenary.nvim'
+  }
+  -- movements
+  use {
+    'phaazon/hop.nvim',
+    branch = 'v2', -- optional but strongly recommended
+  }
 
   -- documentation
   use {
@@ -148,6 +158,9 @@ return require('packer').startup(function(use)
     -- Uncomment next line if you want to follow only stable versions
     -- tag = "*"
   }
+
+  -- autosave
+  use "Pocco81/AutoSave.nvim"
 
   -- rust
   use 'simrat39/rust-tools.nvim'

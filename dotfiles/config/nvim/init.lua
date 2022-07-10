@@ -21,11 +21,13 @@ Website: https://github.com/brainfucksec/neovim-lua
 require('settings')                      -- settings
 require('keymaps')                       -- keymaps
 require('plugins/packer')                -- plugin manager
+require('plugins/autosave')              -- autosave
 
 require('plugins/ayu')                   -- theme
 require('plugins/feline')                -- statusline
 --require('plugins/fzf')                   -- fuzzy
 require('plugins/gitsigns')              -- git decorations
+require('plugins/diffview')              -- git diffview
 require('plugins/indent-blankline')      -- indentation
 require('plugins/luasnip')               -- snippets
 require('plugins/neo-tree')              -- filebrowser
@@ -44,5 +46,6 @@ require('plugins/telescope-ui-select')   -- telescope select
 require('plugins/trouble')               -- errors manager
 require('plugins/vista')                 -- tag viewer
 require('plugins/mkdnflow')              -- markdown flow
+require('plugins/hop')
 
 require('dbg')                           -- debug
