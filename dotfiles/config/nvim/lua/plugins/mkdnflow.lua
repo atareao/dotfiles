@@ -22,7 +22,6 @@ require('mkdnflow').setup({
         transform_explicit = function(text)
             text = text:gsub(" ", "-")
             text = text:lower()
-            text = os.date('%Y-%m-%d_')..text
             return(text)
         end
     },
