@@ -1,7 +1,7 @@
 require("autosave").setup({
     enabled = true,
     execution_message = function ()
-      return "AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S")
+      return "AutoSave: guardado a las " .. vim.fn.strftime("%H:%M:%S")
     end,
     -- execution_message = "Saved",
     events = {"InsertLeave", "TextChanged"},
