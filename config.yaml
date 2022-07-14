@@ -112,6 +112,9 @@ dotfiles:
   f_wezterm.lua:
     src: config/wezterm/wezterm.lua
     dst: ~/.config/wezterm/wezterm.lua
+  d_hypr:
+    src: config/hypr
+    dst: ~/.config/hypr
 variables:
   dotfilesdir: /datos/misdotfiles
 profiles:
@@ -152,6 +155,7 @@ profiles:
     - f_config
     - f_zellij_config.yaml
     - f_wezterm.lua
+    - d_hypr
   raspiarch:
     dotfiles:
     - f_rc.conf
