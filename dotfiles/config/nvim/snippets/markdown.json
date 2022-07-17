@@ -12,6 +12,42 @@
             "$0"
         ]
     },
+    "inicio": {
+        "prefix": "inicio",
+        "body": [
+            "",
+            "Hola, soy Lorenzo y esto es **atareao con Linux episodio número XXXX",
+            "",
+            "$0"
+        ]
+    },
+    "fin": {
+        "prefix": "fin",
+        "body": [
+            "---",
+            "",
+            "Espero que te haya gustado este nuevo episodio del podcast. Si puedes, te agradecería una valoración en [iVoox](https://www.ivoox.com/podcast-atareao-version-podcast_sq_f1618463_1.html) y/o en [Apple Podcast](https://podcasts.apple.com/podcast/id1437197202).",
+            "",
+            "Recuerda que este es un podcast suscrito a la red de podcast de **Sospechoso habituales**",
+            "",
+            "Te puedes suscribir a esa **fantástica red de podcast** en feedpress.me/sospechososhabituales",
+            "",
+            "Por último y como te digo siempre, recuerda que la vida son dos días y uno ya ha pasado.",
+            "",
+            "Disfruta como si no hubiera un mañana y si puede ser con Linux, **mejor que mejor**.",
+            "",
+            "$0"
+        ]
+    },
+    "more": {
+        "prefix": "more",
+        "body": [
+            "",
+            "<!--more-->",
+            "",
+            " ## $0"
+        ]
+    },
     "zettel note": {
         "prefix": "zn",
         "body": [
