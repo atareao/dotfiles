@@ -47,5 +47,6 @@ require('plugins/trouble')               -- errors manager
 require('plugins/vista')                 -- tag viewer
 require('plugins/mkdnflow')              -- markdown flow
 require('plugins/hop')
+require('plugins/neoterm')
 
 require('dbg')                           -- debug

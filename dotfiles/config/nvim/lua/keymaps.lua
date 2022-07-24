@@ -120,3 +120,13 @@ map('n', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.
 map('n', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
 map('n', 't', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>", {})
 map('n', 'T', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>", {})
+
+-- noterm
+local NOREF_NOERR_TRUNC = { noremap = true, silent = true, nowait = true }
+vim.keymap.set('n', '<M-Tab>', function ()
+    if vim.bo.filetype == 'neo-tree' then return end
+    vim.cmd('NeoTermOpen')
+end, NOREF_NOERR_TRUNC)
+vim.keymap.set('t', '<M-Tab>', function () vim.cmd('NeoTermClose') end, NOREF_NOERR_TRUNC)
+vim.keymap.set('t', '<C-w>', function () vim.cmd('NeoTermEnterNormal') end, NOREF_NOERR_TRUNC)
+vim.keymap.set('t', '<M-w>', function () vim.cmd('NeoTermEnterNormal') end, NOREF_NOERR_TRUNC)

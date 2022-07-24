@@ -157,6 +157,9 @@ return require('packer').startup(function(use)
   -- autosave
   use "Pocco81/AutoSave.nvim"
 
+  -- terminal
+  use "nyngwang/NeoTerm.lua"
+
   -- rust
   use 'simrat39/rust-tools.nvim'
   use 'mfussenegger/nvim-dap'
