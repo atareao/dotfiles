@@ -243,7 +243,8 @@ bindsym $mod+Control+p exec bash ~/.config/sway/scripts/wl-color-picker.sh
 
 # Custom bindings
 bindsym $mod+Control+e exec --no-startup-id /home/lorenzo/.local/bin/rofimoji
-bindsym Print exec grim -g "$(slurp)" - | wl-copy
+bindsym Print exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/$(date +%Y-%m-%dT%H-%M-%S).jpg"
+bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy
 
 #
 # Status Bar:
