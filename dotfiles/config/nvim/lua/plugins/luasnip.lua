@@ -310,7 +310,7 @@ ls.add_snippets("all", {
     ),
 
     -- When regTrig is set, trig is treated like a pattern, this snippet will expand after any number.
-    ls.parser.parse_snippet({ trig = "%d", regTrig = true }, "A Number!!"),
+    -- ls.parser.parse_snippet({ trig = "%d", regTrig = true }, "A Number!!"),
     -- Using the condition, it's possible to allow expansion only in specific cases.
     s("cond", {
         t("will only expand in c-style comments"),
