@@ -160,6 +160,11 @@ return require('packer').startup(function(use)
   -- terminal
   use "nyngwang/NeoTerm.lua"
 
+  -- just
+  use 'NoahTheDuke/vim-just'
+  use 'IndianBoy42/tree-sitter-just'
+  -- require('tree-sitter-just').setup()
+
   -- rust
   use 'simrat39/rust-tools.nvim'
   use 'mfussenegger/nvim-dap'
