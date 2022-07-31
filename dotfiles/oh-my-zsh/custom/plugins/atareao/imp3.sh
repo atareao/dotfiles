@@ -25,7 +25,7 @@ function imp3(){
     EPISODE="$1"
     if [[ -z "$EPISODE" ]];then
         echo "Introduce el número del episodio"
-        exit 1
+        return 1
     fi
     NEED_EXIT=0
     MP3_FILE="/data/podcasts/audio/e${EPISODE}.mp3"
@@ -44,7 +44,7 @@ function imp3(){
         NEED_EXIT=1
     fi
     if [[ $NEED_EXIT -eq 1 ]];then
-        exit 1
+        return 1
     fi
     echo "$MP3_FILE"
     echo "$JPG_FILE"
@@ -70,7 +70,7 @@ function imp3(){
            --TOPE "Lorenzo Carbonell" \
            --TPE1 "Lorenzo Carbonell" \
            --TPE2 "Lorenzo Carbonell" \
-           --TRCK "${track}"
+           --TRCK "${EPISODE}"
     mid3v2 "${MP3_FILE}"
     ffprobe -hide_banner "${MP3_FILE}" 2>&1 | grep Duration
 }
