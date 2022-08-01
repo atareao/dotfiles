@@ -1,5 +1,5 @@
 dir := "${PWD##*/}"
-upload_blocks:
+upload:
     rsync --archive \
           --verbose \
           --human-readable \
