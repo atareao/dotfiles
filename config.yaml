@@ -115,6 +115,12 @@ dotfiles:
   d_hypr:
     src: config/hypr
     dst: ~/.config/hypr
+  f_justfile:
+    src: Vídeos/.justfile
+    dst: ~/Vídeos/.justfile
+  f_blocks_justfile:
+    src: php/blocks/.justfile
+    dst: ~/php/blocks/.justfile
 variables:
   dotfilesdir: /datos/misdotfiles
 profiles:
@@ -156,6 +162,8 @@ profiles:
     - f_zellij_config.yaml
     - f_wezterm.lua
     - d_hypr
+    - f_justfile
+    - f_blocks_justfile
   raspiarch:
     dotfiles:
     - f_rc.conf
