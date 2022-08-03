@@ -13,6 +13,6 @@
                 "language": "rust",
                 "path": "./rust.json"
             }
-        ],
+        ]
     }
 }
