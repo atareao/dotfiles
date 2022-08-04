@@ -16,14 +16,14 @@ xautolock -time 5 -locker "betterlockscreen -l" -notify 30 -notifier "notify-sen
 
 feh --bg-scale "${HOME}/Imágenes/potd.jpg" &
 
-bspc monitor HDMI-A-0 -d I II III IV V VI
-bspc monitor DisplayPort-0 -d VII VIII XI X
+bspc monitor DisplayPort-0 -d I II III IV V VI
+bspc monitor HDMI-A-0 -d VII VIII XI X
 
 bspc config border_width          2
 bspc config window_gap            10
 bspc config top_padding           0
-bspc config bottom_padding       80
-#spc config bottom_padding        0
+#bspc config bottom_padding       80
+spc config bottom_padding        0
 bspc config left_padding          0
 bspc config right_padding         0
 
