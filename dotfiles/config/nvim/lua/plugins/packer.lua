@@ -155,7 +155,7 @@ return require('packer').startup(function(use)
   }
 
   -- autosave
-  use "Pocco81/AutoSave.nvim"
+  use "Pocco81/auto-save.nvim"
 
   -- terminal
   use "nyngwang/NeoTerm.lua"
