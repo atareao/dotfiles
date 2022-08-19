@@ -83,11 +83,13 @@ map("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", {silent = true, noremap = tr
 map("n", "gR", "<cmd>Trouble lsp_references<cr>", {silent = true, noremap = true})
 
 -- dap
-map('n', '<leader>dc', '<cmd>lua require"dap".continue()<CR>', default_opts)
-map('n', '<leader>dsv', '<cmd>lua require"dap".step_over()<CR>', default_opts)
-map('n', '<leader>dsi', '<cmd>lua require"dap".step_into()<CR>', default_opts)
-map('n', '<leader>dso', '<cmd>lua require"dap".step_out()<CR>', default_opts)
-map('n', '<leader>dtb', '<cmd>lua require"dap".toggle_breakpoint()<CR>', default_opts)
+map('n', '<leader>dui', '<cmd>lua require"dapui".toggle()<CR>', default_opts)
+map('n', '<F5>', '<cmd>lua require"dap".continue()<CR>', default_opts)
+map('n', '<F10>', '<cmd>lua require"dap".step_over()<CR>', default_opts)
+map('n', '<F11>', '<cmd>lua require"dap".step_into()<CR>', default_opts)
+map('n', '<S-F11>', '<cmd>lua require"dap".step_out()<CR>', default_opts)
+map('n', '<F9>', '<cmd>lua require"dap".toggle_breakpoint()<CR>', default_opts)
+map('n', '<F12>', '<cmd>lua require"dapui".eval(vim.fn.input "[Expression] > ")<CR>', default_opts)
 map('n', '<leader>dsbr', '<cmd>lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>', default_opts)
 map('n', '<leader>dsbm', '<cmd>lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>', default_opts)
 map('n', '<leader>dro', '<cmd>lua require"dap".repl.open()<CR>', default_opts)

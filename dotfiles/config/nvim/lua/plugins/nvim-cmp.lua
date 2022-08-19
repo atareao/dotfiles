@@ -99,3 +99,12 @@ cmp.setup {
     },
   },
 }
+
+require("cmp").setup.filetype(
+    {"dap-repl", "dapui-watched"},
+    {
+        sources = {
+            { name = "dap"},
+        },
+    }
+)
