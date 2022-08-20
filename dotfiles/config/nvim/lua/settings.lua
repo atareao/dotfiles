@@ -74,6 +74,7 @@ exec([[
       autocmd BufNewFile * %s/{{YEAR}}/\=strftime('%Y')/ge
       autocmd BufNewFile * %s/{{NAME}}/\=template_name/ge
       autocmd BufNewFile * %s/{{EVAL\s*\([^}]*\)}}/\=eval(submatch(1))/ge
+      autocmd BufNewFile * %s/{{FILENAME}}/\=expand('%:t')/ge
   augroup END
 ]], false)
 
