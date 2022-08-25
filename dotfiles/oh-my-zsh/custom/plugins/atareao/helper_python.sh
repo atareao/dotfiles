@@ -25,10 +25,10 @@ helperp(){
     NEWLINE=$'\n'
     TAB=$'\t'
 
-    line="$(head -1 debian/changelog)"
-    package=$(echo $firstline | grep -oP "^[^\s]*")
+    firstline="$(head -1 debian/changelog)"
+    package=$(echo "$firstline" | grep -oP "^[^\s]*")
     package=${package:l} #lowercase
-    version=$(echo $firstline | grep -oP "\s\(\K[^\)]*")
+    version=$(echo "$firstline" | grep -oP "\s\(\K[^\)]*")
 
     echo "========="
     echo $package
@@ -147,7 +147,7 @@ install: build
     echo "${variable1}" >> $file
 echo "
   # Add here commands to install the package into debian/<packagename>.
-	# MAKE prefix=`pwd`/debian/`dh_listpackages`/usr install
+  # MAKE prefix=
 
 # Build architecture-independent files here.
 binary-indep: build install
@@ -157,7 +157,7 @@ binary-indep: build install
 	dh_installdocs
 	dh_installexamples
 	# added gconf and icons
-	dh_gconf
+#	dh_gconf
 	dh_icons
 #	dh_installmenu
 #	dh_installdebconf
