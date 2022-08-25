@@ -48,5 +48,6 @@ require('plugins/vista')                 -- tag viewer
 require('plugins/mkdnflow')              -- markdown flow
 require('plugins/hop')
 require('plugins/neoterm')
+require('plugins/rest')
 
 require('dbg')                           -- debug

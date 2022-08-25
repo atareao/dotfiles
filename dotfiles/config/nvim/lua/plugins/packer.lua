@@ -167,6 +167,11 @@ return require('packer').startup(function(use)
   -- terminal
   use "nyngwang/NeoTerm.lua"
 
+  -- rest
+    use {
+        "NTBBloodbath/rest.nvim",
+        requires = "nvim-lua/plenary.nvim",
+    }
   -- just
   use 'NoahTheDuke/vim-just'
   use 'IndianBoy42/tree-sitter-just'

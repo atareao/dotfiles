@@ -116,6 +116,9 @@ map("n", "<leader>tmn", ":+tabmove<CR>", { noremap = true })
 -- Neogen
 map("n", "<leader>ng", ":lua require('neogen').generate()<CR>", { noremap = true })
 
+-- Rest
+map("n", "<leader>rr", ":lua require('rest-nvim').run()<CR>", { noremap = true })
+
 -- hop
 -- place this in one of your configuration file(s)
 map('n', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
