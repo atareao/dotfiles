@@ -102,16 +102,16 @@ map('n', '<leader>dlb', '<cmd>lua require"telescope".extensions.dap.list_breakpo
 map('n', '<leader>dv', '<cmd>lua require"telescope".extensions.dap.variables{}<CR>', default_opts)
 map('n', '<leader>df', '<cmd>lua require"telescope".extensions.dap.frames{}<CR>', default_opts)
 
--- tabby
-map("n", "<leader>ta", ":$tabnew<CR>", { noremap = true })
-map("n", "<leader>tc", ":tabclose<CR>", { noremap = true })
-map("n", "<leader>to", ":tabonly<CR>", { noremap = true })
-map("n", "<leader>tn", ":tabn<CR>", { noremap = true })
-map("n", "<leader>tp", ":tabp<CR>", { noremap = true })
--- move current tab to previous position
-map("n", "<leader>tmp", ":-tabmove<CR>", { noremap = true })
--- move current tab to next position
-map("n", "<leader>tmn", ":+tabmove<CR>", { noremap = true })
+-- cokeline
+map('n', '<S-Tab>',   '<Plug>(cokeline-focus-prev)',  { silent = true })
+map('n', '<Tab>',     '<Plug>(cokeline-focus-next)',  { silent = true })
+map('n', '<Leader>p', '<Plug>(cokeline-switch-prev)', { silent = true })
+map('n', '<Leader>n', '<Plug>(cokeline-switch-next)', { silent = true })
+
+for i = 1,9 do
+  map('n', ('<F%s>'):format(i),      ('<Plug>(cokeline-focus-%s)'):format(i),  { silent = true })
+  map('n', ('<Leader>%s'):format(i), ('<Plug>(cokeline-switch-%s)'):format(i), { silent = true })
+end
 
 -- Neogen
 map("n", "<leader>ng", ":lua require('neogen').generate()<CR>", { noremap = true })

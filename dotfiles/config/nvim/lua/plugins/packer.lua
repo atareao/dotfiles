@@ -112,11 +112,11 @@ return require('packer').startup(function(use)
     },
   }
 
-  -- tabs
-  use {
-    'nanozuki/tabby.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
-  }
+  -- cokeline - buffers
+    use {
+        'noib3/nvim-cokeline',
+        requires = 'kyazdani42/nvim-web-devicons',
+    }
 
   -- fuzzy finder
   use 'nvim-lua/popup.nvim'
