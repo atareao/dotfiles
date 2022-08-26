@@ -117,6 +117,8 @@ return require('packer').startup(function(use)
         'noib3/nvim-cokeline',
         requires = 'kyazdani42/nvim-web-devicons',
     }
+    -- TODO: remoxe
+    -- FIX: fix
 
   -- fuzzy finder
   use 'nvim-lua/popup.nvim'
@@ -159,6 +161,11 @@ return require('packer').startup(function(use)
     requires = "nvim-treesitter/nvim-treesitter",
     -- Uncomment next line if you want to follow only stable versions
     -- tag = "*"
+  }
+
+  use {
+    "B4mbus/todo-comments.nvim",
+    requires = {"nvim-lua/plenary.nvim"},
   }
 
   -- autosave

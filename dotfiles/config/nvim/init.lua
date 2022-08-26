@@ -25,7 +25,6 @@ require('plugins/autosave')              -- autosave
 
 require('plugins/ayu')                   -- theme
 require('plugins/feline')                -- statusline
---require('plugins/fzf')                   -- fuzzy
 require('plugins/gitsigns')              -- git decorations
 require('plugins/diffview')              -- git diffview
 require('plugins/indent-blankline')      -- indentation
@@ -39,8 +38,7 @@ require('plugins/nvim-lspconfig')        -- LSP settings
 require('plugins/nvim-treesitter')       -- tree-sitter interface
 require('plugins/rust-tools')            -- rust tools
 require('plugins/sidebar-nvim')          -- sidebar
---require('plugins/tabby')                 -- tabs
-require('plugins/cokeline')                 -- tabs
+require('plugins/cokeline')              -- buffers
 require('plugins/telescope-media-files') -- telescope media files
 require('plugins/telescope-nvim')        -- telescope
 require('plugins/telescope-ui-select')   -- telescope select
@@ -50,5 +48,6 @@ require('plugins/mkdnflow')              -- markdown flow
 require('plugins/hop')
 require('plugins/neoterm')
 require('plugins/rest')
+require('plugins/todo-comments')
 
 require('dbg')                           -- debug
