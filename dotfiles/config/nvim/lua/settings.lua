@@ -38,6 +38,7 @@ opt.termguicolors = true
 opt.guifont = "JetBrainsMono Nerd Font"
 g.neovide_cursor_vfx_mode = "railgun"
 
+
 opt.list = true
 opt.listchars = 'tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»'
 
@@ -55,7 +56,7 @@ exec ([[
   ]], false)
 
 -- remove whitespace on save
-cmd [[au BufWritePre * :%s/\s\+$//e]]
+-- cmd [[au BufWritePre * :%s/\s\+$//e]]
 
 -- highlight on yank
 exec([[

@@ -16,6 +16,8 @@ require('todo-comments').setup({
     NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
     TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
   },
+    -- BUG: esto es un error
+    -- NOTE: acuérdate de hacer esto
   merge_keywords = true, -- when true, custom keywords will be merged with the defaults
   -- highlighting of the line containing the todo comment
   -- * before: highlights before the keyword (typically comment characters)

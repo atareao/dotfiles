@@ -184,6 +184,7 @@ return require('packer').startup(function(use)
   use 'IndianBoy42/tree-sitter-just'
   -- require('tree-sitter-just').setup()
 
+
   -- rust
   use 'simrat39/rust-tools.nvim'
   use 'mfussenegger/nvim-dap'
@@ -214,6 +215,8 @@ return require('packer').startup(function(use)
 
   use 'norcalli/nvim-colorizer.lua'
   require'colorizer'.setup()
+
+  use 'soywod/himalaya.vim'
 
   if packer_bootstrap then
     require('packer').sync()
