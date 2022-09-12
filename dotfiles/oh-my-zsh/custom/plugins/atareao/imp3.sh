@@ -38,7 +38,7 @@ function imp3(){
         echo "No existe el archivo ${JPG_FILE}"
         NEED_EXIT=1
     fi
-    MD_FILE="/data/notas/podcast/e${EPISODE}.md"
+    MD_FILE="/data/notas/podcasts/T05/e${EPISODE}.md"
     if [[ ! -f "${MD_FILE}" ]];then
         echo "No existe el archivo ${MD_FILE}"
         NEED_EXIT=1
