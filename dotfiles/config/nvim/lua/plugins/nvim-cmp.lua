@@ -31,10 +31,11 @@ cmp.setup {
     ['<C-n>'] = cmp.mapping.select_next_item {
       behavior = cmp.SelectBehavior.Insert,
     },
-    ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
-    },
+    -- ['<CR>'] = cmp.mapping.confirm {
+    --   behavior = cmp.ConfirmBehavior.Replace,
+    --   select = true,
+    -- },
+     ['<CR>'] = cmp.mapping.confirm { select = false},
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),

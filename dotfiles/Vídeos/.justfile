@@ -17,3 +17,5 @@ cover origen episode:
         rm /data/podcasts/image/tmp_e{{episode}}.jpg
     fi
 
+play:
+    mpv $(find -maxdepth 1 -type f -name "*.mkv" | sort -r | head -1)

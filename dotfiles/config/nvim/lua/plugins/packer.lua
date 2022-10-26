@@ -56,7 +56,6 @@ return require('packer').startup(function(use)
 
   -- colorschemes
   use 'Shatur/neovim-ayu'
-  --use 'navarasu/onedark.nvim'
 
   use { 'rose-pine/neovim', as = 'rose-pine' }
 
@@ -164,7 +163,7 @@ return require('packer').startup(function(use)
   }
 
   use {
-    "B4mbus/todo-comments.nvim",
+    "folke/todo-comments.nvim",
     requires = {"nvim-lua/plenary.nvim"},
   }
 
@@ -181,9 +180,12 @@ return require('packer').startup(function(use)
     }
   -- just
   use 'NoahTheDuke/vim-just'
-  use 'IndianBoy42/tree-sitter-just'
-  -- require('tree-sitter-just').setup()
-
+  use {
+        'IndianBoy42/tree-sitter-just',
+        config = function()
+            require('tree-sitter-just').setup({})
+        end
+    }
 
   -- rust
   use 'simrat39/rust-tools.nvim'

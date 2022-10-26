@@ -9,23 +9,26 @@ vim.api.nvim_command('packadd packer.nvim')
 
 local no_errors, error_msg = pcall(function()
 
-  local time
-  local profile_info
-  local should_profile = false
-  if should_profile then
-    local hrtime = vim.loop.hrtime
-    profile_info = {}
-    time = function(chunk, start)
-      if start then
-        profile_info[chunk] = hrtime()
-      else
-        profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
-      end
+_G._packer = _G._packer or {}
+_G._packer.inside_compile = true
+
+local time
+local profile_info
+local should_profile = false
+if should_profile then
+  local hrtime = vim.loop.hrtime
+  profile_info = {}
+  time = function(chunk, start)
+    if start then
+      profile_info[chunk] = hrtime()
+    else
+      profile_info[chunk] = (hrtime() - profile_info[chunk]) / 1e6
     end
-  else
-    time = function(chunk, start) end
   end
-  
+else
+  time = function(chunk, start) end
+end
+
 local function save_profiles(threshold)
   local sorted_times = {}
   for chunk_name, time_taken in pairs(profile_info) do
@@ -38,8 +41,10 @@ local function save_profiles(threshold)
       results[i] = elem[1] .. ' took ' .. elem[2] .. 'ms'
     end
   end
+  if threshold then
+    table.insert(results, '(Only showing plugins that took longer than ' .. threshold .. ' ms ' .. 'to load)')
+  end
 
-  _G._packer = _G._packer or {}
   _G._packer.profile_output = results
 end
 
@@ -135,6 +140,11 @@ _G.packer_plugins = {
     path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["himalaya.vim"] = {
+    loaded = true,
+    path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/himalaya.vim",
+    url = "https://github.com/soywod/himalaya.vim"
+  },
   ["hop.nvim"] = {
     loaded = true,
     path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/hop.nvim",
@@ -191,6 +201,11 @@ _G.packer_plugins = {
     path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/nui.nvim",
     url = "https://github.com/MunifTanjim/nui.nvim"
   },
+  nvim = {
+    loaded = true,
+    path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/nvim",
+    url = "https://github.com/catppuccin/nvim"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
@@ -200,6 +215,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-cokeline"] = {
+    loaded = true,
+    path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/nvim-cokeline",
+    url = "https://github.com/noib3/nvim-cokeline"
   },
   ["nvim-colorizer.lua"] = {
     loaded = true,
@@ -222,7 +242,7 @@ _G.packer_plugins = {
     url = "https://github.com/rcarriga/nvim-dap-ui"
   },
   ["nvim-dap-virtual-text"] = {
-    config = { "\27LJ\2\n¬\2\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\f\fenabled\2\15virt_lines\1\15all_frames\1\18virt_text_pos\beol\30filter_references_pattern\f<module\19all_references\1\26only_first_definition\2\14commented\2\21show_stop_reason\2\29highlight_new_as_changed\1 highlight_changed_variables\2\21enabled_commands\2\nsetup\26nvim-dap-virtual-text\frequire\0" },
+    config = { "\27LJ\2\n¬\2\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\f\18virt_text_pos\beol\30filter_references_pattern\f<module\19all_references\1\26only_first_definition\2\14commented\2\21show_stop_reason\2\29highlight_new_as_changed\1 highlight_changed_variables\2\21enabled_commands\2\fenabled\2\15virt_lines\1\15all_frames\1\nsetup\26nvim-dap-virtual-text\frequire\0" },
     loaded = true,
     path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
     url = "https://github.com/theHamsta/nvim-dap-virtual-text"
@@ -292,11 +312,6 @@ _G.packer_plugins = {
     path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/sidebar.nvim",
     url = "https://github.com/sidebar-nvim/sidebar.nvim"
   },
-  ["tabby.nvim"] = {
-    loaded = true,
-    path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/tabby.nvim",
-    url = "https://github.com/nanozuki/tabby.nvim"
-  },
   ["telescope-dap.nvim"] = {
     loaded = true,
     path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/telescope-dap.nvim",
@@ -327,7 +342,13 @@ _G.packer_plugins = {
     path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["todo-comments.nvim"] = {
+    loaded = true,
+    path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
+    url = "https://github.com/folke/todo-comments.nvim"
+  },
   ["tree-sitter-just"] = {
+    config = { "\27LJ\2\nB\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\21tree-sitter-just\frequire\0" },
     loaded = true,
     path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/tree-sitter-just",
     url = "https://github.com/IndianBoy42/tree-sitter-just"
@@ -355,18 +376,29 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: lsp-inlayhints.nvim
-time([[Config for lsp-inlayhints.nvim]], true)
-try_loadstring("\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19lsp-inlayhints\frequire\0", "config", "lsp-inlayhints.nvim")
-time([[Config for lsp-inlayhints.nvim]], false)
 -- Config for: nvim-dap-virtual-text
 time([[Config for nvim-dap-virtual-text]], true)
-try_loadstring("\27LJ\2\n¬\2\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\f\fenabled\2\15virt_lines\1\15all_frames\1\18virt_text_pos\beol\30filter_references_pattern\f<module\19all_references\1\26only_first_definition\2\14commented\2\21show_stop_reason\2\29highlight_new_as_changed\1 highlight_changed_variables\2\21enabled_commands\2\nsetup\26nvim-dap-virtual-text\frequire\0", "config", "nvim-dap-virtual-text")
+try_loadstring("\27LJ\2\n¬\2\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\f\18virt_text_pos\beol\30filter_references_pattern\f<module\19all_references\1\26only_first_definition\2\14commented\2\21show_stop_reason\2\29highlight_new_as_changed\1 highlight_changed_variables\2\21enabled_commands\2\fenabled\2\15virt_lines\1\15all_frames\1\nsetup\26nvim-dap-virtual-text\frequire\0", "config", "nvim-dap-virtual-text")
 time([[Config for nvim-dap-virtual-text]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
 time([[Config for gitsigns.nvim]], false)
+-- Config for: tree-sitter-just
+time([[Config for tree-sitter-just]], true)
+try_loadstring("\27LJ\2\nB\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\21tree-sitter-just\frequire\0", "config", "tree-sitter-just")
+time([[Config for tree-sitter-just]], false)
+-- Config for: lsp-inlayhints.nvim
+time([[Config for lsp-inlayhints.nvim]], true)
+try_loadstring("\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19lsp-inlayhints\frequire\0", "config", "lsp-inlayhints.nvim")
+time([[Config for lsp-inlayhints.nvim]], false)
+
+_G._packer.inside_compile = false
+if _G._packer.needs_bufread == true then
+  vim.cmd("doautocmd BufRead")
+end
+_G._packer.needs_bufread = false
+
 if should_profile then save_profiles() end
 
 end)
