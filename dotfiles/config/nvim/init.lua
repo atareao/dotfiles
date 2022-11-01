@@ -45,7 +45,8 @@ require('plugins/telescope-ui-select')   -- telescope select
 require('plugins/trouble')               -- errors manager
 require('plugins/vista')                 -- tag viewer
 require('plugins/mkdnflow')              -- markdown flow
-require('plugins/hop')
+--require('plugins/hop')
+require('plugins/sj')
 require('plugins/neoterm')
 require('plugins/rest')
 require('plugins/todo-comments')

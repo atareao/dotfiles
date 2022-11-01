@@ -149,10 +149,13 @@ return require('packer').startup(function(use)
       requires = 'nvim-lua/plenary.nvim'
   }
   -- movements
-  use {
-    'phaazon/hop.nvim',
-    branch = 'v2', -- optional but strongly recommended
-  }
+  -- use {
+  --   'phaazon/hop.nvim',
+  --   branch = 'v2', -- optional but strongly recommended
+  -- }
+    use {
+        'woosaaahh/sj.nvim'
+    }
 
   -- documentation
   use {

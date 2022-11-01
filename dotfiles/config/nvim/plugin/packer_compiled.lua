@@ -201,11 +201,6 @@ _G.packer_plugins = {
     path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/nui.nvim",
     url = "https://github.com/MunifTanjim/nui.nvim"
   },
-  nvim = {
-    loaded = true,
-    path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/nvim",
-    url = "https://github.com/catppuccin/nvim"
-  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
@@ -242,7 +237,7 @@ _G.packer_plugins = {
     url = "https://github.com/rcarriga/nvim-dap-ui"
   },
   ["nvim-dap-virtual-text"] = {
-    config = { "\27LJ\2\n¬\2\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\f\18virt_text_pos\beol\30filter_references_pattern\f<module\19all_references\1\26only_first_definition\2\14commented\2\21show_stop_reason\2\29highlight_new_as_changed\1 highlight_changed_variables\2\21enabled_commands\2\fenabled\2\15virt_lines\1\15all_frames\1\nsetup\26nvim-dap-virtual-text\frequire\0" },
+    config = { "\27LJ\2\n¬\2\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\f\29highlight_new_as_changed\1 highlight_changed_variables\2\21enabled_commands\2\fenabled\2\15virt_lines\1\15all_frames\1\18virt_text_pos\beol\30filter_references_pattern\f<module\19all_references\1\26only_first_definition\2\14commented\2\21show_stop_reason\2\nsetup\26nvim-dap-virtual-text\frequire\0" },
     loaded = true,
     path = "/home/lorenzo/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
     url = "https://github.com/theHamsta/nvim-dap-virtual-text"
@@ -376,10 +371,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-dap-virtual-text
-time([[Config for nvim-dap-virtual-text]], true)
-try_loadstring("\27LJ\2\n¬\2\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\f\18virt_text_pos\beol\30filter_references_pattern\f<module\19all_references\1\26only_first_definition\2\14commented\2\21show_stop_reason\2\29highlight_new_as_changed\1 highlight_changed_variables\2\21enabled_commands\2\fenabled\2\15virt_lines\1\15all_frames\1\nsetup\26nvim-dap-virtual-text\frequire\0", "config", "nvim-dap-virtual-text")
-time([[Config for nvim-dap-virtual-text]], false)
+-- Config for: lsp-inlayhints.nvim
+time([[Config for lsp-inlayhints.nvim]], true)
+try_loadstring("\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19lsp-inlayhints\frequire\0", "config", "lsp-inlayhints.nvim")
+time([[Config for lsp-inlayhints.nvim]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
@@ -388,10 +383,10 @@ time([[Config for gitsigns.nvim]], false)
 time([[Config for tree-sitter-just]], true)
 try_loadstring("\27LJ\2\nB\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\21tree-sitter-just\frequire\0", "config", "tree-sitter-just")
 time([[Config for tree-sitter-just]], false)
--- Config for: lsp-inlayhints.nvim
-time([[Config for lsp-inlayhints.nvim]], true)
-try_loadstring("\27LJ\2\n<\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\19lsp-inlayhints\frequire\0", "config", "lsp-inlayhints.nvim")
-time([[Config for lsp-inlayhints.nvim]], false)
+-- Config for: nvim-dap-virtual-text
+time([[Config for nvim-dap-virtual-text]], true)
+try_loadstring("\27LJ\2\n¬\2\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\f\29highlight_new_as_changed\1 highlight_changed_variables\2\21enabled_commands\2\fenabled\2\15virt_lines\1\15all_frames\1\18virt_text_pos\beol\30filter_references_pattern\f<module\19all_references\1\26only_first_definition\2\14commented\2\21show_stop_reason\2\nsetup\26nvim-dap-virtual-text\frequire\0", "config", "nvim-dap-virtual-text")
+time([[Config for nvim-dap-virtual-text]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
