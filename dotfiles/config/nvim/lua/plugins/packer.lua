@@ -24,6 +24,10 @@ return require('packer').startup(function(use)
   -- Put this at the end after all plugins
   use 'wbthomason/packer.nvim'
 
+  -- Automatically replaces a session within a terminal emulator buffer with 
+  -- the file/directory argumen speciefied
+  use "samjwill/nvim-unception"
+
   -- file explorer
   --use 'kyazdani42/nvim-tree.lua'
   use {
