@@ -121,6 +121,9 @@ dotfiles:
   f_blocks_justfile:
     src: php/blocks/.justfile
     dst: ~/php/blocks/.justfile
+  d_i3:
+    src: config/i3
+    dst: ~/.config/i3
 variables:
   dotfilesdir: /datos/misdotfiles
 profiles:
@@ -164,6 +167,7 @@ profiles:
     - d_hypr
     - f_justfile
     - f_blocks_justfile
+    - d_i3
   raspiarch:
     dotfiles:
     - f_rc.conf
