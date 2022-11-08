@@ -16,8 +16,25 @@ xautolock -time 5 -locker "betterlockscreen -l" -notify 30 -notifier "notify-sen
 
 feh --bg-scale "${HOME}/Imágenes/potd.jpg" &
 
-bspc monitor DisplayPort-0 -d I II III IV V VI
-bspc monitor HDMI-A-0 -d VII VIII XI X
+SECOND_MONITOR_SIDE="left"
+THIRD_MONITOR_SIDE="rigth"
+
+#Get Monitors
+PRINCIPAL=$(xrandr | grep primary | awk '{print $1}')
+SECOND_MONITOR=$(xrandr | grep connected | awk '{i++}i==2'| awk '{print $1}')
+THIRD_MONITOR=$(xrandr | grep connected | awk '{i++}i==3'| awk '{print $1}')
+
+Configure Monitors
+if [ "$(xrandr | grep -sw 'connected' | wc -l)" = "2" ]; then
+  bspc monitor $(bspc query -M | sed -n 1p) -d I II III IV V VI
+  bspc monitor $(bspc query -M | sed -n 2p) -d VII VIII IX X
+  #Set Monitors Side and output 
+  xrandr --output $SECOND_MONITOR --$SECOND_MONITOR_SIDE-of $PRINCIPAL  
+else
+  bspc monitor -d I II III IV V VI VII VIII IX X 
+fi
+#bspc monitor DisplayPort-0 -d I II III IV V VI
+#bspc monitor HDMI-A-0 -d VII VIII XI X
 
 bspc config border_width          2
 bspc config window_gap            10
