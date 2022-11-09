@@ -1,0 +1,64 @@
+theme = "slick"
+icons = "awesome"
+
+[[block]]
+block = "temperature"
+
+[[block]]
+block = "music"
+max_width = 21
+marquee = false
+player = "spotify"
+buttons = ["play", "next"]
+
+[[block]]
+block = "load"
+interval = 1
+format = "{1m} {5m} {15m}"
+
+[[block]]
+block = "cpu"
+interval = 0.7
+
+[[block]]
+block = "memory"
+format_mem = "{mem_used}/{mem_total}({mem_used_percents})"
+format_swap = "{swap_used}/{swap_total}({swap_used_percents})"
+display_type = "memory"
+icons = true
+clickable = true
+interval = 5
+warning_mem = 80
+warning_swap = 80
+critical_mem = 95
+critical_swap = 95
+
+[[block]]
+block = "disk_space"
+path = "/"
+alias = "/"
+info_type = "available"
+unit = "GB"
+interval = 20
+
+[[block]]
+block = "disk_space"
+path = "/home/lorenzo"
+alias = "~"
+info_type = "available"
+unit = "GB"
+interval = 20
+
+[[block]]
+block = "sound"
+format = "{volume}"
+
+[[block]]
+block = "time"
+interval = 60
+format = "%a %d/%m %R"
+
+[[block]]
+block = "networkmanager"
+interface_name_exclude = ['br\-[0-9a-f]{12}', 'docker\d+']
+interface_name_include = []
