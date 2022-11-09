@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 # Copyright (c) 2022 Lorenzo Carbonell <a.k.a. atareao>
@@ -21,30 +21,15 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-SLEEP_TIME=0.01
+import i3ipc
 
-function kp(){
-    PROCESS="$1"
-    pgrep "$PROCESS" | xargs -r kill -9
-    while pgrep "$PROCESS";do
-        sleep $SLEEP_TIME
-    done
-}
 
-function init_rofi(){
-    MON_NAME=$(python ~/.config/i3/scripts/get_current_monitor.py)
-    if [[ "${MON_NAME}" == "DisplayPort-0" ]]
-    then
-        MONITOR=0
-    else
-        MONITOR=1
-    fi
-    rofi -monitor "${MONITOR}" \
-         -combi-modi drun,window,ssh \
-         -show combi \
-         -modi combi \
-         -matching fuzzy
-}
+def get_monitor():
+    i3 = i3ipc.Connection()
+    workspaces = i3.get_workspaces()
+    focused_workspace = [w for w in workspaces if w.focused][0]
+    return focused_workspace.output
 
-kp rofi
-init_rofi
+
+if __name__ == "__main__":
+    print(get_monitor())
