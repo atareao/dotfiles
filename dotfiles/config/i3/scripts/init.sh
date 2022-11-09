@@ -88,7 +88,6 @@ start_python_i3_scripts(){
 
 start_xrandr
 start_xss
-start_nm
 start_dex
 start_picom
 start_redshift
