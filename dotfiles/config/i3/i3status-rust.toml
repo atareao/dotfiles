@@ -50,15 +50,22 @@ unit = "GB"
 interval = 20
 
 [[block]]
-block = "sound"
-format = "{volume}"
+block = "docker"
+interval = 5
+format = "{running}/{total}"
 
 [[block]]
-block = "time"
-interval = 60
-format = "%a %d/%m %R"
+block = "sound"
+format = "{volume}"
 
 [[block]]
 block = "networkmanager"
 interface_name_exclude = ['br\-[0-9a-f]{12}', 'docker\d+']
 interface_name_include = []
+ap_format = "{ssid}"
+device_format = "{icon}{ap}"
+
+[[block]]
+block = "time"
+interval = 60
+format = "%a %d/%m %R"
