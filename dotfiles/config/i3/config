@@ -47,6 +47,7 @@ floating_modifier $mod
 ### GAPS configuration
 gaps inner 10
 gaps outer 10
+gaps top 20
 #gaps bottom 80
 #smart_gaps on
 #smart_borders no_gaps
@@ -77,7 +78,18 @@ set $opacity 0.5
     # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
     bindsym $mod+Shift+r restart
     # exit i3 (logs you out of your X session)
-    bindsym $mod+Shift+e exec "i3-nagbar -t warning -m '¿Quieres salir?' -B 'Salir' 'i3-msg exit'"
+    #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m '¿Quieres salir?' -B 'Salir' 'i3-msg exit'"
+    mode "Exit (L)ogout, (R)eboot, (P)oweroff" {
+            bindsym l exit
+            bindsym r exec systemctl reboot
+            bindsym p exec systemctl poweroff
+
+            # back to normal: Enter or Escape
+            bindsym Return mode "default"
+            bindsym Escape mode "default"
+    }
+
+    bindsym $mod+Shift+e mode "Exit (L)ogout, (R)eboot, (P)oweroff"
 ###############################################################################
 # Moving around:
 ###############################################################################
@@ -202,6 +214,7 @@ set $opacity 0.5
     bindsym Shift+Print exec --no-startup-id flameshot gui
     bindsym $mod+b exec --no-startup-id i3-msg gaps bottom all set 80
     bindsym $mod+$alt+b exec --no-startup-id i3-msg gaps bottom all set toggle
+    bindsym $mod+m exec i3-msg bar hidden_state toggle
 ###############################################################################
 # i3bar
 ###############################################################################
@@ -210,10 +223,11 @@ set $opacity 0.5
 bar {
     height 24
     mode hide
-    hidden_state hide
+    hidden_state show
+    modifier none
     status_command i3status
     font pango:DejaVu Sans Mono, FontAwesome 12
-    position bottom
+    position top
     status_command i3status-rs ~/.config/i3/i3status-rust.toml
     colors {
         separator #666666
