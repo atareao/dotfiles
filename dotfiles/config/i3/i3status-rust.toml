@@ -43,7 +43,7 @@ interval = 20
 
 [[block]]
 block = "disk_space"
-path = "/home/lorenzo"
+path = "/data"
 alias = "~"
 info_type = "available"
 unit = "GB"
