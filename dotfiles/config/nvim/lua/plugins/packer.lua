@@ -49,6 +49,7 @@ return require('packer').startup(function(use)
 
   -- icons
   use 'kyazdani42/nvim-web-devicons'
+  use 'adelarsq/vim-devicons-emoji'
 
   -- tagviewer
   use 'liuchengxu/vista.vim'
@@ -152,14 +153,6 @@ return require('packer').startup(function(use)
       'sindrets/diffview.nvim',
       requires = 'nvim-lua/plenary.nvim'
   }
-  -- movements
-  -- use {
-  --   'phaazon/hop.nvim',
-  --   branch = 'v2', -- optional but strongly recommended
-  -- }
-    use {
-        'woosaaahh/sj.nvim'
-    }
 
   -- documentation
   use {
@@ -226,6 +219,12 @@ return require('packer').startup(function(use)
   require'colorizer'.setup()
 
   use 'soywod/himalaya.vim'
+
+  use 'mrjones2014/legendary.nvim'
+
+  use 'natecraddock/workspaces.nvim'
+  use 'natecraddock/sessions.nvim'
+  use 'madyanov/svart.nvim'
 
   if packer_bootstrap then
     require('packer').sync()

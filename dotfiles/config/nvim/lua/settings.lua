@@ -5,12 +5,15 @@
 -----------------------------------------------------------
 -- Neovim API aliases
 -----------------------------------------------------------
---local map = vim.api.nvim_set_keymap -- set global keymap
-local cmd = vim.cmd                   -- execute Vim commands
-local exec = vim.api.nvim_exec        -- execute Vimscript
-local fn = vim.fn                     -- call Vim functions
-local g = vim.g                       -- global variables
-local opt = vim.opt                   -- global/buffer/windows-scoped options
+--local map = vim.api.nvim_set_keymap  -- set global keymap
+local cmd = vim.cmd                    -- execute Vim commands
+local exec = vim.api.nvim_exec         -- execute Vimscript
+local fn = vim.fn                      -- call Vim functions
+local g = vim.g                        -- global variables
+local opt = vim.opt                    -- global/buffer/windows-scoped options
+local ag = vim.api.nvim_create_augroup -- create autogroup
+local au = vim.api.nvim_create_autocmd -- create autocomand
+
 
 -----------------------------------------------------------
 -- General
@@ -124,12 +127,6 @@ g.indentLine_char = '|'       -- set indentLine character
 cmd [[autocmd FileType markdown let g:indentLine_enabled=0]]
 
 -----------------------------------------------------------
--- Autocompletion
------------------------------------------------------------
--- Not used here, option defined on /plugins/nvim-cmp.lua
---opt.completeopt = 'menuone,noselect,noinsert'
-
------------------------------------------------------------
 -- Terminal
 -----------------------------------------------------------
 -- open a terminal pane on the right using :Term
@@ -143,3 +140,16 @@ cmd [[
     autocmd TermOpen * startinsert
     autocmd BufLeave term://* stopinsert
 ]]
+
+-----------------------------------------------------------
+-- Highlight
+-----------------------------------------------------------
+-- highlight yanked text
+au('TextYankPost', {
+  group = ag('yank_highlight', {}),
+  pattern = '*',
+  callback = function()
+    vim.highlight.on_yank { higroup='IncSearch', timeout=700 }
+  end,
+})
+
