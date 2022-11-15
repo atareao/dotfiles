@@ -21,6 +21,9 @@ require('telescope').setup{
     -- builtin picker
   },
   extensions = {
+        workspaces = {
+            keep_insert = true,
+        }
     -- Your extension configuration goes here:
     -- extension_name = {
     --   extension_config_key = value,
