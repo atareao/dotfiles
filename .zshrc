@@ -1,0 +1,1 @@
+/home/lorenzo/.config/zsh/zshrc
