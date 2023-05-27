@@ -1,0 +1,69 @@
+###############################################################################
+# THE PATH
+###############################################################################
+export PATH=/usr/local/bin:/bin:/opt/bin:~/go/bin/:~/.cargo/bin:/home/lorenzo/.local/share/containers/podman-desktop/extensions-storage/compose/bin:$PATH
+###############################################################################
+# THE HOME
+###############################################################################
+export ZSH=$HOME/.config/zsh
+###############################################################################
+# THE EDITOR
+###############################################################################
+export EDITOR=/usr/bin/nvim
+###############################################################################
+# THE HISTORY
+###############################################################################
+export HISTFILE=$HOME/.zsh_history
+# How many commands zsh will load to memory.
+export HISTSIZE=50000
+# number of lines
+export HISTFILESIZE=50000
+# How many commands history will save on file.
+export SAVEHIST=50000
+# History won't save duplicates.
+setopt HIST_IGNORE_ALL_DUPS
+# History won't show duplicates on search.
+setopt HIST_FIND_NO_DUPS
+###############################################################################
+# PLUGINS
+###############################################################################
+source $ZSH/plugins/atareao/atareao.plugin.zsh
+source $ZSH/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source $ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $ZSH/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+fpath=($ZSH/plugins/zsh-completions/src $fpath)
+###############################################################################
+# STARSHIP
+###############################################################################
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+eval "$(starship init zsh)"
+###############################################################################
+# ZOXIDE
+###############################################################################
+eval "$(zoxide init zsh)"
+###############################################################################
+# SK
+###############################################################################
+# if which sk > /dev/null;then
+#     if [[ -f ~/.config/sk/key-bindings.zsh && -r ~/.config/sk/key-bindings.zsh ]]; then
+#         source ~/.config/sk/key-bindings.zsh
+#     fi
+# fi
+###############################################################################
+# BROOT 
+###############################################################################
+source /home/lorenzo/.config/broot/launcher/bash/br
+###############################################################################
+# KEYBINDINGS as emacs
+###############################################################################
+bindkey -e
+###
+# DOCKER
+###
+export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
+export CONTAINER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
+### OPEN_AI
+token=$(grep token ~/.cargo/bin/oye.yml)
+export OPENAI_API_KEY="${token##* }"
+### ATUIN
+eval "$(atuin init zsh)"
