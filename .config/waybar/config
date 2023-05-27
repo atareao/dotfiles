@@ -1,0 +1,190 @@
+[{
+    "layer": "top",
+    "output": "DP-1",
+    "position": "top",
+    "height": 35,
+    "spacing": 0,
+    "margin-left": 5,
+    "margin-top": 5,
+    "ipc": true,
+    "id": "bar-0",
+
+    // Choose the order of the modules
+
+    "modules-left":[  "sway/workspaces", "wlr/taskbar"],
+    "modules-right":["custom/media",  "sway/mode", "idle_inhibitor", "custom/updater", "pulseaudio", "cpu", "memory", "temperature", "custom/layout", "backlight", "keyboard-state",  "battery", "battery#bat2", "network", "tray", "clock", "custom/power"],
+    // Modules configuration
+    "sway/mode": {
+         "format": " {}",
+        "max-length": 50
+    },
+    "sway/workspaces": {
+      "format": "{index}{name}",
+      "on-click": "activate",
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 20,
+        "icon-theme": "Star",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "minimize",
+        "on-click-right": "close"
+    },
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": " {name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+   "sway/language": {
+    "format": " {}",
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "tray": {
+        "icon-size": 20,
+        "spacing": 10
+    },
+    "clock": {
+        // "timezone": "Europe/Madrid",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""]
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", ""]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "Connected  ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click-right": "bash ~/.config/rofi/wifi_menu/rofi_wifi_menu"
+    },
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-bluetooth-muted": "{icon} {format_source}",
+        "format-muted": "{format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol",
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+    },
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 20,
+        "format-icons": {
+            "spotify": " ",
+            "default": " "
+        },
+        "escape": true,
+        "exec": "$HOME/.config/system_scripts/mediaplayer.py 2> /dev/null",
+        "on-click": "playerctl play-pause"
+    },
+    "custom/power":{
+        "format": "",
+        "on-click": "wlogout",
+        "on-click-right": "killall wlogout"
+    },
+    "custom/layout":{
+        "format": " ",
+        "on-click": "bash ~/.config/system_scripts/layout.sh"
+    },
+    "custom/updater":{
+        "format": "  {} Updates",
+        "exec": "checkupdates | wc -l",
+        "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
+        "interval": 15,
+        "on-click": "alacritty -e yay -Syu"
+    }
+},
+{
+    "layer": "top",
+    "output": "HDMI-A-1",
+    "position": "top",
+    "height": 35,
+    "spacing": 0,
+    "margin-left": 5,
+    "margin-top": 5,
+    "ipc": true,
+    "id": "bar-1",
+
+    // Choose the order of the modules
+
+    "modules-left":[  "sway/workspaces", "wlr/taskbar"],
+    // Modules configuration
+
+    "sway/workspaces": {
+      "format": "{index}{name}",
+      "on-click": "activate",
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 20,
+        "icon-theme": "Star",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "minimize",
+        "on-click-right": "close"
+    }
+}
+]
+
