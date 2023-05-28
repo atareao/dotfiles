@@ -14,3 +14,4 @@
 .ssh/temporal
 .ssh/test
 .ssh/zn_rsa
+.config/rclone/rclone.conf
