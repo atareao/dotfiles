@@ -17,3 +17,4 @@ source ${SCRIPTDIR}/utils.sh
 source ${SCRIPTDIR}/portada_podcast.sh
 source ${SCRIPTDIR}/xcopy.sh
 source ${SCRIPTDIR}/yadmalt.sh
+source ${SCRIPTDIR}/keys.sh

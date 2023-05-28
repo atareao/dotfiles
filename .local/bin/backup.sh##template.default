@@ -54,10 +54,13 @@ do
         /data/podcasts                             \
         /data/python                               \
         /data/rust                                 \
+        /data/secreto                              \
+        /data/semaphore                            \
         /data/Vídeos                               \
         /data/webdav                               \
-        /home/lorenzo/.ssh                \
-        /home/lorenzo/.config             \
+        /home/lorenzo/.ssh                         \
+        /home/lorenzo/.config                      \
+        /home/lorenzo/.gnupg                       \
         --exclude '*.aup'                          \
         --exclude '*.au'                           \
         --exclude '*.mkv'                          \
