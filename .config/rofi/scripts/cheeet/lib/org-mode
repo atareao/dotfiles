@@ -1,0 +1,236 @@
+| App      | Key                     | Description                                       | Detail               |
+| org-mode | =M-x org-info=          | To read the on-line documentation try             |                      |
+| org-mode | =TAB=                   | rotate current subtree between states             |                      |
+| org-mode | =S-TAB=                 | rotate entire buffer between states               |                      |
+| org-mode | =C-u C-u TAB=           | restore property-dependent startup visibility     |                      |
+| org-mode | =C-u C-u C-u TAB=       | show the whole file, including drawers            |                      |
+| org-mode | =C-c C-r=               | reveal context around point                       |                      |
+| org-mode | =C-c C-n/p=             | next/previous heading                             |                      |
+| org-mode | =C-c C-f/b=             | next/previous heading, same level                 |                      |
+| org-mode | =C-c C-u=               | backward to higher level heading                  |                      |
+| org-mode | =C-c C-j=               | jump to another place in document                 |                      |
+| org-mode | =S-UP/DOWN=             | previous/next plain list item                     |                      |
+| org-mode | =M-RET=                 | insert new heading/item at current level          |                      |
+| org-mode | =C-RET=                 | insert new heading after subtree                  |                      |
+| org-mode | =M-S-RET=               | insert new TODO entry/checkbox item               |                      |
+| org-mode | =C-S-RET=               | insert TODO entry/ckbx after subtree              |                      |
+| org-mode | =C-c -=                 | turn (head)line into item, cycle item type        |                      |
+| org-mode | =C-c *=                 | turn item/line into headline                      |                      |
+| org-mode | =M-LEFT/RIGHT=          | promote/demote heading                            |                      |
+| org-mode | =M-S-LEFT/RIGHT=        | promote/demote current subtree                    |                      |
+| org-mode | =M-S-UP/DOWN=           | move subtree/list item up/down                    |                      |
+| org-mode | =C-c ^=                 | sort subtree/region/plain-list                    |                      |
+| org-mode | =C-c C-x c=             | clone a subtree                                   |                      |
+| org-mode | =C-c C-x v=             | copy visible text                                 |                      |
+| org-mode | =C-c C-x C-w/M-w=       | kill/copy subtree                                 |                      |
+| org-mode | =C-c C-x C-y or C-y=    | yank subtree                                      |                      |
+| org-mode | =C-x n s/w=             | narrow buffer to subtree / widen                  |                      |
+| org-mode | =C-c c=                 | capture a new item (C-u C-u = goto last)          |                      |
+| org-mode | =C-c C-w=               | refile subtree (C-u C-u = goto last)              |                      |
+| org-mode | =C-c C-x C-a=           | archive subtree using the default command         |                      |
+| org-mode | =C-c C-x C-s=           | move subtree to archive file                      |                      |
+| org-mode | =C-c C-x a/A=           | toggle ARCHIVE tag / to ARCHIVE sibling           |                      |
+| org-mode | =C-TAB=                 | force cycling of an ARCHIVEd tree                 |                      |
+| org-mode | =C-c /=                 | construct a sparse tree by various criteria       |                      |
+| org-mode | =C-c / t/T=             | view TODO's in sparse tree                        |                      |
+| org-mode | =C-c a t=               | global TODO list in agenda mode                   |                      |
+| org-mode | =C-c a L=               | time sorted view of current org file              |                      |
+| org-mode | =C-c C-c=               | re-align the table without moving the cursor      |                      |
+| org-mode | =TAB=                   | re-align the table, move to next field            |                      |
+| org-mode | =S-TAB=                 | move to previous field                            |                      |
+| org-mode | =RET=                   | re-align the table, move to next row              |                      |
+| org-mode | =M-a/e=                 | move to beginning/end of field                    |                      |
+| org-mode | =M-LEFT/RIGHT=          | move the current column left                      |                      |
+| org-mode | =M-S-LEFT=              | kill the current column                           |                      |
+| org-mode | =M-S-RIGHT=             | insert new column to left of cursor position      |                      |
+| org-mode | =M-UP/DOWN=             | move the current row up/down                      |                      |
+| org-mode | =M-S-UP=                | kill the current row or horizontal line           |                      |
+| org-mode | =M-S-DOWN=              | insert new row above the current row              |                      |
+| org-mode | =C-c -=                 | insert hline below (C-u : above) current row      |                      |
+| org-mode | =C-c RET=               | insert hline and move to line below it            |                      |
+| org-mode | =C-c ^=                 | sort lines in region                              |                      |
+| org-mode | =C-c C-x C-w/M-w/C-y=   | cut/copy/paste rectangular region                 |                      |
+| org-mode | =C-c C-q=               | fill paragraph across selected cells              |                      |
+| org-mode | =C-c `=                 | edit the current field in a separate window       |                      |
+| org-mode | =C-u TAB=               | make current field fully visible                  |                      |
+| org-mode | =M-x org-table-export=  | export as tab-separated file                      |                      |
+| org-mode | =M-x org-table-import=  | import tab-separated file                         |                      |
+| org-mode | =C-c +=                 | sum numbers in current column/rectangle           |                      |
+| org-mode | =C-c ~=                 | insert a new table.el table                       |                      |
+| org-mode | =C-c C-c=               | recognize existing table.el table                 |                      |
+| org-mode | =C-c ~=                 | convert table (Org-mode <-> table.el)             |                      |
+| org-mode | ~=~                     | apply current column formula                      |                      |
+| org-mode | ~C-c =~                 | set and eval column formula                       |                      |
+| org-mode | ~C-u C-c #~             | set and eval field formula                        |                      |
+| org-mode | =C-c *=                 | re-apply all stored equations to current line     |                      |
+| org-mode | =C-u C-c *=             | re-apply all stored equations to entire table     |                      |
+| org-mode | =C-u C-u C-c *=         | iterate table to stability                        |                      |
+| org-mode | =C-#=                   | rotate calculation mark through # * ! ^ _         |                      |
+| org-mode | =C-c ?=                 | show line, column, formula reference              |                      |
+| org-mode | =C-c }/{=               | toggle grid / debugger                            |                      |
+| org-mode | =C-c '=                 | edit formulas in separate buffer                  |                      |
+| org-mode | =C-c C-c=               | exit and install new formulas                     |                      |
+| org-mode | =C-u C-c C-c=           | exit, install, and apply new formulas             |                      |
+| org-mode | =C-c C-q=               | abort                                             |                      |
+| org-mode | =C-c C-r=               | toggle reference style                            |                      |
+| org-mode | =TAB=                   | pretty-print Lisp formula                         |                      |
+| org-mode | =M-TAB=                 | complete Lisp symbol                              |                      |
+| org-mode | =S-cursor=              | shift reference point                             |                      |
+| org-mode | =M-up/down=             | shift test line for column references             |                      |
+| org-mode | =M-S-up/down=           | scroll the window showing the table               |                      |
+| org-mode | =C-c }=                 | toggle table coordinate grid                      |                      |
+| org-mode | =C-c l=                 | globally store link to the current location       |                      |
+| org-mode | =C-c C-l=               | insert a link (TAB completes stored links)        |                      |
+| org-mode | =C-u C-c C-l=           | insert file link with file name completion        |                      |
+| org-mode | =C-c C-l=               | edit (also hidden part of) link at point          |                      |
+| org-mode | =C-c C-o=               | open file links in emacs                          |                      |
+| org-mode | =C-u C-c C-o=           | ...force open in emacs/other window               |                      |
+| org-mode | =mouse-1/2=             | open link at point                                |                      |
+| org-mode | =mouse-3=               | ...force open in emacs/other window               |                      |
+| org-mode | =C-c %=                 | record a position in mark ring                    |                      |
+| org-mode | =C-c &=                 | jump back to last followed link(s)                |                      |
+| org-mode | =C-c C-x C-n=           | find next link                                    |                      |
+| org-mode | =C-c C-x C-p=           | find previous link                                |                      |
+| org-mode | =C-c '=                 | edit code snippet of file at point                |                      |
+| org-mode | =C-c C-x C-v=           | toggle inline display of linked images            |                      |
+| org-mode | =C-c C-c=               | execute code block at point                       |                      |
+| org-mode | =C-c C-o=               | open results of code block at point               |                      |
+| org-mode | =C-c C-v c=             | check code block at point for errors              |                      |
+| org-mode | =C-c C-v j=             | insert a header argument with completion          |                      |
+| org-mode | =C-c C-v v=             | view expanded body of code block at point         |                      |
+| org-mode | =C-c C-v I=             | view information about code block at point        |                      |
+| org-mode | =C-c C-v g=             | go to named code block                            |                      |
+| org-mode | =C-c C-v r=             | go to named result                                |                      |
+| org-mode | =C-c C-v u=             | go to the head of the current code block          |                      |
+| org-mode | =C-c C-v n=             | go to the next code block                         |                      |
+| org-mode | =C-c C-v p=             | go to the previous code block                     |                      |
+| org-mode | =C-c C-v d=             | demarcate a code block                            |                      |
+| org-mode | =C-c C-v x=             | execute the next key sequence in the code edit bu |                      |
+| org-mode | =C-c C-v b=             | execute all code blocks in current buffer         |                      |
+| org-mode | =C-c C-v s=             | execute all code blocks in current subtree        |                      |
+| org-mode | =C-c C-v t=             | tangle code blocks in current file                |                      |
+| org-mode | =C-c C-v f=             | tangle code blocks in supplied file               |                      |
+| org-mode | =C-c C-v i=             | ingest all code blocks in supplied file into the  |                      |
+| org-mode | =C-c C-v z=             | switch to the session of the current code block   |                      |
+| org-mode | =C-c C-v l=             | load the current code block into a session        |                      |
+| org-mode | =C-c C-v a=             | view sha1 hash of the current code block          |                      |
+| org-mode | =M-TAB=                 | complete word at point                            |                      |
+| org-mode | =C-c C-t=               | rotate the state of the current item              |                      |
+| org-mode | =S-LEFT/RIGHT=          | select next/previous state                        |                      |
+| org-mode | =C-S-LEFT/RIGHT=        | select next/previous set                          |                      |
+| org-mode | =C-c C-x o=             | toggle ORDERED property                           |                      |
+| org-mode | =C-c C-v=               | view TODO items in a sparse tree                  |                      |
+| org-mode | =C-3 C-c C-v=           | view 3rd TODO keyword's sparse tree               |                      |
+| org-mode | =C-c , [ABC]=           | set the priority of the current item              |                      |
+| org-mode | =C-c , SPC=             | remove priority cookie from current item          |                      |
+| org-mode | =S-UP/DOWN=             | raise/lower priority of current item              |                      |
+| org-mode | =M-S-RET=               | insert new checkbox item in plain list            |                      |
+| org-mode | =C-c C-x C-b=           | toggle checkbox(es) in region/entry/at point      |                      |
+| org-mode | =C-c C-c=               | toggle checkbox at point                          |                      |
+| org-mode | =C-c #=                 | update checkbox statistics (C-u : whole file)     |                      |
+| org-mode | =C-c C-q=               | set tags for current heading                      |                      |
+| org-mode | =C-u C-c C-q=           | realign tags in all headings                      |                      |
+| org-mode | =C-c \\=                | create sparse tree with matching tags             |                      |
+| org-mode | =C-c C-o=               | globally (agenda) match tags at cursor            |                      |
+| org-mode | =C-c C-x p/e=           | set property/effort                               |                      |
+| org-mode | =C-c C-c=               | special commands in property lines                |                      |
+| org-mode | =S-left/right=          | next/previous allowed value                       |                      |
+| org-mode | =C-c C-x C-c=           | turn on column view                               |                      |
+| org-mode | =C-c C-x i=             | capture columns view in dynamic block             |                      |
+| org-mode | =q=                     | quit column view                                  |                      |
+| org-mode | =v=                     | show full value                                   |                      |
+| org-mode | =e=                     | edit value                                        |                      |
+| org-mode | =n/p= or =S-left/right= | next/previous allowed value                       |                      |
+| org-mode | =a=                     | edit allowed values list                          |                      |
+| org-mode | => / <=                 | make column wider/narrower                        |                      |
+| org-mode | =M-left/right=          | move column left/right                            |                      |
+| org-mode | =M-S-right=             | add new column                                    |                      |
+| org-mode | =M-S-left=              | Delete current column                             |                      |
+| org-mode | =C-c .=                 | prompt for date and insert timestamp              |                      |
+| org-mode | =C-u C-c .=             | like C-c . but insert date and time format        |                      |
+| org-mode | =C-c !=                 | like C-c . but make stamp inactive                |                      |
+| org-mode | =C-c C-d=               | insert DEADLINE timestamp                         |                      |
+| org-mode | =C-c C-s=               | insert SCHEDULED timestamp                        |                      |
+| org-mode | =C-c / d=               | create sparse tree with all deadlines due         |                      |
+| org-mode | =C-c C-y=               | the time between 2 dates in a time range          |                      |
+| org-mode | =S-RIGHT/LEFT=          | change timestamp at cursor ±1 day                 |                      |
+| org-mode | =S-UP/DOWN=             | change year/month/day at cursor by ±1             |                      |
+| org-mode | =C-c >=                 | access the calendar for the current date          |                      |
+| org-mode | =C-c <=                 | insert timestamp matching date in calendar        |                      |
+| org-mode | =C-c C-o=               | access agenda for current date                    |                      |
+| org-mode | =mouse-1/RET=           | select date while prompted                        |                      |
+| org-mode | =C-c C-x C-t=           | toggle custom format display for dates/times      |                      |
+| org-mode | =C-c C-x C-i=           | start clock on current item                       |                      |
+| org-mode | =C-c C-x C-o/x=         | stop/cancel clock on current item                 |                      |
+| org-mode | =C-c C-x C-d=           | display total subtree times                       |                      |
+| org-mode | =C-c C-c=               | remove displayed times                            |                      |
+| org-mode | =C-c C-x C-r=           | insert/update table with clock report             |                      |
+| org-mode | =C-c [=                 | add/move current file to front of agenda          |                      |
+| org-mode | =C-c ]=                 | remove current file from your agenda              |                      |
+| org-mode | =C-'=                   | cycle through agenda file list                    |                      |
+| org-mode | =C-c C-x </>=           | set/remove restriction lock                       |                      |
+| org-mode | =C-c a a=               | compile agenda for the current week               |                      |
+| org-mode | =C-c a t=               | compile global TODO list                          |                      |
+| org-mode | =C-c a T=               | compile TODO list for specific keyword            |                      |
+| org-mode | =C-c a m=               | match tags, TODO kwds, properties                 |                      |
+| org-mode | =C-c a M=               | match only in TODO entries                        |                      |
+| org-mode | =C-c a #=               | find stuck projects                               |                      |
+| org-mode | =C-c a L=               | show timeline of current org file                 |                      |
+| org-mode | =C-c a C=               | configure custom commands                         |                      |
+| org-mode | =C-c C-o=               | agenda for date at cursor                         |                      |
+| org-mode | =SPC/mouse-3=           | show original location of item                    |                      |
+| org-mode | =L=                     | show and recenter window                          |                      |
+| org-mode | =TAB/mouse-2=           | goto original location in other window            |                      |
+| org-mode | =RET=                   | goto original location, delete other windows      |                      |
+| org-mode | =C-c C-x b=             | show subtree in indirect buffer, ded.\ frame      |                      |
+| org-mode | =F=                     | toggle follow-mode                                |                      |
+| org-mode | =o=                     | delete other windows                              |                      |
+| org-mode | =v=                     | view mode dispatcher                              |                      |
+| org-mode | =d w vm vy vSP=         | switch to day/week/month/year/def view            |                      |
+| org-mode | =D / G / K=             | toggle diary entries / time grid / habits         |                      |
+| org-mode | =E / R=                 | toggle entry text / clock report                  |                      |
+| org-mode | =l / v l/L/c=           | toggle display of logbook entries                 |                      |
+| org-mode | =v a/A=                 | toggle inclusion of archived trees/files          |                      |
+| org-mode | =r / g=                 | refresh agenda buffer with any changes            |                      |
+| org-mode | =/=                     | filter with respect to a tag                      |                      |
+| org-mode | =s=                     | save all org-mode buffers                         |                      |
+| org-mode | =f / b=                 | display next/previous day,week,...                |                      |
+| org-mode | =. / j=                 | goto today / some date (prompt)                   |                      |
+| org-mode | =0-9=                   | digit argument                                    |                      |
+| org-mode | =t=                     | change state of current TODO item                 |                      |
+| org-mode | =C-k=                   | kill item and source                              |                      |
+| org-mode | =/ a=                   | archive default                                   |                      |
+| org-mode | =C-c C-w=               | refile the subtree                                |                      |
+| org-mode | =: / T=                 | set/show tags of current headline                 |                      |
+| org-mode | =e=                     | set effort property (prefix=nth)                  |                      |
+| org-mode | =, / P=                 | set / compute priority of current item            |                      |
+| org-mode | =S-UP/DOWN=             | raise/lower priority of current item              |                      |
+| org-mode | =C-c C-a=               | run an attachment command                         |                      |
+| org-mode | =C-c C-s/d=             | schedule/set deadline for this item               |                      |
+| org-mode | =S-LEFT/RIGHT=          | change timestamp one day earlier/later            |                      |
+| org-mode | =>=                     | change timestamp to today                         |                      |
+| org-mode | =i=                     | insert new entry into diary                       |                      |
+| org-mode | =I / O / X=             | start/stop/cancel the clock on current item       |                      |
+| org-mode | =J=                     | jump to running clock entry                       |                      |
+| org-mode | =m / u / B=             | mark / unmark / execute bulk action               |                      |
+| org-mode | =C-c C-o=               | follow one or offer all links in current entry    |                      |
+| org-mode | =c=                     | find agenda cursor date in calendar               |                      |
+| org-mode | =c=                     | compute agenda for calendar cursor date           |                      |
+| org-mode | =M=                     | show phases of the moon                           |                      |
+| org-mode | =S=                     | show sunrise/sunset times                         |                      |
+| org-mode | =H=                     | show holidays                                     |                      |
+| org-mode | =C=                     | convert date to other calendars                   |                      |
+| org-mode | =q=                     | quit agenda, remove agenda buffer                 |                      |
+| org-mode | =x=                     | exit agenda, remove all agenda buffers            |                      |
+| org-mode | =C-c C-x C-l=           | preview LaTeX fragment                            |                      |
+| org-mode | =TAB=                   | expand abbreviation (cdlatex-mode)                |                      |
+| org-mode | =` / '=                 | insert/modify math symbol (cdlatex-mode)          |                      |
+| org-mode | =C-c C-x [=             | insert citation using RefTeX                      |                      |
+| org-mode | =C-c C-e=               | export/publish dispatcher                         |                      |
+| org-mode | =C-c C-e v=             | export visible part only                          |                      |
+| org-mode | =C-c C-e t=             | insert template of export options                 |                      |
+| org-mode | =C-c :=                 | toggle fixed width for entry or region            |                      |
+| org-mode | =C-c C-x {\tt\char`\}=  | toggle pretty display of scripts, entities        |                      |
+| org-mode | =C-c ;=                 | toggle COMMENT keyword on entry                   |                      |
+| org-mode | =C-c C-x C-u=           | update dynamic block at point                     |                      |
+| org-mode | =C-u C-c C-x C-u=       | update all dynamic blocks                         |                      |

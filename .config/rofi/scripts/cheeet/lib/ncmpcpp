@@ -1,0 +1,198 @@
+| App     | Key              | Description                                                 |
+| ncmpcpp |                  |                                                             |
+| ncmpcpp | Keys             | Movement                                                    |
+| ncmpcpp | Up k             | Move cursor up                                              |
+| ncmpcpp | Down j           | Move cursor down                                            |
+| ncmpcpp | [                | Move cursor up one album                                    |
+| ncmpcpp | ]                | Move cursor down one album                                  |
+| ncmpcpp | {                | Move cursor up one artist                                   |
+| ncmpcpp | }                | Move cursor down one artist                                 |
+| ncmpcpp | Page Up          | Page up                                                     |
+| ncmpcpp | Page Down        | Page down                                                   |
+| ncmpcpp | Home             | Home                                                        |
+| ncmpcpp | End              | End                                                         |
+| ncmpcpp | Tab              | Switch to next screen in sequence                           |
+| ncmpcpp | Shift-Tab        | Switch to previous screen in sequence                       |
+| ncmpcpp | F1               | Show help                                                   |
+| ncmpcpp | 1                | Show playlist                                               |
+| ncmpcpp | 2                | Show browser                                                |
+| ncmpcpp | 3                | Show search engine                                          |
+| ncmpcpp | 4                | Show media library                                          |
+| ncmpcpp | 5                | Show playlist editor                                        |
+| ncmpcpp | 6                | Show tag editor                                             |
+| ncmpcpp | 7                | Show outputs                                                |
+| ncmpcpp | 8                | Show music visualizer                                       |
+| ncmpcpp | =                | Show clock                                                  |
+| ncmpcpp | @                | Show server info                                            |
+| ncmpcpp | Keys             | Global                                                      |
+| ncmpcpp | s                | Stop                                                        |
+| ncmpcpp | p                | Pause                                                       |
+| ncmpcpp | >                | Next track                                                  |
+| ncmpcpp | <                | Previous track                                              |
+| ncmpcpp | Ctrl-H Backspace | Replay playing song                                         |
+| ncmpcpp | f                | Seek forward in playing song                                |
+| ncmpcpp | b                | Seek backward in playing song                               |
+| ncmpcpp | - Left           | Decrease volume by 2%                                       |
+| ncmpcpp | Right +          | Increase volume by 2%                                       |
+| ncmpcpp | t                | Toggle space mode (select/add)                              |
+| ncmpcpp | T                | Toggle add mode (add or remove/always add)                  |
+| ncmpcpp | vertical bar     | Toggle mouse support                                        |
+| ncmpcpp | v                | Reverse selection                                           |
+| ncmpcpp | V                | Remove selection                                            |
+| ncmpcpp | B                | Select songs of album around the cursor                     |
+| ncmpcpp | a                | Add selected items to playlist                              |
+| ncmpcpp | `                | Add random items to playlist                                |
+| ncmpcpp | r                | Toggle repeat mode                                          |
+| ncmpcpp | z                | Toggle random mode                                          |
+| ncmpcpp | y                | Toggle single mode                                          |
+| ncmpcpp | R                | Toggle consume mode                                         |
+| ncmpcpp | Y                | Toggle replay gain mode                                     |
+| ncmpcpp | #                | Toggle bitrate visibility                                   |
+| ncmpcpp | Z                | Shuffle playlist                                            |
+| ncmpcpp | x                | Toggle crossfade mode                                       |
+| ncmpcpp | X                | Set crossfade                                               |
+| ncmpcpp | u                | Start music database update                                 |
+| ncmpcpp | :                | Execute command                                             |
+| ncmpcpp | Ctrl-F           | Apply filter                                                |
+| ncmpcpp | /                | Find item forward                                           |
+| ncmpcpp | ?                | Find item backward                                          |
+| ncmpcpp | ,                | Jump to previous found item                                 |
+| ncmpcpp | .                | Jump to next found item                                     |
+| ncmpcpp | w                | Toggle find mode (normal/wrapped)                           |
+| ncmpcpp | G                | Locate song in browser                                      |
+| ncmpcpp | ~                | Locate song in media library                                |
+| ncmpcpp | Ctrl-L           | Lock/unlock current screen                                  |
+| ncmpcpp | Left h           | Switch to master screen (left one)                          |
+| ncmpcpp | Right l          | Switch to slave screen (right one)                          |
+| ncmpcpp | E                | Locate song in tag editor                                   |
+| ncmpcpp | P                | Toggle display mode                                         |
+| ncmpcpp | \                | Toggle user interface                                       |
+| ncmpcpp | !                | Toggle displaying separators between albums                 |
+| ncmpcpp | g                | Jump to given position in playing song (formats: mm:ss, x%) |
+| ncmpcpp | i                | Show song info                                              |
+| ncmpcpp | I                | Show artist info                                            |
+| ncmpcpp | L                | Toggle lyrics fetcher                                       |
+| ncmpcpp | F                | Toggle fetching lyrics for playing songs in background      |
+| ncmpcpp | q                | Quit                                                        |
+| ncmpcpp | Keys             | Playlist                                                    |
+| ncmpcpp | Enter            | Play selected item                                          |
+| ncmpcpp | Delete           | Delete selected item(s) from playlist                       |
+| ncmpcpp | c                | Clear playlist                                              |
+| ncmpcpp | C                | Clear playlist except selected item(s)                      |
+| ncmpcpp | Ctrl-P           | Set priority of selected items                              |
+| ncmpcpp | Ctrl-K m         | Move selected item(s) up                                    |
+| ncmpcpp | n Ctrl-J         | Move selected item(s) down                                  |
+| ncmpcpp | M                | Move selected item(s) to cursor position                    |
+| ncmpcpp | A                | Add item to playlist                                        |
+| ncmpcpp | e                | Edit song                                                   |
+| ncmpcpp | S                | Save playlist                                               |
+| ncmpcpp | Ctrl-V           | Sort playlist                                               |
+| ncmpcpp | Ctrl-R           | Reverse playlist                                            |
+| ncmpcpp | o                | Jump to current song                                        |
+| ncmpcpp | U                | Toggle playing song centering                               |
+| ncmpcpp | Keys             | Browser                                                     |
+| ncmpcpp | Enter            | Enter directory/Add item to playlist and play it            |
+| ncmpcpp | Space            | Add item to playlist/select it                              |
+| ncmpcpp | e                | Edit song                                                   |
+| ncmpcpp | e                | Edit directory name                                         |
+| ncmpcpp | e                | Edit playlist name                                          |
+| ncmpcpp | 2                | Browse MPD database/local filesystem                        |
+| ncmpcpp | `                | Toggle sort mode                                            |
+| ncmpcpp | o                | Locate playing song                                         |
+| ncmpcpp | Ctrl-H Backspace | Jump to parent directory                                    |
+| ncmpcpp | Delete           | Delete selected items from disk                             |
+| ncmpcpp | G                | Jump to playlist editor (playlists only)                    |
+| ncmpcpp | Keys             | Search engine                                               |
+| ncmpcpp | Enter            | Add item to playlist and play it/change option              |
+| ncmpcpp | Space            | Add item to playlist                                        |
+| ncmpcpp | e                | Edit song                                                   |
+| ncmpcpp | y                | Start searching                                             |
+| ncmpcpp | 3                | Reset search constraints and clear results                  |
+| ncmpcpp | Keys             | Media library                                               |
+| ncmpcpp | 4                | Switch between two/three columns mode                       |
+| ncmpcpp | Left h           | Previous column                                             |
+| ncmpcpp | Right l          | Next column                                                 |
+| ncmpcpp | Enter            | Add item to playlist and play it                            |
+| ncmpcpp | Space            | Add item to playlist                                        |
+| ncmpcpp | e                | Edit song                                                   |
+| ncmpcpp | e                | Edit tag (left column)/album (middle/right column)          |
+| ncmpcpp | `                | Toggle type of tag used in left column                      |
+| ncmpcpp | m                | Toggle sort mode                                            |
+| ncmpcpp | Keys             | Playlist editor                                             |
+| ncmpcpp | Left h           | Previous column                                             |
+| ncmpcpp | Right l          | Next column                                                 |
+| ncmpcpp | Enter            | Add item to playlist and play it                            |
+| ncmpcpp | Space            | Add item to playlist/select it                              |
+| ncmpcpp | e                | Edit song                                                   |
+| ncmpcpp | e                | Edit playlist name                                          |
+| ncmpcpp | Ctrl-K m         | Move selected item(s) up                                    |
+| ncmpcpp | n Ctrl-J         | Move selected item(s) down                                  |
+| ncmpcpp | Delete           | Delete selected playlists (left column)                     |
+| ncmpcpp | C                | Clear playlist except selected item(s)                      |
+| ncmpcpp | Ctrl-P           | Set priority of selected items                              |
+| ncmpcpp | Ctrl-K m         | Move selected item(s) up                                    |
+| ncmpcpp | n Ctrl-J         | Move selected item(s) down                                  |
+| ncmpcpp | M                | Move selected item(s) to cursor position                    |
+| ncmpcpp | A                | Add item to playlist                                        |
+| ncmpcpp | e                | Edit song                                                   |
+| ncmpcpp | S                | Save playlist                                               |
+| ncmpcpp | Ctrl-V           | Sort playlist                                               |
+| ncmpcpp | Ctrl-R           | Reverse playlist                                            |
+| ncmpcpp | o                | Jump to current song                                        |
+| ncmpcpp | U                | Toggle playing song centering                               |
+| ncmpcpp | Keys             | Browser                                                     |
+| ncmpcpp | Enter            | Enter directory/Add item to playlist and play it            |
+| ncmpcpp | Space            | Add item to playlist/select it                              |
+| ncmpcpp | e                | Edit song                                                   |
+| ncmpcpp | e                | Edit directory name                                         |
+| ncmpcpp | e                | Edit playlist name                                          |
+| ncmpcpp | 2                | Browse MPD database/local filesystem                        |
+| ncmpcpp | `                | Toggle sort mode                                            |
+| ncmpcpp | o                | Locate playing song                                         |
+| ncmpcpp | Ctrl-H Backspace | Jump to parent directory                                    |
+| ncmpcpp | Delete           | Delete selected items from disk                             |
+| ncmpcpp | G                | Jump to playlist editor (playlists only)                    |
+| ncmpcpp | Keys             | Search engine                                               |
+| ncmpcpp | Enter            | Add item to playlist and play it/change option              |
+| ncmpcpp | Space            | Add item to playlist                                        |
+| ncmpcpp | e                | Edit song                                                   |
+| ncmpcpp | y                | Start searching                                             |
+| ncmpcpp | 3                | Reset search constraints and clear results                  |
+| ncmpcpp | Keys             | Media library                                               |
+| ncmpcpp | 4                | Switch between two/three columns mode                       |
+| ncmpcpp | Left h           | Previous column                                             |
+| ncmpcpp | Right l          | Next column                                                 |
+| ncmpcpp | Enter            | Add item to playlist and play it                            |
+| ncmpcpp | Space            | Add item to playlist                                        |
+| ncmpcpp | e                | Edit song                                                   |
+| ncmpcpp | e                | Edit tag (left column)/album (middle/right column)          |
+| ncmpcpp | `                | Toggle type of tag used in left column                      |
+| ncmpcpp | m                | Toggle sort mode                                            |
+| ncmpcpp | Keys             | Playlist editor                                             |
+| ncmpcpp | Left h           | Previous column                                             |
+| ncmpcpp | Right l          | Next column                                                 |
+| ncmpcpp | Enter            | Add item to playlist and play it                            |
+| ncmpcpp | Space            | Add item to playlist/select it                              |
+| ncmpcpp | e                | Edit song                                                   |
+| ncmpcpp | e                | Edit playlist name                                          |
+| ncmpcpp | Ctrl-K m         | Move selected item(s) up                                    |
+| ncmpcpp | n Ctrl-J         | Move selected item(s) down                                  |
+| ncmpcpp | Delete           | Delete selected playlists (left column)                     |
+| ncmpcpp | Delete           | Delete selected item(s) from playlist (right column)        |
+| ncmpcpp | c                | Clear playlist                                              |
+| ncmpcpp | C                | Clear playlist except selected items                        |
+| ncmpcpp | Keys             | Lyrics                                                      |
+| ncmpcpp | Space            | Toggle reloading lyrics upon song change                    |
+| ncmpcpp | e                | Open lyrics in external editor                              |
+| ncmpcpp | `                | Refetch lyrics                                              |
+| ncmpcpp | Keys             | Tiny tag editor                                             |
+| ncmpcpp | Enter            | Edit tag                                                    |
+| ncmpcpp | y                | Save                                                        |
+| ncmpcpp | Keys             | Tag editor                                                  |
+| ncmpcpp | Enter            | Edit tag/filename of selected item (left column)            |
+| ncmpcpp | Enter            | Perform operation on all/selected items (middle column)     |
+| ncmpcpp | Space            | Switch to albums/directories view (left column)             |
+| ncmpcpp | Space            | Select item (right column)                                  |
+| ncmpcpp | Left h           | Previous column                                             |
+| ncmpcpp | Right l          | Next column                                                 |
+| ncmpcpp | Ctrl-H Backspace | Jump to parent directory (left column, directories view)    |
