@@ -24,8 +24,8 @@
 #!/bin/sh
 
 REPO_A='/data/borgbackup|/usr/bin/borg'
-REPO_B='{{ BORG_NAS }}:/var/services/homes/lorenzo/backup/repo_manjaro|/usr/local/bin/borg'
-REPO_C='{{ BORG_SERVER }}:/home/lorenzo/backup/repo_manjaro|/usr/bin/borg'
+REPO_B='{{ env.BORG_NAS }}:/var/services/homes/lorenzo/backup/repo_manjaro|/usr/local/bin/borg'
+REPO_C='{{ env.BORG_SERVER }}:/home/lorenzo/backup/repo_manjaro|/usr/bin/borg'
 REPOS=("$REPO_A" "$REPO_B" "$REPO_C")
 
 #Bail if borg is already running, maybe previous run didn't finish
@@ -34,7 +34,7 @@ if pidof -x borg >/dev/null; then
     exit
 fi
 
-export BORG_PASSPHRASE="{{ BORG_PASS }}"
+export BORG_PASSPHRASE="{{ env.BORG_PASS }}"
 for ITEM in "${REPOS[@]}"
 do
     REPOSITORY=${ITEM%%|*}
