@@ -67,3 +67,4 @@ token=$(grep token ~/.cargo/bin/oye.yml)
 export OPENAI_API_KEY="${token##* }"
 ### ATUIN
 eval "$(atuin init zsh)"
+bindkey '^P' _atuin_up_search_widget
