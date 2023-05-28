@@ -1,19 +1,19 @@
-display-name = "{{ name }}"
+display-name = "{{ env.USER_FNAME }}"
 downloads-dir = "~/Descargas"
 signature = "Saludos,"
 
 [gmail]
 default = true
-email = "lorenzo.carbonell.cerezo@gmail.com"
+email = "{{ env.EMAIL }}"
 
 backend = "imap" # imap, maildir or notmuch
 imap-host = "imap.gmail.com"
 imap-port = 993
-imap-login = "{{ email }}"
+imap-login = "{{ env.USER_EMAIL }}"
 imap-passwd-cmd = "gopass show -o gmail/pass"
 
 sender = "smtp" # smtp or sendmail
 smtp-host = "smtp.gmail.com"
 smtp-port = 465
-smtp-login = "{{ email }}"
+smtp-login = "{{ env.USER_EMAIL }}"
 smtp-passwd-cmd = "gopass show -o gmail/pass"
