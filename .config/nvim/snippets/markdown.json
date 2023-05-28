@@ -1,0 +1,96 @@
+{
+    "date": {
+        "prefix": "date",
+        "body": ["$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $0"]
+    },
+    "inline code": {
+        "prefix": "ic",
+        "body": ["`$1`$0"]
+    },
+    "code block python": {
+        "prefix": "cp",
+        "body": [
+            "```python",
+            "$1```",
+            "$0"
+        ]
+    },
+    "code block bash": {
+        "prefix": "cb",
+        "body": [
+            "```bash",
+            "$1```",
+            "$0"
+        ]
+    },
+    "zettel note": {
+        "prefix": "zn",
+        "body": [
+            "---",
+            "title: $1",
+            "filename: $TM_FILENAME",
+            "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "tags: $2",
+            "---",
+            "# $1",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $1",
+            "",
+            "---",
+            ""
+        ]
+    },
+    "zettel podcast": {
+        "prefix": "zp",
+        "body": [
+            "---",
+            "season: $1",
+            "episode: $2",
+            "title: $3",
+            "filename: $TM_FILENAME",
+            "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "tags: $4",
+            "---",
+            "",
+            "# $3",
+            "",
+            "Hola, soy Lorenzo y esto es **atareao con Linux** episodio número $2",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $3",
+            "",
+            "---",
+            "",
+            "Espero que te haya gustado este nuevo episodio del podcast. Si puedes, te agradecería una valoración en [iVoox](https://www.ivoox.com/podcast-atareao-version-podcast_sq_f1618463_1.html) y/o en [Apple Podcast](https://podcasts.apple.com/podcast/id1437197202).",
+            "",
+            "Recuerda que este es un podcast suscrito a la red de podcast de **Sospechoso habituales**",
+            "",
+            "Te puedes suscribir a esa **fantástica red de podcast** en feedpress.me/sospechososhabituales",
+            "",
+            "Por último y como te digo siempre, recuerda que la vida son dos días y uno ya ha pasado.",
+            "",
+            "Disfruta como si no hubiera un mañana y si puede ser con Linux, **mejor que mejor**."
+        ]
+    },
+    "zettel chapter": {
+        "prefix": "zc",
+        "body": [
+            "---",
+            "title: $1",
+            "tutorial: $2",
+            "filename: $TM_FILENAME",
+            "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "tags: $3",
+            "---",
+            "$0"
+        ]
+    }
+}
