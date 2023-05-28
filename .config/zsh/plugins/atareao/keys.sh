@@ -28,6 +28,6 @@ function keys(){
     gpg --export-ownertrust > /tmp/keys/trust.gpg
     tar cvzf /tmp/keys.tar.gz /tmp/keys
     rm -rf /tmp/keys
-    scp /tmp/keys.tar.gz belcar:/var/services/homes/lorenzo
+    scp /tmp/keys.tar.gz nas:/var/services/homes/lorenzo
     rm -rf /tmp/keys.tar.gz
 }
