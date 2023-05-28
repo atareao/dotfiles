@@ -24,6 +24,7 @@
 function yadmalt(){
     while read -r item;do
         variable="${item:s/\//_}"
+        echo "${variable:u}"
         export "${variable:u}=$(gopass show --password "$item")"
     done < <(gopass list --flat)
     yadm alt
