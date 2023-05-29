@@ -4,36 +4,32 @@ Todos mis archivos de configuración en un único sitio
 
 ## Instalación
 
-Actualmente estoy utilizando `chezmoi` como mi gestor de `dotfiles`, con lo que es la herramienta que tienes que utilizar para implantar estos mismos archivos de configuración en tu propia máquina.
+Actualmente estoy utilizando `yadm` como mi gestor de `dotfiles`, con lo que es la herramienta que tienes que utilizar para implantar estos mismos archivos de configuración en tu propia máquina.
 
-El primer paso es instalar `chezmoi` en tu equipo. Para ello, en el caso de Ubuntu y derivados lo puedes hacer fácilmente utilizando,
+El primer paso es instalar `yadm` en tu equipo. Para ello, en el caso de Ubuntu y derivados lo puedes hacer fácilmente utilizando,
 
 ```bash
-sudo apt install chezmoi
+sudo apt install yadm
 ```
 
 En el caso de Arch y derivados,
 
 ```bash
-sudo pacman -S chezmoi
+sudo pacman -S yadm
 ```
 
-O si simplemente, quieres instalar el *binario*, cosa que yo no te recomiendo, lo puedes hacer con,
+### Instalar los dotfiles
+
+Recuerda que instalar los dotfiles puede *machacar* tus dotfiles, con lo que tienes que estar atento a esto. El primer paso es clonar el repositorio, para ello, simplemente tienes que ejecutar los siguientes comandos,
 
 ```bash
-sh -c "$(curl -fsLS get.chezmoi.io)"
+yadm clone https://github.com/atareao/dotfiles.git
+yadm status
 ```
 
-### ¿Ya tienes tus dotfiles en GitHub?
+Antes de continuar, tienes que tener en cuenta que algunos de los archivos que estoy utilizando son plantillas. Esto quiere decir, que en mi caso las plantillas las reemplazaré por los valores que tengo almacenados.
 
-Si ya tienes tus *dotfiles* en *GitHub*, con `chezmoi`, entonces lo puedes hacer fácilmente en una única línea de comandos,
+En mi caso, estoy utilizando `gopass` para guardar toda la información sensible. Con sensible, no me refiero únicamente a contraseñas, sino también a otra información, que simplemente no quiero que esté en mis dotfiles.
 
-```bash
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply $GITHUB_USERNAME
-```
+Para convertir estas plantillas en la configuración correspondiente, reemplazo los valores de esas plantillas por los valores que tengo almacenados en `gopass`, y para ello, utilizo un script que se encuentra en los dotfiles. Todo muy meta, como puedes ver. Básicamente se trata de `yadmalt`. Que es mi propia interpretación de `yadm alt`.
 
-O si quieres instalar mis archivos de configuración, lo que de nuevo no te recomiendo, lo puedes hacer de la siguiente forma,
-
-```bash
-chezmoi init https://github.com/atareao/dotfiles.git
-```
