@@ -19,7 +19,6 @@ smtp-login = "{{ env.ATAREAO_EMAIL }}"
 smtp-passwd-cmd = "gopass show -o atareao/pass"
 
 [gmail]
-default = true
 email = "{{ env.EMAIL }}"
 
 backend = "imap" # imap, maildir or notmuch
