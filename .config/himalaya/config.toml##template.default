@@ -2,6 +2,22 @@ display-name = "{{ env.USER_FNAME }}"
 downloads-dir = "~/Descargas"
 signature = "Saludos,"
 
+[atareao]
+default = true
+email = "{{ env.ATAREAO_EMAIL }}"
+
+backend = "imap" # imap, maildir or notmuch
+imap-host = "mail.atareao.es"
+imap-port = 993
+imap-login = "{{ env.ATAREAO_EMAIL }}"
+imap-passwd-cmd = "gopass show -o atareao/pass"
+
+sender = "smtp" # smtp or sendmail
+smtp-host = "mail.atareao.es"
+smtp-port = 465
+smtp-login = "{{ env.ATAREAO_EMAIL }}"
+smtp-passwd-cmd = "gopass show -o atareao/pass"
+
 [gmail]
 default = true
 email = "{{ env.EMAIL }}"
