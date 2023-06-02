@@ -11,6 +11,12 @@ alias dcr='docker compose up -d --force-recrate'
 alias dcl='docker compose logs -f'
 alias dcd='docker compose down'
 alias dc='docker compose'
+alias pc='podman compose'
+alias pcu='podman compose up -d'
+alias pcr='podman compose up -d --force-recreate'
+alias pcp='podman compose ps'
+alias pcl='podman compose logs -f'
+alias pcd='podman compose dowdown'
 alias rgi=sk --ansi -i -c 'rg --color=always --line-number "{}"'
 alias mu=muc --file ~/.zsh_history --count 10 --pretty
 alias hx=helix
