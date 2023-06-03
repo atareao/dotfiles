@@ -1,5 +1,6 @@
 lastupdatecheck: 0
 recentrepos:
+- /home/lorenzo/notas
 - /home/lorenzo/dockers/croni
 - /home/lorenzo/rust/aopodcast
 - /home/lorenzo/rust/publirs
@@ -14,7 +15,6 @@ recentrepos:
 - /home/lorenzo/dockers/sandboxes
 - /data/dockers/sandboxes
 - /home/lorenzo/php/atareao23
-- /home/lorenzo/notas
 - /home/lorenzo/python/my-weather-indicator
 - /data/dockers/self-hosted
 - /home/lorenzo/dockers/self-hosted
