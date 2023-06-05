@@ -60,8 +60,8 @@ bindkey -e
 ###
 # DOCKER
 ###
-export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
-export CONTAINER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
+#export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
+#export CONTAINER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
 ### OPEN_AI
 token=$(grep token ~/.cargo/bin/oye.yml)
 export OPENAI_API_KEY="${token##* }"

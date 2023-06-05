@@ -1,20 +1,17 @@
 lastupdatecheck: 0
 recentrepos:
-- /home/lorenzo/notas
+- /home/lorenzo/rust/u2vpodcast
 - /home/lorenzo/dockers/croni
+- /home/lorenzo/notas
 - /home/lorenzo/rust/aopodcast
 - /home/lorenzo/rust/publirs
-- /home/lorenzo/php/www.atareao.es
 - /home/lorenzo/.local/share/chezmoi
 - /home/lorenzo/rust/ignors
 - /data/javascript/translate-assistant
-- /home/lorenzo/php/blocks
 - /data/semaphore
 - /home/lorenzo/.local/share/gnome-shell/extensions/translate-assistant@atareao.es
-- /home/lorenzo/rust/u2vpodcast
 - /home/lorenzo/dockers/sandboxes
 - /data/dockers/sandboxes
-- /home/lorenzo/php/atareao23
 - /home/lorenzo/python/my-weather-indicator
 - /data/dockers/self-hosted
 - /home/lorenzo/dockers/self-hosted
