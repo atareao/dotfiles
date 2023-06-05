@@ -21,4 +21,3 @@ alias rgi=sk --ansi -i -c 'rg --color=always --line-number "{}"'
 alias mu=muc --file ~/.zsh_history --count 10 --pretty
 alias hx=helix
 alias play=ansible-playbook
-alias docker=podman
