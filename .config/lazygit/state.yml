@@ -1,11 +1,11 @@
 lastupdatecheck: 0
 recentrepos:
+- /home/lorenzo/rust/publirs
 - /data/javascript/wireguard-indicator
 - /home/lorenzo/rust/u2vpodcast
 - /home/lorenzo/dockers/croni
 - /home/lorenzo/notas
 - /home/lorenzo/rust/aopodcast
-- /home/lorenzo/rust/publirs
 - /home/lorenzo/.local/share/chezmoi
 - /home/lorenzo/rust/ignors
 - /data/javascript/translate-assistant
