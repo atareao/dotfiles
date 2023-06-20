@@ -14,9 +14,11 @@ default: nvim
 #   [jpg, jpeg, png, gif, svg, hdr]
 exec:
   chafa:
-    [jpg, jpeg, png, gif, svg, hdr]
+    [jpg, jpeg, png, gif, svg, hdr, svg]
   zipinfo:
     [zip]
+  zathura:
+    [pdf]
 
 
 # (Optional)
@@ -36,7 +38,7 @@ syntax_highlight: true
 #    SolarizedLight
 # If not set, will default to "Base16OceanDark".
 # default_theme: Base16OceanDark
-default_theme: SolarizedDark
+default_theme: InspiredGitHub
 
 # (Optional)
 # Path to .tmtheme file for the syntax highlighting.
