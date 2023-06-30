@@ -37,7 +37,7 @@ set $menu "/bin/bash ~/.config/i3/scripts/rofi.sh"
 set $refresh_i3status killall -SIGUSR1 i3status
 
 ###############################################################################
-# Default conifguration
+# Default configuration
 ###############################################################################
 mouse_warping output
 focus_follows_mouse yes
@@ -58,6 +58,7 @@ set $opacity 0.5
 # Start some helpers
 ###############################################################################
 
+    exec_always --no-startup-id setxkbmap -layout es
     exec_always --no-startup-id bash $HOME/.config/i3/scripts/init.sh
 
 ###############################################################################
