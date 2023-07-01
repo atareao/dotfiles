@@ -1,7 +1,7 @@
 ###############################################################################
 # THE PATH
 ###############################################################################
-export PATH=/usr/local/bin:/bin:/opt/bin:~/go/bin/:~/.cargo/bin:/home/lorenzo/.local/share/containers/podman-desktop/extensions-storage/compose/bin:$PATH
+export PATH=/home/lorenzo/bin:/usr/local/bin:/bin:/opt/bin:~/go/bin/:~/.cargo/bin:$PATH
 ###############################################################################
 # THE HOME
 ###############################################################################
@@ -60,11 +60,10 @@ bindkey -e
 ###
 # DOCKER
 ###
-#export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
-#export CONTAINER_HOST=unix://$XDG_RUNTIME_DIR/podman/podman.sock
+export DOCKER_HOST=unix:///run/user/1000/docker.sock
 ### OPEN_AI
-token=$(grep token ~/.cargo/bin/oye.yml)
-export OPENAI_API_KEY="${token##* }"
+#token=$(grep token ~/.cargo/bin/oye.yml)
+#export OPENAI_API_KEY="${token##* }"
 ### ATUIN
 eval "$(atuin init zsh)"
 bindkey '^P' _atuin_up_search_widget
