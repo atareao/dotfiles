@@ -47,8 +47,8 @@ do
         /data/atareao.es                           \
         /data/bash                                 \
         /data/dockers                              \
-        /data/javascript                           \
         /data/flatpak                              \
+        /data/javascript                           \
         /data/notas                                \
         /data/php                                  \
         /data/podcasts                             \
@@ -65,11 +65,20 @@ do
         --exclude '*.au'                           \
         --exclude '*.mkv'                          \
         --exclude '*.mp3'                          \
+        --exclude '/data/rust/*/target'            \
+        --exclude '/data/rust/*/.git'              \
+        --exclude '/data/python/*/.git'            \
+        --exclude '/data/python/*/__pycache__'     \
         --remote-path "${BORGPATH}"                \
         --info
     # Use the `prune` subcommand to maintain 3 daily, 2 weekly and 3 monthly
-    borg prune -v --list "$REPOSITORY" --prefix '{hostname}-' \
-        --keep-daily=3 --keep-weekly=2 --keep-monthly=3     \
-        --remote-path "${BORGPATH}"
+    borg prune -v                                  \
+        --stats                                    \
+        --list                                     \
+        --keep-within=5d                           \
+        --keep-weekly=2                            \
+        --keep-monthly=2                           \
+        --remote-path "${BORGPATH}"                \
+        -- "${REPOSITORY}"
     echo "=== End backup at $REPOSITORY ==="
 done
