@@ -3,9 +3,9 @@ require('mkdnflow').setup({
     filetypes = {md = true, rmd = true, markdown = true},
     create_dirs = true,
     perspective = {
-        priority = 'first',
+        priority = 'root',
         fallback = 'current',
-        root_tell = false,
+        root_tell = '.git',
         nvim_wd_heel = true
     },
     wrap = false,
@@ -15,9 +15,9 @@ require('mkdnflow').setup({
     },
     silent = false,
     links = {
-        style = 'markdown',
+        style = 'wiki',
         conceal = false,
-        implicit_extension = nil,
+        implicit_extension = 'md',
         transform_implicit = false,
         transform_explicit = function(text)
             text = text:gsub(" ", "-")

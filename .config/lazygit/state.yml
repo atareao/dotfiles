@@ -1,16 +1,15 @@
 lastupdatecheck: 0
 recentrepos:
+- /home/lorenzo/rust/den
 - /home/lorenzo/rust/publirs
 - /data/javascript/wireguard-indicator
 - /home/lorenzo/rust/u2vpodcast
 - /home/lorenzo/dockers/croni
 - /home/lorenzo/notas
 - /home/lorenzo/rust/aopodcast
-- /home/lorenzo/.local/share/chezmoi
 - /home/lorenzo/rust/ignors
 - /data/javascript/translate-assistant
 - /data/semaphore
-- /home/lorenzo/.local/share/gnome-shell/extensions/translate-assistant@atareao.es
 - /home/lorenzo/dockers/sandboxes
 - /data/dockers/sandboxes
 - /home/lorenzo/python/my-weather-indicator
