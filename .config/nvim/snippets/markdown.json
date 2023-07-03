@@ -44,6 +44,44 @@
             ""
         ]
     },
+    "zettel arch": {
+        "prefix": "za",
+        "body": [
+            "* [[arch/indice|Diario de un archero]]",
+            "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "tags: $1",
+            "---",
+            "# $2",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $2",
+            "",
+            "---",
+            ""
+        ]
+    },
+    "zettel rust": {
+        "prefix": "zr",
+        "body": [
+            "* [[rust/indice|Diario de un crustáceo]]",
+            "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "tags: $1",
+            "---",
+            "# $2",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $2",
+            "",
+            "---",
+            ""
+        ]
+    },
     "zettel podcast": {
         "prefix": "zp",
         "body": [

@@ -424,6 +424,9 @@ require("lazy").setup({
         "BlackLight/nvim-http"
     },
     {
+        "ojroques/nvim-bufdel"
+    },
+    {
         "jackMort/ChatGPT.nvim",
         event = "VeryLazy",
         config = function()
