@@ -65,8 +65,10 @@ display=Display\tMeta+P,Display\tMeta+P,Cambiar pantalla
 
 [khotkeys]
 _k_friendly_name=Servicio de accesos rápidos personalizados
-{be470bd9-d662-4df8-a841-013102b96858}=Meta+Return,none,Acción nueva
+{629717fb-6a1b-4598-83c1-bb121e8f55ec}=Meta+Z,none,Intro
+{be470bd9-d662-4df8-a841-013102b96858}=Meta+Return,none,Terminal
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=none,none,Búsqueda
+{f6ee4306-3a0e-4b4c-b84e-06b45ed71042}=Meta+X,none,Outro
 
 [kmix]
 _k_friendly_name=Volumen del sonido
@@ -148,8 +150,8 @@ Switch to Screen 6=none,,Cambiar a la pantalla 6
 Switch to Screen 7=none,,Cambiar a la pantalla 7
 Switch to Screen Above=none,,Cambiar a la pantalla superior
 Switch to Screen Below=none,,Cambiar a la pantalla inferior
-Switch to Screen to the Left=,,Cambiar a la pantalla de la izquierda
-Switch to Screen to the Right=,,Cambiar a la pantalla de la derecha
+Switch to Screen to the Left=none,,Cambiar a la pantalla de la izquierda
+Switch to Screen to the Right=none,,Cambiar a la pantalla de la derecha
 Toggle Night Color=none,none,Conmutar color nocturno
 Toggle Window Raise/Lower=none,,Conmutar pasar la ventana al frente/atrás
 Walk Through Desktop List=none,,Recorrer la lista de escritorios
@@ -302,7 +304,7 @@ activate task manager entry 7=none,Meta+7,Activar la entrada 7 del gestor de tar
 activate task manager entry 8=none,Meta+8,Activar la entrada 8 del gestor de tareas
 activate task manager entry 9=none,Meta+9,Activar la entrada 9 del gestor de tareas
 activate widget 100=none,none,Activar el elemento gráfico Lanzador de aplicaciones
-activate widget 126=,none,Activar el elemento gráfico Gestor de tareas
+activate widget 126=none,none,Activar el elemento gráfico Gestor de tareas
 activate widget 29=none,none,Activar el elemento gráfico Lanzador de aplicaciones
 activate widget 4=Alt+F1,none,Activar el elemento gráfico Lanzador de aplicaciones
 activate widget 53=none,none,Activar el elemento gráfico Lanzador de aplicaciones
