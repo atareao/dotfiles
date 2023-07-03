@@ -23,6 +23,33 @@
 
 #!/bin/sh
 
+function publish(){
+    repository="$1"
+    action="$2"
+    data="$3"
+    result=""
+    while read line;do
+        if [[ -z $result ]]; then
+            result="${line}"
+        else
+            result="${result}|${line}"
+        fi
+    done< <(echo $data)
+    echo $output
+    curl -X 'POST' \
+        "https://{{ env.ZINCOBSERVE_URL }}/api/default/archi_backup/_json" \
+        -H "accept: application/json" \
+        -H "Authorization: Basic {{ env.ZINCOBSERVE_TOKEN }}" \
+        -H "Content-Type: application/json" \
+        -d "[
+                {
+                    \"repository\": \"${repository}\",
+                    \"action\": \"${action}\",
+                    \"result\": \"${result}\"
+                }
+            ]"
+}
+
 REPO_A='/data/borgbackup|/usr/bin/borg'
 REPO_B='{{ env.BORG_NAS }}:/var/services/homes/lorenzo/backup/repo_manjaro|/usr/local/bin/borg'
 REPO_C='{{ env.BORG_SERVER }}:/home/lorenzo/backup/repo_manjaro|/usr/bin/borg'
@@ -40,45 +67,49 @@ do
     REPOSITORY=${ITEM%%|*}
     BORGPATH=${ITEM##*|}
     echo "=== Start backup at $REPOSITORY ==="
-    borg create -v --stats                         \
-        "$REPOSITORY"::'{hostname}-{now:%Y-%m-%d}' \
-        /data/ansible                              \
-        /data/appimage                             \
-        /data/atareao.es                           \
-        /data/bash                                 \
-        /data/dockers                              \
-        /data/flatpak                              \
-        /data/javascript                           \
-        /data/notas                                \
-        /data/php                                  \
-        /data/podcasts                             \
-        /data/python                               \
-        /data/rust                                 \
-        /data/secreto                              \
-        /data/semaphore                            \
-        /data/Vídeos                               \
-        /data/webdav                               \
-        /home/lorenzo/.ssh                         \
-        /home/lorenzo/.config                      \
-        /home/lorenzo/.gnupg                       \
-        --exclude '*.aup'                          \
-        --exclude '*.au'                           \
-        --exclude '*.mkv'                          \
-        --exclude '*.mp3'                          \
-        --exclude '/data/rust/*/target'            \
-        --exclude '/data/rust/*/.git'              \
-        --exclude '/data/python/*/.git'            \
-        --exclude '/data/python/*/__pycache__'     \
-        --remote-path "${BORGPATH}"                \
-        --info
+    create_ouput=$(borg create -v --stats                          \
+                        "$REPOSITORY"::'{hostname}-{now:%Y-%m-%d}' \
+                        /data/ansible                              \
+                        /data/appimage                             \
+                        /data/atareao.es                           \
+                        /data/bash                                 \
+                        /data/dockers                              \
+                        /data/flatpak                              \
+                        /data/javascript                           \
+                        /data/notas                                \
+                        /data/php                                  \
+                        /data/podcasts                             \
+                        /data/python                               \
+                        /data/rust                                 \
+                        /data/secreto                              \
+                        /data/semaphore                            \
+                        /data/Vídeos                               \
+                        /data/webdav                               \
+                        /home/lorenzo/.ssh                         \
+                        /home/lorenzo/.config                      \
+                        /home/lorenzo/.gnupg                       \
+                        --exclude '*.aup'                          \
+                        --exclude '*.au'                           \
+                        --exclude '*.mkv'                          \
+                        --exclude '*.mp3'                          \
+                        --exclude '/data/rust/*/target'            \
+                        --exclude '/data/rust/*/.git'              \
+                        --exclude '/data/python/*/.git'            \
+                        --exclude '/data/python/*/__pycache__'     \
+                        --remote-path "${BORGPATH}"                \
+                        --info 2>&1 > /dev/null)
+    echo "$create_output"
+    publish "${REPOSITORY}" "create" "${create_output}"
     # Use the `prune` subcommand to maintain 3 daily, 2 weekly and 3 monthly
-    borg prune -v                                  \
-        --stats                                    \
-        --list                                     \
-        --keep-within=5d                           \
-        --keep-weekly=2                            \
-        --keep-monthly=2                           \
-        --remote-path "${BORGPATH}"                \
-        -- "${REPOSITORY}"
+    prune_output=$(borg prune -v                    \
+                        --stats                     \
+                        --list                      \
+                        --keep-within=5d            \
+                        --keep-weekly=2             \
+                        --keep-monthly=2            \
+                        --remote-path "${BORGPATH}" \
+                        -- "${REPOSITORY}" 2>&1 > /dev/null)
+    echo "$prune_output"
+    publish "${REPOSITORY}" "prune" "${prune_output}"
     echo "=== End backup at $REPOSITORY ==="
 done
