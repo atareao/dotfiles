@@ -44,6 +44,38 @@
             ""
         ]
     },
+    "zettel incide": {
+        "prefix": "zi",
+        "body": [
+            "* [[indice|indice]]",
+            "tags: $1",
+            "---",
+            "# Indice",
+            "",
+            "* [] $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE | $2",
+            "---",
+            ""
+        ]
+    },
+    "zettel pyldoras": {
+        "prefix": "zpp",
+        "body": [
+            "* [[pyldoras/indice|Pyldoras Pythonicas]]",
+            "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "tags: $1",
+            "---",
+            "# $2",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $2",
+            "",
+            "---",
+            ""
+        ]
+    },
     "zettel arch": {
         "prefix": "za",
         "body": [
