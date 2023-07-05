@@ -98,8 +98,19 @@ local mappings = {
     ["r"] = { "<cmd>source %<CR>", "Reload Configuration"},
     ["s"] = { "<cmd>w<CR>", "Fast saving"},
     ["gy"] = "Open code in Browser",
-    ["."] = "Goto next harpoon",
-    [","] = "Goto next harpoon",
+    ["p"] = { "<Plug>(cokeline-switch-prev)", "Focus preview"},
+    ["n"] = { "<Plug>(cokeline-switch-next)", "Focus next"},
+    ["1"] = { "<Plug>(cokeline-focus-1)", "Focus 1"},
+    ["2"] = { "<Plug>(cokeline-focus-2)", "Focus 2"},
+    ["3"] = { "<Plug>(cokeline-focus-3)", "Focus 3"},
+    ["4"] = { "<Plug>(cokeline-focus-4)", "Focus 4"},
+    ["5"] = { "<Plug>(cokeline-focus-5)", "Focus 5"},
+    ["6"] = { "<Plug>(cokeline-focus-6)", "Focus 6"},
+    ["7"] = { "<Plug>(cokeline-focus-7)", "Focus 7"},
+    ["8"] = { "<Plug>(cokeline-focus-8)", "Focus 8"},
+    ["9"] = { "<Plug>(cokeline-focus-9)", "Focus 9"},
+    ["0"] = { "<Plug>(cokeline-focus-0)", "Focus 0"},
+    ["s"] = { "<cmd>w<CR>", "Fast saving"},
 
     u = {
         name = "TodoComments",
@@ -149,8 +160,8 @@ local mappings = {
         v = { "<C-w>v", "Vertical Split" },
         h = { "<C-w>s", "Horizontal Split" },
         e = { "<C-w>=", "Make Splits Equal" },
-        q = { ":close<CR>", "Close Split" },
-        m = { ":MaximizerToggle<CR>", "Toggle Maximizer" },
+        q = { "close<CR>", "Close Split" },
+        m = { "MaximizerToggle<CR>", "Toggle Maximizer" },
     },
 
     r = {
@@ -180,6 +191,14 @@ local mappings = {
         l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
         u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
         x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
+        t = {
+            name = "Telescope",
+            c = {"<cmd>lua require'telescope'.extensions.dap.commands{}<CR>", "Telescope"},
+            o = {"<cmd>lua require'telescope'.extensions.dap.configurations{}<CR>", "Telescope"},
+            b = {"<cmd>lua require'telescope'.extensions.dap.list_breakpoints{}<CR>", "Telescope"},
+            v = {"<cmd>lua require'telescope'.extensions.dap.variables{}<CR>", "Telescope"},
+            f = {"<cmd>lua require'telescope'.extensions.dap.frames{}<CR>", "Telescope"},
+        }
     },
 
     f = {
@@ -299,6 +318,15 @@ local mappings = {
     v = {
         name = "Vista",
         q = { "<cmd>:Vista!!<cr>", "Open Tag viewer" },
+    },
+    x = {
+        name = "Trouble",
+        x = {"<cmd>Trouble<cr>", "Open Trouble window"},
+        w = {"<cmd>Trouble workspace_diagnostics<cr>", "Diagnostics"},
+        d = {"<cmd>Trouble document_diagnostics<cr>", "Documents"},
+        l = {"<cmd>Trouble loclist<cr>", "List"},
+        q = {"<cmd>Trouble quickfix<cr>", "QuickFix"},
+
     }
 }
 

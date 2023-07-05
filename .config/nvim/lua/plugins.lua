@@ -227,7 +227,7 @@ require("lazy").setup({
         "lewis6991/gitsigns.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
-          require("config.gitsigns")
+            require('gitsigns').setup()
         end,
     },
     -- help for git
@@ -355,13 +355,6 @@ require("lazy").setup({
     "alker0/chezmoi.vim",
     "norcalli/nvim-colorizer.lua",
     "soywod/himalaya.vim",
-
-    {
-        "mrjones2014/legendary.nvim",
-        config = function()
-            require("config.legendary")
-        end,
-    },
     {
         "natecraddock/workspaces.nvim",
         config = function()
