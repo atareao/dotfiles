@@ -23,7 +23,8 @@ require('telescope').setup{
   extensions = {
         workspaces = {
             keep_insert = true,
-        }
+        },
+        live_grep_args,
     -- Your extension configuration goes here:
     -- extension_name = {
     --   extension_config_key = value,
@@ -35,12 +36,16 @@ require('telescope').setup{
 -- Using Lua functions
 local opts = { noremap=true, silent=true }
 local map = vim.api.nvim_set_keymap
-map('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>', opts)
+--map('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>', opts)
 map('n', '<leader>fc', '<cmd>lua require("telescope.builtin").commands()<cr>', opts)
 map('n', '<leader>fd', '<cmd>lua require("telescope.builtin").diagnostics()<cr>', opts)
 map('n', '<leader>ff', '<cmd>lua require("telescope.builtin").find_files()<cr>', opts)
-map('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>', opts)
+--map('n', '<leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<cr>', opts)
 map('n', '<leader>fgb', '<cmd>lua require("telescope.builtin").git_branches()<cr>', opts)
 map('n', '<leader>fgc', '<cmd>lua require("telescope.builtin").git_commits()<cr>', opts)
 map('n', '<leader>fgs', '<cmd>lua require("telescope.builtin").git_status()<cr>', opts)
 map('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>', opts)
+
+vim.keymap.set('n', '<leader>fg', require("telescope").extensions.live_grep_args.live_grep_args, { noremap = true })
+vim.keymap.set('n', '<leader>fb', require("telescope.builtin").buffers, opts)
+
