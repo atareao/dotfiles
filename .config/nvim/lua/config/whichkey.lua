@@ -87,13 +87,16 @@ local m_opts = {
     nowait = true, -- use `nowait` when creating keymaps
 }
 
+
 local mappings = {
     ["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment" },
     ["b"] = { "<cmd>lua require('user.bfs').open()<cr>", "Buffers" },
+    ["c"] = { "<cmd>nohl<CR>", "Clear search higlighting" },
     ["e"] = { "<cmd>Neotree toggle<cr>", "Explorer" },
-    ["q"] = { '<cmd>lua require("user.functions").smart_quit()<CR>', "Quit" },
-    ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
     ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+    ["q"] = { '<cmd>lua require("user.functions").smart_quit()<CR>', "Quit" },
+    ["r"] = { "<cmd>source %<CR>", "Reload Configuration"},
+    ["s"] = { "<cmd>w<CR>", "Fast saving"},
     ["gy"] = "Open code in Browser",
     ["."] = "Goto next harpoon",
     [","] = "Goto next harpoon",
@@ -130,6 +133,7 @@ local mappings = {
         r = { "<cmd>Lazy restore<cr>", "Restore" },
         l = { "<cmd>Lazy<cr>", "Lazy" },
     },
+
 
     o = {
         name = "Options",
@@ -184,7 +188,7 @@ local mappings = {
         c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
         f = { "<cmd>Telescope find_files<cr>", "Find File" },
         t = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-        s = { "<cmd>Telescope grep_string theme=ivy<cr>", "Find String" },
+        --s = { "<cmd>Telescope grep_string theme=ivy<cr>", "Find String" },
         h = { "<cmd>Telescope help_tags<cr>", "Help" },
         i = { "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", "Media" },
         l = { "<cmd>Telescope resume<cr>", "Last Search" },
@@ -193,11 +197,13 @@ local mappings = {
         R = { "<cmd>Telescope registers<cr>", "Registers" },
         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
         C = { "<cmd>Telescope commands<cr>", "Commands" },
+        o = { "<cmd>Telescope file_browser<cr>", "Commands" },
+        y = { "<cmd>Telescope symbols<cr>", "Symbols" },
     },
 
     g = {
         name = "Git",
-        g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
+        g = { "<cmd>LazyGit<cr>", "Lazygit" },
         j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
         k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
         l = { "<cmd>GitBlameToggle<cr>", "Blame" },
@@ -205,17 +211,12 @@ local mappings = {
         r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
         R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
         s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-        u = {
-            "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-            "Undo Stage Hunk",
-        },
+        u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk", },
         o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
         c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-        d = {
-            "<cmd>Gitsigns diffthis HEAD<cr>",
-            "Diff",
-        },
+        d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff", },
+        i = { "<cmd>SidebarNvimToggle<cr>", "Toggle sidebar", },
 
         G = {
             name = "Gist",
@@ -295,6 +296,29 @@ local mappings = {
         p = { "<cmd>TSPlaygroundToggle<cr>", "Playground" },
         r = { "<cmd>TSToggle rainbow<cr>", "Rainbow" },
     },
+    v = {
+        name = "Vista",
+        q = { "<cmd>:Vista!!<cr>", "Open Tag viewer" },
+    }
+}
+
+local topts = {
+    mode = "t", -- TERMINAL mode
+    prefix = "",
+    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+    silent = true, -- use `silent` when creating keymaps
+    noremap = true, -- use `noremap` when creating keymaps
+    nowait = true, -- use `nowait` when creating keymaps
+}
+
+local tmappings = {
+    ["<C-w>"] = {
+        h = { "<C-\\><C-n><C-w>h", "Terminal" },
+        j = { "<C-\\><C-n><C-w>j", "Terminal" },
+        k = { "<C-\\><C-n><C-w>k", "Terminal" },
+        l = { "<C-\\><C-n><C-w>l", "Terminal" },
+        ["<C-w>"] = { "<C-\\><C-n><C-w><C-w>", "Terminal" },
+    }
 }
 
 local vopts = {
@@ -305,12 +329,54 @@ local vopts = {
     noremap = true, -- use `noremap` when creating keymaps
     nowait = true, -- use `nowait` when creating keymaps
 }
+
 local vmappings = {
     ["/"] = { "<Plug>(comment_toggle_linewise_visual)", "Comment toggle linewise (visual)" },
     s = { "<esc><cmd>'<,'>SnipRun<cr>", "Run range" },
 }
 
+local iopts = {
+    mode = "i", -- INSERT mode
+    prefix = "",
+    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+    silent = true, -- use `silent` when creating keymaps
+    noremap = true, -- use `noremap` when creating keymaps
+    nowait = true, -- use `nowait` when creating keymaps
+}
+
+local imappings = {
+    ["<C-h>"] = { "<left>", "Movements"},
+    ["<C-j>"] = { "<down>", "Movements"},
+    ["<C-k>"] = { "<up>", "Movements"},
+    ["<C-l>"] = { "<right>", "Movements"},
+}
+
+
+local n_opts = {
+    mode = "n", -- NORMAL mode
+    prefix = "",
+    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+    silent = true, -- use `silent` when creating keymaps
+    noremap = true, -- use `noremap` when creating keymaps
+    nowait = true, -- use `nowait` when creating keymaps
+}
+
+local nmappings = {
+    ["<C-h>"] = { "<C-w>h", "Movements"},
+    ["<C-j>"] = { "<C-w>j", "Movements"},
+    ["<C-k>"] = { "<C-w>k", "Movements"},
+    ["<C-l>"] = { "<C-w>l", "Movements"},
+    ["<C-t>"] = { "<cmd> Term<cr>", "Open Terminal"},
+    ["<C-g>"] = { "<cmd> LazyGit<cr>", "Open LazyGit"},
+    ["<C-n>"] = { "<cmd> Neotree toggle<cr>", "Toggle Neotree"},
+    ["<C-q>"] = { "<cmd> Vista!!<cr>", "Vista"},
+    ["<C-s>"] = { "<cmd> SidebarNvimToggle<cr>", "Vista"},
+}
+
+
 which_key.setup(setup)
 which_key.register(mappings, opts)
 which_key.register(vmappings, vopts)
-
+which_key.register(tmappings, topts)
+which_key.register(imappings, iopts)
+which_key.register(nmappings, nopts)
