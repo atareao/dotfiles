@@ -1,5 +1,6 @@
 lastupdatecheck: 0
 recentrepos:
+- /data/rust/den
 - /home/lorenzo/rust/den
 - /home/lorenzo/rust/publirs
 - /data/javascript/wireguard-indicator
