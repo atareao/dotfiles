@@ -246,11 +246,11 @@ view_zoom_out=Meta+-,Meta+-,Reducir
 
 [mediacontrol]
 _k_friendly_name=Controlador multimedia
-mediavolumedown=none,,Bajar volumen multimedia
-mediavolumeup=none,,Subir volumen multimedia
+mediavolumedown=none,none,Bajar volumen multimedia
+mediavolumeup=none,none,Subir volumen multimedia
 nextmedia=Media Next,Media Next,Siguiente reproducción multimedia
 pausemedia=Media Pause,Media Pause,Pausar la reproducción multimedia
-playmedia=none,,Reproducir la reproducción multimedia
+playmedia=none,none,Reproducir la reproducción multimedia
 playpausemedia=Media Play,Media Play,Reproducir/pausar la reproducción multimedia
 previousmedia=Media Previous,Media Previous,Anterior reproducción multimedia
 stopmedia=Media Stop,Media Stop,Detener la reproducción multimedia
@@ -304,7 +304,7 @@ activate task manager entry 7=none,Meta+7,Activar la entrada 7 del gestor de tar
 activate task manager entry 8=none,Meta+8,Activar la entrada 8 del gestor de tareas
 activate task manager entry 9=none,Meta+9,Activar la entrada 9 del gestor de tareas
 activate widget 100=none,none,Activar el elemento gráfico Lanzador de aplicaciones
-activate widget 127=,none,Activar el elemento gráfico Gestor de tareas con solo iconos
+activate widget 127=none,none,Activar el elemento gráfico Gestor de tareas con solo iconos
 activate widget 29=none,none,Activar el elemento gráfico Lanzador de aplicaciones
 activate widget 4=Alt+F1,none,Activar el elemento gráfico Lanzador de aplicaciones
 activate widget 53=none,none,Activar el elemento gráfico Lanzador de aplicaciones
