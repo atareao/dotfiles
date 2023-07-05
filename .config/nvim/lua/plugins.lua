@@ -194,6 +194,7 @@ require("lazy").setup({
     "nvim-lua/plenary.nvim",
     {
         "nvim-telescope/telescope.nvim",
+        dependencies = { "nvim-telescope/telescope-live-grep-args.nvim" },
         config = function()
             require("config.telescope-nvim")
         end,
