@@ -337,12 +337,18 @@ local topts = {
 }
 
 local tmappings = {
+    ["<C-t>"] = {
+        ["1"] = {"<cmd>1ToggleTerm<cr>", "ToggleTerm"},
+        ["2"] = {"<cmd>2ToggleTerm<cr>", "ToggleTerm"},
+        ["3"] = {"<cmd>3ToggleTerm<cr>", "ToggleTerm"},
+        ["4"] = {"<cmd>4ToggleTerm<cr>", "ToggleTerm"},
+    },
     ["<esc>"] = {"<cmd>ToggleTerm<cr>", "ToggleTerm"},
     ["<C-h>"] = {"<cmd>wincmd h<cr>", "ToggleTerm"},
     ["<C-j>"] = {"<cmd>wincmd j<cr>", "ToggleTerm"},
     ["<C-k>"] = {"<cmd>wincmd k<cr>", "ToggleTerm"},
     ["<C-l>"] = {"<cmd>wincmd l<cr>", "ToggleTerm"},
-    ["<C-t>"] = {"<cmd>ToggleTerm<cr>", "ToggleTerm"},
+    --["<C-t>"] = {"<cmd>ToggleTerm<cr>", "ToggleTerm"},
     ["<C-w>"] = {
         h = { "<C-\\><C-n><C-w>h", "Terminal" },
         j = { "<C-\\><C-n><C-w>j", "Terminal" },
