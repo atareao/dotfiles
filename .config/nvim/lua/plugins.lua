@@ -36,6 +36,7 @@ require("lazy").setup({
     },
     {
         "sidebar-nvim/sidebar.nvim",
+        event = "VeryLazy",
         config = function()
             require("config.sidebar-nvim")
         end,
@@ -253,6 +254,7 @@ require("lazy").setup({
     },
     {
         "folke/todo-comments.nvim",
+        event = "VeryLazy",
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
             require("config.todo-comments")
@@ -267,14 +269,15 @@ require("lazy").setup({
     },
     -- terminal
     {
-        "nyngwang/NeoTerm.lua",
-        config = function()
-            require("config.neoterm")
-        end,
+        "akinsho/toggleterm.nvim",
+        event = "VeryLazy",
+        version = "*",
+        config = true
     },
     -- rest
     {
         "NTBBloodbath/rest.nvim",
+        event = "VeryLazy",
         config = function()
             require("config.rest")
         end,

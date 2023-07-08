@@ -1,5 +1,8 @@
 lastupdatecheck: 0
 recentrepos:
+- /home/lorenzo/rust/mastodon-watchdog
+- /home/lorenzo/rust/webdavrs
+- /home/lorenzo/rust/matterhook
 - /data/rust/den
 - /home/lorenzo/rust/den
 - /home/lorenzo/rust/publirs
@@ -28,7 +31,6 @@ recentrepos:
 - /data/python/restrabbit
 - /home/lorenzo/python/restrabbit
 - /home/lorenzo/rust/asker
-- /home/lorenzo/rust/webdavrs
 - /home/lorenzo/rust/readmers
 - /home/lorenzo/python/egg
 - /home/lorenzo/python/expulsabot
@@ -41,4 +43,5 @@ customcommandshistory:
 - q
 - qa
 - wqa
+- w
 hidecommandlog: false
