@@ -111,7 +111,6 @@ local mappings = {
     ["9"] = { "<Plug>(cokeline-focus-9)", "Focus 9"},
     ["0"] = { "<Plug>(cokeline-focus-0)", "Focus 0"},
     ["s"] = { "<cmd>w<CR>", "Fast saving"},
-
     u = {
         name = "TodoComments",
         ["t"] = { "<cmd>TodoTelescope<CR>", "Show Comments" },
@@ -296,14 +295,12 @@ local mappings = {
 
     t = {
         name = "Terminal",
+        t = { "<cmd> ToggleTerm<cr>", "Open terminal"},
         ["1"] = { ":1ToggleTerm<cr>", "1" },
         ["2"] = { ":2ToggleTerm<cr>", "2" },
         ["3"] = { ":3ToggleTerm<cr>", "3" },
         ["4"] = { ":4ToggleTerm<cr>", "4" },
-        n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-        u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-        t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-        p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
+        p = { "<cmd>TermExec cmd='python %'<cr>", "Python" },
         f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
         h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
         v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
@@ -317,7 +314,7 @@ local mappings = {
     },
     v = {
         name = "Vista",
-        q = { "<cmd>:Vista!!<cr>", "Open Tag viewer" },
+        o = { "<cmd>:Vista!!<cr>", "Open Tag viewer" },
     },
     x = {
         name = "Trouble",
@@ -340,6 +337,12 @@ local topts = {
 }
 
 local tmappings = {
+    ["<esc>"] = {"<cmd>ToggleTerm<cr>", "ToggleTerm"},
+    ["<C-h>"] = {"<cmd>wincmd h<cr>", "ToggleTerm"},
+    ["<C-j>"] = {"<cmd>wincmd j<cr>", "ToggleTerm"},
+    ["<C-k>"] = {"<cmd>wincmd k<cr>", "ToggleTerm"},
+    ["<C-l>"] = {"<cmd>wincmd l<cr>", "ToggleTerm"},
+    ["<C-t>"] = {"<cmd>ToggleTerm<cr>", "ToggleTerm"},
     ["<C-w>"] = {
         h = { "<C-\\><C-n><C-w>h", "Terminal" },
         j = { "<C-\\><C-n><C-w>j", "Terminal" },
@@ -394,11 +397,11 @@ local nmappings = {
     ["<C-j>"] = { "<C-w>j", "Movements"},
     ["<C-k>"] = { "<C-w>k", "Movements"},
     ["<C-l>"] = { "<C-w>l", "Movements"},
-    ["<C-t>"] = { "<cmd> Term<cr>", "Open Terminal"},
     ["<C-g>"] = { "<cmd> LazyGit<cr>", "Open LazyGit"},
     ["<C-n>"] = { "<cmd> Neotree toggle<cr>", "Toggle Neotree"},
     ["<C-q>"] = { "<cmd> Vista!!<cr>", "Vista"},
     ["<C-s>"] = { "<cmd> SidebarNvimToggle<cr>", "Vista"},
+    ["<C-t>"] = { "<cmd>ToggleTerm<cr>", "Toggle terminal"},
 }
 
 
