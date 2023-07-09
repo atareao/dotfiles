@@ -29,7 +29,7 @@ opt.swapfile = false          -- don't use swapfile
 opt.number = true             -- show line number
 opt.relativenumber = true     -- show line number
 opt.showmatch = true          -- highlight matching parenthesis
-opt.foldmethod = 'marker'     -- enable folding (default 'foldmarker')
+opt.foldmethod = 'expr'       -- enable folding (default 'foldmarker')
 opt.colorcolumn = '80'        -- line lenght marker at 80 columns
 opt.splitright = true         -- vertical split to the right
 opt.splitbelow = true         -- orizontal split to the bottom
@@ -40,6 +40,10 @@ opt.conceallevel = 0
 opt.termguicolors = true
 opt.guifont = "JetBrainsMono Nerd Font"
 g.neovide_cursor_vfx_mode = "railgun"
+
+vim.wo.foldmethod = 'expr'
+vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
+
 
 
 opt.list = true
