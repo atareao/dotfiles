@@ -89,35 +89,6 @@ local m_opts = {
 
 
 local mappings = {
-    ["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment" },
-    ["b"] = { "<cmd>lua require('user.bfs').open()<cr>", "Buffers" },
-    ["c"] = { "<cmd>nohl<CR>", "Clear search higlighting" },
-    ["e"] = { "<cmd>Neotree toggle<cr>", "Explorer" },
-    ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-    ["q"] = { '<cmd>lua require("user.functions").smart_quit()<CR>', "Quit" },
-    ["r"] = { "<cmd>source %<CR>", "Reload Configuration"},
-    ["s"] = { "<cmd>w<CR>", "Fast saving"},
-    ["gy"] = "Open code in Browser",
-    ["p"] = { "<Plug>(cokeline-switch-prev)", "Focus preview"},
-    ["n"] = { "<Plug>(cokeline-switch-next)", "Focus next"},
-    ["1"] = { "<Plug>(cokeline-focus-1)", "Focus 1"},
-    ["2"] = { "<Plug>(cokeline-focus-2)", "Focus 2"},
-    ["3"] = { "<Plug>(cokeline-focus-3)", "Focus 3"},
-    ["4"] = { "<Plug>(cokeline-focus-4)", "Focus 4"},
-    ["5"] = { "<Plug>(cokeline-focus-5)", "Focus 5"},
-    ["6"] = { "<Plug>(cokeline-focus-6)", "Focus 6"},
-    ["7"] = { "<Plug>(cokeline-focus-7)", "Focus 7"},
-    ["8"] = { "<Plug>(cokeline-focus-8)", "Focus 8"},
-    ["9"] = { "<Plug>(cokeline-focus-9)", "Focus 9"},
-    ["0"] = { "<Plug>(cokeline-focus-0)", "Focus 0"},
-    ["s"] = { "<cmd>w<CR>", "Fast saving"},
-    u = {
-        name = "TodoComments",
-        ["t"] = { "<cmd>TodoTelescope<CR>", "Show Comments" },
-        ["q"] = { "<cmd>TodoQuickFix<CR>", "Quick Fix" },
-        ["l"] = { "<cmd>TodoLocList<CR>", "List Comments" },
-    },
-
     B = {
         name = "Bookmarks",
         a = { "<cmd>silent BookmarkAnnotate<cr>", "Annotate" },
@@ -132,53 +103,7 @@ local mappings = {
         S = { "<cmd>silent BookmarkShowAll<cr>", "Prev" },
         x = { "<cmd>BookmarkClearAll<cr>", "Clear All" },
     },
-
-    p = {
-        name = "Lazy",
-        c = { "<cmd>Lazy check<cr>", "Check" },
-        C = { "<cmd>Lazy clean<cr>", "Clean" },
-        i = { "<cmd>Lazy install<cr>", "Install" },
-        s = { "<cmd>Lazy sync<cr>", "Sync" },
-        u = { "<cmd>Lazy update<cr>", "Update" },
-        r = { "<cmd>Lazy restore<cr>", "Restore" },
-        l = { "<cmd>Lazy<cr>", "Lazy" },
-    },
-
-
-    o = {
-        name = "Options",
-        w = { '<cmd>lua require("user.functions").toggle_option("wrap")<cr>', "Wrap" },
-        r = { '<cmd>lua require("user.functions").toggle_option("relativenumber")<cr>', "Relative" },
-        l = { '<cmd>lua require("user.functions").toggle_option("cursorline")<cr>', "Cursorline" },
-        s = { '<cmd>lua require("user.functions").toggle_option("spell")<cr>', "Spell" },
-        t = { '<cmd>lua require("user.functions").toggle_tabline()<cr>', "Tabline" },
-    },
-
-    w = {
-        name = "Window",
-        v = { "<C-w>v", "Vertical Split" },
-        h = { "<C-w>s", "Horizontal Split" },
-        e = { "<C-w>=", "Make Splits Equal" },
-        q = { "close<CR>", "Close Split" },
-        m = { "MaximizerToggle<CR>", "Toggle Maximizer" },
-    },
-
-    r = {
-        name = "Rest",
-        r = { "<Plug>RestNvim", "Run rest" },
-        p = { "<Plug>RestNvimPreview", "Run rest preview" },
-        l = { "<Plug>RestNvimLast", "Run rest last" },
-    },
-
-    s = {
-        name = "Session",
-        s = { "<cmd>SaveSession<cr>", "Save" },
-        r = { "<cmd>RestoreSession<cr>", "Restore" },
-        x = { "<cmd>DeleteSession<cr>", "Delete" },
-        f = { "<cmd>Autosession search<cr>", "Find" },
-        d = { "<cmd>Autosession delete<cr>", "Find Delete" },
-    },
-
+    c = { "<cmd>nohl<CR>", "Clear search higlighting" },
     d = {
         name = "Debug",
         b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Breakpoint" },
@@ -199,7 +124,6 @@ local mappings = {
             f = {"<cmd>lua require'telescope'.extensions.dap.frames{}<CR>", "Telescope"},
         }
     },
-
     f = {
         name = "Find",
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
@@ -218,7 +142,21 @@ local mappings = {
         o = { "<cmd>Telescope file_browser<cr>", "Commands" },
         y = { "<cmd>Telescope symbols<cr>", "Symbols" },
     },
-
+    F = {
+        name = "Focus",
+        ["1"] = { "<Plug>(cokeline-focus-1)", "Focus 1"},
+        ["2"] = { "<Plug>(cokeline-focus-2)", "Focus 2"},
+        ["3"] = { "<Plug>(cokeline-focus-3)", "Focus 3"},
+        ["4"] = { "<Plug>(cokeline-focus-4)", "Focus 4"},
+        ["5"] = { "<Plug>(cokeline-focus-5)", "Focus 5"},
+        ["6"] = { "<Plug>(cokeline-focus-6)", "Focus 6"},
+        ["7"] = { "<Plug>(cokeline-focus-7)", "Focus 7"},
+        ["8"] = { "<Plug>(cokeline-focus-8)", "Focus 8"},
+        ["9"] = { "<Plug>(cokeline-focus-9)", "Focus 9"},
+        ["0"] = { "<Plug>(cokeline-focus-0)", "Focus 0"},
+        p = { "<Plug>(cokeline-switch-prev)", "Focus preview"},
+        n = { "<Plug>(cokeline-switch-next)", "Focus next"},
+    },
     g = {
         name = "Git",
         g = { "<cmd>LazyGit<cr>", "Lazygit" },
@@ -246,7 +184,6 @@ local mappings = {
             p = { "<cmd>Gist -b -p<cr>", "Create Private" },
         },
     },
-
     l = {
         name = "LSP",
         a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -284,7 +221,31 @@ local mappings = {
         t = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
         u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
     },
-
+    o = {
+        name = "Options",
+        w = { '<cmd>lua require("user.functions").toggle_option("wrap")<cr>', "Wrap" },
+        r = { '<cmd>lua require("user.functions").toggle_option("relativenumber")<cr>', "Relative" },
+        l = { '<cmd>lua require("user.functions").toggle_option("cursorline")<cr>', "Cursorline" },
+        s = { '<cmd>lua require("user.functions").toggle_option("spell")<cr>', "Spell" },
+        t = { '<cmd>lua require("user.functions").toggle_tabline()<cr>', "Tabline" },
+    },
+    p = {
+        name = "Lazy",
+        c = { "<cmd>Lazy check<cr>", "Check" },
+        C = { "<cmd>Lazy clean<cr>", "Clean" },
+        i = { "<cmd>Lazy install<cr>", "Install" },
+        s = { "<cmd>Lazy sync<cr>", "Sync" },
+        u = { "<cmd>Lazy update<cr>", "Update" },
+        r = { "<cmd>Lazy restore<cr>", "Restore" },
+        l = { "<cmd>Lazy<cr>", "Lazy" },
+    },
+    r = {
+        name = "Rest",
+        r = { "<Plug>RestNvim", "Run rest" },
+        p = { "<Plug>RestNvimPreview", "Run rest preview" },
+        l = { "<Plug>RestNvimLast", "Run rest last" },
+    },
+    s = { "<cmd>w<CR>", "Fast saving"},
     S = {
         name = "SnipRun",
         c = { "<cmd>SnipClose<cr>", "Close" },
@@ -298,26 +259,40 @@ local mappings = {
 
     t = {
         name = "Terminal",
-        t = { "<cmd> ToggleTerm<cr>", "Open terminal"},
         ["1"] = { ":1ToggleTerm<cr>", "1" },
         ["2"] = { ":2ToggleTerm<cr>", "2" },
         ["3"] = { ":3ToggleTerm<cr>", "3" },
         ["4"] = { ":4ToggleTerm<cr>", "4" },
-        p = { "<cmd>TermExec cmd='python %'<cr>", "Python" },
         f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
         h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
+        j = { "<cmd>TermExec cmd='gjs %'<cr>", "Execute JavaScript" },
+        p = { "<cmd>TermExec cmd='python %'<cr>", "Execute Python" },
+        t = { "<cmd> ToggleTerm<cr>", "Open terminal"},
         v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
     },
-
     T = {
         name = "Treesitter",
         h = { "<cmd>TSHighlightCapturesUnderCursor<cr>", "Highlight" },
         p = { "<cmd>TSPlaygroundToggle<cr>", "Playground" },
         r = { "<cmd>TSToggle rainbow<cr>", "Rainbow" },
     },
+    u = {
+        name = "TodoComments",
+        ["t"] = { "<cmd>TodoTelescope<CR>", "Show Comments" },
+        ["q"] = { "<cmd>TodoQuickFix<CR>", "Quick Fix" },
+        ["l"] = { "<cmd>TodoLocList<CR>", "List Comments" },
+    },
     v = {
         name = "Vista",
         o = { "<cmd>:Vista!!<cr>", "Open Tag viewer" },
+    },
+    w = {
+        name = "Window",
+        v = { "<C-w>v", "Vertical Split" },
+        h = { "<C-w>s", "Horizontal Split" },
+        e = { "<C-w>=", "Make Splits Equal" },
+        q = { "close<CR>", "Close Split" },
+        m = { "MaximizerToggle<CR>", "Toggle Maximizer" },
     },
     x = {
         name = "Trouble",
