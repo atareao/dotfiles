@@ -80,7 +80,10 @@ local autoCommands = {
     },
     open_folds = {
         {"BufReadPost,FileReadPost", "*", "normal zR"}
-    }
+    },
+    yank_highlight = {
+        {"TextYankPost", "*", "silent!", "lua", "vim.highlight.on_yank{higroup='IncSearch', timeout=700}"}
+    },
 }
 
 M.nvim_create_augroups(autoCommands)
@@ -102,12 +105,12 @@ M.nvim_create_augroups(autoCommands)
 -- cmd [[au BufWritePre * :%s/\s\+$//e]]
 
 -- highlight on yank
-exec([[
-  augroup YankHighlight
-    autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
-  augroup end
-]], false)
+--exec([[
+--  augroup YankHighlight
+--    autocmd!
+--    autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
+--  augroup end
+--]], false)
 
 -- templates
 exec([[
@@ -189,11 +192,15 @@ cmd [[
 -- Highlight
 -----------------------------------------------------------
 -- highlight yanked text
-au('TextYankPost', {
-  group = ag('yank_highlight', {}),
-  pattern = '*',
-  callback = function()
-    vim.highlight.on_yank { higroup='IncSearch', timeout=700 }
-  end,
-})
+-- au('TextYankPost', {
+--   group = ag('yank_highlight', {}),
+--   pattern = '*',
+--   callback = function()
+--     vim.highlight.on_yank { higroup='IncSearch', timeout=700 }
+--   end,
+-- })
 
+--  augroup YankHighlight
+--    autocmd!
+--    autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
+--  augroup end
