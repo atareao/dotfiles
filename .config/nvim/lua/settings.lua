@@ -11,6 +11,7 @@ local exec = vim.api.nvim_exec         -- execute Vimscript
 local fn = vim.fn                      -- call Vim functions
 local g = vim.g                        -- global variables
 local opt = vim.opt                    -- global/buffer/windows-scoped options
+local api = vim.api                    -- call Vim api
 local ag = vim.api.nvim_create_augroup -- create autogroup
 local au = vim.api.nvim_create_autocmd -- create autocomand
 
@@ -41,26 +42,61 @@ opt.termguicolors = true
 opt.guifont = "JetBrainsMono Nerd Font"
 g.neovide_cursor_vfx_mode = "railgun"
 
-vim.wo.foldmethod = 'expr'
-vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
+-----------------------------------------------------------
+-- Folding
+-----------------------------------------------------------
+opt.foldmethod = 'expr'
+opt.foldexpr = 'nvim_treesitter#foldexpr()'
 
 
 
 opt.list = true
 opt.listchars = 'tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»'
 
+-----------------------------------------------------------
+-- Helper function
+-----------------------------------------------------------
+
+-- function to create a list of commands and convert them to autocommands
+-------- This function is taken from https://github.com/norcalli/nvim_utils
+local M = {}
+function M.nvim_create_augroups(definitions)
+    for group_name, definition in pairs(definitions) do
+        api.nvim_command('augroup '..group_name)
+        api.nvim_command('autocmd!')
+        for _, def in ipairs(definition) do
+            local command = table.concat(vim.tbl_flatten{'autocmd', def}, ' ')
+            api.nvim_command(command)
+        end
+        api.nvim_command('augroup END')
+    end
+end
+
+local autoCommands = {
+    -- other autocommands
+    markdown_spell = {
+        {"FileType", "markdown", "setlocal", "spell", "spelllang=es"},
+        {"BufRead,BufNewFile", "*.md", "setlocal", "spell", "spelllang=es"},
+    },
+    open_folds = {
+        {"BufReadPost,FileReadPost", "*", "normal zR"}
+    }
+}
+
+M.nvim_create_augroups(autoCommands)
+
 -- set spell
 -- exec ([[
 --   setlocal spell spelllang=es
 --   set spell
 --   ]], false)
-exec ([[
-    augroup markdownSpell
-        autocmd!
-        autocmd FileType markdown setlocal spell spelllang=es
-        autocmd BufRead,BufNewFile *.md setlocal spell spelllang=es
-    augroup END
-  ]], false)
+-- exec ([[
+--     augroup markdownSpell
+--         autocmd!
+--         autocmd FileType markdown setlocal spell spelllang=es
+--         autocmd BufRead,BufNewFile *.md setlocal spell spelllang=es
+--     augroup END
+--   ]], false)
 
 -- remove whitespace on save
 -- cmd [[au BufWritePre * :%s/\s\+$//e]]
