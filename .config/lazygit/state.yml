@@ -1,6 +1,8 @@
 lastupdatecheck: 0
 recentrepos:
+- /home/lorenzo/rust/supporttgbot
 - /home/lorenzo/rust/mastodon-watchdog
+- /home/lorenzo/rust/twitter-watchdog
 - /home/lorenzo/rust/webdavrs
 - /home/lorenzo/rust/matterhook
 - /data/rust/den
@@ -34,10 +36,8 @@ recentrepos:
 - /home/lorenzo/rust/readmers
 - /home/lorenzo/python/egg
 - /home/lorenzo/python/expulsabot
-- /home/lorenzo/rust/supporttgbot
 - /home/lorenzo/rust/memos-cli
 - /home/lorenzo/rust/shortrs
-- /home/lorenzo/rust/twitter-watchdog
 startuppopupversion: 5
 customcommandshistory:
 - q
