@@ -96,7 +96,17 @@ cmd [[autocmd FileType text,markdown,xml,html,xhtml,javascript setlocal cc=0]]
 g.indentLine_char = '|'       -- set indentLine character
 
 -- disable IndentLine for markdown files (avoid concealing)
-cmd [[autocmd FileType markdown let g:indentLine_enabled=0]]
+--cmd [[autocmd FileType markdown let g:indentLine_enabled=0]]
+
+au(
+    "BufEnter",
+    {
+        pattern = "markdown",
+        callback = function()
+            vim.g.indentLine_enabled = 0
+        end
+    }
+)
 
 -----------------------------------------------------------
 -- Highlight
