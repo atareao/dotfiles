@@ -53,77 +53,6 @@ opt.foldexpr = 'nvim_treesitter#foldexpr()'
 opt.list = true
 opt.listchars = 'tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»'
 
------------------------------------------------------------
--- Helper function
------------------------------------------------------------
-
--- function to create a list of commands and convert them to autocommands
--------- This function is taken from https://github.com/norcalli/nvim_utils
-local M = {}
-function M.nvim_create_augroups(definitions)
-    for group_name, definition in pairs(definitions) do
-        api.nvim_command('augroup '..group_name)
-        api.nvim_command('autocmd!')
-        for _, def in ipairs(definition) do
-            local command = table.concat(vim.tbl_flatten{'autocmd', def}, ' ')
-            api.nvim_command(command)
-        end
-        api.nvim_command('augroup END')
-    end
-end
-
-local autoCommands = {
-    -- other autocommands
-    markdown_spell = {
-        {"FileType", "markdown", "setlocal", "spell", "spelllang=es"},
-        {"BufRead,BufNewFile", "*.md", "setlocal", "spell", "spelllang=es"},
-    },
-    open_folds = {
-        {"BufReadPost,FileReadPost", "*", "normal zR"}
-    },
-    yank_highlight = {
-        {"TextYankPost", "*", "silent!", "lua", "vim.highlight.on_yank{higroup='IncSearch', timeout=700}"}
-    },
-}
-
-M.nvim_create_augroups(autoCommands)
-
--- set spell
--- exec ([[
---   setlocal spell spelllang=es
---   set spell
---   ]], false)
--- exec ([[
---     augroup markdownSpell
---         autocmd!
---         autocmd FileType markdown setlocal spell spelllang=es
---         autocmd BufRead,BufNewFile *.md setlocal spell spelllang=es
---     augroup END
---   ]], false)
-
--- remove whitespace on save
--- cmd [[au BufWritePre * :%s/\s\+$//e]]
-
--- highlight on yank
---exec([[
---  augroup YankHighlight
---    autocmd!
---    autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
---  augroup end
---]], false)
-
--- templates
-exec([[
-  augroup templates
-      au!
-      let g:template_name = 'Lorenzo Carbonell <a.k.a. atareao>'
-      autocmd BufNewFile *.* silent! execute '0r $HOME/.config/nvim/templates/'.expand("<afile>:e").'.tpl'
-      autocmd BufNewFile * %s/{{YEAR}}/\=strftime('%Y')/ge
-      autocmd BufNewFile * %s/{{NAME}}/\=template_name/ge
-      autocmd BufNewFile * %s/{{EVAL\s*\([^}]*\)}}/\=eval(submatch(1))/ge
-      autocmd BufNewFile * %s/{{FILENAME}}/\=expand('%:t')/ge
-  augroup END
-]], false)
 
 -- autoexec
 exec([[
@@ -170,37 +99,85 @@ g.indentLine_char = '|'       -- set indentLine character
 cmd [[autocmd FileType markdown let g:indentLine_enabled=0]]
 
 -----------------------------------------------------------
--- Terminal
------------------------------------------------------------
--- open a terminal pane on the right using :Term
-cmd [[command Term :botright vsplit term://$SHELL]]
-
--- Terminal visual tweaks
---- enter insert mode when switching to terminal
---- close terminal buffer on process exit
-cmd [[
-    autocmd TermOpen * setlocal listchars= nonumber norelativenumber nocursorline
-    autocmd TermOpen * startinsert
-    autocmd BufLeave term://* stopinsert
-]]
-
-cmd [[
-    autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path "%"
-]]
-
------------------------------------------------------------
 -- Highlight
 -----------------------------------------------------------
 -- highlight yanked text
--- au('TextYankPost', {
---   group = ag('yank_highlight', {}),
---   pattern = '*',
---   callback = function()
---     vim.highlight.on_yank { higroup='IncSearch', timeout=700 }
---   end,
--- })
+au(
+    "TextYankPost",
+    {
+        pattern = '*',
+        callback = function()
+            vim.highlight.on_yank { higroup='IncSearch', timeout=700 }
+        end,
+        group = ag('yank_highlight', {}),
+    }
+)
+-----------------------------------------------------------
+-- Spell
+-----------------------------------------------------------
+-- enable spanish spell on markdown only
+local markdown_spell = ag("markdownSpell", {})
+au(
+    "FileType",
+    {
+        pattern = "markdown",
+        callback = function()
+            vim.opt.spelllang = "es"
+            vim.opt.spell = true
+        end,
+        group = markdown_spell
+    }
+)
+au(
+    {"BufRead", "BufNewFile"},
+    {
+        pattern = "*.md",
+        callback = function()
+            vim.opt.spelllang = "es"
+            vim.opt.spell = true
+        end,
+        group = markdown_spell
+    }
+)
+-----------------------------------------------------------
+-- Templates
+-----------------------------------------------------------
+-- enable templates
+au(
+    "BufNewFile",
+    {
+        pattern = "*",
+        callback = function()
+            vim.g.template_name = "Lorenzo Carbonell <a.k.a. atareao>"
+            local extension = vim.fn.expand("%:e")
+            local template = vim.env.HOME .. "/.config/nvim/templates/" .. extension .. ".tpl"
+            local f = io.open(template, "r")
+            if f ~= nil then
+                local lines = {}
+                for line in io.lines(template) do
+                    lines[#lines + 1] = line
+                end
+                api.nvim_buf_set_lines(0, 0, 0, false, lines)
+                cmd([[%s/{{YEAR}}/\=strftime('%Y')/ge]])
+                cmd([[%s/{{NAME}}/\=template_name/ge]])
+                cmd([[%s/{{EVAL\s*\([^}]*\)}}/\=eval(submatch(1))/ge]])
+                cmd([[%s/{{FILENAME}}/\=expand('%:t')/ge]])
+            end
+        end,
+        group = ag("templates", {})
+    }
+)
 
---  augroup YankHighlight
---    autocmd!
---    autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
---  augroup end
+-----------------------------------------------------------
+-- Folds
+-----------------------------------------------------------
+-- open files with opened folds
+au(
+    "BufWinEnter",
+    {
+        pattern = "*",
+        callback = function()
+            cmd([[normal zR]])
+        end
+    }
+)
