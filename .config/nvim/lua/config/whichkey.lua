@@ -257,6 +257,8 @@ local mappings = {
         },
         f = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
         F = { "<cmd>LspToggleAutoFormat<cr>", "Toggle Autoformat" },
+        g = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Definition"},
+        G = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Declaration"},
         i = { "<cmd>LspInfo<cr>", "Info" },
         h = { "<cmd>IlluminationToggle<cr>", "Toggle Doc HL" },
         I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
@@ -268,6 +270,7 @@ local mappings = {
             "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>",
             "Prev Diagnostic",
         },
+        K = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover"},
         l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
         o = { "<cmd>SymbolsOutline<cr>", "Outline" },
         q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
@@ -408,6 +411,14 @@ local nmappings = {
     ["<C-q>"] = { "<cmd> Vista!!<cr>", "Vista"},
     ["<C-s>"] = { "<cmd> SidebarNvimToggle<cr>", "Vista"},
     ["<C-t>"] = { "<cmd>ToggleTerm<cr>", "Toggle terminal"},
+    g = {
+        name = "LSP",
+        d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Definition"},
+        h = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover"},
+        i = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "Implementation"},
+        s = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature"},
+        D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Declaration"},
+    }
 }
 
 
