@@ -278,6 +278,16 @@ _launch=Alt+Space\tAlt+F2\tSearch,Alt+Space\tAlt+F2\tSearch,KRunner
 _k_friendly_name=Selector de emojis
 _launch=Meta+.\tMeta+Ctrl+Alt+Shift+Space,Meta+.\tMeta+Ctrl+Alt+Shift+Space,Selector de emojis
 
+[org.kde.spectacle.desktop]
+ActiveWindowScreenShot=Meta+Print,Meta+Print,Capture Active Window
+CurrentMonitorScreenShot=none,none,Capturar el monitor actual
+FullScreenScreenShot=Shift+Print,Shift+Print,Capture Entire Desktop
+OpenWithoutScreenshot=none,none,Iniciar Spectacle sin capturar
+RectangularRegionScreenShot=Meta+Shift+Print,Meta+Shift+Print,Capture Rectangular Region
+WindowUnderCursorScreenShot=Meta+Ctrl+Print,Meta+Ctrl+Print,Capturar la ventana bajo el cursor
+_k_friendly_name=Spectacle
+_launch=Print,Print,Launch Spectacle
+
 [org_kde_powerdevil]
 Decrease Keyboard Brightness=Keyboard Brightness Down,Keyboard Brightness Down,Disminuir el brillo del teclado
 Decrease Screen Brightness=Monitor Brightness Down,Monitor Brightness Down,Disminuir el brillo de la pantalla

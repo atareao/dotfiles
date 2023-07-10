@@ -1,5 +1,5 @@
 [$Version]
-update_info=konsole.upd:konsole_globalaccel
+update_info=konsole.upd:konsole_globalaccel,spectacle_shortcuts.upd:spectacle-migrate-shortcuts
 
 [ColorEffects:Disabled]
 ChangeSelectionColor[$d]
