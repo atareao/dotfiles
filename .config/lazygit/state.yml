@@ -1,5 +1,6 @@
 lastupdatecheck: 0
 recentrepos:
+- /data/rust/publirs
 - /home/lorenzo/rust/supporttgbot
 - /home/lorenzo/rust/mastodon-watchdog
 - /home/lorenzo/rust/twitter-watchdog
