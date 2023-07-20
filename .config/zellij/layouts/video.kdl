@@ -1,9 +1,17 @@
 layout {
     pane split_direction="vertical" {
-        pane {
-            command "btop"
+        pane split_direction="horizontal" {
+            pane {
+                borderless true
+                command "cava"
+            }
+            pane {
+                borderless true
+                command "btm"
+            }
         }
         pane {
+            borderless true
             command "rusty-rain"
             args "-C" "0,139,139" "-H" "255,255,255" "-c" "jap" "-s"
         }
