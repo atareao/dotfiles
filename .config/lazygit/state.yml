@@ -1,5 +1,6 @@
 lastupdatecheck: 0
 recentrepos:
+- /home/lorenzo/python/pyblisher
 - /data/rust/publirs
 - /home/lorenzo/rust/supporttgbot
 - /home/lorenzo/rust/mastodon-watchdog
@@ -24,7 +25,6 @@ recentrepos:
 - /home/lorenzo/dockers/self-hosted
 - /home/lorenzo/rust/mattermail
 - /data/python/my-weather-indicator
-- /home/lorenzo/python/pyblisher
 - /home/lorenzo/rust/simpleserver
 - /home/lorenzo/rust/podcli
 - /home/lorenzo/rust/cronirs
