@@ -12,11 +12,13 @@
 # Whether to use dot markers rather than braille.
 #dot_marker = false
 # The update rate of the application.
-#rate = 1000
+#rate = "1s"
 # Whether to put the CPU legend to the left.
 #left_legend = false
 # Whether to set CPU% on a process to be based on the total CPU or just current usage.
 #current_usage = false
+# Whether to set CPU% on a process to be based on the total CPU or per-core CPU% (not divided by the number of cpus).
+#unnormalized_cpu = false
 # Whether to group processes with the same name together by default.
 #group_processes = false
 # Whether to make process searching case sensitive by default.
@@ -33,7 +35,7 @@
 #temperature_type = "fahrenheit"
 #temperature_type = "celsius"
 # The default time interval (in milliseconds).
-#default_time_value = 60000
+#default_time_value = "60s"
 # The time delta on each zoom in/out action (in milliseconds).
 #time_delta = 15000
 # Hides the time scale.
@@ -41,6 +43,8 @@
 # Override layout default widget
 #default_widget_type = "proc"
 #default_widget_count = 1
+# Expand selected widget upon starting the app
+#expanded_on_startup = true
 # Use basic mode
 #basic = false
 # Use the old network legend style
@@ -69,6 +73,17 @@
 #network_use_log = false
 # Hides advanced options to stop a process on Unix-like systems.
 #disable_advanced_kill = false
+# Shows GPU(s) memory
+#enable_gpu_memory = false
+# Shows cache and buffer memory
+#enable_cache_memory = false
+# How much data is stored at once in terms of time.
+#retention = "10m"
+
+# These are flags around the process widget.
+
+#[processes]
+#columns = ["PID", "Name", "CPU%", "Mem%", "R/s", "W/s", "T.Read", "T.Write", "User", "State"]
 
 # These are all the components that support custom theming.  Note that colour support
 # will depend on terminal support.
@@ -86,6 +101,10 @@
 #ram_color="LightMagenta"
 # Represents the colour SWAP will use in the memory legend and graph.
 #swap_color="LightYellow"
+# Represents the colour ARC will use in the memory legend and graph.
+#arc_color="LightCyan"
+# Represents the colour the GPU will use in the memory legend and graph.
+#gpu_core_colors=["LightGreen", "LightBlue", "LightRed", "Cyan", "Green", "Blue", "Red"]
 # Represents the colour rx will use in the network legend and graph.
 #rx_color="LightCyan"
 # Represents the colour tx will use in the network legend and graph.
@@ -115,28 +134,28 @@
 # All widgets must have the type value set to one of ["cpu", "mem", "proc", "net", "temp", "disk", "empty"].
 # All layout components have a ratio value - if this is not set, then it defaults to 1.
 # The default widget layout:
-#[[row]]
-#  ratio=30
-#  [[row.child]]
-#  type="cpu"
-#[[row]]
-#    ratio=40
-#    [[row.child]]
-#      ratio=4
-#      type="mem"
-#    [[row.child]]
-#      ratio=3
+[[row]]
+  ratio=30
+  [[row.child]]
+  type="cpu"
+[[row]]
+    ratio=40
+    [[row.child]]
+      ratio=4
+      type="mem"
+    [[row.child]]
+      ratio=3
 #      [[row.child.child]]
 #        type="temp"
-#      [[row.child.child]]
-#        type="disk"
-#[[row]]
-#  ratio=30
-#  [[row.child]]
-#    type="net"
-#  [[row.child]]
-#    type="proc"
-#    default=true
+      [[row.child.child]]
+        type="disk"
+[[row]]
+  ratio=30
+  [[row.child]]
+    type="net"
+  [[row.child]]
+    type="proc"
+    default=true
 
 
 # Filters - you can hide specific temperature sensors, network interfaces, and disks using filters.  This is admittedly
