@@ -24,6 +24,8 @@ opt.mouse = 'a'               -- enable mouse support
 opt.clipboard = 'unnamedplus' -- copy/paste to system clipboard
 opt.swapfile = false          -- don't use swapfile
 
+g.himalaya_mailbox_picker = 'native'
+
 -----------------------------------------------------------
 -- Neovim UI
 -----------------------------------------------------------
