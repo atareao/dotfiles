@@ -357,7 +357,9 @@ require("lazy").setup({
     },
     "alker0/chezmoi.vim",
     "norcalli/nvim-colorizer.lua",
-    "soywod/himalaya.vim",
+    {
+        "soywod/himalaya.vim",
+    },
     {
         "natecraddock/workspaces.nvim",
         config = function()
