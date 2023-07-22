@@ -1,0 +1,11 @@
+
+matches:
+  # Simple text replacement
+  - trigger: ":^"
+    replace: "☝️"
+  - trigger: ":v"
+    replace: "👇"
+  - trigger: ":>"
+    replace: "👉"
+  - trigger: ":<"
+    replace: "👈"

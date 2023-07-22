@@ -1,0 +1,11 @@
+
+matches:
+  # Simple text replacement
+  - trigger: ":feature:"
+    replace: "✨"
+  - trigger: ":bug:"
+    replace: "🐛"
+  - trigger: ":doc:"
+    replace: "📝"
+  - trigger: ":fix:"
+    replace: "🩹"

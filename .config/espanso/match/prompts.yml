@@ -1,0 +1,4 @@
+matches:
+  - trigger: ":article"
+    form: |
+      Escribe un artículo detallado sobre [[app]], con introducción, desarrollo, en el que se tiene que contemplar, para que es la herramienta y que usos tiene, como se instala, como se configura y personaliza en Linux. Como se utiliza. Ejemplos de uso y funcionamiento. Conclusiones. El artículo tiene que estar en Español. El artículo tiene que estar en primera persona. Tiene que ser un artículo con un tono cercano y con cierto toque de humor. Tiene que ser un artículo redactado al estilo de atareao, pero con las secciones indicadas. El artículo tiene que estar dirigido a una persona. El artículo tiene que estar en markdown. Al final del artítulo añade las referencias. La herramienta [[app]] es la siguiente,
