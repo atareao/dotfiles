@@ -4,23 +4,21 @@ matches:
   - trigger: ":dcb"
     replace: "docker compose build"
     
-  - trigger: ":dcu"
-    replace: "docker compose up"
-
-  - trigger: ":dcud"
-    replace: "docker compose up -d"
-    
   - trigger: ":dcd"
     replace: "docker compose down"
-
-  - trigger: ":dcl"
-    replace: "docker compose logs"
-    
-  - trigger: ":dclf"
-    replace: "docker compose logs -f"
 
   - trigger: ":dce"
     replace: "docker compose exec"
     
+  - trigger: ":dcl"
+    replace: "docker compose logs -f"
+    
+  - trigger: ":dcp"
+    replace: "docker compose ps"
+    
   - trigger: ":dcr"
     replace: "docker compose restart"
+
+  - trigger: ":dcu"
+    replace: "docker compose up -d"
+
