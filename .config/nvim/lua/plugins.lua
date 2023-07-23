@@ -356,7 +356,13 @@ require("lazy").setup({
         end
     },
     "alker0/chezmoi.vim",
-    "norcalli/nvim-colorizer.lua",
+    {
+        "norcalli/nvim-colorizer.lua",
+        event = "VeryLazy",
+        config = function()
+            require("colorizer").setup()
+        end,
+    },
     {
         "soywod/himalaya.vim",
     },
