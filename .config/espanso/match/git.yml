@@ -1,6 +1,6 @@
 
 matches:
-  # Simple text replacement
+  # Git
   - trigger: ":feature:"
     replace: "✨"
   - trigger: ":bug:"
@@ -9,3 +9,9 @@ matches:
     replace: "📝"
   - trigger: ":fix:"
     replace: "🩹"
+  - trigger: ":recycle:"
+    replace: "♻️"
+  - trigger: ":config:"
+    replace: "🔧"
+  - trigger: ":scripts:"
+    replace: "🔨"
