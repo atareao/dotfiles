@@ -1,17 +1,8 @@
+# Docker compose Package
 
 matches:
-  # Git
-  - trigger: ":feature:"
-    replace: "✨"
-  - trigger: ":bug:"
-    replace: "🐛"
-  - trigger: ":doc:"
-    replace: "📝"
-  - trigger: ":fix:"
-    replace: "🩹"
-  - trigger: ":recycle:"
-    replace: "♻️"
-  - trigger: ":config:"
-    replace: "🔧"
-  - trigger: ":scripts:"
-    replace: "🔨"
+  - trigger: ":guc"
+    replace: "reset --soft HEAD~1"
+
+  - trigger: ":gus"
+    replace: "reset"
