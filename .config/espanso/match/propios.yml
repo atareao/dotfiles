@@ -9,3 +9,22 @@ matches:
     replace: "👉"
   - trigger: ":<"
     replace: "👈"
+  - trigger: ":pie"
+    replace: |
+      🌐  Aquí lo puedes encontrar todo 👉 https://atareao.es
+      ✈️   Telegram (el grupo) 👉 https://t.me/atareao_con_linux
+      ✈️   Telegram (el canal) 👉 https://t.me/canal_atareao
+      🦣  Mastodon 👉 https://mastodon.social/@atareao
+      🐦  Twitter 👉 https://twitter.com/atareao
+      🐙  GitHub 👉 https://github.com/atareao
+  - trigger: ":pye"
+    form: |
+      Más información, enlaces y notas en https://atareao.es/podcast/[[episode]]
+
+      🌐  Aquí lo puedes encontrar todo 👉 https://atareao.es
+      ✈️   Telegram (el grupo) 👉 https://t.me/atareao_con_linux
+      ✈️   Telegram (el canal) 👉 https://t.me/canal_atareao
+      🦣  Mastodon 👉 https://mastodon.social/@atareao
+      🐦  Twitter 👉 https://twitter.com/atareao
+      🐙  GitHub 👉 https://github.com/atareao
+

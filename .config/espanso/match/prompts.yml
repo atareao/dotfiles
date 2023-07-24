@@ -5,3 +5,18 @@ matches:
   - trigger: ":podcast"
     form: |
       Escribe el guión de un podcast detallado sobre [[tema]], con introducción, desarrollo, y conclusiones. Al inicio del guión tiene que haber una escaleta. El guión tiene que estar en Español. El guión tiene que estar en primera persona. Tiene que ser un pocast con un tono cercano, como si fuera una charla con un amigo. El podcast tiene que estar dirigido a una persona. El guión tiene que estar en markdown. Al final del guión añade las referencias.
+  - trigger: ":explica"
+    form: |
+      Quiero aprender sobre [[tema]]. Explícame [[tema]] de manera sencilla. Hazlo como si tuviera 11 años.
+  - trigger: ":comosi"
+    form: |
+      Te proporcionaré un argumento u opinión mía. Quiero que lo critiques como si fueras [[experto]]. El argumento es el siguiente [[argumento]]
+  - trigger: ":aprenderlinux"
+    form: |
+      Explicame el uso del siguiente comando Linux `[[comando]]`, incluyendo un cuestionario al final, pero no me des las respuestas, y luego dime si acerté cuando responda.
+  - trigger: ":receta"
+    form: |
+       Dame la receta de un plato con los siguientes ingredientes [[ingredientes]] y que se pueda preparar en [[minutos]] minutos. Me tienes que explicar de forma sencilla y paso a paso como tengo que prepararlo y presentarlo.
+  - trigger: ":seo"
+    form: |
+      Indícame el mejor título y metadescripción SEO del siguiente artículo que te detallo a continuación: [[artículo]]
