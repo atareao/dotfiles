@@ -1,14 +1,8 @@
 layout {
     pane split_direction="vertical" {
-        pane split_direction="horizontal" {
-            pane {
-                borderless true
-                command "cava"
-            }
-            pane {
-                borderless true
-                command "btm"
-            }
+        pane {
+            borderless true
+            command "btm"
         }
         pane {
             borderless true
