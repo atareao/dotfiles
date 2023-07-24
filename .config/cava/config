@@ -60,7 +60,8 @@
 ; method = pulse
 ; source = auto
 ;method = alsa
-source = alsa:pcm:5:m2_mono_in:M2,0,1:capture
+;source = alsa:pcm:5:m2_mono_in:M2,0,1:capture
+source = alsa:pcm:3:m2_mono_in:M2,0,1:capture
 
 ; method = alsa
 ; source = hw:Loopback,1
