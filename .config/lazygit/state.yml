@@ -1,10 +1,10 @@
 lastupdatecheck: 0
 recentrepos:
+    - /home/lorenzo/python/pyblisher
     - /home/lorenzo/php/atareao23
     - /home/lorenzo/rust/telegram-watchdog
     - /home/lorenzo/dockers/sandboxes
     - /data/dockers/sandboxes
-    - /home/lorenzo/python/pyblisher
     - /data/rust/publirs
     - /home/lorenzo/rust/supporttgbot
     - /home/lorenzo/rust/mastodon-watchdog
