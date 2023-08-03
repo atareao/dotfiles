@@ -76,10 +76,29 @@
             ""
         ]
     },
+    "zettel pythonico": {
+        "prefix": "zpy",
+        "body": [
+            "* [[python/indice|Historias de un pythonico]]",
+            "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "tags: $1",
+            "---",
+            "# $2",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $2",
+            "",
+            "---",
+            ""
+        ]
+    },
     "zettel arch": {
         "prefix": "za",
         "body": [
-            "* [[arch/indice|Diario de un archero]]",
+            "* [[arch/indice|El camino del archero]]",
             "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
             "updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
             "tags: $1",
