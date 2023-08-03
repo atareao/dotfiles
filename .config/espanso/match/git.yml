@@ -6,3 +6,26 @@ matches:
 
   - trigger: ":gus"
     replace: "reset"
+
+  - trigger: ":bug:"
+    replace: "🐛"
+
+  - trigger: ":docu:"
+    replace: "📝"
+
+  - trigger: ":upgrade:"
+    replace: "⬆️"
+
+  - trigger: ":feature:"
+    replace: "✨"
+
+  - trigger: ":fix:"
+    replace: "🩹"
+
+  - trigger: ":refactor:"
+    replace: "♻️"
+
+
+
+
+
