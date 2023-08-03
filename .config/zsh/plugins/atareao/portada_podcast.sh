@@ -74,13 +74,13 @@ function portada_podcast(){
     cp "${RESOURCESDIR}/plantilla_podcast_2000.svg" "${IMAGEDIR}/plantilla_podcast_2000.svg"
     sed -i "s/||NUMBER||/$EPISODIO/g" "${IMAGEDIR}/plantilla_podcast_2000.svg"
     sed -i "s/||TITLE||/$title/g" "${IMAGEDIR}/plantilla_podcast_2000.svg"
-    inkscape --export-type="png" "${IMAGEDIR}/plantilla_podcast_2000.svg"
+    inkscape --export-type="png" "${IMAGEDIR}/plantilla_podcast_2000.svg" -o "${IMAGEDIR}/plantilla_podcast_2000.png"
     convert "${IMAGEDIR}/plantilla_podcast_2000.png" "${IMAGEDIR}/e${EPISODIO}_sqr.jpg"
 
     cp "${RESOURCESDIR}/plantilla_podcast.svg" "${IMAGEDIR}/plantilla_podcast.svg"
     sed -i "s/||NUMBER||/$EPISODIO/g" "${IMAGEDIR}/plantilla_podcast.svg"
     sed -i "s/||TITLE||/$title/g" "${IMAGEDIR}/plantilla_podcast.svg"
-    inkscape --export-type="png" "${IMAGEDIR}/plantilla_podcast.svg"
+    inkscape --export-type="png" "${IMAGEDIR}/plantilla_podcast.svg" -o "${IMAGEDIR}/plantilla_podcast.png"
     convert "${IMAGEDIR}/plantilla_podcast.png" "${IMAGEDIR}/e${EPISODIO}.jpg"
 
     if [[ -f "${IMAGEDIR}/plantilla_podcast_2000.svg" ]]; then
