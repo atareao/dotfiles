@@ -20,3 +20,63 @@ matches:
   - trigger: ":seo"
     form: |
       Indícame el mejor título y metadescripción SEO del siguiente artículo que te detallo a continuación: [[artículo]]
+  - trigger: ":labels"
+    replace: "{{labels}}"
+    vars:
+      - name: form1
+        type: form
+        params:
+          layout: |
+            Dime el tema para las 25 etiquetas, [[tema]]
+      - name: labels
+        type: shell
+        params:
+          cmd: dime -i "Eres un ayudante útil" -q "Dame 25 etiquetas, para un vídeo de YouTube sobre '{{form1.tema}}'. Dame únicamente las 25 etiquetas. No me des un listado numerado, dame las etiquetas estarán separadas por comas." | tr -d '"'
+  - trigger: ":title"
+    replace: "{{title}}"
+    vars:
+      - name: form1
+        type: form
+        params:
+          layout: |
+            Dime el tema para un título, [[tema]]
+      - name: title
+        type: shell
+        params:
+          cmd: dime -i "Eres un ayudante útil." -q "Dime un título atractivo, estimulante y persuasivo para un vídeo de YouTube sobre '{{form1.tema}}'" | tr -d '"'
+  - trigger: ":description"
+    replace: "{{description}}"
+    vars:
+      - name: form1
+        type: form
+        params:
+          layout: |
+            Dime el tema para la descripción [[tema]]
+      - name: description
+        type: shell
+        params:
+          cmd: dime -i "Eres un ayudante útil. Eres un copywriter experto en escritura persuasiva." -q "Dame la descripción para un vídeo de YouTube sobre '{{form1.tema}}'. La descripción tendrá al menos 1500 palabras. Será un descripción atractiva, persuasiva y estimulante." | tr -d '"'
+  - trigger: ":responde"
+    replace: "{{responde}}"
+    vars:
+      - name: form1
+        type: form
+        params:
+          layout: |
+            responde a [[tema]]
+      - name: responde
+        type: shell
+        params:
+          cmd: dime -i "Eres un ayudante útil. Escribe como 'Lorenzo', el autor de 'atareao.es'. No añadas firma en las respuestas." -q "Responde a '{{form1.tema}}'. La respuesta tiene que ser amable y sincera." | tr -d '"'
+  - trigger: ":ataca"
+    replace: "{{ataca}}.\n\n(Respuesta generada por IaIaIa 😁)"
+    vars:
+      - name: form1
+        type: form
+        params:
+          layout: |
+            responde a [[tema]]
+      - name: ataca
+        type: shell
+        params:
+          cmd: dime -i "Eres un ayudante útil. Escribe como 'Lorenzo', el autor de 'atareao.es'. No añadas firma en las respuestas. Eres sarcástico." -q "Responde a '{{form1.tema}}'. La respuesta tiene que tener un toque de humor." | tr -d '"'
