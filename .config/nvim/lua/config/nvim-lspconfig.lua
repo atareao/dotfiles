@@ -123,6 +123,53 @@ end
 --         set_lsp_config(client)
 --     end
 -- }
+-- Check if WordPress mode
+is_wp, message = pcall(function()
+    return vim.api.nvim_get_var("wordpress_mode")
+  end)
+
+local on_attach = function(client, bufnr)
+    require 'lsp_signature'.on_attach({
+      bind = true,
+      floating_window = true,
+      handler_opts = {
+        border = "rounded"
+      }
+    })
+    if client.server_capabilities.documentHighlightProvider then
+      vim.api.nvim_create_augroup('lsp_document_highlight', {
+        clear = false
+      })
+      vim.api.nvim_clear_autocmds({
+        buffer = bufnr,
+        group = 'lsp_document_highlight',
+      })
+      vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+        group = 'lsp_document_highlight',
+        buffer = bufnr,
+        callback = vim.lsp.buf.document_highlight,
+      })
+      vim.api.nvim_create_autocmd('CursorMoved', {
+        group = 'lsp_document_highlight',
+        buffer = bufnr,
+        callback = vim.lsp.buf.clear_references,
+      })
+    end
+end
+require('lspkind').init()
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+}
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  }
+}
 nvim_lsp.efm.setup {
     init_options = {documentFormatting = true},
     settings = {
@@ -241,6 +288,7 @@ nvim_lsp.ruff_lsp.setup({
 --         }
 --     }
 -- })
+-- composer global require php-stubs/wordpress-globals php-stubs/wordpress-stubs php-stubs/woocommerce-stubs php-stubs/acf-pro-stubs wpsyntex/polylang-stubs php-stubs/genesis-stubs php-stubs/wp-cli-stubs
 nvim_lsp.intelephense.setup({
   settings = {
         intelephense = {
@@ -322,9 +370,41 @@ nvim_lsp.intelephense.setup({
                 "zip",
                 "zlib"
             },
+            enviroment = {
+                includePaths = {
+                    '/home/lorenzo/.config/composer/vendor/php-stubs/',
+                    '/home/lorenzo/.config/composer/vendor/wpsyntex/'}
+            },
             files = {
                 maxSize = 5000000;
             };
         };
-    }
+    },
+    capabilities = capabilities,
+    on_attach = on_attach
 });
+if is_wp == false then
+  local phpactor_capabilities = vim.lsp.protocol.make_client_capabilities()
+  phpactor_capabilities.textDocument.foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = true
+  }
+  phpactor_capabilities['textDocument']['codeAction'] = {}
+  nvim_lsp.phpactor.setup{
+      capabilities = phpactor_capabilities,
+      on_attach = on_attach
+  }
+end
+nvim_lsp.cssls.setup{
+    capabilities = capabilities,
+    on_attach = on_attach
+}
+nvim_lsp.html.setup{
+    capabilities = capabilities,
+    on_attach = on_attach
+}
+nvim_lsp.bashls.setup{
+    capabilities = capabilities,
+    on_attach = on_attach
+}
+
