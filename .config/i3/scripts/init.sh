@@ -76,7 +76,8 @@ start_redshift(){
 start_feh(){
     echo "Starting: feh"
     kp feh
-    feh --bg-scale ~/Imágenes/potd.jpg &
+    img=$(find "${HOME}/Imágenes/backgrounds/" -type f -name "*.jpg" | shuf -n 1)
+    feh --bg-scale "$img" &
 }
 
 start_dunst(){
