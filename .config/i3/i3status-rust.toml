@@ -56,18 +56,12 @@ format_alt = "$icon$path$available/$total"
 block = "docker"
 interval = 5
 format = "$icon$running/$total($images)"
-socket_path = "$XDG_RUNTIME_DIR/podman/podman.sock"
+socket_path = "$XDG_RUNTIME_DIR/docker.sock"
 
 [[block]]
 block = "custom"
-command = "sed 's/  //' <(curl 'https://wttr.in/silla?format=1' -s)"
+command = "python $HOME/.config/i3/scripts/weather.py 39.36667 -0.41667"
 interval = 600
-
-[[block]]
-block = "amd_gpu"
-format = " $icon $utilization "
-format_alt = " $icon MEM: $vram_used_percents ($vram_used/$vram_total) "
-interval = 10
 
 [[block]]
 block = "sound"

@@ -31,7 +31,7 @@ matches:
       - name: labels
         type: shell
         params:
-          cmd: dime -i "Eres un ayudante útil" -q "Dame 25 etiquetas, para un vídeo de YouTube sobre '{{form1.tema}}'. Dame únicamente las 25 etiquetas. No me des un listado numerado, dame las etiquetas estarán separadas por comas." | tr -d '"'
+          cmd: $HOME/.cargo/bin/dime -i "Eres un ayudante útil" -q "Dame 25 etiquetas para un vídeo de YouTube sobre '{{form1.tema}}'. Dame únicamente las 25 etiquetas. No me des un listado numerado. Dame las etiquetas separadas por comas."
   - trigger: ":title"
     replace: "{{title}}"
     vars:
@@ -43,7 +43,7 @@ matches:
       - name: title
         type: shell
         params:
-          cmd: dime -i "Eres un ayudante útil." -q "Dime un título atractivo, estimulante y persuasivo para un vídeo de YouTube sobre '{{form1.tema}}'" | tr -d '"'
+          cmd: $HOME/.cargo/bin/dime -i "Eres un ayudante útil." -q "Dime un título atractivo, estimulante y persuasivo para un vídeo de YouTube sobre '{{form1.tema}}'" | tr -d '"'
   - trigger: ":description"
     replace: "{{description}}"
     vars:
@@ -55,7 +55,7 @@ matches:
       - name: description
         type: shell
         params:
-          cmd: dime -i "Eres un ayudante útil. Eres un copywriter experto en escritura persuasiva." -q "Dame la descripción para un vídeo de YouTube sobre '{{form1.tema}}'. La descripción tendrá al menos 1500 palabras. Será un descripción atractiva, persuasiva y estimulante." | tr -d '"'
+          cmd: $HOME/.cargo/bin/dime -i "Eres un ayudante útil. Eres un copywriter experto en escritura persuasiva." -q "Dame la descripción para un vídeo de YouTube sobre '{{form1.tema}}'. La descripción tendrá al menos 1500 palabras. Será un descripción atractiva, persuasiva y estimulante." | tr -d '"'
   - trigger: ":responde"
     replace: "{{responde}}"
     vars:
@@ -67,7 +67,7 @@ matches:
       - name: responde
         type: shell
         params:
-          cmd: dime -i "Eres un ayudante útil. Escribe como 'Lorenzo', el autor de 'atareao.es'. No añadas firma en las respuestas." -q "Responde a '{{form1.tema}}'. La respuesta tiene que ser amable y sincera." | tr -d '"'
+          cmd: $HOME/.cargo/bin/dime -i "Eres un ayudante útil. Escribe como 'Lorenzo', el autor de 'atareao.es'. No añadas firma en las respuestas." -q "Responde a '{{form1.tema}}'. La respuesta tiene que ser amable y sincera." | tr -d '"'
   - trigger: ":ataca"
     replace: "{{ataca}}.\n\n(Respuesta generada por IaIaIa 😁)"
     vars:
@@ -79,4 +79,18 @@ matches:
       - name: ataca
         type: shell
         params:
-          cmd: dime -i "Eres un ayudante útil. Escribe como 'Lorenzo', el autor de 'atareao.es'. No añadas firma en las respuestas. Eres sarcástico." -q "Responde a '{{form1.tema}}'. La respuesta tiene que tener un toque de humor." | tr -d '"'
+          cmd: $HOME/.cargo/bin/dime -i "Eres un ayudante útil. Escribe como 'Lorenzo', el autor de 'atareao.es'. No añadas firma en las respuestas. Eres sarcástico." -q "Responde a '{{form1.tema}}'. La respuesta tiene que tener un toque de humor." | tr -d '"'
+  - trigger: ":test"
+    replace: "{{reversed}}"
+    vars:
+      - name: form1
+        type: form
+        params:
+          layout: |
+            Reverse [[name]],
+      - name: reversed
+        type: shell
+        params:
+          cmd: "echo '{{form1.name}}' | rev"
+      
+
