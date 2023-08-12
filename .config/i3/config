@@ -59,6 +59,7 @@ set $opacity 0.5
 ###############################################################################
 
     exec_always --no-startup-id setxkbmap -layout es
+    exec_always --no-startup-id /usr/lib/pam_kwallet_init
     exec_always --no-startup-id bash $HOME/.config/i3/scripts/init.sh
 
 ###############################################################################
