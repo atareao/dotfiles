@@ -1,0 +1,4 @@
+git:
+  commit:
+    sifnOff: true
+  parseEmoji: true

@@ -32,6 +32,7 @@ function kp(){
 }
 
 function init_rofi(){
+    # sudo pacman -S python-i3ipc
     MON_NAME=$(python ~/.config/i3/scripts/get_current_monitor.py)
     if [[ "${MON_NAME}" == "DP-1" ]]
     then
