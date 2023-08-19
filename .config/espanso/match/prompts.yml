@@ -1,7 +1,17 @@
 matches:
-  - trigger: ":articulo"
-    form: |
-      Escribe un artículo detallado sobre [[app]], con introducción, desarrollo, en el que se tiene que contemplar, para que es la herramienta y que usos tiene, como se instala, como se configura y personaliza en Linux. Como se utiliza. Ejemplos de uso y funcionamiento. Conclusiones. El artículo tiene que estar en Español. El artículo tiene que estar en primera persona. Tiene que ser un artículo con un tono cercano, como si se lo explicara a un amigo. Tiene que ser un artículo redactado al estilo de atareao, pero con las secciones indicadas. El artículo tiene que estar dirigido a una persona. El artículo tiene que estar en markdown. Al final del artítulo añade las referencias. La herramienta [[app]] es la siguiente,
+  - trigger: ":comando"
+    replace: "{{comando}}"
+    vars:
+      - name: form1
+        type: form
+        params:
+          layout: |
+            Cual es el comando, [[comando]].
+            Describe el comando, [[description]]
+      - name: comando
+        type: shell
+        params:
+          cmd: $HOME/.cargo/bin/dime -i "Eres un ayudante útil" -q "Escribe un artículo detallado sobre el siguiente comando '{{form1.comando}}', con introducción, desarrollo, en el que se tiene que contemplar, para que es la herramienta y que usos tiene, como se instala, como se configura y personaliza en Linux. Como se utiliza. Ejemplos de uso y funcionamiento. Conclusiones. El artículo tiene que estar en Español. El artículo tiene que estar en primera persona. Tiene que ser un artículo con un tono cercano, como si se lo explicara a un amigo. Tiene que ser un artículo redactado al estilo de atareao, pero con las secciones indicadas. El artículo tiene que estar dirigido a una persona. El artículo tiene que estar en markdown. Al final del artítulo añade las referencias. El comando es el siguiente, '{{form1.description}}'"
   - trigger: ":podcast"
     form: |
       Escribe el guión de un podcast detallado sobre [[tema]], con introducción, desarrollo, y conclusiones. Al inicio del guión tiene que haber una escaleta. El guión tiene que estar en Español. El guión tiene que estar en primera persona. Tiene que ser un pocast con un tono cercano, como si fuera una charla con un amigo. El podcast tiene que estar dirigido a una persona. El guión tiene que estar en markdown. Al final del guión añade las referencias.
