@@ -27,3 +27,28 @@ matches:
       🦣  Mastodon 👉 https://mastodon.social/@atareao
       🐦  Twitter 👉 https://twitter.com/atareao
       🐙  GitHub 👉 https://github.com/atareao
+  - trigger: ":traduce"
+    replace: "{{traduce}}"
+    vars:
+      - name: form1
+        type: form
+        params:
+          layout: |
+            traduce [[texto]]
+      - name: traduce
+        type: shell
+        params:
+          cmd: $HOME/.cargo/bin/tradu -t "{{form1.texto}}" -s "ES" -d "EN"
+  - trigger: ":translate"
+    replace: "{{translate}}"
+    vars:
+      - name: form1
+        type: form
+        params:
+          layout: |
+            translate [[texto]]
+      - name: translate
+        type: shell
+        params:
+          cmd: $HOME/.cargo/bin/tradu -t "{{form1.texto}}" -s "EN" -d "ES"
+
