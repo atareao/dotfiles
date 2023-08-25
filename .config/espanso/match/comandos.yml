@@ -1,0 +1,11 @@
+matches:
+  - trigger: ":notas"
+    replace: "cd /data/notas/;vim indice.md"
+  - trigger: ":playlist"
+    replace: "yt-dlp --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 160K --output '%(title)s.%(ext)s' --yes-playlist '{{form1.playlist}}'"
+    vars:
+      - name: form1
+        type: form
+        params:
+          layout: |
+            Playlist id, [[playlist]]
