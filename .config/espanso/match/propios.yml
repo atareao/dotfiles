@@ -1,15 +1,15 @@
 
 matches:
   # Simple text replacement
-  - trigger: ":^"
+  - trigger: ",^"
     replace: "☝️"
-  - trigger: ":v"
+  - trigger: ",v"
     replace: "👇"
-  - trigger: ":>"
+  - trigger: ",>"
     replace: "👉"
-  - trigger: ":<"
+  - trigger: ",<"
     replace: "👈"
-  - trigger: ":pie"
+  - trigger: ",pie"
     replace: |
       🌐  Aquí lo puedes encontrar todo 👉 https://atareao.es
       ✈️   Telegram (el grupo) 👉 https://t.me/atareao_con_linux
@@ -17,7 +17,7 @@ matches:
       🦣  Mastodon 👉 https://mastodon.social/@atareao
       🐦  Twitter 👉 https://twitter.com/atareao
       🐙  GitHub 👉 https://github.com/atareao
-  - trigger: ":pye"
+  - trigger: ",pye"
     form: |
       Más información, enlaces y notas en https://atareao.es/podcast/[[episode]]
 
@@ -27,7 +27,7 @@ matches:
       🦣  Mastodon 👉 https://mastodon.social/@atareao
       🐦  Twitter 👉 https://twitter.com/atareao
       🐙  GitHub 👉 https://github.com/atareao
-  - trigger: ":traduce"
+  - trigger: ",traduce"
     replace: "{{traduce}}"
     vars:
       - name: form1
@@ -41,7 +41,7 @@ matches:
         type: shell
         params:
           cmd: $HOME/.cargo/bin/tradu -t "{{form1.texto}}" -s "ES" -d "EN"
-  - trigger: ":translate"
+  - trigger: ",translate"
     replace: "{{translate}}"
     vars:
       - name: form1
