@@ -1,5 +1,5 @@
 matches:
-  - trigger: ":comando"
+  - trigger: ",comando"
     replace: "{{comando}}"
     vars:
       - name: form1
@@ -12,25 +12,25 @@ matches:
         type: shell
         params:
           cmd: $HOME/.cargo/bin/dime -i "Eres un ayudante útil" -q "Escribe un artículo detallado sobre el siguiente comando '{{form1.comando}}', con introducción, desarrollo, en el que se tiene que contemplar, para que es la herramienta y que usos tiene, como se instala, como se configura y personaliza en Linux. Como se utiliza. Ejemplos de uso y funcionamiento. Conclusiones. El artículo tiene que estar en Español. El artículo tiene que estar en primera persona. Tiene que ser un artículo con un tono cercano, como si se lo explicara a un amigo. Tiene que ser un artículo redactado al estilo de atareao, pero con las secciones indicadas. El artículo tiene que estar dirigido a una persona. El artículo tiene que estar en markdown. Al final del artítulo añade las referencias. El comando es el siguiente, '{{form1.description}}'"
-  - trigger: ":podcast"
+  - trigger: ",podcast"
     form: |
       Escribe el guión de un podcast detallado sobre [[tema]], con introducción, desarrollo, y conclusiones. Al inicio del guión tiene que haber una escaleta. El guión tiene que estar en Español. El guión tiene que estar en primera persona. Tiene que ser un pocast con un tono cercano, como si fuera una charla con un amigo. El podcast tiene que estar dirigido a una persona. El guión tiene que estar en markdown. Al final del guión añade las referencias.
-  - trigger: ":explica"
+  - trigger: ",explica"
     form: |
       Quiero aprender sobre [[tema]]. Explícame [[tema]] de manera sencilla. Hazlo como si tuviera 11 años.
-  - trigger: ":comosi"
+  - trigger: ",comosi"
     form: |
       Te proporcionaré un argumento u opinión mía. Quiero que lo critiques como si fueras [[experto]]. El argumento es el siguiente [[argumento]]
-  - trigger: ":aprenderlinux"
+  - trigger: ",aprenderlinux"
     form: |
       Explicame el uso del siguiente comando Linux `[[comando]]`, incluyendo un cuestionario al final, pero no me des las respuestas, y luego dime si acerté cuando responda.
-  - trigger: ":receta"
+  - trigger: ",receta"
     form: |
        Dame la receta de un plato con los siguientes ingredientes [[ingredientes]] y que se pueda preparar en [[minutos]] minutos. Me tienes que explicar de forma sencilla y paso a paso como tengo que prepararlo y presentarlo.
-  - trigger: ":seo"
+  - trigger: ",seo"
     form: |
       Indícame el mejor título y metadescripción SEO del siguiente artículo que te detallo a continuación: [[artículo]]
-  - trigger: ":labels"
+  - trigger: ",labels"
     replace: "{{labels}}"
     vars:
       - name: form1
@@ -42,7 +42,7 @@ matches:
         type: shell
         params:
           cmd: $HOME/.cargo/bin/dime -i "Eres un ayudante útil" -q "Dame 25 etiquetas para un vídeo de YouTube sobre '{{form1.tema}}'. Dame únicamente las 25 etiquetas. No me des un listado numerado. Dame las etiquetas separadas por comas."
-  - trigger: ":title"
+  - trigger: ",title"
     replace: "{{title}}"
     vars:
       - name: form1
@@ -54,7 +54,7 @@ matches:
         type: shell
         params:
           cmd: $HOME/.cargo/bin/dime -i "Eres un ayudante útil." -q "Dime un título atractivo, estimulante y persuasivo para un vídeo de YouTube sobre '{{form1.tema}}'" | tr -d '"'
-  - trigger: ":description"
+  - trigger: ",description"
     replace: "{{description}}"
     vars:
       - name: form1
@@ -66,7 +66,7 @@ matches:
         type: shell
         params:
           cmd: $HOME/.cargo/bin/dime -i "Eres un ayudante útil. Eres un copywriter experto en escritura persuasiva." -q "Dame la descripción para un vídeo de YouTube sobre '{{form1.tema}}'. La descripción tendrá al menos 1500 palabras. Será un descripción atractiva, persuasiva y estimulante." | tr -d '"'
-  - trigger: ":responde"
+  - trigger: ",responde"
     replace: "{{responde}}"
     vars:
       - name: form1
@@ -78,7 +78,7 @@ matches:
         type: shell
         params:
           cmd: $HOME/.cargo/bin/dime -i "Eres un ayudante útil. Escribe como 'Lorenzo', el autor de 'atareao.es'. No añadas firma en las respuestas." -q "Responde a '{{form1.tema}}'. La respuesta tiene que ser amable y sincera." | tr -d '"'
-  - trigger: ":ataca"
+  - trigger: ",ataca"
     replace: "{{ataca}}.\n\n(Respuesta generada por IaIaIa 😁)"
     vars:
       - name: form1
@@ -90,7 +90,7 @@ matches:
         type: shell
         params:
           cmd: $HOME/.cargo/bin/dime -i "Eres un ayudante útil. Escribe como 'Lorenzo', el autor de 'atareao.es'. No añadas firma en las respuestas. Eres sarcástico." -q "Responde a '{{form1.tema}}'. La respuesta tiene que tener un toque de humor." | tr -d '"'
-  - trigger: ":test"
+  - trigger: ",test"
     replace: "{{reversed}}"
     vars:
       - name: form1
