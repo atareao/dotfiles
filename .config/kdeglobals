@@ -98,7 +98,10 @@ ForegroundPositive=31,140,236
 ForegroundVisited=127,140,141
 
 [General]
+BrowserApplication=firefox.desktop
 ColorSchemeHash=af87581f671b700f5ba604ce8fa8d37ddaafab18
+TerminalApplication=kitty
+TerminalService=kitty.desktop
 
 [KDE]
 LookAndFeelPackage=Edna
