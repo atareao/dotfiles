@@ -89,6 +89,16 @@ local m_opts = {
 
 
 local mappings = {
+    ["1"] = { "<Plug>(cokeline-focus-1)", "Focus 1"},
+    ["2"] = { "<Plug>(cokeline-focus-2)", "Focus 2"},
+    ["3"] = { "<Plug>(cokeline-focus-3)", "Focus 3"},
+    ["4"] = { "<Plug>(cokeline-focus-4)", "Focus 4"},
+    ["5"] = { "<Plug>(cokeline-focus-5)", "Focus 5"},
+    ["6"] = { "<Plug>(cokeline-focus-6)", "Focus 6"},
+    ["7"] = { "<Plug>(cokeline-focus-7)", "Focus 7"},
+    ["8"] = { "<Plug>(cokeline-focus-8)", "Focus 8"},
+    ["9"] = { "<Plug>(cokeline-focus-9)", "Focus 9"},
+    ["0"] = { "<Plug>(cokeline-focus-0)", "Focus 0"},
     B = {
         name = "Bookmarks",
         a = { "<cmd>silent BookmarkAnnotate<cr>", "Annotate" },
@@ -144,16 +154,6 @@ local mappings = {
     },
     F = {
         name = "Focus",
-        ["1"] = { "<Plug>(cokeline-focus-1)", "Focus 1"},
-        ["2"] = { "<Plug>(cokeline-focus-2)", "Focus 2"},
-        ["3"] = { "<Plug>(cokeline-focus-3)", "Focus 3"},
-        ["4"] = { "<Plug>(cokeline-focus-4)", "Focus 4"},
-        ["5"] = { "<Plug>(cokeline-focus-5)", "Focus 5"},
-        ["6"] = { "<Plug>(cokeline-focus-6)", "Focus 6"},
-        ["7"] = { "<Plug>(cokeline-focus-7)", "Focus 7"},
-        ["8"] = { "<Plug>(cokeline-focus-8)", "Focus 8"},
-        ["9"] = { "<Plug>(cokeline-focus-9)", "Focus 9"},
-        ["0"] = { "<Plug>(cokeline-focus-0)", "Focus 0"},
         p = { "<Plug>(cokeline-switch-prev)", "Focus preview"},
         n = { "<Plug>(cokeline-switch-next)", "Focus next"},
     },
@@ -163,6 +163,7 @@ local mappings = {
         j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
         k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
         l = { "<cmd>GitBlameToggle<cr>", "Blame" },
+        m = { "<cmd>Telescope gitmoji<cr>", "Git emoji" },
         p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
         r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
         R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
