@@ -233,6 +233,8 @@ require("lazy").setup({
     },
     -- help for git
     "kdheepak/lazygit.nvim",
+    "tpope/vim-fugitive",
+    "olacin/telescope-gitmoji.nvim",
     -- diffview
     {
         "sindrets/diffview.nvim",
