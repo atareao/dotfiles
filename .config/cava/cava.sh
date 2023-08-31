@@ -22,6 +22,6 @@
 # SOFTWARE.
 
 item=$(wpctl status | grep "M2 Mic In 2R" | sed -E 's/.* ([0-9]+)\. M2 Mic In 2R.*/\1/')
-source=$(wpctl inspect "${item}" | grep object.path | sed -E 's/.* = "([^"]*)"/\1/')
+source=$(wpctl inspect "${item}" | grep object.serial | sed -E 's/.* = "([^"]*)"/\1/')
 sed -iE "s/^source = .*/source = ${source}/g" /home/lorenzo/.config/cava/config
 cava

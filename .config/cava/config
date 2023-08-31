@@ -58,10 +58,12 @@
 # For fifo 'source' will be the path to fifo-file.
 # For shmem 'source' will be /squeezelite-AA:BB:CC:DD:EE:FF where 'AA:BB:CC:DD:EE:FF' will be squeezelite's MAC address
 ; method = pulse
-; source = auto
+;source = auto
 ;method = alsa
+method = pipewire
+source = 111
+;source = auto
 ;source = alsa:pcm:5:m2_mono_in:M2,0,1:capture
-source = alsa:pcm:5:m2_mono_in:M2,0,1:capture
 
 ; method = alsa
 ; source = hw:Loopback,1
