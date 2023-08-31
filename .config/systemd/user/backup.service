@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=oneshot
-ExecStart=/home/lorenzo/.local/bin/backup.sh
+ExecStart=/bin/bash /home/lorenzo/.local/bin/launch_backup.sh
 
 [Install]
 WantedBy=multi-user.target
