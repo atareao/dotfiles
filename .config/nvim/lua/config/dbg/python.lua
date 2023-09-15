@@ -9,9 +9,10 @@ dap.configurations.python = {
         name = "Launch",
         type = "python",
         request = "launch",
-        program = function()
-            return vim.fn.input('Ruta al main: ', vim.fn.getcwd() .. '/src/', 'file')
-        end,
+        program = "${file}",
+        -- program = function()
+        --     return vim.fn.input('Ruta al main: ', vim.fn.getcwd() .. '/src/', 'file')
+        -- end,
         cwd = '${workspaceFolder}',
         stopOnEntry = true,
         args = {},

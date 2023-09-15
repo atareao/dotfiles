@@ -449,5 +449,14 @@ require("lazy").setup({
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope.nvim"
         }
+    },
+    {
+        'akinsho/flutter-tools.nvim',
+        lazy = false,
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'stevearc/dressing.nvim', -- optional for vim.ui.select
+        },
+        config = true,
     }
 })
