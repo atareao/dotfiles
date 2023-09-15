@@ -90,6 +90,7 @@ start_python_i3_scripts(){
     echo "Starting: python i3 scripts"
     python ~/.config/i3/scripts/autoname-workspaces.py &>/dev/null &
     python ~/.config/i3/scripts/autotiling.py &>/dev/null &
+    python ~/.config/i3/scripts/inactive-windows-transparency.py &>/dev/null &
 }
 
 start_dunst

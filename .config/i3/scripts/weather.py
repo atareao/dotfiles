@@ -23,6 +23,10 @@
 
 import requests
 import sys
+import logging
+
+logging.getLogger(__name__)
+logging.basicConfig(level=logging.ERROR)
 
 BASE_URL = "https://api.open-meteo.com"
 
@@ -42,10 +46,10 @@ class OpenMeteoClient:
             return "⛅"
         elif code in [45, 58]:
             # Fog and depositing rime fog
-            pass
+            return "🌁"
         elif code in [51, 53, 55]:
             # Drizzle: Light, moderate, and dense intensity
-            pass
+            return "🌦️"
         elif code in [56, 57]:
             # Freezing Drizzle: Light and dense intensity
             pass
@@ -72,17 +76,21 @@ class OpenMeteoClient:
             pass
         elif code in [96, 99]:
             # Thunderstorm with slight and heavy hail
-            pass
+            return "⛈️"
         return "🤷"
 
     def current_weather(self):
         url = f"{BASE_URL}/v1/forecast"
+        logging.debug(f"Url: {url}")
         params = {
                 "latitude": self._latitude,
                 "longitude": self._longitude,
                 "current_weather": True
                 }
+        logging.debug(f"Params: {params}")
         response = requests.get(url, params=params)
+        logging.debug(f"Status code: {response.status_code}")
+        logging.debug(f"Response: {response.text}")
         if response.status_code == 200:
             data = response.json()
             current_weather = data["current_weather"]
@@ -96,6 +104,7 @@ class OpenMeteoClient:
 
 if __name__ == "__main__":
     if len(sys.argv) > 2:
+        logging.debug(sys.argv)
         latitude = float(sys.argv[1])
         longitude = float(sys.argv[2])
         client = OpenMeteoClient(latitude, longitude)
