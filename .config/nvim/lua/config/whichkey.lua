@@ -89,6 +89,7 @@ local m_opts = {
 
 
 local mappings = {
+    ["0"] = { "<Plug>(cokeline-focus-0)", "Focus 0"},
     ["1"] = { "<Plug>(cokeline-focus-1)", "Focus 1"},
     ["2"] = { "<Plug>(cokeline-focus-2)", "Focus 2"},
     ["3"] = { "<Plug>(cokeline-focus-3)", "Focus 3"},
@@ -98,7 +99,6 @@ local mappings = {
     ["7"] = { "<Plug>(cokeline-focus-7)", "Focus 7"},
     ["8"] = { "<Plug>(cokeline-focus-8)", "Focus 8"},
     ["9"] = { "<Plug>(cokeline-focus-9)", "Focus 9"},
-    ["0"] = { "<Plug>(cokeline-focus-0)", "Focus 0"},
     B = {
         name = "Bookmarks",
         a = { "<cmd>silent BookmarkAnnotate<cr>", "Annotate" },
@@ -123,7 +123,6 @@ local mappings = {
         O = { "<cmd>lua require'dap'.step_out()<cr>", "Out" },
         r = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Repl" },
         l = { "<cmd>lua require'dap'.run_last()<cr>", "Last" },
-        u = { "<cmd>lua require'dapui'.toggle()<cr>", "UI" },
         x = { "<cmd>lua require'dap'.terminate()<cr>", "Exit" },
         t = {
             name = "Telescope",
@@ -132,10 +131,17 @@ local mappings = {
             b = {"<cmd>lua require'telescope'.extensions.dap.list_breakpoints{}<CR>", "Telescope"},
             v = {"<cmd>lua require'telescope'.extensions.dap.variables{}<CR>", "Telescope"},
             f = {"<cmd>lua require'telescope'.extensions.dap.frames{}<CR>", "Telescope"},
-        }
+        },
+        u = {
+            name = "dap-ui",
+            s = { "<cmd>lua require'dapui'.setup()<cr>", "Setup" },
+            o = { "<cmd>lua require'dapui'.open()<cr>", "Open" },
+            c = { "<cmd>lua require'dapui'.close()<cr>", "Close" },
+            t = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle" },
+        },
     },
     f = {
-        name = "Find",
+        name = "Find/Focus",
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
         c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
         f = { "<cmd>Telescope find_files<cr>", "Find File" },
@@ -151,11 +157,13 @@ local mappings = {
         C = { "<cmd>Telescope commands<cr>", "Commands" },
         o = { "<cmd>Telescope file_browser<cr>", "Commands" },
         y = { "<cmd>Telescope symbols<cr>", "Symbols" },
-    },
-    F = {
-        name = "Focus",
+        -- Focus
         p = { "<Plug>(cokeline-switch-prev)", "Focus preview"},
         n = { "<Plug>(cokeline-switch-next)", "Focus next"},
+    },
+    F = {
+        name = "Fluter",
+        c = { "<cmd> lua require'telescope'.extensions.flutter.commands{}<cr>", "Flutter"},
     },
     g = {
         name = "Git",
