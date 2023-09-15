@@ -30,7 +30,7 @@ matches:
   - trigger: ",seo"
     form: |
       Indícame el mejor título y metadescripción SEO del siguiente artículo que te detallo a continuación: [[artículo]]
-  - trigger: ",labels"
+  - trigger: ":labels"
     replace: "{{labels}}"
     vars:
       - name: form1
