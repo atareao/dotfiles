@@ -51,6 +51,7 @@ require('telescope').setup{
     }
 }
 require("telescope").load_extension("gitmoji")
+require("telescope").load_extension("flutter")
 
 -- Using Lua functions
 local opts = { noremap=true, silent=true }
