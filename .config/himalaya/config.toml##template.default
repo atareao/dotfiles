@@ -1,6 +1,9 @@
 display-name = "{{ env.USER_FNAME }}"
 downloads-dir = "~/Descargas"
-signature = "Saludos,"
+signature = """
+Un saludo,
+Lorenzo
+"""
 
 [atareao]
 default = true
@@ -10,25 +13,32 @@ backend = "imap" # imap, maildir or notmuch
 imap-host = "mail.atareao.es"
 imap-port = 993
 imap-login = "{{ env.ATAREAO_EMAIL }}"
-imap-passwd-cmd = "gopass show -o atareao/pass"
+imap-auth = "passwd"
+imap-passwd = { cmd = "gopass show -o atareao/pass" }
 
 sender = "smtp" # smtp or sendmail
 smtp-host = "mail.atareao.es"
 smtp-port = 465
 smtp-login = "{{ env.ATAREAO_EMAIL }}"
-smtp-passwd-cmd = "gopass show -o atareao/pass"
+smtp-auth = "passwd"
+smtp-passwd = { cmd = "gopass show -o atareao/pass" }
+
+[atareao.folder-aliases]
+sent = "INBOX.Sent"
 
 [gmail]
-email = "{{ env.EMAIL }}"
+email = "{{ env.USER_EMAIL }}"
 
 backend = "imap" # imap, maildir or notmuch
 imap-host = "imap.gmail.com"
 imap-port = 993
 imap-login = "{{ env.USER_EMAIL }}"
-imap-passwd-cmd = "gopass show -o gmail/pass"
+imap-auth = "passwd"
+imap-passwd = { cmd = "gopass show -o gmail/pass" }
 
 sender = "smtp" # smtp or sendmail
 smtp-host = "smtp.gmail.com"
 smtp-port = 465
 smtp-login = "{{ env.USER_EMAIL }}"
-smtp-passwd-cmd = "gopass show -o gmail/pass"
+smtp-auth = "passwd"
+smtp-passwd = { cmd = "gopass show -o gmail/pass" }
