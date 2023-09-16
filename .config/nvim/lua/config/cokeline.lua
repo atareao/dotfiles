@@ -1,5 +1,5 @@
-local get_hex = require('cokeline/utils').get_hex
-local mappings = require('cokeline/mappings')
+local get_hex = require('cokeline.utils').get_hex
+local mappings = require('cokeline.mappings')
 
 local comments_fg = get_hex('Comment', 'fg')
 local errors_fg = get_hex('DiagnosticError', 'fg')
@@ -170,6 +170,16 @@ require('cokeline').setup({
          or nbg
     end,
   },
+    sidebar = {
+    filetype = 'neo-tree',
+    components = {
+    {
+            text = "    Neo-tree",
+            fg = vim.g.terminal_color_3,
+            bg = get_hex("NeoTreeNormal", 'bg'),
+            style = 'bold'
+    }}
+},
 
   components = {
     components.separator,
