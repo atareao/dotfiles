@@ -140,6 +140,10 @@ local mappings = {
             t = { "<cmd>lua require'dapui'.toggle()<cr>", "Toggle" },
         },
     },
+    D = {
+        name = "Documentation",
+        d = {"<cmd>lua require'neogen'.generate()<cr>", "Generate  docu"},
+    },
     f = {
         name = "Find/Focus",
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
@@ -164,6 +168,10 @@ local mappings = {
     F = {
         name = "Fluter",
         c = { "<cmd> lua require'telescope'.extensions.flutter.commands{}<cr>", "Flutter"},
+        h = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Show hover"},
+        d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Jump to definition"},
+        a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Open code action"},
+        r = { "<cmd>lua vim.lsp.buf.range_code_action()<cr>", "Open code actions for range"},
     },
     g = {
         name = "Git",
@@ -196,18 +204,17 @@ local mappings = {
     l = {
         name = "LSP",
         a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-        d = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
         w = {
             "<cmd>Telescope lsp_workspace_diagnostics<cr>",
             "Workspace Diagnostics",
         },
         f = { "<cmd>lua vim.lsp.buf.format({ async = true })<cr>", "Format" },
         F = { "<cmd>LspToggleAutoFormat<cr>", "Toggle Autoformat" },
-        g = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Definition"},
+        d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Definition"},
         G = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Declaration"},
         i = { "<cmd>LspInfo<cr>", "Info" },
-        h = { "<cmd>IlluminationToggle<cr>", "Toggle Doc HL" },
         I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+        h = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover"},
         j = {
             "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>",
             "Next Diagnostic",
@@ -229,6 +236,7 @@ local mappings = {
         },
         t = { '<cmd>lua require("user.functions").toggle_diagnostics()<cr>', "Toggle Diagnostics" },
         u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
+        x = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
     },
     o = {
         name = "Options",

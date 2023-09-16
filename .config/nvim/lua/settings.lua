@@ -39,6 +39,7 @@ opt.splitbelow = true         -- orizontal split to the bottom
 opt.ignorecase = true         -- ignore case letters when search
 opt.smartcase = true          -- ignore lowercase for the whole pattern
 opt.linebreak = true          -- wrap on word boundary
+opt.foldlevel = 99            -- should open all folds
 opt.conceallevel = 0
 opt.termguicolors = true
 opt.guifont = "JetBrainsMono Nerd Font"
@@ -160,19 +161,5 @@ au(
             end
         end,
         group = ag("templates", {})
-    }
-)
-
------------------------------------------------------------
--- Folds
------------------------------------------------------------
--- open files with opened folds
-au(
-    "BufWinEnter",
-    {
-        pattern = "*",
-        callback = function()
-            cmd([[normal zR]])
-        end
     }
 )
