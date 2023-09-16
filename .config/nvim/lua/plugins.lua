@@ -181,11 +181,14 @@ require("lazy").setup({
     },
     -- cokeline - buffers
     {
-        "noib3/nvim-cokeline",
+        "willothy/nvim-cokeline",
         config = function()
             require("config.cokeline")
         end,
-        dependencies = "kyazdani42/nvim-web-devicons",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "kyazdani42/nvim-web-devicons",
+        },
     },
     -- TODO: remoxe
     -- FIX: fix
