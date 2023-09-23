@@ -65,7 +65,7 @@ set vimhelp
 set norunexec
 
 " List of color schemes to try (picks the first one supported by the terminal)
-colorscheme solarized-dark
+colorscheme gruvbox
 
 " Format for displaying time in file list. For example:
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
@@ -104,6 +104,8 @@ endif
 " Set custom status line look
 set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 
+" Set numbar and relative. Hybrid mode
+set number relativenumber
 " ------------------------------------------------------------------------------
 " Bookmarks
 " ------------------------------------------------------------------------------
