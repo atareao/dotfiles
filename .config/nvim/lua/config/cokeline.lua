@@ -1,4 +1,4 @@
-local get_hex = require('cokeline.utils').get_hex
+local get_hex = require('cokeline.hlgroups').get_hl_attr
 local mappings = require('cokeline.mappings')
 
 local comments_fg = get_hex('Comment', 'fg')

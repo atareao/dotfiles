@@ -182,6 +182,7 @@ require("lazy").setup({
     -- cokeline - buffers
     {
         "willothy/nvim-cokeline",
+        event = "VeryLazy",
         config = function()
             require("config.cokeline")
         end,
@@ -461,5 +462,11 @@ require("lazy").setup({
             'stevearc/dressing.nvim', -- optional for vim.ui.select
         },
         config = true,
+    },
+    {
+        "ellisonleao/glow.nvim",
+        lazy = false,
+        config = true,
+        cmd = "Glow"
     }
 })

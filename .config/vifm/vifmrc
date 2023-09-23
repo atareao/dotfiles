@@ -248,6 +248,10 @@ filetype {*.o},<application/x-object> nm %f | less
 filetype {*.[1-8]},<text/troff> man ./%c
 fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 
+" Markdown
+filextype {*.md,*.markdown,*.txt},<text/markdown>
+        \ glow %f
+
 " Images
 filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
         \ {View in sxiv}
