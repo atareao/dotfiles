@@ -1,0 +1,50 @@
+unreleased
+  Add new color scheme: truedark (Thanks bratpeki)
+  Add new color scheme: afterglow (Thanks RomiC)
+
+0.11 to 0.12 (2022-09-18)
+  Add new color scheme: ansa (Thanks savchenko)
+  Add new color scheme: monochrome (Thanks qsmodo)
+  Add new color scheme: crown_24bit (Thanks hombrey)
+  Add new color scheme: nord (Thanks novores)
+  Add new color scheme: fargo (Thanks shlomi-aknin )
+  Add new color scheme: paper (Thanks to s6muel)
+
+0.10 to 0.11 (2021-07-08)
+   Add new color scheme: sandy (Thanks Nando)
+   Update mc-like color theme (Thanks Jose Riha)
+   Add PaperColor light/dark (Thanks pmilosev)
+   Update solarized-dark theme (Thanks gennaro-tedesco)
+
+0.9 to 0.10 (2020-09-24)
+   Add new color scheme: dwmlight (Thanks satsaeid)
+   Add new color scheme: solorized-light (Thanks ayroblu)
+   Add new color scheme: palenight (Thanks mroavi)
+   Add new color scheme: onedark (Thanks mroavi)
+   Add new color scheme: gruvbox (Thanks laur89)
+   Add new color scheme: iceberg (Thanks puven12)
+   Add new color scheme: dracula (Thanks EgZvor)
+   Add new color scheme: molokai (Thanks mimadrid)
+   Add missing `:highlight clear` to:
+    * lucius
+    * reicheltd-light
+
+   Update near-default scheme:
+    * Add CmpMismatch (since vifm v0.9).
+    * Add one more document type: mobi.
+    * Support change of terminal background.
+
+0.8.2 to 0.9
+    Add new color scheme: lucius (Thanks francogonzaga)
+    Add new color scheme: SemiDarkDesert (Thanks clausED)
+    Add new color scheme: near-default (Thanks xaizek)
+    Clean up info in README
+
+0.8 to 0.8.2
+    Add GPL-2 license file
+
+    Add new color scheme: ph (Thanks pihao)
+    Add new color scheme: reicheltd-light (Thanks reicheltd)
+    Add new color scheme: snowwhite (Thanks durcheinandr)
+    Add new color scheme: semidarkdesert (Thanks clausED)
+    Add new color scheme: near-default
