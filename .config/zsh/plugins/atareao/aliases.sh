@@ -1,6 +1,6 @@
 alias vim=nvim
 alias vimdiff='nvim -d'
-alias sshk='kitty +kitten ssh'
+alias shs='kitty +kitten ssh -q'
 alias icat='kitty +kitten icat'
 alias mydiff='kitty +kitten diff'
 alias ls=lsd
