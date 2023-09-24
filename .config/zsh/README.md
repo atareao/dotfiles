@@ -19,6 +19,14 @@ git clone git@github.com:zsh-users/zsh-autosuggestions.git
 git clone git@github.com:zsh-users/zsh-completions.git
 ```
 
+There is a `just` recipe to install the plugins with
+
+```bash
+just install
+```
+
+**Attencion**
+
 Every new completion goes to ~/.config/zsh/plugins/custom-completions/
 
 For example,
