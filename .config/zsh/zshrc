@@ -30,8 +30,10 @@ setopt HIST_FIND_NO_DUPS
 source $ZSH/plugins/atareao/atareao.plugin.zsh
 source $ZSH/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source $ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $ZSH/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 fpath=($ZSH/plugins/zsh-completions/src $fpath)
+fpath=($ZSH/plugins/custom-completions $fpath)
+autoload -Uz compinit
+compinit
 ###############################################################################
 # STARSHIP
 ###############################################################################

@@ -17,5 +17,13 @@ cd ~/.config/zsh/plugins/
 git clone git@github.com:zdharma-zmirror/fast-syntax-highlighting.git
 git clone git@github.com:zsh-users/zsh-autosuggestions.git
 git clone git@github.com:zsh-users/zsh-completions.git
-git clone git@github.com:github.com/marlonrichert/zsh-autocomplete.git
 ```
+
+Every new completion goes to ~/.config/zsh/plugins/custom-completions/
+
+For example,
+
+```bash
+rustup completions zsh cargo > ~/.config/zsh/plugins/custom-completions/_cargo
+```
+
