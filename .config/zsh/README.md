@@ -27,3 +27,11 @@ For example,
 rustup completions zsh cargo > ~/.config/zsh/plugins/custom-completions/_cargo
 ```
 
+In order to update the *plugins*, do,
+
+```bash
+cd ~/.config/zsh/plugins/
+just update
+```
+
+
