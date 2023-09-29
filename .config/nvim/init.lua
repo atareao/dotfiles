@@ -1,5 +1,2 @@
--------------------------------
--- Import Lua modules
--------------------------------
-require('settings') -- settings
-require('plugins')  -- plugins
+require("settings")
+require("lazy-config")
