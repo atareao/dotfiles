@@ -5,8 +5,29 @@ Un saludo,
 Lorenzo
 """
 
-[atareao]
+[territorio]
 default = true
+email = "{{ env.TERRITORIO_EMAIL }}"
+
+backend = "imap" # imap, maildir or notmuch
+imap-host = "mail.territoriolinux.es"
+imap-port = 993
+imap-login = "{{ env.TERRITORIO_USER }}"
+imap-auth = "passwd"
+imap-passwd = { cmd = "gopass show -o territorio/pass" }
+
+sender = "smtp" # smtp or sendmail
+smtp-host = "mail.atareao.es"
+smtp-port = 567
+smtp-starttls = true
+smtp-login = "{{ env.TERRITORIO_USER }}"
+smtp-auth = "passwd"
+smtp-passwd = { cmd = "gopass show -o territorio/pass" }
+
+[territorio.folder-aliases]
+sent = "INBOX.Sent"
+
+[atareao]
 email = "{{ env.ATAREAO_EMAIL }}"
 
 backend = "imap" # imap, maildir or notmuch
