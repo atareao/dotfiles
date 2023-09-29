@@ -1,0 +1,3 @@
+return {
+    "ojroques/nvim-bufdel"
+}
