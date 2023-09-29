@@ -44,6 +44,8 @@ require("lazy").setup({
     -- indent line
     {
         "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {},
         config = function()
             require("config.indent-blankline")
         end,
@@ -370,7 +372,7 @@ require("lazy").setup({
         end,
     },
     {
-        "soywod/himalaya.vim",
+        "https://git.sr.ht/~soywod/himalaya-vim",
     },
     {
         "natecraddock/workspaces.nvim",
@@ -442,18 +444,18 @@ require("lazy").setup({
     {
         "ojroques/nvim-bufdel"
     },
-    {
-        "jackMort/ChatGPT.nvim",
-        event = "VeryLazy",
-        config = function()
-            require("config.chatgpt")
-        end,
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim"
-        }
-    },
+    --{
+    --    "jackMort/ChatGPT.nvim",
+    --    event = "VeryLazy",
+    --    config = function()
+    --        require("config.chatgpt")
+    --    end,
+    --    dependencies = {
+    --        "MunifTanjim/nui.nvim",
+    --        "nvim-lua/plenary.nvim",
+    --        "nvim-telescope/telescope.nvim"
+    --    }
+    --},
     {
         'akinsho/flutter-tools.nvim',
         lazy = false,
