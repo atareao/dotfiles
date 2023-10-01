@@ -1,3 +1,0 @@
-return {
-    "onsails/lspkind-nvim",
-}
