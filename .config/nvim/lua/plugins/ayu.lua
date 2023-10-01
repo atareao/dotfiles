@@ -1,5 +1,6 @@
 return {
     "Shatur/neovim-ayu",
+    lazy = false,
     config = function()
         local cmd = vim.cmd
         local opt = vim.opt

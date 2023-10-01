@@ -21,7 +21,7 @@ return {
                 args = {"--log-level", "DEBUG"},
                 -- Runner to use. Will use pytest if available by default.
                 -- Can be a function to return dynamic value.
-                runner = "pytest",
+                runner = "unittest",
                 -- Custom python path for the runner.
                 -- Can be a string or a list of strings.
                 -- Can also be a function to return dynamic value.
