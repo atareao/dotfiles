@@ -39,20 +39,43 @@ return {
             },
         }
 
+        local lspconfig = require("lspconfig")
+        lspconfig.pylyzer.setup({
+            settings = {
+                pylyzer = {
+                    diagnostics = false,
+                    inlayHints = true
+                }
+            }
+        })
+
         vim.diagnostic.config(config)
         require("inlay-hints").setup()
+        --local servers = {
+        --    "rust_analyzer", "bashls", "efm", "html", "jsonls",
+        --    "intelephense", "phpactor", "tsserver", "marksman", "pyright",
+        --    "pylsp", "ruff_lsp", "sqlls"
+        --}
         mason.setup()
         mason_lspconfig.setup({
-            ensure_installed = {
-                "rust_analyzer", "bashls", "efm", "html", "jsonls",
-                "intelephense", "phpactor", "tsserver", "marksman", "pyright",
-                "pylyzer", "pylsp", "ruff_lsp", "sqlls"
-            },
+            ensure_installed = servers,
             -- auto-install configured servers (with lspconfig)
             automatic_installation = true, -- not the same as ensure_installed
         })
         
         local servers = {
+            efm = {},
+            pyright = {},
+            ruff_lsp = {},
+            pylyzer = {
+                settings = {
+                    pylyzer = {
+                        diagnostics = false,
+                        inlayHints = true,
+                        smartCompletion = true,
+                    },
+                },
+            },
             pylsp = {},
         }
 
@@ -69,6 +92,27 @@ return {
                 }
             end,
         }
+        --------------------------------------------------------------------------------
+-- activate each lsp in the list
+--------------------------------------------------------------------------------
+for _, lsp in ipairs(servers) do
+    local generic_opts = {
+       capabilities = capabilities,
+       on_attach = handlers.on_attach,
+       flags = { debounce_text_changes = 150 },
+    }
+    local specialized_opts = option_lookup[lsp]
+    if specialized_opts == nil then
+       lspconfig[lsp].setup(generic_opts)
+    else
+       local opts = vim.tbl_deep_extend(
+           "force",
+           generic_opts,
+           specialized_opts
+        )
+        lspconfig[lsp].setup(opts)
+    end
+end
     end,
 }
 

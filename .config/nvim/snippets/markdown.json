@@ -27,24 +27,23 @@
         "prefix": "zn",
         "body": [
             "---",
-            "title: $1",
-            "filename: $TM_FILENAME",
             "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
             "updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
-            "tags: $2",
+            "tags: $1",
             "---",
-            "# $1",
+            "# $2",
             "",
             "$0",
             "",
             "<!--more-->",
-            "## $1",
+            "## $2",
             "",
             "---",
+            "Mas información,",
             ""
         ]
     },
-    "zettel incide": {
+    "zettel indice": {
         "prefix": "zi",
         "body": [
             "* [[indice|indice]]",
@@ -54,6 +53,7 @@
             "",
             "* [] $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE | $2",
             "---",
+            "Mas información,",
             ""
         ]
     },
@@ -73,6 +73,7 @@
             "## $2",
             "",
             "---",
+            "Mas información,",
             ""
         ]
     },
@@ -92,6 +93,7 @@
             "## $2",
             "",
             "---",
+            "Mas información,",
             ""
         ]
     },
@@ -111,6 +113,7 @@
             "## $2",
             "",
             "---",
+            "Mas información,",
             ""
         ]
     },
@@ -130,6 +133,47 @@
             "## $2",
             "",
             "---",
+            "Mas información,",
+            ""
+        ]
+    },
+    "zettel docker": {
+        "prefix": "zd",
+        "body": [
+            "* [[docker/indice|Memorias de una ballena]]",
+            "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "tags: $1",
+            "---",
+            "# $2",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $2",
+            "",
+            "---",
+            "Mas información,",
+            ""
+        ]
+    },
+    "zettel flutter": {
+        "prefix": "zf",
+        "body": [
+            "* [[flutter/indice|Una pizca de Android]]",
+            "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "tags: $1",
+            "---",
+            "# $2",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $2",
+            "",
+            "---",
+            "Mas información,",
             ""
         ]
     },
@@ -164,18 +208,44 @@
             "Disfruta como si no hubiera un mañana y si puede ser con Linux, **mejor que mejor**."
         ]
     },
-    "zettel chapter": {
+    "zettel comandos": {
         "prefix": "zc",
         "body": [
-            "---",
-            "title: $1",
-            "tutorial: $2",
-            "filename: $TM_FILENAME",
+            "* [[comandos-linux/indice|Comandos Linux]]",
             "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
             "updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
-            "tags: $3",
+            "tags: $1",
             "---",
-            "$0"
+            "# $2",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $2",
+            "",
+            "---",
+            "Mas información,",
+            ""
+        ]
+    },
+    "zettel self hosted": {
+        "prefix": "zs",
+        "body": [
+            "* [[self-hosted/indice|Self Hosted]]",
+            "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "tags: $1",
+            "---",
+            "# $2",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $2",
+            "",
+            "---",
+            "Mas información,",
+            ""
         ]
     }
 }

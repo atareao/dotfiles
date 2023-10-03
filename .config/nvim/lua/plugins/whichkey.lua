@@ -246,6 +246,12 @@ return {
                 u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
                 x = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
             },
+            m = {
+                name = "Markdnflow",
+                e = { "<cmd>MkdnEnter<cr>", "Enter"},
+                n = { "<cmd>MkdnNextLink<cr>", "Next link"},
+                p = { "<cmd>MkdnPrevLink<cr>", "Previous link"},
+            },
             o = {
                 name = "Options",
                 w = { '<cmd>lua require("user.functions").toggle_option("wrap")<cr>', "Wrap" },

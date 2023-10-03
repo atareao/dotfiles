@@ -31,3 +31,7 @@ tab = "→"
 newline = "⏎"
 tabpad = "·" # Tabs will look like "→···" (depending on tab width)
 
+[editor.lsp]
+enable = true
+display-messages = true
+display-inlay-hints = true
