@@ -29,14 +29,14 @@ return {
 
         vim.opt.list = true
         vim.opt.listchars:append("space:⋅")
+        local hooks = require("ibl.hooks")
+        hooks.register(
+            hooks.type.WHITESPACE,
+            hooks.builtin.hide_first_space_indent_level
+        )
         require('ibl').setup {
             whitespace = { highlight = { "Whitespace", "NonText" } },
             indent = { highlight = highlight },
-            --char = "▏",
-            --space_char_blankline = " ",
-            --show_first_indent_level = false,
-            --show_current_context = true,
-            --show_current_context_start = true,
             exclude = {
                 filetypes = {
                     'help',
