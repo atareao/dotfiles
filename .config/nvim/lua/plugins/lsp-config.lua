@@ -67,15 +67,6 @@ return {
             efm = {},
             pyright = {},
             ruff_lsp = {},
-            pylyzer = {
-                settings = {
-                    pylyzer = {
-                        diagnostics = false,
-                        inlayHints = true,
-                        smartCompletion = true,
-                    },
-                },
-            },
             pylsp = {},
         }
 
