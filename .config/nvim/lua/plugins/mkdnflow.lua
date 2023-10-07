@@ -41,6 +41,7 @@ return {
             },
             use_mappings_table = true,
             mappings = {
+                MkdnEnter = {{'i', 'n', 'v'}, '<CR>'},
                 MkdnNextLink = {'n', '<Tab>'},
                 MkdnPrevLink = {'n', '<S-Tab>'},
                 MkdnNextHeading = {'n', '<leader>]'},
