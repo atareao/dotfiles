@@ -107,6 +107,7 @@ return {
             pyright = {},
             ruff_lsp = {},
             pylsp = {},
+            marksman = {}
         }
 
         mason_lspconfig.setup {
