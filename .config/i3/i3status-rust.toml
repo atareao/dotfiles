@@ -63,6 +63,15 @@ block = "custom"
 command = "python $HOME/.config/i3/scripts/weather.py 39.36667 -0.41667"
 interval = 600
 
+# [[block]]
+# block = "weather"
+# service = "openweathermap"
+# name = "openweathermap"
+# format = " $icon $weather $temp "
+# api_key = "460efcd8685715da1c37ab7834e84135"
+# coordinates = ["39.36667", "-0.41667"]
+# lang = "es"
+
 [[block]]
 block = "sound"
 format = " $icon {$volume|} "
