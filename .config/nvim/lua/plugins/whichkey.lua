@@ -246,12 +246,6 @@ return {
                 u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
                 x = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
             },
-            m = {
-                name = "Markdnflow",
-                e = { "<cmd>MkdnEnter<cr>", "Enter"},
-                n = { "<cmd>MkdnNextLink<cr>", "Next link"},
-                p = { "<cmd>MkdnPrevLink<cr>", "Previous link"},
-            },
             o = {
                 name = "Options",
                 w = { '<cmd>lua require("user.functions").toggle_option("wrap")<cr>', "Wrap" },
@@ -424,7 +418,7 @@ return {
                 i = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "Implementation"},
                 s = { "<cmd>lua vim.lsp.buf.signature_help()<cr>", "Signature"},
                 D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Declaration"},
-            }
+            },
         }
 
 
