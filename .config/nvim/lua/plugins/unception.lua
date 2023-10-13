@@ -1,4 +1,4 @@
 return {
     "samjwill/nvim-unception",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
 }

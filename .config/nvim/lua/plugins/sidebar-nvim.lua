@@ -1,6 +1,6 @@
 return {
     "sidebar-nvim/sidebar.nvim",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
     config = function()
         require("sidebar-nvim").setup({
             open = false,

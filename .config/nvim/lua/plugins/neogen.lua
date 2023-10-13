@@ -1,6 +1,6 @@
 return {
     "danymat/neogen",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
     dependencies = {
         "nvim-treesitter/nvim-treesitter",
     },

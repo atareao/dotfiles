@@ -6,7 +6,7 @@ return {
         "folke/neodev.nvim",
         "theHamsta/nvim-dap-virtual-text",
     },
-    event = "VeryLazy",
+    -- -- event = "VeryLazy",
     config = function()
         require('telescope').load_extension('dap')
         local dap, dapui = require("dap"), require("dapui")

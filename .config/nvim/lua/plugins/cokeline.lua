@@ -1,6 +1,6 @@
 return {
     "willothy/nvim-cokeline",
-    event = "VeryLazy",
+    -- -- event = "VeryLazy",
     dependencies = {
         "nvim-lua/plenary.nvim",
         "kyazdani42/nvim-web-devicons",

@@ -11,7 +11,8 @@ return {
         require('nvim-treesitter.configs').setup {
             ensure_installed = {
                 "vim", "regex", "lua", "bash", "markdown", "markdown_inline",
-                "python", "rust", "sql", "php", "javascript",
+                "python", "rust", "sql", "php", "javascript", "http", "json",
+                "latex", "commonlisp"
             },
             highlight = {
                 enable = true,

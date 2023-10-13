@@ -1,6 +1,6 @@
 return {
     "liuchengxu/vista.vim",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
     config = function()
         -----------------------------------------------------------
         -- Vista configuration file

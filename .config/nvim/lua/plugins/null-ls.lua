@@ -1,6 +1,6 @@
 return {
     "jose-elias-alvarez/null-ls.nvim",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
     config = function()
         local null_ls = require("null-ls")
         local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -8,7 +8,7 @@ return {
             sources = {
                 -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#diagnostics
                 -- formatting
-                null_ls.builtins.formatting.ruff,
+                --null_ls.builtins.formatting.ruff,
                 null_ls.builtins.formatting.shfmt, -- shell script formatting
                 null_ls.builtins.formatting.prettier, -- markdown formatting
                 -- diagnostics

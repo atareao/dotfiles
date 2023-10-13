@@ -1,6 +1,6 @@
 return {
     "nvim-telescope/telescope-ui-select.nvim",
-    event = "VeryLazy",
+    -- event = "VeryLazy",
     config = function()
         require("telescope").setup {
           extensions = {
