@@ -3,7 +3,7 @@
     "output": "DP-1",
     "position": "top",
     "height": 35,
-    "spacing": 5,
+    "spacing": 0,
     "margin-left": 5,
     "margin-top": 5,
     "ipc": true,
@@ -19,7 +19,7 @@
         "max-length": 50
     },
     "sway/workspaces": {
-      "format": "{index}{name}",
+      "format": "{index}{icon}",
       "on-click": "activate",
     },
     "wlr/taskbar": {
@@ -173,7 +173,7 @@
     // Modules configuration
 
     "sway/workspaces": {
-      "format": "{index}{name}",
+      "format": "{index}{value}{icon}{output}",
       "on-click": "activate",
     },
     "wlr/taskbar": {
