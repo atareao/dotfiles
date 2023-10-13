@@ -17,5 +17,5 @@ return {
             },
         })
         require('ayu').colorscheme()
-        end
+    end
 }
