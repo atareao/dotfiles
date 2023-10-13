@@ -3,7 +3,7 @@
     "output": "DP-1",
     "position": "top",
     "height": 35,
-    "spacing": 0,
+    "spacing": 5,
     "margin-left": 5,
     "margin-top": 5,
     "ipc": true,
@@ -187,4 +187,3 @@
     }
 }
 ]
-
