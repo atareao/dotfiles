@@ -327,6 +327,16 @@ return {
                 l = {"<cmd>Trouble loclist<cr>", "List"},
                 q = {"<cmd>Trouble quickfix<cr>", "QuickFix"},
 
+            },
+            z = {
+                name = "Zettelkasten",
+                b = {"<cmd>ZkBacklinks<cr>", "Backlinks"},
+                h = {"<cmd>lua vim.lsp.buf.hover()<cr>", "Hover"},
+                l = {"<cmd>ZkLinks<cr>", "Links"},
+                n = {"<cmd>ZkNew { title = vim.fn.input('Título: ') }<cr>", "Nueva nota"},
+                o = {"<cmd>ZkNotes<cr>", "Abrir notas"},
+                t = {"<cmd>ZkTags<cr>", "Abrir tags"},
+
             }
         }
 
@@ -373,6 +383,12 @@ return {
         local vmappings = {
             ["/"] = { "<Plug>(comment_toggle_linewise_visual)", "Comment toggle linewise (visual)" },
             s = { "<esc><cmd>'<,'>SnipRun<cr>", "Run range" },
+            z = {
+                name = "Zettelkasten",
+                a = {":'<,'>lua vim.lsp.buf.range_code_action()<cr>", "Acciones"},
+                f = {"<cmd>ZkMatch<cr>", "Abrir por selección"},
+
+            }
         }
 
         local iopts = {
@@ -411,6 +427,7 @@ return {
             ["<C-q>"] = { "<cmd> Vista!!<cr>", "Vista"},
             ["<C-s>"] = { "<cmd> SidebarNvimToggle<cr>", "Vista"},
             ["<C-t>"] = { "<cmd>ToggleTerm<cr>", "Toggle terminal"},
+            ["<bs>"] = { ":edit #<cr>", "Hacia atrás"},
             g = {
                 name = "LSP",
                 d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Definition"},
