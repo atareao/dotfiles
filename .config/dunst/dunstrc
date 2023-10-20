@@ -4,7 +4,7 @@
     ### Display ###
 
     # Which monitor should the notifications be displayed on.
-    monitor = 1
+    monitor = 0
 
     # Display notification on focused monitor.  Possible modes are:
     #   mouse: follow mouse pointer
@@ -251,7 +251,7 @@
     # layer = top
 
     # Set this to true to use X11 output on Wayland.
-    force_xwayland = false
+    force_xwayland = true
 
     ### Legacy
 
