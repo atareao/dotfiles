@@ -1,11 +1,15 @@
 {
     "date": {
         "prefix": "date",
-        "body": ["$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $0"]
+        "body": [
+            "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $0"
+        ]
     },
     "inline code": {
         "prefix": "ic",
-        "body": ["`$1`$0"]
+        "body": [
+            "`$1`$0"
+        ]
     },
     "code block python": {
         "prefix": "cp",
@@ -27,16 +31,18 @@
         "prefix": "zn",
         "body": [
             "---",
+            "title: $1",
             "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
-            "updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
-            "tags: $1",
+            "tags: $2",
             "---",
-            "# $2",
+            "[Índice](../indice.md)",
+            "",
+            "# $1",
             "",
             "$0",
             "",
             "<!--more-->",
-            "## $2",
+            "## $1",
             "",
             "---",
             "Mas información,",
