@@ -1,6 +1,6 @@
 return {
     "m4xshen/autoclose.nvim",
-    -- -- event = "VeryLazy",
+    event = "VeryLazy",
     config = function()
         require("autoclose").setup()
     end,

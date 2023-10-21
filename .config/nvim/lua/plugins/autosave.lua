@@ -1,6 +1,6 @@
 return {
     "Pocco81/auto-save.nvim",
-    -- -- event = "VeryLazy",
+    event = "VeryLazy",
     config = function()
         return {
             enabled = true,

@@ -1,6 +1,6 @@
 return     {
     "freddiehaddad/feline.nvim",
-    -- event = "VeryLazy",
+    event = "VeryLazy",
     dependencies = {
         "gitsigns.nvim",
         "nvim-web-devicons"
