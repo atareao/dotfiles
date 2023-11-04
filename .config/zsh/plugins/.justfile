@@ -1,3 +1,6 @@
+default:
+    @just --choose
+
 install:
     #!/bin/bash
     if [[ ! -d fast-syntax-highlighting ]]; then
@@ -15,6 +18,7 @@ install:
     else
         echo "completions is already installed"
     fi
+
 update:
     find . -maxdepth 1 \
            -mindepth 1 \
