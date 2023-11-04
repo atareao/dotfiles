@@ -6,7 +6,6 @@ alias mydiff='kitty +kitten diff'
 alias ls=lsd
 alias du=dust
 alias dcu='docker compose up -d'
-alias dcp='docker compose ps'
 alias dcr='docker compose up -d --force-recrate'
 alias dcl='docker compose logs -f'
 alias dcd='docker compose down'
