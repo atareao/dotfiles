@@ -114,3 +114,22 @@ function dmnt() {
 			busybox sh
 	fi
 }
+
+function drm() {
+	SOURCE=$1
+    SOURCE_ARR=(${(@s/:/)SOURCE})
+
+	if [[ -z $VOLUME ]]; then
+		echo "Usage:"
+		echo " $0 VOLUME:PATH"
+	else
+		VOL=${SOURCE_ARR[1]}
+		VOL_PATH=${SOURCE_ARR[2]}
+		docker run -it \
+			--rm \
+			--init \
+			--name "busybox_${VOL:l}" \
+			-v "${VOL}:/${VOL}" \
+			busybox rm -rf "/${VOL}${VOL_PATH}"
+	fi
+}
