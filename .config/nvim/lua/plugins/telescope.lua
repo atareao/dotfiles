@@ -7,6 +7,7 @@ return {
         "nvim-telescope/telescope-file-browser.nvim",
         "nvim-telescope/telescope-dap.nvim",
         "olacin/telescope-gitmoji.nvim",
+        "xiyaowong/telescope-emoji.nvim",
     },
     config = function()
         require('telescope').setup{
@@ -63,6 +64,7 @@ return {
         }
         require("telescope").load_extension("gitmoji")
         require("telescope").load_extension("flutter")
+        require("telescope").load_extension("emoji")
 
         -- Using Lua functions
         local opts = { noremap=true, silent=true }

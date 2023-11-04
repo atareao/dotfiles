@@ -156,6 +156,8 @@ return {
                 name = "Find/Focus",
                 b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
                 c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+                e = { "<cmd>Telescope emoji<cr>", "Emojis" },
+                g = { "<cmd>Telescope gitmoji<cr>", "Gitmoji" },
                 f = { "<cmd>Telescope find_files<cr>", "Find File" },
                 t = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
                 --s = { "<cmd>Telescope grep_string theme=ivy<cr>", "Find String" },
@@ -270,10 +272,9 @@ return {
                 p = { "<Plug>RestNvimPreview", "Run rest preview" },
                 l = { "<Plug>RestNvimLast", "Run rest last" },
             },
-            s = { "<cmd>w<CR>", "Fast saving"},
-            S = {
-                name = "SnipRun",
-                c = { "<cmd>SnipClose<cr>", "Close" },
+            s = {
+                name = "Telescope",
+                c = { "<cmd>Telescope eomoji<cr>", "Close" },
                 f = { "<cmd>%SnipRun<cr>", "Run File" },
                 i = { "<cmd>SnipInfo<cr>", "Info" },
                 m = { "<cmd>SnipReplMemoryClean<cr>", "Mem Clean" },
@@ -281,7 +282,7 @@ return {
                 t = { "<cmd>SnipRunToggle<cr>", "Toggle" },
                 x = { "<cmd>SnipTerminate<cr>", "Terminate" },
             },
-
+            S = { "<cmd>w<CR>", "Fast saving"},
             t = {
                 name = "Terminal",
                 ["1"] = { ":1ToggleTerm<cr>", "1" },
