@@ -18,4 +18,5 @@ source ${SCRIPTDIR}/portada_podcast.sh
 source ${SCRIPTDIR}/xcopy.sh
 source ${SCRIPTDIR}/yadmalt.sh
 source ${SCRIPTDIR}/keys.sh
-source ${SCRIPTDIR}/cpdocker.sh
+source ${SCRIPTDIR}/cpd.sh
+source ${SCRIPTDIR}/mnd.sh
