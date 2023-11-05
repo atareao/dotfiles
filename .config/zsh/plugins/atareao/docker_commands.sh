@@ -84,7 +84,7 @@ function dls() {
 	SOURCE=$1
     SOURCE_ARR=(${(@s/:/)SOURCE})
 
-	if [[ -z $VOLUME ]]; then
+	if [[ -z $SOURCE ]]; then
 		echo "Usage:"
 		echo " $0 VOLUME:PATH"
 	else

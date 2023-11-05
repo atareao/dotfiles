@@ -103,7 +103,17 @@ return {
         })
 
         local servers = {
-            efm = {},
+            efm = {
+                init_options = {documentFormatting = true},
+                settings = {
+                    rootMarkers = {".git/"},
+                    languages = {
+                        lua = {
+                            {formatCommand = "lua-format -i", formatStdin = true}
+                        }
+                    }
+                }
+            },
             pyright = {},
             ruff_lsp = {},
             pylsp = {},
