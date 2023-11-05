@@ -259,6 +259,13 @@ bindsym $mod+Control+e exec --no-startup-id /home/lorenzo/.local/bin/rofimoji
 bindsym Print exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/$(date +%Y-%m-%dT%H-%M-%S).jpg"
 bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy
 
+###############################################################################
+# Custom bindings
+###############################################################################
+    bindsym $mod+z      exec mpv /data/atareao.es/podcasts/recursos/entrada.mp3
+    bindsym $mod+x      exec mpv /data/atareao.es/podcasts/recursos/salida_corta.mp3
+    bindsym $mod+o open
+
 #
 # Status Bar:
 #

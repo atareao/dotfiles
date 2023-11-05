@@ -16,7 +16,6 @@ return {
                 null_ls.builtins.diagnostics.flake8, -- shell script diagnostics
                 null_ls.builtins.diagnostics.ruff, -- shell script diagnostics
                 null_ls.builtins.diagnostics.hadolint, -- docker diagnostics
-                null_ls.builtins.diagnostics.jasolint, -- javascript diagnostics
                 null_ls.builtins.diagnostics.markdownlint, -- markdown diagnostics
                 null_ls.builtins.diagnostics.pycodestyle, -- markdown diagnostics
                 null_ls.builtins.diagnostics.pydocstyle, -- markdown diagnostics
