@@ -39,5 +39,7 @@
 
 # For a list of all the available options, visit the official docs at: https://espanso.org/docs/
 search_shortcut: ALT+SHIFT+SPACE
-disable_x11_fast_inject: true
+  #disable_x11_fast_inject: true
+keyboard_layout:
+  layout: "es"
 
