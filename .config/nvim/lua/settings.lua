@@ -43,7 +43,6 @@ opt.foldlevel = 99            -- should open all folds
 opt.conceallevel = 0
 opt.termguicolors = true
 opt.guifont = "JetBrainsMono Nerd Font"
-g.neovide_cursor_vfx_mode = "railgun"
 
 -----------------------------------------------------------
 -- Folding
