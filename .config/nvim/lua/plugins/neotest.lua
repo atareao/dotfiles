@@ -6,8 +6,10 @@ return {
         "nvim-treesitter/nvim-treesitter",
         "antoinemadec/FixCursorHold.nvim",
         "nvim-neotest/neotest-plenary",
+        "nvim-neotest/neotest-vim-test",
         "nvim-neotest/neotest-python",
-        "nvim-neotest/neotest-vim-test"
+        "rouge8/neotest-rust",
+        "rcasia/neotest-bash",
     },
     config = function()
         require("neotest").setup({
@@ -32,7 +34,12 @@ return {
                 -- NB: This function is called a lot so don't perform any heavy tasks within it.
                 is_test_file = function(file_path)
                 end,
-            })
+            }),
+            require("neotest-rust")({
+                args = { "--no-capture"},
+                dap_adapter = "lldb",
+            }),
+            require("neotest-bash")
           }
         })
         end
