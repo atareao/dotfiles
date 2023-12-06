@@ -269,11 +269,12 @@ bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy
     bindsym $mod+x      exec mpv /data/atareao.es/podcasts/recursos/salida_corta.mp3
     bindsym $mod+o open
 
+exec_always ags
 #
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar swaybar_command waybar
+# bar swaybar_command waybar
 # bar {
 #     position top
 #
@@ -287,6 +288,7 @@ bar swaybar_command waybar
 #         inactive_workspace #32323200 #32323200 #5c5c5c
 #     }
 # }
+
 
 
 input * {
