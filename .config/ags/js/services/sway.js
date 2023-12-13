@@ -158,8 +158,8 @@ class Sway extends Service {
         this._clients = new Map();
         this._decoder = new TextDecoder();
         this._encoder = new TextEncoder();
-        //this._syncMonitors();
-        //this._syncWorkspaces();
+        this._syncMonitors();
+        this._syncWorkspaces();
         //this._syncClients();
 
         this._watchSocket(new Gio.DataInputStream({
@@ -173,6 +173,43 @@ class Sway extends Service {
         this._active.connect('changed', () => this.emit('changed'));
         ['monitor', 'workspace', 'client'].forEach(active =>
             this._active.connect(`notify::${active}`, () => this.changed('active')));
+    }
+
+    _syncMonitors(){
+        try {
+            const monitors = this.getOutputs();
+            this._monitors = new Map();
+            monitors.forEach((monitor) => {
+                this._monitors.set(monitor.id, monitor);
+            });
+            this.notify("monitors");
+        }catch(error){
+            if (error instanceof Error){
+                console.error(error.message);
+            }
+        }
+
+    }
+    _syncWorkspaces(){
+        try{
+            const workspaces = this.getWorkspaces();
+            this._workspaces = new Map();
+            workspaces.forEach((ws) => {
+                this._workspaces.set(ws.num, ws);
+                if(ws.focused){
+                    this._active.updateProperty("monitor", ws.output);
+                    this._active.workspace.updateProperty("id", ws.num);
+                    this._active.workspace.updateProperty('name', ws.name);
+                    console.log(this._active);
+                    console.log(this._active.workspace);
+                }
+            });
+            this.notify("workspaces");
+        }catch(error){
+            if (error instanceof Error){
+                console.error(error.message);
+            }
+        }
     }
 
     _watchSocket(stream) {
@@ -243,13 +280,23 @@ class Sway extends Service {
         return JSON.parse(response);
     }
 
-    static async getOutputs(){
+    getOutputs(){
         console.log("getOutputs");
-        return await Sway.sendMessage(Sway.#MsgType.GET_OUTPUTS);
+        return this.sendMessage(Sway.#MsgType.GET_OUTPUTS);
+    }
+
+    getWorkspaces(){
+        console.log("getWorkspaces");
+        return this.sendMessage(Sway.#MsgType.GET_WORKSPACES);
+    }
+
+    getTree(){
+        console.log("getTree");
+        return this.sendMessage(Sway.#MsgType.GET_TREE);
     }
 
     static #pack(msg_type, payload){
-        console.log(`pack: ${msg_type} - ${payload}`);
+        console.debug(`pack: ${msg_type} - ${payload}`);
         const m = (new TextEncoder()).encode(Sway.#MAGIC);
         const pb = (new TextEncoder()).encode(payload);
         const s = new Uint8Array(struct("<II").pack(pb.length, msg_type));
