@@ -1,4 +1,5 @@
 import Widget from "resource:///com/github/Aylur/ags/widget.js";
+import { Variable } from 'resource:///com/github/Aylur/ags/variable.js';
 //import Hyprland from "resource:///com/github/Aylur/ags/service/hyprland.js";
 import * as Utils from "resource:///com/github/Aylur/ags/utils.js";
 import options from "../../options.js";
@@ -6,15 +7,12 @@ import { range } from "../../utils.js";
 import Sway from "../../services/sway.js";
 
 /** @param {any} arg */
-const dispatch2 = (arg) => {
-    console.log(`swaymsg workspace number ${arg}`);
-    Utils.execAsync(`swaymsg workspace number ${arg}`);
-};
 const dispatch = (arg) => {
-    console.log(`swaymsg workspace number ${arg}`);
-    Sway.setWorkspace(arg);
-}
+  Sway.setWorkspace(arg);
+};
 
+/** @type {Variable<string[]>} */
+const number = new Variable([]);
 const Workspaces = () => {
   const ws = options.workspaces.value;
   return Widget.Box({
@@ -22,6 +20,7 @@ const Workspaces = () => {
       Widget.Button({
         setup: (btn) => (btn.id = i),
         on_clicked: () => dispatch(i),
+        binds: [["tooltip-text", number, "value", () => `${i}`]],
         child: Widget.Label({
           label: `${i}`,
           class_name: "indicator",
@@ -30,13 +29,18 @@ const Workspaces = () => {
         connections: [
           [
             Sway,
-            (btn) => {
-              btn.toggleClassName("active", Sway.active.workspace.id === i);
-              btn.toggleClassName(
+            (self, num) => {
+              console.log(num);
+              const ws = Sway.getFocusedWorkspace();
+              self.toggleClassName("active", ws.num === i);
+              const thisws = Sway.getWorkspace(i);
+              console.log(`ws => ${thisws}`);
+              self.toggleClassName(
                 "occupied",
-                Sway.getWorkspace(i)?.windows > 0,
+                Sway.getWorkspace(i) != null,
               );
             },
+            "workspace-changed"
           ],
         ],
       }),
@@ -48,9 +52,7 @@ const Workspaces = () => {
             Sway.active.workspace,
             (box) =>
               box.children.map((btn) => {
-                btn.visible = Sway.workspaces.some(
-                  (ws) => ws.id === btn.id,
-                );
+                btn.visible = Sway.workspaces.some((ws) => ws.id === btn.id);
               }),
           ],
         ],
@@ -63,8 +65,8 @@ export default () =>
     child: Widget.Box({
       // its nested like this to keep it consistent with other PanelButton widgets
       child: Widget.EventBox({
-        on_scroll_up: () => dispatch("m+1"),
-        on_scroll_down: () => dispatch("m-1"),
+        on_scroll_up: () => Sway.setNextWorkspace(),
+        on_scroll_down: () => Sway.setPreviousWorkspace(),
         class_name: "eventbox",
         binds: [["child", options.workspaces, "value", Workspaces]],
       }),
