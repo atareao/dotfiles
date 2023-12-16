@@ -6,6 +6,7 @@ import PanelButton from '../PanelButton.js';
 import Gdk from 'gi://Gdk';
 
 const COLORS_CACHE = Utils.CACHE_DIR + '/colorpicker.json';
+const COLOR_PICKER = "hyprpicker";
 
 /** @param {string} color */
 const wlCopy = color => Utils.execAsync(['wl-copy', color])
@@ -23,10 +24,10 @@ export default () => PanelButton({
     class_name: 'color-picker',
     content: Widget.Icon('color-select-symbolic'),
     binds: [['tooltip-text', colors, 'value', v => `${v.length} colors`]],
-    on_clicked: () => Utils.execAsync('hyprpicker').then(color => {
-        if (!color)
-            return;
-
+    on_clicked: () => Utils.execAsync(COLOR_PICKER).then(color => {
+        if (!color){
+            return
+        }
         wlCopy(color);
         const list = colors.value;
         if (!list.includes(color)) {

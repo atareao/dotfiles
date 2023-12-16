@@ -1,10 +1,10 @@
 import App from 'resource:///com/github/Aylur/ags/app.js';
 import Widget from 'resource:///com/github/Aylur/ags/widget.js';
 import Notifications from 'resource:///com/github/Aylur/ags/service/notifications.js';
-import Bluetooth from 'resource:///com/github/Aylur/ags/service/bluetooth.js';
+//import Bluetooth from 'resource:///com/github/Aylur/ags/service/bluetooth.js';
 import Audio from 'resource:///com/github/Aylur/ags/service/audio.js';
 import Network from 'resource:///com/github/Aylur/ags/service/network.js';
-import HoverRevealer from '../../misc/HoverRevealer.js';
+//import HoverRevealer from '../../misc/HoverRevealer.js';
 import PanelButton from '../PanelButton.js';
 import Asusctl from '../../services/asusctl.js';
 import Indicator from '../../services/onScreenIndicator.js';
@@ -47,23 +47,23 @@ const DNDIndicator = () => Widget.Icon({
     binds: [['visible', Notifications, 'dnd']],
 });
 
-const BluetoothDevicesIndicator = () => Widget.Box({
-    connections: [[Bluetooth, box => {
-        box.children = Bluetooth.connectedDevices
-            .map(({ iconName, name }) => HoverRevealer({
-                indicator: Widget.Icon(iconName + '-symbolic'),
-                child: Widget.Label(name),
-            }));
-
-        box.visible = Bluetooth.connectedDevices.length > 0;
-    }, 'notify::connected-devices']],
-});
-
-const BluetoothIndicator = () => Widget.Icon({
-    class_name: 'bluetooth',
-    icon: icons.bluetooth.enabled,
-    binds: [['visible', Bluetooth, 'enabled']],
-});
+//const BluetoothDevicesIndicator = () => Widget.Box({
+//    connections: [[Bluetooth, box => {
+//        box.children = Bluetooth.connectedDevices
+//            .map(({ iconName, name }) => HoverRevealer({
+//                indicator: Widget.Icon(iconName + '-symbolic'),
+//                child: Widget.Label(name),
+//            }));
+//
+//        box.visible = Bluetooth.connectedDevices.length > 0;
+//    }, 'notify::connected-devices']],
+//});
+//
+//const BluetoothIndicator = () => Widget.Icon({
+//    class_name: 'bluetooth',
+//    icon: icons.bluetooth.enabled,
+//    binds: [['visible', Bluetooth, 'enabled']],
+//});
 
 const NetworkIndicator = () => Widget.Icon({
     connections: [[Network, self => {
@@ -108,8 +108,8 @@ export default () => PanelButton({
             Asusctl?.available && ProfileIndicator(),
             Asusctl?.available && ModeIndicator(),
             DNDIndicator(),
-            BluetoothDevicesIndicator(),
-            BluetoothIndicator(),
+            //BluetoothDevicesIndicator(),
+            //BluetoothIndicator(),
             NetworkIndicator(),
             AudioIndicator(),
             MicrophoneIndicator(),
