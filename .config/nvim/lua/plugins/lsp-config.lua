@@ -13,7 +13,8 @@ return {
             "ansiblels", "bashls", "cssls", "dockerls",
             "docker_compose_language_service", "efm", "html", "jsonls",
             "tsserver", "jqls", "lua_ls", "marksman", "intelephense",
-            "pyright", "pylyzer", "pylsp", "ruff_lsp", "sqlls", "taplo"
+            "pyright", "pylyzer", "pylsp", "ruff_lsp", "sqlls", "taplo",
+            "svelte"
         }
         local lspconfig = require("lspconfig")
         require("mason").setup()
