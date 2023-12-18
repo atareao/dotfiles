@@ -30,7 +30,8 @@ set $term kitty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu "/bin/bash ~/.config/sway/scripts/rofi.sh"
+# set $menu "/bin/bash ~/.config/sway/scripts/rofi.sh"
+set $menu "ags -t applauncher"
 
 gaps inner 15
 gaps outer 15
@@ -138,7 +139,7 @@ exec_always python ${HOME}/.config/sway/scripts/autotiling.py
     bindsym $mod+Shift+r reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec wlogout
+    bindsym $mod+Shift+e exec ags -t powermenu
     #bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
@@ -146,7 +147,7 @@ exec_always python ${HOME}/.config/sway/scripts/autotiling.py
     # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
+    bindsym $mod+$up focus upwlogout
     bindsym $mod+$right focus right
     # Or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
@@ -255,7 +256,8 @@ bindsym $mod+r mode "resize"
 bindsym $mod+g exec env RUST_BACKTRACE=1 \
     swayr switch-window >> /tmp/swayr.log 2>&1
 
-bindsym $mod+Control+p exec bash ~/.config/sway/scripts/wl-color-picker.sh
+#bindsym $mod+Control+p exec bash ~/.config/sway/scripts/wl-color-picker.sh
+bindsym $mod+Control+p exec hyprpicker
 
 # Custom bindings
 bindsym $mod+Control+e exec --no-startup-id /home/lorenzo/.local/bin/rofimoji
