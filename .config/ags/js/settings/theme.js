@@ -4,7 +4,6 @@ import options from '../options.js';
 import themes from '../themes.js';
 import { reloadScss } from './scss.js';
 //import { setupHyprland } from './hyprland.js';
-import { wallpaper } from './wallpaper.js';
 
 /** @param {string} name */
 export function setTheme(name) {
@@ -14,12 +13,11 @@ export function setTheme(name) {
         return print('No theme named ' + name);
 
     options.apply(theme.options);
-    reloadScss();
     //setupHyprland();
-    wallpaper();
+    reloadScss();
 }
 
-export const WP = `/home/${USER}/Pictures/Wallpapers/`;
+export const WP = `/home/${USER}/Imágenes/wallpapers/`;
 
 export const lightColors = {
     'color.scheme': 'light',

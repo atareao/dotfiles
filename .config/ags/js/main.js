@@ -9,6 +9,7 @@ import OSD from "./osd/OSD.js";
 import PowerMenu from "./powermenu/PowerMenu.js";
 import QuickSettings from "./quicksettings/QuickSettings.js";
 import ScreenCorners from "./screencorner/ScreenCorners.js";
+import Wallpaper from "./wallpaper/Wallpaper.js";
 import SettingsDialog from "./settings/SettingsDialog.js";
 import TopBar from "./bar/TopBar.js";
 import Verification from "./powermenu/Verification.js";
@@ -20,6 +21,7 @@ init();
 
 const windows = () => [
   forMonitors(Desktop),
+  forMonitors(Wallpaper),
   //forMonitors(FloatingDock),
   forMonitors(Lockscreen),
   forMonitors(Notifications),

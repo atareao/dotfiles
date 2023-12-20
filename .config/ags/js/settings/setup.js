@@ -9,10 +9,8 @@ import { reloadScss } from './scss.js';
 import { timeout } from 'resource:///com/github/Aylur/ags/utils.js';
 import { setTheme } from './theme.js';
 import IconBrowser from '../misc/IconBrowser.js';
-import { initWallpaper } from './wallpaper.js';
 
 export function init() {
-    initWallpaper();
     notificationBlacklist();
     warnOnLowBattery();
     globals();
