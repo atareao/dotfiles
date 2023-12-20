@@ -77,7 +77,7 @@ workspace 0 output HDMI-A-1
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
 #output * bg ~/Imágenes/potd.jpg fill
-output * bg ~/Imágenes/backgrounds/fabrizio-coco-Dpi0F3KPgW0-unsplash.jpg fill
+#output * bg ~/Imágenes/backgrounds/fabrizio-coco-Dpi0F3KPgW0-unsplash.jpg fill
 
 ### Idle configuration
 #
@@ -271,7 +271,7 @@ bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy
     bindsym $mod+x      exec mpv /data/atareao.es/podcasts/recursos/salida_corta.mp3
     bindsym $mod+o open
 
-exec_always ags
+exec_always ags >> ~/.ags.log
 #
 # Status Bar:
 #

@@ -196,7 +196,7 @@ class Sway extends Service {
   constructor() {
     super();
     if (!Sway.#SWAYSOCK) {
-      console.error("Sway is not running");
+     console.error("Sway is not running");
     }
     this.socketAddress = new Gio.UnixSocketAddress({ path: Sway.#SWAYSOCK });
     console.debug(this.socketAddress);

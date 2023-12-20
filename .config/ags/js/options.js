@@ -1,3 +1,4 @@
+import Gio from "gi://Gio";
 /**
  * An object holding Options that are Variables with cached values.
  *
@@ -11,6 +12,41 @@
 import { Option, resetOptions, getValues, apply } from './settings/option.js';
 import { USER } from 'resource:///com/github/Aylur/ags/utils.js';
 import themes from './themes.js';
+
+const WALLPAPER_DIR = `/home/${USER}/Imágenes/wallpapers/`;
+
+function randomImage() {
+  const allowedTypes = [
+    "image/jpeg",
+    "image/png",
+    "image/pnm",
+    "image/tga",
+    "image/tiff",
+    "image/bmp",
+  ];
+  const path = WALLPAPER_DIR;
+  const imgDir = Gio.File.new_for_path(path);
+  const children = imgDir.enumerate_children(
+    "",
+    Gio.FileQueryInfoFlags.NONE,
+    null,
+  );
+  let child;
+  const images = [];
+  while ((child = children.next_file(null)) != null) {
+    const filename = child.get_name();
+    const file = path + filename;
+    const contentType = Gio.content_type_guess(file, null);
+    if (allowedTypes.includes(contentType[0])) {
+      images.push(file);
+    }
+  }
+  if (images.length > 0) {
+    const number = Math.floor(Math.random() * images.length);
+    return images[number];
+  }
+  return null;
+}
 
 export default {
     reset: resetOptions,
@@ -107,7 +143,7 @@ export default {
 
     desktop: {
         fg_color: Option('#fff', { scss: 'wallpaper-fg' }),
-        wallpaper: Option(`/home/${USER}/Pictures/Wallpapers/kitty.jpeg`, { format: v => `"${v}"` }),
+        wallpaper: Option(randomImage(), { format: v => `"${v}"` }),
         screen_corners: Option(true, { scss: 'screen-corners' }),
         clock: {
             enable: Option(true),
