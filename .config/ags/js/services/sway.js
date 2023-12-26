@@ -209,6 +209,10 @@ class Sway extends Service {
     this._encoder = new TextEncoder();
     this._syncMonitors();
     this._syncWorkspaces();
+    const clients = this.getClients();
+    print("===============================");
+    print(JSON.stringify(clients));
+    print("===============================");
     //this._syncClients();
 
     this._subCon = new Gio.SocketClient().connect(
@@ -410,6 +414,69 @@ class Sway extends Service {
   getTree() {
     console.debug("getTree");
     return this.sendMessage(Sway.#MsgType.GET_TREE);
+  }
+
+  getClients() {
+    console.debug("getClients");
+    const tree = this.sendMessage(Sway.#MsgType.GET_TREE);
+    let clients = [];
+    const root = {
+      id: tree["id"],
+      name: tree["name"],
+      rect: tree["rect"]
+    };
+    tree["nodes"].forEach((node) => {
+      //outputs
+      if("make" in node && "model" in node && "serial" in node){
+        const output = {
+          id: node["id"],
+          name: node["name"],
+          rect: node["rect"],
+          make: node["make"],
+          model: node["model"],
+          serial: node["serial"],
+          root: root
+        }
+        //workspaces
+        node["nodes"].forEach((node) => {
+          if("num" in node){
+            const workspace = {
+              id: node["id"],
+              name: node["name"],
+              rect: node["rect"],
+              num: node["num"],
+              output: output
+            }
+            //clients
+            const some_clients = this._getClients(node["nodes"], workspace);
+            some_clients.forEach((client) => clients.push(client));
+          }
+        })
+      }
+    });
+    return clients;
+  }
+
+  _getClients(nodes, workspace){
+    let clients = [];
+    nodes.forEach((node) => {
+      if("app_id" in node){
+        const client = {
+            id: node["id"],
+            name: node["name"],
+            rect: node["rect"],
+            focused: node["focused"],
+            pid: node["pid"],
+            app_id: node["app_id"],
+            workspace: workspace
+        }
+        clients.push(client);
+      }else if("nodes" in node){
+        const more_clients = this._getClients(node["nodes"], workspace);
+        more_clients.forEach((client) => clients.push(client));
+      }
+    });
+    return clients;
   }
 
   static #pack(msg_type, payload) {
