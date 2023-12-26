@@ -22,3 +22,4 @@ alias hx=helix
 alias play=ansible-playbook
 alias tls="trasher ls"
 alias trm="trasher rm"
+alias x='cd "$(xplr --print-pwd-as-result)"'
