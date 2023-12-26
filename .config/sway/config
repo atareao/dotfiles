@@ -35,10 +35,11 @@ set $menu "ags -t applauncher"
 
 gaps inner 15
 gaps outer 15
-smart_gaps on
+#smart_gaps on // on only one window
 default_border pixel 4
 
 corner_radius 15
+blur_xray enable
 blur enabled
 blur_passes 2
 blur_radius 3
