@@ -9,13 +9,14 @@ return {
         "dense-analysis/ale",
     },
     config = function()
-        servers = {
+        local servers = {
             "ansiblels", "bashls", "cssls", "dockerls",
             "docker_compose_language_service", "efm", "html", "jsonls",
             "tsserver", "jqls", "lua_ls", "marksman", "intelephense",
             "pyright", "pylyzer", "pylsp", "ruff_lsp", "sqlls", "taplo",
             "svelte"
         }
+        local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
         local lspconfig = require("lspconfig")
         require("mason").setup()
         require("mason-lspconfig").setup({
@@ -26,7 +27,7 @@ return {
         for _, lsp in ipairs(servers) do
             lspconfig[lsp].setup {
                 -- on_attach = my_custom_on_attach,
-                capabilities = capabilities,
+                capabilities = lsp_capabilities,
             }
         end
         local null_ls = require('null-ls')
