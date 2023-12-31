@@ -5,14 +5,13 @@ return {
         "neovim/nvim-lspconfig",
         "williamboman/mason.nvim", -- optional
         "folke/lsp-colors.nvim",
-        "jose-elias-alvarez/null-ls.nvim",
-        "dense-analysis/ale",
+        "mfussenegger/nvim-lint"
     },
     config = function()
         local servers = {
             "ansiblels", "bashls", "cssls", "dockerls",
-            "docker_compose_language_service", "efm", "html", "jsonls",
-            "tsserver", "jqls", "lua_ls", "marksman", "intelephense",
+            "docker_compose_language_service", "html", "jsonls",
+            "tsserver", "jqls", "lua_ls", "intelephense",
             "pyright", "pylyzer", "pylsp", "ruff_lsp", "sqlls", "taplo",
             "svelte"
         }
@@ -30,14 +29,15 @@ return {
                 capabilities = lsp_capabilities,
             }
         end
-        local null_ls = require('null-ls')
-        null_ls.setup({
-            sources = {
-              -- snippets support
-              null_ls.builtins.completion.luasnip
-            },
+        require('lint').linters_by_ft = {
+            markdown = {'vale',},
+            python = {'golangcilint'},
+        }
+        vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+        callback = function()
+            require("lint").try_lint()
+        end,
         })
-
     end
 }
 

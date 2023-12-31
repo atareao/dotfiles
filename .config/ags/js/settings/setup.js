@@ -1,14 +1,13 @@
 import * as Utils from 'resource:///com/github/Aylur/ags/utils.js';
-import App from 'resource:///com/github/Aylur/ags/app.js';
 import Battery from 'resource:///com/github/Aylur/ags/service/battery.js';
-import Mpris from 'resource:///com/github/Aylur/ags/service/mpris.js';
 import Notifications from 'resource:///com/github/Aylur/ags/service/notifications.js';
 import options from '../options.js';
 import icons from '../icons.js';
-import { reloadScss } from './scss.js';
-import { timeout } from 'resource:///com/github/Aylur/ags/utils.js';
-import { setTheme } from './theme.js';
-import IconBrowser from '../misc/IconBrowser.js';
+import { reloadScss, scssWatcher } from './scss.js';
+//import { hyprlandInit, setupHyprland } from './hyprland.js';
+import { globals } from './globals.js';
+import { showAbout } from '../about/about.js';
+import Gtk from 'gi://Gtk';
 
 export function init() {
     notificationBlacklist();
@@ -16,32 +15,40 @@ export function init() {
     globals();
     tmux();
     gsettigsColorScheme();
+    gtkFontSettings();
     scssWatcher();
+    dependandOptions();
 
-    timeout(50, () => {
-        setTheme(options.theme.name.value);
-    });
+    reloadScss();
+    //hyprlandInit();
+    //setupHyprland();
+    showAbout();
 }
 
-function scssWatcher() {
-    return Utils.subprocess(
-        [
-            'inotifywait',
-            '--recursive',
-            '--event', 'create,modify',
-            '-m', App.configDir + '/scss',
-        ],
-        reloadScss,
-        () => print('missing dependancy for css hotreload: inotify-tools'),
-    );
+function dependandOptions() {
+    options.bar.style.connect('changed', ({ value }) => {
+        if (value !== 'normal')
+            options.desktop.screen_corners.setValue(false, true);
+    });
 }
 
 function tmux() {
     if (!Utils.exec('which tmux'))
         return;
 
-    options.accent.accent.connect('changed', ({ value }) => Utils
-        .execAsync(`tmux set @main_accent ${value.replace('$', '')}`)
+    /** @param {string} scss */
+    function getColor(scss) {
+        if (scss.includes('#'))
+            return scss;
+
+        if (scss.includes('$')) {
+            const opt = options.list().find(opt => opt.scss === scss.replace('$', ''));
+            return opt?.value;
+        }
+    }
+
+    options.theme.accent.accent.connect('changed', ({ value }) => Utils
+        .execAsync(`tmux set @main_accent ${getColor(value)}`)
         .catch(err => console.error(err.message)));
 }
 
@@ -49,17 +56,33 @@ function gsettigsColorScheme() {
     if (!Utils.exec('which gsettings'))
         return;
 
-    options.color.scheme.connect('changed', ({ value }) => {
+    options.theme.scheme.connect('changed', ({ value }) => {
         const gsettings = 'gsettings set org.gnome.desktop.interface color-scheme';
-        Utils.execAsync(`${gsettings} "prefer-${value ? 'dark' : 'light'}"`)
+        Utils.execAsync(`${gsettings} "prefer-${value}"`)
             .catch(err => console.error(err.message));
     });
+}
+
+function gtkFontSettings() {
+    const settings = Gtk.Settings.get_default();
+    if (!settings) {
+        console.error(Error('Gtk.Settings unavailable'));
+        return;
+    }
+
+    const callback = () => {
+        const { size, font } = options.font;
+        settings.gtk_font_name = `${font.value} ${size.value}`;
+    };
+
+    options.font.font.connect('notify::value', callback);
+    options.font.size.connect('notify::value', callback);
 }
 
 function notificationBlacklist() {
     Notifications.connect('notified', (_, id) => {
         const n = Notifications.getNotification(id);
-        options.notifications.blackList.value.forEach(item => {
+        options.notifications.black_list.value.forEach(item => {
             if (n?.app_name.includes(item) || n?.app_entry?.includes(item))
                 n.close();
         });
@@ -80,20 +103,5 @@ function warnOnLowBattery() {
             '-i', icons.battery.warning,
             '-u', 'critical',
         ]);
-    });
-}
-
-async function globals() {
-    globalThis.options = options;
-    globalThis.iconBrowser = () => IconBrowser();
-    globalThis.app = (await import('resource:///com/github/Aylur/ags/app.js')).default;
-    globalThis.audio = (await import('resource:///com/github/Aylur/ags/service/audio.js')).default;
-    globalThis.recorder = (await import('../services/screenrecord.js')).default;
-    globalThis.brightness = (await import('../services/brightness.js')).default;
-    globalThis.indicator = (await import('../services/onScreenIndicator.js')).default;
-    Mpris.connect('player-added', (mpris, bus) => {
-        mpris.getPlayer(bus)?.connect('changed', player => {
-            globalThis.mpris = player || Mpris.players[0];
-        });
     });
 }

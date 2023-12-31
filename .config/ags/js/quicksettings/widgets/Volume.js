@@ -53,7 +53,7 @@ export const Volume = () => Widget.Box({
 });
 
 export const Microhone = () => Widget.Box({
-    class_name: 'slider',
+    class_name: 'slider horizontal',
     binds: [['visible', Audio, 'recorders', r => r.length > 0]],
     children: [
         VolumeIndicator('microphone'),
@@ -111,12 +111,10 @@ const SinkItem = stream => Widget.Button({
             }),
             Widget.Label((stream.description || '').split(' ').slice(0, 4).join(' ')),
             Widget.Icon({
-                icon: icons.tick,
+                icon: icons.ui.tick,
                 hexpand: true,
                 hpack: 'end',
-                connections: [['draw', icon => {
-                    icon.visible = Audio.speaker === stream;
-                }]],
+                binds: [['visible', Audio, 'speaker', s => s === stream]],
             }),
         ],
     }),
@@ -127,7 +125,7 @@ const SettingsButton = () => Widget.Button({
     hexpand: true,
     child: Widget.Box({
         children: [
-            Widget.Icon(icons.settings),
+            Widget.Icon(icons.ui.settings),
             Widget.Label('Settings'),
         ],
     }),

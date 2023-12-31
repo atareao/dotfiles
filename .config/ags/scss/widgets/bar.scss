@@ -1,4 +1,5 @@
 $bar-spacing: $spacing / 2;
+$button-radius: if($bar-style == 'floating', max(0, $radii - $bar-spacing), $radii);
 
 @mixin panel-button($flat: $bar-flat-buttons, $reactive: true){
     @include unset;
@@ -31,7 +32,11 @@ $bar-spacing: $spacing / 2;
         }
     } @else {
         @include accs-button($flat, $reactive);
-        > * { margin: $bar-spacing; }
+
+        > * {
+            border-radius: $button-radius;
+            margin: $bar-spacing;
+        }
     }
 
     label, image {
@@ -39,7 +44,7 @@ $bar-spacing: $spacing / 2;
     }
 
     > * {
-        padding: $padding * 0.4 $padding * 0.7;
+        padding: $padding * 0.4 $padding * 0.8;
     }
 }
 
@@ -58,6 +63,7 @@ $bar-spacing: $spacing / 2;
 
     @if $bar-style == 'floating' {
         @include floating-widget;
+        border-radius: $radii;
         margin: $wm-gaps;
         padding: 0;
     }
@@ -100,8 +106,8 @@ $bar-spacing: $spacing / 2;
     }
 
     .focused-client > box > box,
-    .quicksettings > box {
-        @include spacing(1, $bar-spacing);
+    .quicksettings > box > box {
+        @include spacing($spacing: if($bar-spacing == 0, $padding / 2, $bar-spacing));
     }
 
     /* stylelint-disable-next-line selector-not-notation */
@@ -125,7 +131,11 @@ $bar-spacing: $spacing / 2;
     }
 
     .battery-bar {
-        .font-icon { font-size: 1.3em; }
+        .font-icon { font-size: 1.15em; }
+
+        @if $battery-bar-full {
+            > box { padding: 0; }
+        }
 
         image, .font-icon {
             margin-right: $bar-spacing * .5;
@@ -154,57 +164,54 @@ $bar-spacing: $spacing / 2;
         .low { @include color($red) }
         .charging { @include color($green) }
         &:active { @include color($accent-fg) }
-    }
 
-    .workspaces {
-        > * { padding: 0; }
+        .whole-button {
+            label {
+                color: $fg-color;
+                text-shadow: $text-shadow;
+            }
 
-        .eventbox {
-            transition: $transition;
+            trough, block.filled {
+                border-radius: $button-radius;
+            }
 
             @if $bar-style == 'separated' {
-                border-radius: max($radii - $border-width, 0);
-                &:hover { background-color: $hover; }
-            } @else {
-                @include button($flat: true);
+                trough { border: none; }
             }
         }
+    }
 
-        button {
-            all: unset;
+    .workspaces button {
+        all: unset;
 
-            .indicator {
-                font-size: 0;
-                min-width: 6px;
-                min-height: 6px;
-                border-radius: $radii*0.6;
-                border: $border;
-                margin: 0 $padding/2;
-                transition: $transition/2;
-                background-color: transparentize($fg-color, 0.8);
-            }
+        .indicator {
+            font-size: 0;
+            min-width: 8px;
+            min-height: 8px;
+            border-radius: $radii*0.6;
+            box-shadow: inset 0 0 0 $border-width $border-color;
+            margin: 0 $padding/2;
+            transition: $transition/2;
+            background-color: transparentize($fg-color, 0.8);
+        }
 
-            &:last-child .indicator { margin-right: $padding; }
-            &:first-child .indicator { margin-left: $padding; }
+        &.occupied .indicator {
+            background-color: transparentize($fg-color, 0.2);
+            min-width: 10px;
+            min-height: 10px;
+        }
 
-            &.occupied .indicator {
-                background-color: transparentize($fg-color, 0.2);
-                min-width: 8px;
-                min-height: 8px;
-            }
+        &:hover .indicator {
+            box-shadow: inset 0 0 0 10px transparentize($fg-color, 0.8);
+        }
 
-            &:hover .indicator {
-                box-shadow: inset 0 0 0 10px transparentize($fg-color, 0.8);
-            }
+        &.active .indicator, &:active .indicator {
+            background-color: $accent;
+        }
 
-            &.active .indicator, &:active .indicator {
-                background-color: $accent;
-            }
-
-            &.active .indicator {
-                min-width: 24px;
-                min-height: 12px;
-            }
+        &.active .indicator {
+            min-width: 24px;
+            min-height: 16px;
         }
     }
 }
