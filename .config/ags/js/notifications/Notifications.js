@@ -4,9 +4,6 @@ import * as Utils from 'resource:///com/github/Aylur/ags/utils.js';
 import Notification from '../misc/Notification.js';
 import options from '../options.js';
 
-const { blackList } = options.notifications;
-
-
 /** @param {import('types/widgets/revealer').default} parent */
 const Popups = parent => {
     const map = new Map();
@@ -15,7 +12,7 @@ const Popups = parent => {
         if (!id || !map.has(id))
             return;
 
-        if (map.get(id)._hovered.value && !force)
+        if (map.get(id).isHovered() && !force)
             return;
 
         if (map.size - 1 === 0)
@@ -36,7 +33,7 @@ const Popups = parent => {
         if (!n)
             return;
 
-        if (blackList.value.includes(n.app_name || ''))
+        if (options.notifications.black_list.value.includes(n.app_name || ''))
             return;
 
         map.delete(id);
@@ -73,6 +70,6 @@ export default monitor => Widget.Window({
     monitor,
     name: `notifications${monitor}`,
     class_name: 'notifications',
-    anchor: ['top'],
+    binds: [['anchor', options.notifications.position]],
     child: PopupList(),
 });

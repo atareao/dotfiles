@@ -410,7 +410,7 @@ return {
         }
 
 
-        local n_opts = {
+        local nopts = {
             mode = "n", -- NORMAL mode
             prefix = "",
             buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
@@ -426,6 +426,7 @@ return {
             ["<C-l>"] = { "<C-w>l", "Movements"},
             ["<C-g>"] = { "<cmd> LazyGit<cr>", "Open LazyGit"},
             ["<C-n>"] = { "<cmd> Neotree toggle<cr>", "Toggle Neotree"},
+            ["<C-p>"] = { "<cmd> Telescope command_palette<cr>", "Paleta de comandos"},
             ["<C-q>"] = { "<cmd> Vista!!<cr>", "Vista"},
             ["<C-s>"] = { "<cmd> SidebarNvimToggle<cr>", "Vista"},
             ["<C-t>"] = { "<cmd>ToggleTerm<cr>", "Toggle terminal"},

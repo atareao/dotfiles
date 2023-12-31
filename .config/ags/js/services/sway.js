@@ -625,3 +625,4 @@ class Sway extends Service {
 }
 
 export default new Sway();
+

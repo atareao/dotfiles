@@ -45,7 +45,7 @@ export const WifiSelection = () => Menu({
                             Widget.Icon(ap.iconName),
                             Widget.Label(ap.ssid || ''),
                             ap.active && Widget.Icon({
-                                icon: icons.tick,
+                                icon: icons.ui.tick,
                                 hexpand: true,
                                 hpack: 'end',
                             }),
@@ -59,7 +59,7 @@ export const WifiSelection = () => Menu({
             on_clicked: () => Applications.query('gnome-control-center')?.[0].launch(),
             child: Widget.Box({
                 children: [
-                    Widget.Icon(icons.settings),
+                    Widget.Icon(icons.ui.settings),
                     Widget.Label('Network'),
                 ],
             }),

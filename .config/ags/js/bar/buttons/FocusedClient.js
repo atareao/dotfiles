@@ -1,5 +1,4 @@
 import Widget from 'resource:///com/github/Aylur/ags/widget.js';
-//import Hyprland from 'resource:///com/github/Aylur/ags/service/hyprland.js';
 import Sway from "../../services/sway.js";
 import * as Utils from 'resource:///com/github/Aylur/ags/utils.js';
 import PanelButton from '../PanelButton.js';

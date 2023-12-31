@@ -6,16 +6,19 @@ import Gdk from 'gi://Gdk';
 /** @param {import('types/service/systemtray').TrayItem} item */
 const SysTrayItem = item => PanelButton({
     class_name: 'tray-item',
-    content: Widget.Icon({ binds: [['icon', item, 'icon']] }),
-    binds: [['tooltipMarkup', item, 'tooltip-markup']],
-    setup: btn => {
+    content: Widget.Icon({ icon: item.bind('icon') }),
+    tooltip_markup: item.bind('tooltip_markup'),
+    setup: self => {
         const id = item.menu?.connect('popped-up', menu => {
-            btn.toggleClassName('active');
+            self.toggleClassName('active');
             menu.connect('notify::visible', menu => {
-                btn.toggleClassName('active', menu.visible);
+                self.toggleClassName('active', menu.visible);
             });
             menu.disconnect(id);
         });
+
+        if (id)
+            self.connect('destroy', () => item.menu?.disconnect(id));
     },
 
     // @ts-expect-error popup_at_widget missing from types?
@@ -27,6 +30,5 @@ const SysTrayItem = item => PanelButton({
         btn, Gdk.Gravity.SOUTH, Gdk.Gravity.NORTH, null),
 });
 
-export default () => Widget.Box({
-    binds: [['children', SystemTray, 'items', i => i.map(SysTrayItem)]],
-});
+export default () => Widget.Box()
+    .bind('children', SystemTray, 'items', i => i.map(SysTrayItem));

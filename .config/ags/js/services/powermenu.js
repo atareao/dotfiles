@@ -18,10 +18,10 @@ class PowerMenu extends Service {
     /** @param {'sleep' | 'reboot' | 'logout' | 'shutdown'} action */
     action(action) {
         [this.#cmd, this.#title] = {
-            'sleep': ['systemctl suspend', 'Suspender'],
-            'reboot': ['systemctl reboot', 'Reiniciar'],
-            'logout': ['swaymsg exit', 'Salir'],
-            'shutdown': ['shutdown now', 'Apagar'],
+            'sleep': ['systemctl suspend', 'Sleep'],
+            'reboot': ['systemctl reboot', 'Reboot'],
+            'logout': ['swaymsg exit', 'Log Out'],
+            'shutdown': ['shutdown now', 'Shutdown'],
         }[action];
 
         this.notify('cmd');

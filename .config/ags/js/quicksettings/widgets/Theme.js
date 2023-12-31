@@ -29,7 +29,7 @@ export const ThemeSelector = () => Menu({
                     Widget.Label(icon),
                     Widget.Label(name),
                     Widget.Icon({
-                        icon: icons.tick,
+                        icon: icons.ui.tick,
                         hexpand: true,
                         hpack: 'end',
                         binds: [['visible', options.theme.name, 'value', v => v === name]],
@@ -42,7 +42,7 @@ export const ThemeSelector = () => Menu({
             on_clicked: openSettings,
             child: Widget.Box({
                 children: [
-                    Widget.Icon(icons.settings),
+                    Widget.Icon(icons.ui.settings),
                     Widget.Label('Theme Settings'),
                 ],
             }),
