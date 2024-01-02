@@ -19,3 +19,4 @@ source ${SCRIPTDIR}/xcopy.sh
 source ${SCRIPTDIR}/yadmalt.sh
 source ${SCRIPTDIR}/keys.sh
 source ${SCRIPTDIR}/docker_commands.sh
+source ${SCRIPTDIR}/yazi.sh

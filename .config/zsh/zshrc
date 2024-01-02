@@ -79,3 +79,5 @@ bindkey '^P' _atuin_up_search_widget
 export TRASH_DIR=~/.trashdir
 ### VALE
 export VALE_CONFIG_PATH=~/.config/vale/vale.ini
+
+export GPG_TTY=$(tty)
