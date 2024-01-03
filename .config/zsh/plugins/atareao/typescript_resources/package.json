@@ -1,0 +1,19 @@
+{
+    "name": "$NAME",
+    "version": "1.0.0",
+    "main": "build/app.js",
+    "dependencies": {
+    },
+    "devDependencies": {},
+    "scripts": {
+        "start:build": "tsc -w",
+        "start:run": "nodemon build/app.js",
+        "start": "concurrently npm:start:*"
+    },
+    "keywords": [],
+    "author": "Lorenzo Carbonell <a.k.a atareao>",
+    "license": "MIT",
+    "description": ""
+
+}
+
