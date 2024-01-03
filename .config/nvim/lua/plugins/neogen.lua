@@ -9,11 +9,26 @@ return {
             enabled = true,
             snippet_engine = "luasnip",
             languages = {
-                python = {
+                rust = {
                     template = {
-                        annotation_convention = "numpydoc"
+                        annotation_convention = "rustdoc",
                     }
                 },
+                python = {
+                    template = {
+                        annotation_convention = "numpydoc",
+                    }
+                },
+                javascript = {
+                    template = {
+                        annotation_convention = "tsdoc",
+                    }
+                },
+                typescript = {
+                    template = {
+                        annotation_convention = "tsdoc",
+                    }
+                }
             }
         })
     end,
