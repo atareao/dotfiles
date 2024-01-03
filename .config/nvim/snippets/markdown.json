@@ -11,6 +11,22 @@
             "`$1`$0"
         ]
     },
+    "code block javascript": {
+        "prefix": "cj",
+        "body": [
+            "```javascript",
+            "$1```",
+            "$0"
+        ]
+    },
+    "code block typescript": {
+        "prefix": "ct",
+        "body": [
+            "```typescript",
+            "$1```",
+            "$0"
+        ]
+    },
     "code block python": {
         "prefix": "cp",
         "body": [

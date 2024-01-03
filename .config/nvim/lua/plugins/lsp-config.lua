@@ -13,7 +13,7 @@ return {
             "docker_compose_language_service", "html", "jsonls",
             "tsserver", "jqls", "lua_ls", "intelephense",
             "pyright", "pylyzer", "pylsp", "ruff_lsp", "sqlls", "taplo",
-            "svelte"
+            "svelte", "typst_lsp"
         }
         local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
         local lspconfig = require("lspconfig")
@@ -31,7 +31,8 @@ return {
         end
         require('lint').linters_by_ft = {
             markdown = {'vale',},
-            python = {'golangcilint'},
+            python = {'golangcilint', 'flake8', 'ruff'},
+            typescript = {'eslint'},
         }
         vim.api.nvim_create_autocmd({ "BufWritePost" }, {
         callback = function()
