@@ -22,7 +22,6 @@ return {
         require("neodev").setup({
           library = { plugins = { "nvim-dap-ui" }, types = true },
         })
-        require('plugins.dbg.dart')
         require('plugins.dbg.python')
         require('plugins.dbg.rust')
         require("nvim-dap-virtual-text").setup({

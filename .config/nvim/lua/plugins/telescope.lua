@@ -103,7 +103,6 @@ return {
             }
         }
         require("telescope").load_extension("gitmoji")
-        require("telescope").load_extension("flutter")
         require("telescope").load_extension("emoji")
         require("telescope").load_extension("command_palette")
 

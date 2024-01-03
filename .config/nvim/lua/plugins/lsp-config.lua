@@ -5,7 +5,7 @@ return {
         "neovim/nvim-lspconfig",
         "williamboman/mason.nvim", -- optional
         "folke/lsp-colors.nvim",
-        "mfussenegger/nvim-lint"
+        "mfussenegger/nvim-lint",
     },
     config = function()
         local servers = {

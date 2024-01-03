@@ -176,14 +176,6 @@ return {
                 R = { "<cmd>Telescope registers<cr>", "Registers" },
                 -- Focus
             },
-            F = {
-                name = "Fluter",
-                c = { "<cmd> lua require'telescope'.extensions.flutter.commands{}<cr>", "Flutter"},
-                h = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Show hover"},
-                d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Jump to definition"},
-                a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Open code action"},
-                r = { "<cmd>lua vim.lsp.buf.range_code_action()<cr>", "Open code actions for range"},
-            },
             g = {
                 name = "Git",
                 g = { "<cmd>LazyGit<cr>", "Lazygit" },
