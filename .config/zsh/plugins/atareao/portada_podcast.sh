@@ -66,18 +66,27 @@ function portada_podcast(){
     echo "Título: ${title}"
     echo '================'
 
+    NUMBER=$(date +%u)
+    TEMPLATE="${RESOURCESDIR}/plantilla_podcast_0${NUMBER}.svg" 
+    if [[ ! -f "$TEMPLATE" ]]; then
+        TEMPLATE="${RESOURCESDIR}/plantilla_podcast.svg" 
+    fi
+    TEMPLATE_2000="${RESOURCESDIR}/plantilla_podcast_2000_0${NUMBER}.svg" 
+    if [[ ! -f "$TEMPLATE_2000" ]]; then
+        TEMPLATE="${RESOURCESDIR}/plantilla_podcast_2000.svg" 
+    fi
     mv "${PORTADAJPG}" "${IMAGEDIR}/temporal.jpg"
     convert -resize 2000x2000! "${IMAGEDIR}/temporal.jpg" "${IMAGEDIR}/portada_sqr.jpg"
     convert -resize 1920x1080! "${IMAGEDIR}/temporal.jpg" "${IMAGEDIR}/portada.jpg"
     rm "${IMAGEDIR}/temporal.jpg"
 
-    cp "${RESOURCESDIR}/plantilla_podcast_2000.svg" "${IMAGEDIR}/plantilla_podcast_2000.svg"
+    cp "$TEMPLATE_2000" "${IMAGEDIR}/plantilla_podcast_2000.svg"
     sed -i "s/||NUMBER||/$EPISODIO/g" "${IMAGEDIR}/plantilla_podcast_2000.svg"
     sed -i "s/||TITLE||/$title/g" "${IMAGEDIR}/plantilla_podcast_2000.svg"
     inkscape --export-type="png" "${IMAGEDIR}/plantilla_podcast_2000.svg" -o "${IMAGEDIR}/plantilla_podcast_2000.png"
     convert "${IMAGEDIR}/plantilla_podcast_2000.png" "${IMAGEDIR}/e${EPISODIO}_sqr.jpg"
 
-    cp "${RESOURCESDIR}/plantilla_podcast.svg" "${IMAGEDIR}/plantilla_podcast.svg"
+    cp "$TEMPLATE" "${IMAGEDIR}/plantilla_podcast.svg"
     sed -i "s/||NUMBER||/$EPISODIO/g" "${IMAGEDIR}/plantilla_podcast.svg"
     sed -i "s/||TITLE||/$title/g" "${IMAGEDIR}/plantilla_podcast.svg"
     inkscape --export-type="png" "${IMAGEDIR}/plantilla_podcast.svg" -o "${IMAGEDIR}/plantilla_podcast.png"
