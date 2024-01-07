@@ -97,6 +97,7 @@ exec env RUST_BACKTRACE=1 RUST_LOG=swayr=debug swayrd > /tmp/swayrd.log 2>&1
 exec_always python ${HOME}/.config/sway/scripts/inactive-windows-transparency.py
 exec_always python ${HOME}/.config/sway/scripts/autoname-workspaces.py
 exec_always python ${HOME}/.config/sway/scripts/autotiling.py
+exec_always gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Amber'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
