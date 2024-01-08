@@ -30,7 +30,6 @@ return {
             }
         end
         require('lint').linters_by_ft = {
-            markdown = {'vale',},
             python = {'golangcilint', 'flake8', 'ruff'},
             typescript = {'eslint'},
         }
