@@ -1,4 +1,4 @@
-function yadmalt
+function yadmalt --description="generate templates with gopass variables"
     # set variables
     gopass list --flat | while read -l item
         set variable $(string replace \/ _ "$item" | string upper)

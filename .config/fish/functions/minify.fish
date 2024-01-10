@@ -1,4 +1,4 @@
-function minify
+function minify --descrition="compile scss to css"
     # Compile scss to css
     # Minify css
     if test -f style.scss
