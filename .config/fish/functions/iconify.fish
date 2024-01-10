@@ -1,4 +1,4 @@
-function iconify
+function iconify --description="create base64 image"
     if test $(count $argv) -eq 1; and [ -f $argv[1] ]
         set output $(string replace -r '.png$' '.webp' $argv[1])
         cwebp "$argv[1]" -o "$output"
