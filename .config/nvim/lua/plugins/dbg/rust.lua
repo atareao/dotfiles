@@ -21,10 +21,10 @@ dap.configurations.cpp = {
     name = 'Launch',
     type = 'lldb',
     request = 'launch',
-
-    program = function()
-      return vim.fn.input('Ruta al ejecutable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
-    end,
+    program = "${file}",
+    -- program = function()
+    --   return vim.fn.input('Ruta al ejecutable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
+    -- end,
     cwd = '${workspaceFolder}',
     stopOnEntry = false,
     args = {

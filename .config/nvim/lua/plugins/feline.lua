@@ -72,21 +72,6 @@ return     {
           NONE = '<>'
         }
 
-        local buffer_not_empty = function()
-          if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then
-            return true
-          end
-          return false
-        end
-
-        local checkwidth = function()
-          local squeeze_width = vim.fn.winwidth(0) / 2
-          if squeeze_width > 40 then
-            return true
-          end
-          return false
-        end
-
         force_inactive.filetypes = {
           'NvimTree',
           'dbui',
@@ -124,7 +109,7 @@ return     {
           hl = function()
             local val = {}
             val.fg = vi_mode_utils.get_mode_color()
-            val.bg = 'bg'
+            val.bg = colors.bg
             val.style = 'bold'
             return val
           end,
@@ -137,14 +122,14 @@ return     {
           end,
           hl = {
             fg = 'white',
-            bg = 'bg',
+            bg = colors.bg,
             style = 'bold'
           },
           right_sep = {
             str = ' > ',
             hl = {
               fg = 'white',
-              bg = 'bg',
+              bg = colors.bg,
               style = 'bold'
             },
           }
@@ -156,7 +141,7 @@ return     {
           provider = 'git_branch',
           hl = {
             fg = 'yellow',
-            bg = 'bg',
+            bg = colors.bg,
             style = 'bold'
           }
         }
@@ -165,7 +150,7 @@ return     {
           provider = 'git_diff_added',
           hl = {
             fg = 'green',
-            bg = 'bg',
+            bg = colors.bg,
             style = 'bold'
           }
         }
@@ -174,7 +159,7 @@ return     {
           provider = 'git_diff_changed',
           hl = {
             fg = 'orange',
-            bg = 'bg',
+            bg = colors.bg,
             style = 'bold'
           }
         }
@@ -183,7 +168,7 @@ return     {
           provider = 'git_diff_removed',
           hl = {
             fg = 'red',
-            bg = 'bg',
+            bg = colors.bg,
             style = 'bold'
           },
         }
@@ -231,7 +216,7 @@ return     {
           provider = 'lsp_client_names',
           hl = {
             fg = 'yellow',
-            bg = 'bg',
+            bg = colors.bg,
             style = 'bold'
           },
           right_sep = ' '
@@ -257,7 +242,7 @@ return     {
             else
               val.fg = 'white'
             end
-            val.bg = 'bg'
+            val.bg = colors.bg
             val.style = 'bold'
             return val
           end,
@@ -276,7 +261,7 @@ return     {
             else
               val.fg = 'white'
             end
-            val.bg = 'bg'
+            val.bg = colors.bg
             val.style = 'bold'
             return val
           end,
@@ -288,7 +273,7 @@ return     {
           enabled = function() return vim.fn.getfsize(vim.fn.expand('%:t')) > 0 end,
           hl = {
             fg = 'skyblue',
-            bg = 'bg',
+            bg = colors.bg,
             style = 'bold'
           },
           right_sep = ' '
@@ -298,7 +283,7 @@ return     {
           provider = function() return '' .. vim.bo.fileformat:upper() .. '' end,
           hl = {
             fg = 'white',
-            bg = 'bg',
+            bg = colors.bg,
             style = 'bold'
           },
           right_sep = ' '
@@ -308,7 +293,7 @@ return     {
           provider = 'file_encoding',
           hl = {
             fg = 'white',
-            bg = 'bg',
+            bg = colors.bg,
             style = 'bold'
           },
           right_sep = ' '
@@ -320,7 +305,7 @@ return     {
           end,
           hl = {
             fg = 'yellow',
-            bg = 'bg',
+            bg = colors.bg,
           },
           right_sep = ' '
         }
@@ -329,7 +314,7 @@ return     {
           provider = 'position',
           hl = {
             fg = 'white',
-            bg = 'bg',
+            bg = colors.bg,
             style = 'bold'
           },
           right_sep = ' '
@@ -339,7 +324,7 @@ return     {
           provider = 'line_percentage',
           hl = {
             fg = 'white',
-            bg = 'bg',
+            bg = colors.bg,
             style = 'bold'
           },
           right_sep = ' '
@@ -349,7 +334,7 @@ return     {
           provider = 'scroll_bar',
           hl = {
             fg = 'yellow',
-            bg = 'bg',
+            bg = colors.bg,
           },
         }
 
@@ -384,8 +369,8 @@ return     {
 
         require('feline').setup({
           theme = colors,
-          default_bg = bg,
-          default_fg = fg,
+          default_bg = colors.bg,
+          default_fg = colors.fg,
           vi_mode_colors = vi_mode_colors,
           components = components,
           force_inactive = force_inactive,
