@@ -1,11 +1,6 @@
 return {
     "pmizio/typescript-tools.nvim",
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    tsserver_locale = "es",
     opts = {},
-    config = function()
-        require("typescript-tools").setup({
-            tsserver_locale = "es",
-        })
-    end,
 }
-

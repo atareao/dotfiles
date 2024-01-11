@@ -11,6 +11,7 @@ return {
         "LinArcX/telescope-command-palette.nvim",
     },
     config = function()
+        local lga_actions = require("telescope-live-grep-args.actions")
         require('telescope').setup {
             defaults = {
                 -- Default configuration for telescope goes here:
@@ -37,7 +38,16 @@ return {
                 workspaces = {
                     keep_insert = true,
                 },
-                live_grep_args,
+                live_grep_args = {
+                    auto_quoting = true, -- enable/disable auto-quoting
+                    -- define mappings, e.g.
+                    mappings = { -- extend mappings
+                        i = {
+                            ["<C-k>"] = lga_actions.quote_prompt(),
+                            ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
+                        },
+                    },
+                },
                 gitmoji = {
                     action = function(entry)
                         -- entry = {

@@ -1,18 +1,17 @@
 return {
     'stevearc/conform.nvim',
-    opts = {},
+    opts = {
+        lua = { "stylua" },
+        -- Conform will run multiple formatters sequentially
+        python = { "isort", "black" },
+        -- Use a sub-list to run only the first available formatter
+        javascript = { { "prettierd", "prettier" } },
+        markdown = { { "prettierd", "prettier" } },
+        typescript = { "eslint_d" },
+        sh = { "shfmt" },
+        bash = { "shfmt" },
+    },
     config = function()
-        require("conform").setup({
-            lua = { "stylua" },
-            -- Conform will run multiple formatters sequentially
-            python = { "isort", "black" },
-            -- Use a sub-list to run only the first available formatter
-            javascript = { { "prettierd", "prettier" } },
-            markdown = { { "prettierd", "prettier" } },
-            typescript = { "eslint_d" },
-            sh = { "shfmt" },
-            bash = { "shfmt" },
-        })
         vim.api.nvim_create_user_command("Reformat", function(args)
             local range = nil
             if args.count ~= -1 then
