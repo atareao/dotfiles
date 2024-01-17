@@ -17,7 +17,11 @@ ueberzug_scale  = 1
 ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [opener]
+text = [
+    { exec = 'nvim "$@"', block = true },
+]
 edit = [
+    { exec = '$EDITOR "$@"', block = true,  for = "linux" },
     { exec = '$EDITOR "$@"', block = true,  for = "unix" },
     { exec = 'code "%*"',    orphan = true, for = "windows" },
 ]
@@ -45,7 +49,7 @@ play = [
 rules = [
     { name = "*/", use = [ "edit", "open", "reveal" ] },
 
-    { mime = "text/*",  use = [ "edit", "reveal" ] },
+    { mime = "text/*",  use = [ "text", "edit", "reveal" ] },
     { mime = "image/*", use = [ "open", "reveal" ] },
     { mime = "video/*", use = [ "play", "reveal" ] },
     { mime = "audio/*", use = [ "play", "reveal" ] },
