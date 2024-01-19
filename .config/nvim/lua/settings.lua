@@ -26,6 +26,11 @@ opt.swapfile = false          -- don't use swapfile
 
 g.himalaya_mailbox_picker = 'native'
 
+-- Configuracion para Typst
+g.typst_conceal = 1
+g.typst_pdf_viewer = "zathura"
+g.typst_embedded_languages = {"typescript"}
+
 -----------------------------------------------------------
 -- Neovim UI
 -----------------------------------------------------------
