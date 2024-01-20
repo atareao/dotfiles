@@ -4,8 +4,8 @@
 return {
     'jakewvincent/mkdnflow.nvim',
     lazy = false,
-    rocks = 'luautf8', -- Ensures optional luautf8 dependency is installed
     opts = {
+        rocks = 'luautf8', -- Ensures optional luautf8 dependency is installed
         perspective = {
             priority = 'root',
             root_tell = ".git",

@@ -1,10 +1,11 @@
 return {
     'gen740/SmoothCursor.nvim',
     event = "VeryLazy",
-    config = {
+    config = true,
+    opts = {
         type = "exp",
         fancy = {
             enable = true
         }
-    }
+    },
 }

@@ -11,6 +11,14 @@
             "`$1`$0"
         ]
     },
+    "code block lua": {
+        "prefix": "cl",
+        "body": [
+            "```lua",
+            "$1```",
+            "$0"
+        ]
+    },
     "code block javascript": {
         "prefix": "cj",
         "body": [
