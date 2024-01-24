@@ -14,8 +14,9 @@ abbr --add la lsd -la
 abbr --add du dust
 abbr --add rgi sk --ansi -i -c 'rg --color=always --line-number "{}"'
 # trasher
-abbr --add tls trasher --trash-dir ~/.papelera ls
-abbr --add trm trasher --trash-dir ~/.papelera rm
+abbr --add tls trasher --trash-dir ~/.trashdir ls
+abbr --add trm trasher --trash-dir ~/.trashdir rm
+abbr --add tcl trasher --trash-dir ~/.trashdir clear
 # docker
 abbr --add dcu docker compose up -d --force-recreate
 abbr --add dcl docker compose logs -d
