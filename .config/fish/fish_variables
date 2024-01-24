@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR MY_ABBR_SET:true
 SETUVAR __fish_initialized:3400
 SETUVAR ayu_variant:mirage
 SETUVAR fish_color_autosuggestion:707A8C
