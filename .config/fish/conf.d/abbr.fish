@@ -12,7 +12,6 @@ abbr --add mydiff kitty +kitten diff
 abbr --add ls lsd
 abbr --add la lsd -la
 abbr --add du dust
-abbr --add rgi sk --ansi -i -c 'rg --color=always --line-number "{}"'
 # trasher
 abbr --add tls trasher --trash-dir ~/.trashdir ls
 abbr --add trm trasher --trash-dir ~/.trashdir rm
@@ -29,3 +28,7 @@ abbr --add pcr podman compose up -d --force-recreate
 abbr --add pcp podman compose ps
 abbr --add pcl podman compose logs -f
 abbr --add pcd podman compose dowdown
+# skim
+abbr --add skg 'sk --ansi -i -c \'grep -rI --color=always --line-number "{}" .\''
+abbr --add skr 'sk --ansi -i -c \'rg --color=always --line-number "{}"\''
+
