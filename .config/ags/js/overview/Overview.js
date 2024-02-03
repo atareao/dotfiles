@@ -16,7 +16,6 @@ const update = box => {
     Hyprland.sendMessage('j/clients')
         .then(clients => {
             box.children.forEach(ws => {
-                // @ts-expect-error
                 ws.attribute(JSON.parse(clients));
             });
         })
@@ -35,15 +34,15 @@ const children = box => {
 export default () => PopupWindow({
     name: 'overview',
     child: Widget.Box({
-        setup: update,
-        connections: [
-            [ws, box => {
-                box.children = range(ws.value).map(Workspace);
-                update(box);
-                children(box);
-            }],
-            [Hyprland, update],
-            [Hyprland, children, 'notify::workspaces'],
-        ],
+        setup: self => {
+            self.hook(ws, () => {
+                self.children = range(ws.value).map(Workspace);
+                update(self);
+                children(self);
+            });
+            self.hook(Hyprland, update);
+            self.hook(Hyprland, children, 'notify::workspaces');
+            update(self);
+        },
     }),
 });

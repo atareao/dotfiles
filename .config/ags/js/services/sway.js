@@ -18,127 +18,100 @@ const EventType = {
   INPUT: 21,
 };
 
-class Active extends Service {
-  updateProperty(prop, value) {
-    super.updateProperty(prop, value);
-    this.emit("changed");
-  }
-}
-
-class ActiveClient extends Active {
+export class ActiveClient extends Service {
   static {
-    Service.register(
-      this,
-      {},
-      {
-        address: ["string"],
-        title: ["string"],
-        class: ["string"],
-      },
-    );
+    Service.register(this, {}, {
+      address: ["string"],
+      title: ["string"],
+      class: ["string"],
+    });
   }
 
-  #address = "";
-  #title = "";
-  #class = "";
+  _address = "";
+  _title = "";
+  _class = "";
 
   get address() {
-    return this.#address;
+    return this._address;
   }
   get title() {
-    return this.#title;
+    return this._title;
   }
   get class() {
-    return this.#class;
+    return this._class;
   }
 }
-
-export class ActiveWorkspace extends Active {
+export class ActiveID extends Service {
   static {
-    Service.register(
-      this,
-      {},
-      {
-        id: ["int"],
-        name: ["string"],
-      },
-    );
+    Service.register(this, {}, {
+      'id': ['int'],
+      'name': ['string'],
+    });
   }
 
-  #id = 1;
-  #name = "";
+  _id = 1;
+  _name = '';
 
-  get id() {
-    return this.#id;
-  }
-  get name() {
-    return this.#name;
+  get id() { return this._id; }
+  get name() { return this._name; }
+
+  update(id, name) {
+    super.updateProperty('id', id);
+    super.updateProperty('name', name);
+    this.emit("changed");
   }
 }
 
 export class Actives extends Service {
   static {
-    Service.register(
-      this,
-      {},
-      {
-        client: ["jsobject"],
-        monitor: ["string"],
-        workspace: ["jsobject"],
-      },
-    );
+    Service.register(this, {}, {
+      client: ["jsobject"],
+      monitor: ["string"],
+      workspace: ["jsobject"],
+    });
   }
 
-  #client = new ActiveClient();
-  #monitor = "";
-  #workspace = new ActiveWorkspace();
+  _client = new ActiveClient();
+  _monitor = new ActiveID();
+  _workspace = new ActiveID();
 
   constructor() {
     super();
-
-    [this.#client, this.#workspace].forEach((s) =>
-      s.connect("changed", () => this.emit("changed")),
-    );
-
-    ["id", "name"].forEach((attr) =>
-      this.#workspace.connect(`notify::${attr}`, () =>
-        this.changed("workspace"),
-      ),
-    );
-
-    ["address", "title", "class"].forEach((attr) =>
-      this.#client.connect(`notify::${attr}`, () => this.changed("client")),
-    );
+    ['client', 'workspace', 'monitor'].forEach((s) => {
+      this[`_${s}`].connect("changed", () => {
+        this.notify(s);
+        this.emit("changed");
+      });
+    });
   }
 
   get client() {
-    return this.#client;
+    return this._client;
   }
   get monitor() {
-    return this.#monitor;
+    return this._monitor;
   }
   get workspace() {
-    return this.#workspace;
+    return this._workspace;
   }
 }
 
 class Sway extends Service {
   static {
-    Service.register(
-      this,
-      {
-        "urgent-window": ["string"],
-        submap: ["string"],
-        "keyboard-layout": ["string", "string"],
-        "monitor-added": ["string"],
-        "monitor-removed": ["string"],
-        "client-added": ["string"],
-        "client-removed": ["string"],
-        "workspace-added": ["string"],
-        "workspace-removed": ["string"],
-        "workspace-changed": ["int"],
-        fullscreen: ["boolean"],
-      },
+    Service.register(this, {
+      "event": ["string", "string"],
+      "urgent-window": ["string"],
+      submap: ["string"],
+      "keyboard-layout": ["string", "string"],
+      "monitor-added": ["string"],
+      "monitor-removed": ["string"],
+      "client-added": ["string"],
+      "client-removed": ["string"],
+      "workspace-added": ["string"],
+      "workspace-removed": ["string"],
+      "workspace-changed": ["int"],
+      fullscreen: ["boolean"],
+    },
       {
         active: ["jsobject"],
         monitors: ["jsobject"],
@@ -196,7 +169,7 @@ class Sway extends Service {
   constructor() {
     super();
     if (!Sway.#SWAYSOCK) {
-     console.error("Sway is not running");
+      console.error("Sway is not running");
     }
     this.socketAddress = new Gio.UnixSocketAddress({ path: Sway.#SWAYSOCK });
     console.debug(this.socketAddress);
@@ -225,50 +198,57 @@ class Sway extends Service {
     this._subscribe();
     this._watchSocket();
 
-    this._active.connect("changed", () => this.emit("changed"));
-    ["monitor", "workspace", "client"].forEach((active) =>
-      this._active.connect(`notify::${active}`, () => this.changed("active")),
-    );
+    this._active.connect("changed", () => this.changed("active"));
+
   }
 
-  getFocusedWorkspace(){
+  getFocusedWorkspace() {
     return this._focusedWorkspace;
   }
 
-  _syncMonitors() {
+  _syncMonitors(notify = true) {
     try {
       const monitors = this.getOutputs();
       this._monitors = new Map();
       monitors.forEach((monitor) => {
         this._monitors.set(monitor.id, monitor);
       });
-      this.notify("monitors");
+      if (notify) {
+        this.notify("monitors");
+      }
     } catch (error) {
       if (error instanceof Error) {
         console.error(error.message);
       }
     }
   }
-  _syncWorkspaces() {
+  _syncWorkspaces(notify = true) {
+    console.log("_syncWorkspaces");
     try {
       const workspaces = this.getWorkspaces();
+      let focused = null;
       this._workspaces = new Map();
       workspaces.forEach((ws) => {
         this._workspaces.set(ws.num, ws);
         if (ws.focused) {
-          this._focusedWorkspace = ws;
-          this._active.updateProperty("monitor", ws.output);
-          this._active.workspace.updateProperty("id", ws.num);
-          this._active.workspace.updateProperty("name", ws.name);
-          console.log(`active workspace: ${ws.num}`);
+          focused = ws;
         }
       });
-      this.notify("workspaces");
+      if(focused){
+          this._focusedWorkspace = focused;
+          this._active.workspace.update(focused.num, focused.name);
+      }
+      if (notify) {
+        this.notify("workspaces");
+      }
     } catch (error) {
       if (error instanceof Error) {
         console.error(error.message);
       }
     }
+  }
+
+  _syncClients(notify = true) {
   }
 
   _subscribe() {
@@ -295,24 +275,24 @@ class Sway extends Service {
       1,
       null,
       async (subis, data) => {
-          const glib_data = subis.read_bytes_finish(data);
-          let content = glib_data.get_data();
-          const [msg_magic, msg_length, msg_type] = Sway.#unpack_header(content);
-          const event_type = msg_type & 0x7f;
-          console.debug(event_type);
+        const glib_data = subis.read_bytes_finish(data);
+        let content = glib_data.get_data();
+        const [msg_magic, msg_length, msg_type] = Sway.#unpack_header(content);
+        const event_type = msg_type & 0x7f;
+        console.debug(event_type);
 
-          const msg_size = Sway.#STRUCT_HEADER_LENGTH + msg_length;
-          while (content.length < msg_size) {
-            const new_input = subis.read_bytes(msg_length, null).get_data();
-            const new_data = new Uint8Array(content.length + new_input.length);
-            new_data.set(content, 0);
-            new_data.set(new_input, content.length);
-            content = new_data;
-          }
-          const response = Sway.#unpack(content);
-          const event = JSON.parse(response);
-          this._onEvent(event_type, event);
-          await this._watchSocket();
+        const msg_size = Sway.#STRUCT_HEADER_LENGTH + msg_length;
+        while (content.length < msg_size) {
+          const new_input = subis.read_bytes(msg_length, null).get_data();
+          const new_data = new Uint8Array(content.length + new_input.length);
+          new_data.set(content, 0);
+          new_data.set(new_input, content.length);
+          content = new_data;
+        }
+        const response = Sway.#unpack(content);
+        const event = JSON.parse(response);
+        this._onEvent(event_type, event);
+        await this._watchSocket();
       },
     );
   }
@@ -324,14 +304,14 @@ class Sway extends Service {
     console.debug(response);
   }
 
-  setNextWorkspace(){
+  setNextWorkspace() {
     const number = this._active.workspace.id + 1;
-    this.setWorkspace((number > 10)?1:number);
+    this.setWorkspace((number > 10) ? 1 : number);
   }
 
-  setPreviousWorkspace(){
+  setPreviousWorkspace() {
     const number = this._active.workspace.id - 1;
-    this.setWorkspace((number < 1)?1:number);
+    this.setWorkspace((number < 1) ? 1 : number);
   }
 
   sendMessage(msg_type, payload) {
@@ -427,7 +407,7 @@ class Sway extends Service {
     };
     tree["nodes"].forEach((node) => {
       //outputs
-      if("make" in node && "model" in node && "serial" in node){
+      if ("make" in node && "model" in node && "serial" in node) {
         const output = {
           id: node["id"],
           name: node["name"],
@@ -439,7 +419,7 @@ class Sway extends Service {
         }
         //workspaces
         node["nodes"].forEach((node) => {
-          if("num" in node){
+          if ("num" in node) {
             const workspace = {
               id: node["id"],
               name: node["name"],
@@ -457,21 +437,21 @@ class Sway extends Service {
     return clients;
   }
 
-  _getClients(nodes, workspace){
+  _getClients(nodes, workspace) {
     let clients = [];
     nodes.forEach((node) => {
-      if("app_id" in node){
+      if ("app_id" in node) {
         const client = {
-            id: node["id"],
-            name: node["name"],
-            rect: node["rect"],
-            focused: node["focused"],
-            pid: node["pid"],
-            app_id: node["app_id"],
-            workspace: workspace
+          id: node["id"],
+          name: node["name"],
+          rect: node["rect"],
+          focused: node["focused"],
+          pid: node["pid"],
+          app_id: node["app_id"],
+          workspace: workspace
         }
         clients.push(client);
-      }else if("nodes" in node){
+      } else if ("nodes" in node) {
         const more_clients = this._getClients(node["nodes"], workspace);
         more_clients.forEach((client) => clients.push(client));
       }
@@ -501,8 +481,9 @@ class Sway extends Service {
   }
 
   _onEvent(event_type, event) {
-    const event_str = (event != null)?JSON.stringify(event):null;
-    console.log(`_onEvent. event_type: ${event_type}, event: ${event_str}`);
+    const event_str = (event != null) ? JSON.stringify(event) : null;
+    //console.log(`_onEvent. event_type: ${event_type}, event: ${event_str}`);
+    console.log(`_onEvent. event_type: ${event_type}`);
     if (event_type == null || event == null) {
       return;
     }
@@ -510,11 +491,10 @@ class Sway extends Service {
     // 0 => workspace
     // 3 => window
     console.log(`_onEvent. event_type: ${event_type}, event.change: ${event.change}`);
-    if(event_type == 0 && event.change == "focus"){
-      const event_str = JSON.stringify(event);
-      console.log(`event_type: ${event_type}, event: ${event_str}`);
+    if (event_type == 0 && event.change == "focus") {
+      //const event_str = JSON.stringify(event);
+      //console.log(`event_type: ${event_type}, event: ${event_str}`);
       this._syncWorkspaces();
-      this.emit("workspace-changed", this._active.workspace.id);
       console.log("workspace-changed");
     }
   }
@@ -553,8 +533,8 @@ class Sway extends Service {
           break;
 
         case "openwindow":
-          await this._syncClients();
-          await this._syncWorkspaces();
+          await this._syncClients(false);
+          await this._syncWorkspaces(false);
           this.emit("client-added", "0x" + argv[0]);
           break;
 
@@ -625,4 +605,3 @@ class Sway extends Service {
 }
 
 export default new Sway();
-
