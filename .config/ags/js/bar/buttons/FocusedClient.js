@@ -6,14 +6,14 @@ import options from '../../options.js';
 import { substitute } from '../../utils.js';
 
 export const ClientLabel = () => Widget.Label({
-    binds: [['label', Sway.active.client, 'class', c => {
+    label: Sway.active.client.bind('class').transform(c => {
         const { titles } = options.substitutions;
         return substitute(titles, c);
-    }]],
+    }),
 });
 
 export const ClientIcon = () => Widget.Icon({
-    connections: [[Sway.active.client, self => {
+    setup: self => self.hook(Sway.active.client, () => {
         const { icons } = options.substitutions;
         const { client } = Sway.active;
 
@@ -30,16 +30,16 @@ export const ClientIcon = () => Widget.Icon({
             self.icon = titleIcon;
 
         self.visible = !!(hasTitleIcon || hasClassIcon);
-    }]],
+    }),
 });
 
 export default () => PanelButton({
     class_name: 'focused-client',
     content: Widget.Box({
+        tooltip_text: Sway.active.bind('client').transform(c => c.title),
         children: [
             ClientIcon(),
             ClientLabel(),
         ],
-        binds: [['tooltip-text', Sway.active, 'client', c => c.title]],
     }),
 });
