@@ -22,7 +22,7 @@ return {
             lua_ls = {},
             intelephense = {},
             pyright = {},
-            pylyzer = {},
+            --pylyzer = {},
             pylsp = {},
             ruff_lsp = {},
             sqlls = {},
