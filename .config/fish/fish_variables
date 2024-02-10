@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR DOCKER_HOST:/run/user/1000/docker\x2esock
 SETUVAR MY_ABBR_SET:true
 SETUVAR __fish_initialized:3400
 SETUVAR ayu_variant:mirage
@@ -43,3 +44,4 @@ SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dFFCC66
 SETUVAR fish_pager_color_selected_completion:\x1d
 SETUVAR fish_pager_color_selected_description:\x1d
 SETUVAR fish_pager_color_selected_prefix:\x1d
+SETUVAR fish_user_paths:/home/lorenzo/\x2ecargo/bin\x1e/home/lorenzo/\x2elocal/bin\x1e/home/lorenzo/bin\x1e/usr/local/bin\x1e/home/lorenzo/\x2erye/shims
