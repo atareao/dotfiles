@@ -1,9 +1,9 @@
 set -U MY_ABBR_SET true
 # applications
-abbr --add vim nvim
 abbr --add vimd nvim -d
 abbr --add hx helix
 abbr --add play ansible-playbook
+abbr --add dlm 'yt-dlp --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 160K --output "%(title)s.%(ext)s" --yes-playlist' 
 # kitty
 abbr --add shs kitty +kitten ssh -q
 abbr --add icat kitty +kitten icat

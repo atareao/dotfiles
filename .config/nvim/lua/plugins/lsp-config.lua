@@ -1,6 +1,6 @@
 return {
     "williamboman/mason-lspconfig.nvim", -- optional
-    event = "VeryLazy",
+    lazy = false,
     dependencies = {
         "neovim/nvim-lspconfig",
         "williamboman/mason.nvim", -- optional
@@ -8,7 +8,6 @@ return {
         "mfussenegger/nvim-lint",
     },
     config = function()
-        local nvim_lsp = require('lspconfig')
         local servers = {
             ansiblels = {},
             bashls = {},

@@ -8,5 +8,6 @@ return {
         always_scroll = true,
         max_length = 500,
         scroll_limit = -1,
-    }
+    },
+    config = true,
 }
