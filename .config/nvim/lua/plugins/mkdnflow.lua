@@ -4,6 +4,7 @@
 return {
     'jakewvincent/mkdnflow.nvim',
     lazy = false,
+    config = true,
     opts = {
         rocks = 'luautf8', -- Ensures optional luautf8 dependency is installed
         perspective = {

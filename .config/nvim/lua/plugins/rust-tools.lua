@@ -42,5 +42,5 @@ return {
             },
         },
     },
-    setup = true
+    config = true
 }

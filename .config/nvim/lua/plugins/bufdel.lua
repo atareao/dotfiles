@@ -1,3 +1,4 @@
 return {
-    "ojroques/nvim-bufdel"
+    "ojroques/nvim-bufdel",
+    config = true
 }

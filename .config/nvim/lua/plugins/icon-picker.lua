@@ -3,5 +3,6 @@ return {
     -- event = "VeryLazy",
     opts = {
         disable_legacy_commands = true
-    }
+    },
+    config = true,
 }
