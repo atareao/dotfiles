@@ -5,7 +5,6 @@
 -----------------------------------------------------------
 -- Neovim API aliases
 -----------------------------------------------------------
---local map = vim.api.nvim_set_keymap  -- set global keymap
 local cmd = vim.cmd                    -- execute Vim commands
 local exec = vim.api.nvim_exec         -- execute Vimscript
 local fn = vim.fn                      -- call Vim functions
@@ -29,22 +28,22 @@ g.himalaya_mailbox_picker = 'native'
 -- Configuracion para Typst
 g.typst_conceal = 1
 g.typst_pdf_viewer = "zathura"
-g.typst_embedded_languages = {"typescript"}
+g.typst_embedded_languages = { "typescript" }
 
 -----------------------------------------------------------
 -- Neovim UI
 -----------------------------------------------------------
-opt.number = true             -- show line number
-opt.relativenumber = true     -- show line number
-opt.showmatch = true          -- highlight matching parenthesis
-opt.foldmethod = 'expr'       -- enable folding (default 'foldmarker')
-opt.colorcolumn = '80'        -- line lenght marker at 80 columns
-opt.splitright = true         -- vertical split to the right
-opt.splitbelow = true         -- orizontal split to the bottom
-opt.ignorecase = true         -- ignore case letters when search
-opt.smartcase = true          -- ignore lowercase for the whole pattern
-opt.linebreak = true          -- wrap on word boundary
-opt.foldlevel = 99            -- should open all folds
+opt.number = true         -- show line number
+opt.relativenumber = true -- show line number
+opt.showmatch = true      -- highlight matching parenthesis
+opt.foldmethod = 'expr'   -- enable folding (default 'foldmarker')
+opt.colorcolumn = '80'    -- line lenght marker at 80 columns
+opt.splitright = true     -- vertical split to the right
+opt.splitbelow = true     -- orizontal split to the bottom
+opt.ignorecase = true     -- ignore case letters when search
+opt.smartcase = true      -- ignore lowercase for the whole pattern
+opt.linebreak = true      -- wrap on word boundary
+opt.foldlevel = 99        -- should open all folds
 opt.conceallevel = 0
 opt.termguicolors = true
 opt.guifont = "JetBrainsMono Nerd Font"
@@ -64,18 +63,18 @@ opt.listchars = 'tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»'
 -----------------------------------------------------------
 -- Memory, CPU
 -----------------------------------------------------------
-opt.hidden = true         -- enable background buffers
-opt.history = 100         -- remember n lines in history
+opt.hidden = true    -- enable background buffers
+opt.history = 100    -- remember n lines in history
 -- opt.lazyredraw = true     -- faster scrolling
-opt.synmaxcol = 1000      -- max column for syntax highlight
+opt.synmaxcol = 1000 -- max column for syntax highlight
 
 -----------------------------------------------------------
 -- Tabs, indent
 -----------------------------------------------------------
-opt.expandtab = true      -- use spaces instead of tabs
-opt.shiftwidth = 4        -- shift 4 spaces when tab
-opt.tabstop = 4           -- 1 tab == 4 spaces
-opt.smartindent = true    -- autoindent new lines
+opt.expandtab = true   -- use spaces instead of tabs
+opt.shiftwidth = 4     -- shift 4 spaces when tab
+opt.tabstop = 4        -- 1 tab == 4 spaces
+opt.smartindent = true -- autoindent new lines
 
 -- don't auto commenting new lines
 cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
@@ -86,7 +85,7 @@ cmd [[autocmd FileType text,markdown,xml,html,xhtml,javascript setlocal cc=0]]
 
 -- IndentLine
 --g.indentLine_setColors = 0  -- set indentLine color
-g.indentLine_char = '|'       -- set indentLine character
+g.indentLine_char = '|' -- set indentLine character
 
 au(
     "BufEnter",
@@ -107,7 +106,7 @@ au(
     {
         pattern = '*',
         callback = function()
-            vim.highlight.on_yank { higroup='IncSearch', timeout=700 }
+            vim.highlight.on_yank { higroup = 'IncSearch', timeout = 700 }
         end,
         group = ag('yank_highlight', {}),
     }
@@ -129,7 +128,7 @@ au(
     }
 )
 au(
-    {"BufRead", "BufNewFile"},
+    { "BufRead", "BufNewFile" },
     {
         pattern = "*.md",
         callback = function()
@@ -143,27 +142,29 @@ au(
 -- Templates
 -----------------------------------------------------------
 -- enable templates
+local gen_template = function()
+    vim.g.template_name = "Lorenzo Carbonell <a.k.a. atareao>"
+    local extension = vim.fn.expand("%:e")
+    local template = vim.env.HOME .. "/.config/nvim/templates/" .. extension .. ".tpl"
+    local f = io.open(template, "r")
+    if f ~= nil then
+        local lines = {}
+        for line in io.lines(template) do
+            lines[#lines + 1] = line
+        end
+        api.nvim_buf_set_lines(0, 0, 0, false, lines)
+        cmd([[%s/{{YEAR}}/\=strftime('%Y')/ge]])
+        cmd([[%s/{{NAME}}/\=template_name/ge]])
+        cmd([[%s/{{EVAL\s*\([^}]*\)}}/\=eval(submatch(1))/ge]])
+        cmd([[%s/{{FILENAME}}/\=expand('%:t')/ge]])
+    end
+end
+vim.keymap.set("n", "<leader>ta", gen_template, {silent = true})
 au(
-    "BufNewFile",
+    { "BufNewFile" },
     {
         pattern = "*",
-        callback = function()
-            vim.g.template_name = "Lorenzo Carbonell <a.k.a. atareao>"
-            local extension = vim.fn.expand("%:e")
-            local template = vim.env.HOME .. "/.config/nvim/templates/" .. extension .. ".tpl"
-            local f = io.open(template, "r")
-            if f ~= nil then
-                local lines = {}
-                for line in io.lines(template) do
-                    lines[#lines + 1] = line
-                end
-                api.nvim_buf_set_lines(0, 0, 0, false, lines)
-                cmd([[%s/{{YEAR}}/\=strftime('%Y')/ge]])
-                cmd([[%s/{{NAME}}/\=template_name/ge]])
-                cmd([[%s/{{EVAL\s*\([^}]*\)}}/\=eval(submatch(1))/ge]])
-                cmd([[%s/{{FILENAME}}/\=expand('%:t')/ge]])
-            end
-        end,
+        callback = gen_template,
         group = ag("templates", {})
     }
 )
