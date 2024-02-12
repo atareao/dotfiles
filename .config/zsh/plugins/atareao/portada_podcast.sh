@@ -66,12 +66,12 @@ function portada_podcast(){
     echo "Título: ${title}"
     echo '================'
 
-    NUMBER=$(date +%u)
-    TEMPLATE="${RESOURCESDIR}/plantilla_podcast_0${NUMBER}.svg" 
+    NUMBER=$(date +%d)
+    TEMPLATE="${RESOURCESDIR}/plantilla_podcast_${NUMBER}.svg" 
     if [[ ! -f "$TEMPLATE" ]]; then
         TEMPLATE="${RESOURCESDIR}/plantilla_podcast.svg" 
     fi
-    TEMPLATE_2000="${RESOURCESDIR}/plantilla_podcast_2000_0${NUMBER}.svg" 
+    TEMPLATE_2000="${RESOURCESDIR}/plantilla_podcast_2000_${NUMBER}.svg" 
     if [[ ! -f "$TEMPLATE_2000" ]]; then
         TEMPLATE="${RESOURCESDIR}/plantilla_podcast_2000.svg" 
     fi

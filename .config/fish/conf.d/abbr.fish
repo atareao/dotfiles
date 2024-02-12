@@ -1,5 +1,6 @@
 set -U MY_ABBR_SET true
 # applications
+abbr --add vim nvim -O
 abbr --add vimd nvim -d
 abbr --add hx helix
 abbr --add play ansible-playbook
