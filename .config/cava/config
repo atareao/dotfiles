@@ -61,7 +61,7 @@
 ;source = auto
 ;method = alsa
 method = pipewire
-source = 113
+source = 581
 ;source = auto
 ;source = alsa:pcm:5:m2_mono_in:M2,0,1:capture
 
