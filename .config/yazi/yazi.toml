@@ -13,6 +13,9 @@ tab_size        = 2
 max_width       = 600
 max_height      = 900
 cache_dir       = ""
+image_filter    = "triangle"
+image_quality   = 75
+sixel_fraction  = 15
 ueberzug_scale  = 1
 ueberzug_offset = [ 0, 0, 0, 0 ]
 
@@ -71,8 +74,8 @@ rules = [
 ]
 
 [tasks]
-micro_workers    = 5
-macro_workers    = 10
+micro_workers    = 10
+macro_workers    = 25
 bizarre_retry    = 5
 image_alloc      = 536870912  # 512MB
 image_bound      = [ 0, 0 ]
@@ -81,40 +84,42 @@ suppress_preload = false
 [plugin]
 
 preloaders = [
-    { name = "*", cond = "!mime", exec = "mime.lua", multi = true, prio = "high" },
+    { name = "*", cond = "!mime", exec = "mime", multi = true, prio = "high" },
     # Image
-    { mime = "image/vnd.djvu", exec = "noop.lua" },
-    { mime = "image/*",        exec = "image.lua" },
+    { mime = "image/vnd.djvu", exec = "noop" },
+    { mime = "image/*",        exec = "image" },
     # Video
-    { mime = "video/*", exec = "video.lua" },
+    { mime = "video/*", exec = "video" },
     # PDF
-    { mime = "application/pdf", exec = "pdf.lua" },
+    { mime = "application/pdf", exec = "pdf" },
 ]
 previewers = [
-    { name = "*/", exec = "folder.lua", sync = true },
+    { name = "*/", exec = "folder", sync = true },
     # Code
-    { mime = "text/*",                 exec = "code.lua" },
-    { mime = "*/xml",                  exec = "code.lua" },
-    { mime = "*/javascript",           exec = "code.lua" },
-    { mime = "*/x-wine-extension-ini", exec = "code.lua" },
+    { mime = "text/*",                 exec = "code" },
+    { mime = "*/xml",                  exec = "code" },
+    { mime = "*/javascript",           exec = "code" },
+    { mime = "*/x-wine-extension-ini", exec = "code" },
     # JSON
-    { mime = "application/json", exec = "json.lua" },
+    { mime = "application/json", exec = "json" },
     # Image
-    { mime = "image/vnd.djvu", exec = "noop.lua" },
-    { mime = "image/*",        exec = "image.lua" },
+    { mime = "image/vnd.djvu", exec = "noop" },
+    { mime = "image/*",        exec = "image" },
     # Video
-    { mime = "video/*", exec = "video.lua" },
+    { mime = "video/*", exec = "video" },
     # PDF
-    { mime = "application/pdf", exec = "pdf.lua" },
+    { mime = "application/pdf", exec = "pdf" },
     # Archive
-    { mime = "application/zip",             exec = "archive.lua" },
-    { mime = "application/gzip",            exec = "archive.lua" },
-    { mime = "application/x-tar",           exec = "archive.lua" },
-    { mime = "application/x-bzip",          exec = "archive.lua" },
-    { mime = "application/x-bzip2",         exec = "archive.lua" },
-    { mime = "application/x-7z-compressed", exec = "archive.lua" },
-    { mime = "application/x-rar",           exec = "archive.lua" },
-    { mime = "application/xz",              exec = "archive.lua" },
+    { mime = "application/zip",             exec = "archive" },
+    { mime = "application/gzip",            exec = "archive" },
+    { mime = "application/x-tar",           exec = "archive" },
+    { mime = "application/x-bzip",          exec = "archive" },
+    { mime = "application/x-bzip2",         exec = "archive" },
+    { mime = "application/x-7z-compressed", exec = "archive" },
+    { mime = "application/x-rar",           exec = "archive" },
+    { mime = "application/xz",              exec = "archive" },
+    # Fallback
+	{ name = "*", exec = "file" },
 ]
 
 [input]
