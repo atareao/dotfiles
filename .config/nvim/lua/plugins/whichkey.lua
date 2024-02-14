@@ -204,6 +204,15 @@ return {
                     p = { "<cmd>Gist -b -p<cr>", "Create Private" },
                 },
             },
+            H = {
+                name = "Hurl",
+                A = { "<cmd>HurlRunner<cr>", "Run All requests"},
+                a = { "<cmd>HurlRunnerAt<cr>", "Run Api requests"},
+                e = { "<cmd>HurlRunnerToEntry<cr>", "Run Api request to entry"},
+                t = { "<cmd>HurlRunnerToggleMode<cr>", "Hurl Toggle Mode"},
+                v = { "<cmd>HurlRunnerVerbose<cr>", "Run Api in verbose mode"},
+                h = { ":HurlRunner<cr>", "Hurl Runner"},
+            },
             l = {
                 name = "LSP",
                 a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
