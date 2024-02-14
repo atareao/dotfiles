@@ -250,6 +250,12 @@ return {
                 u = { "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet" },
                 x = { "<cmd>TroubleToggle<cr>", "Diagnostics" },
             },
+            n = {
+                name = "Neotree",
+                b = {"Neotree position=top buffers"},
+                g = {"<cmd>"},
+                o = {"<cmd>"},
+            },
             o = {
                 name = "Options",
                 w = { '<cmd>lua require("user.functions").toggle_option("wrap")<cr>', "Wrap" },
