@@ -1,6 +1,5 @@
 return {
     'stevearc/conform.nvim',
-    config = true,
     opts = {
         lua = { "stylua" },
         -- Conform will run multiple formatters sequentially
