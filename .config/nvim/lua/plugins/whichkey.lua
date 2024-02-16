@@ -316,10 +316,7 @@ return {
                 ["q"] = { "<cmd>TodoQuickFix<CR>", "Quick Fix" },
                 ["l"] = { "<cmd>TodoLocList<CR>", "List Comments" },
             },
-            v = {
-                name = "Vista",
-                o = { "<cmd>:Vista!!<cr>", "Open Tag viewer" },
-            },
+            v = { "<cmd>Outline<cr>", "Outline"},
             w = {
                 name = "Window",
                 v = { "<C-w>v", "Vertical Split" },
