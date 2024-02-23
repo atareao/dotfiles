@@ -81,3 +81,4 @@ export TRASH_DIR=~/.trashdir
 export VALE_CONFIG_PATH=~/.config/vale/vale.ini
 
 export GPG_TTY=$(tty)
+. "$HOME/.cargo/env"
