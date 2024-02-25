@@ -8,7 +8,7 @@ return {
         harfbuzz_features={"calt=1", "clig=1", "liga=1"}
     }),
     font_size = 12,
-    color_scheme = "ayu",
+    color_scheme = "Ayu Dark (Gogh)",
     use_fancy_tab_bar = false,
     enable_tab_bar = true,
     hide_tab_bar_if_only_one_tab = true,
