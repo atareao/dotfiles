@@ -9,10 +9,10 @@ return {
     }),
     font_size = 12,
     color_scheme = "Ayu Dark (Gogh)",
-    use_fancy_tab_bar = false,
+    use_fancy_tab_bar = true,
     enable_tab_bar = true,
     hide_tab_bar_if_only_one_tab = true,
-    warn_about_missing_glyphs = false,
+    warn_about_missing_glyphs = true,
     keys = {
         {key="c", mods="CTRL|ALT", action=act{CopyTo="ClipboardAndPrimarySelection"}},
         {key="v", mods="CTRL|ALT", action=act{PasteFrom="PrimarySelection"}},
