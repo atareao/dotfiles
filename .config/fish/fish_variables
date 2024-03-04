@@ -2,6 +2,7 @@
 # VERSION: 3.0
 SETUVAR DOCKER_HOST:/run/user/1000/docker\x2esock
 SETUVAR MY_ABBR_SET:true
+SETUVAR TERM:wezterm
 SETUVAR __fish_initialized:3400
 SETUVAR ayu_variant:mirage
 SETUVAR fish_color_autosuggestion:707A8C

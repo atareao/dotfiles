@@ -82,7 +82,6 @@ cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
 -- remove line lenght marker for selected filetypes
 cmd [[autocmd FileType text,markdown,xml,html,xhtml,javascript setlocal cc=0]]
 
-
 -- IndentLine
 --g.indentLine_setColors = 0  -- set indentLine color
 g.indentLine_char = '|' -- set indentLine character
