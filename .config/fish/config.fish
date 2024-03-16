@@ -14,4 +14,6 @@ if status is-interactive
     atuin init fish | source
     # zoxide
     zoxide init fish | source
+    # direnv
+    direnv hook fish | source
 end
