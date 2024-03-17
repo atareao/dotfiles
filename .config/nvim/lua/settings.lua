@@ -48,6 +48,10 @@ opt.conceallevel = 0
 opt.termguicolors = true
 opt.guifont = "JetBrainsMono Nerd Font"
 
+vim.o.cursorline = true
+vim.o.number = true
+vim.o.termguicolors = true
+
 -----------------------------------------------------------
 -- Folding
 -----------------------------------------------------------
