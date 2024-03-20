@@ -84,10 +84,11 @@ editor_filesize_threshold=64M
 editor_stop_format_chars=-+*\\,.;:&>
 mcview_eof=
 skin=default
+shell_directory_timeout=900
 
 [Layout]
 output_lines=0
-left_panel_size=92
+left_panel_size=44
 top_panel_size=0
 message_visible=true
 keybar_visible=true
@@ -115,6 +116,7 @@ clipboard_paste=
 base_color=
 xterm-kitty=
 color_terminals=
+wezterm=
 
 [Panels]
 show_mini_info=true
@@ -138,7 +140,7 @@ quick_search_mode=2
 select_flags=6
 
 [Panelize]
-Buscar programas con SUID y SGID=find . \\( \\( -perm -04000 -a -perm /011 \\) -o \\( -perm -02000 -a -perm /01 \\) \\) -print
-Archivos git modificados=git ls-files --modified
-Buscar archivos rechazados después de aplicar parches=find . -name \\*.rej -print
 Buscar archivos originales después de aplicar parches=find . -name \\*.orig -print
+Buscar archivos rechazados después de aplicar parches=find . -name \\*.rej -print
+Archivos git modificados=git ls-files --modified
+Buscar programas con SUID y SGID=find . \\( \\( -perm -04000 -a -perm /011 \\) -o \\( -perm -02000 -a -perm /01 \\) \\) -print

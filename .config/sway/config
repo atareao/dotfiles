@@ -262,7 +262,8 @@ bindsym $mod+g exec env RUST_BACKTRACE=1 \
 bindsym $mod+Control+p exec hyprpicker
 
 # Custom bindings
-bindsym $mod+Control+e exec --no-startup-id /home/lorenzo/.local/bin/rofimoji
+# set $menu "/bin/bash ~/.config/sway/scripts/rofi.sh"
+bindsym $mod+period exec --no-startup-id bash /home/lorenzo/.config/sway/scripts/rofimoji.sh
 bindsym Print exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/$(date +%Y-%m-%dT%H-%M-%S).jpg"
 bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy
 
