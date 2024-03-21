@@ -182,8 +182,6 @@ exec_always gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Moder
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
     # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace number 1
-    bindsym $mod+Shift+2 move container to workspace number 2
     bindsym $mod+Shift+3 move container to workspace number 3
     bindsym $mod+Shift+4 move container to workspace number 4
     bindsym $mod+Shift+5 move container to workspace number 5
@@ -261,11 +259,16 @@ bindsym $mod+g exec env RUST_BACKTRACE=1 \
 #bindsym $mod+Control+p exec bash ~/.config/sway/scripts/wl-color-picker.sh
 bindsym $mod+Control+p exec hyprpicker
 
+###############################################################################
 # Custom bindings
+###############################################################################
 # set $menu "/bin/bash ~/.config/sway/scripts/rofi.sh"
+bindsym $mod+Control+period exec --no-startup-idbash /home/lorenzo/.config/sway/scripts/wshowkeys.sh &
 bindsym $mod+period exec --no-startup-id bash /home/lorenzo/.config/sway/scripts/rofimoji.sh
 bindsym Print exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/$(date +%Y-%m-%dT%H-%M-%S).jpg"
 bindsym $mod+Print exec grim -g "$(slurp)" - | wl-copy
+# bindsym $mod+b      exec --no-startup-id i3-msg gaps bottom all set 80
+# bindsym $mod+$alt+b exec --no-startup-id i3-msg gaps bottom all set toggle
 
 ###############################################################################
 # Custom bindings
