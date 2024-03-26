@@ -14,7 +14,7 @@ matches:
     replace: "docker compose logs -f"
     
   - trigger: ",dcp"
-    replace: "docker compose ps"
+    replace: "docker compose pull"
     
   - trigger: ",dcr"
     replace: "docker compose restart"
