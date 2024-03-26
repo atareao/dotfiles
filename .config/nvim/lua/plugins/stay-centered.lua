@@ -3,6 +3,8 @@ return {
     opts = {
         skip_filetypes = {
             "lua",
+            "html",
+            "javascript",
             "typescript",
             "python",
             "rust",
