@@ -4,14 +4,8 @@ function enotas -d "Edit notes"
 end
 
 function dv -d "Docker volume"
-    set volumes ""
     for i in $argv
-        if test $volumes = ""
-            set volumes "--volume" "$i:/$i"
-        else
-            set volume "--volume" "$i:/$i"
-            set -a volumes $volume
-        end
+        set -a volumes "--volume" "$i:/$i"
     end
     if count $argv >/dev/null
         echo docker run -it --init --rm --name=dv $volumes busybox sh
