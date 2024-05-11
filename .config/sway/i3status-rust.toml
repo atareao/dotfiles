@@ -1,0 +1,87 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "nord-dark"
+
+[icons]
+icons = "awesome6"
+
+[[block]]
+block = "temperature"
+
+[[block]]
+block = "load"
+format = " $icon $1m.eng(w:4) $5m.eng(w:4) $15m.eng(w:4) "
+
+[[block]]
+block = "net"
+format = " $icon {$signal_strength $ssid|Wired connection} "
+
+[[block]]
+block = "cpu"
+interval = 1
+format = " $icon $utilization "
+format_alt = " $icon $frequency{ $boost|} "
+
+[[block]]
+block = "memory"
+format = " $icon $mem_used_percents.eng(w:1) "
+format_alt = " $icon_swap $swap_free.eng(w:3,u:B,p:M)/$swap_total.eng(w:3,u:B,p:M)($swap_used_percents.eng(w:2)) "
+interval = 30
+warning_mem = 70
+critical_mem = 90
+
+[[block]]
+block = "disk_space"
+info_type = "available"
+path = "/"
+alert_unit = "GB"
+alert = 10.0
+warning = 15.0
+format = "$icon$path$available"
+format_alt = "$icon$path$available/$total"
+
+
+[[block]]
+block = "disk_space"
+info_type = "available"
+path = "/data"
+alert_unit = "GB"
+alert = 10.0
+warning = 15.0
+format = "$icon$path$available"
+format_alt = "$icon$path$available/$total"
+
+[[block]]
+block = "docker"
+interval = 5
+format = "$icon$running/$total($images)"
+socket_path = "$XDG_RUNTIME_DIR/docker.sock"
+
+[[block]]
+block = "custom"
+command = "python $HOME/.config/i3/scripts/weather.py 39.36667 -0.41667"
+interval = 600
+
+# [[block]]
+# block = "weather"
+# service = "openweathermap"
+# name = "openweathermap"
+# format = " $icon $weather $temp "
+# api_key = "460efcd8685715da1c37ab7834e84135"
+# coordinates = ["39.36667", "-0.41667"]
+# lang = "es"
+
+[[block]]
+block = "sound"
+format = " $icon {$volume|} "
+
+[[block]]
+block = "time"
+interval = 60
+[block.format]
+full = " $icon $timestamp.datetime(f:'%Y-%m-%d %R', l:es_ES) "
+short = " $icon $timestamp.datetime(f:'%Y-%m-%d %R', l:es_ES) "
+
+
+

@@ -1,0 +1,17 @@
+###############################################################################
+# Idle
+###############################################################################
+
+# Example configuration:
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+# exec swayidle -w \
+#     timeout 300 'bash ${HOME}/.config/swaylock/lock.sh 50' \
+#     timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+#     before-sleep 'bash ${HOME}/.config/swaylock/lock.sh 50'
+
+exec swayidle -w \
+     timeout 1800 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
