@@ -39,7 +39,7 @@ import argparse
 import os
 import sys
 from functools import partial
-# from tendo import singleton
+from tendo import singleton
 
 from i3ipc import Connection, Event
 
@@ -171,5 +171,6 @@ def main():
 
 
 if __name__ == "__main__":
+    me = singleton.SingleInstance()
     # execute only if run as a script
     main()
