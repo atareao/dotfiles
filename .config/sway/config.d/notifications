@@ -2,5 +2,4 @@
 # Notifications
 ###############################################################################
 
-exec_always dunst
-
+exec_always swaync

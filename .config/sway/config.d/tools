@@ -2,6 +2,4 @@
 # Tools
 ###############################################################################
 
-exec_always env RUST_BACKTRACE=1 RUST_LOG=swayr=debug /usr/bin/swayrd > /tmp/swayrd.log 2>&1
-
-exec_always /home/lorenzo/.local/bin/i3helper -c /home/lorenzo/.config/sway/i3helper.yml
+exec_always /home/lorenzo/.local/bin/sway-plugins -c /home/lorenzo/.config/sway/sway-plugins.yml
