@@ -155,19 +155,21 @@ bindsym $mod+r mode "resize"
 ###############################################################################
 # Custom bindings
 ###############################################################################
-bindsym $mod+Control+period exec --no-startup-id bash /home/lorenzo/.config/sway/scripts/wshowkeys.sh &
-bindsym $mod+period         exec --no-startup-id bash /home/lorenzo/.config/sway/scripts/rofimoji.sh
-bindsym Print exec          grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/$(date +%Y-%m-%dT%H-%M-%S).jpg"
-bindsym $mod+Print          exec grim -g "$(slurp)" - | wl-copy
-# bindsym $mod+b            exec --no-startup-id i3-msg gaps bottom all set 80
-# bindsym $mod+$alt+b       exec --no-startup-id i3-msg gaps bottom all set toggle
+bindsym $mod+Control+period         exec --no-startup-id bash /home/lorenzo/.config/sway/scripts/wshowkeys.sh &
+bindsym $mod+period                 exec --no-startup-id bash /home/lorenzo/.config/sway/scripts/rofimoji.sh
+bindsym Print                       exec grim -g "$(slurp)" "$(xdg-user-dir PICTURES)/$(date +%Y-%m-%dT%H-%M-%S).jpg"
+bindsym $mod+Print                  exec grim -g "$(slurp)" - | wl-copy
+# bindsym $mod+b                    exec --no-startup-id i3-msg gaps bottom all set 80
+# bindsym $mod+$alt+b               exec --no-startup-id i3-msg gaps bottom all set toggle
 
-bindsym $mod+z              exec mpv /data/atareao.es/podcasts/recursos/entrada.mp3
-bindsym $mod+x              exec mpv /data/atareao.es/podcasts/recursos/salida_corta.mp3
-bindsym $mod+o              open
-bindsym $mod+Control+p      exec hyprpicker
+bindsym $mod+z                      exec mpv /data/atareao.es/podcasts/recursos/entrada.mp3
+bindsym $mod+x                      exec mpv /data/atareao.es/podcasts/recursos/salida_corta.mp3
+bindsym $mod+o                      open
+bindsym $mod+Control+p              exec hyprpicker | wl-copy
 
-bindsym $mod+Space          exec swayr switch-window
-bindsym $mod+Delete         exec swayr quit-window
-bindsym $mod+Tab            exec swayr switch-to-urgent-or-lru-window
+bindsym $mod+Shift+n                exec swaync-client -t -sw
 
+bindsym $mod+Tab       mode swtchr; exec ~/.cargo/bin/swtchr
+bindsym $mod+Shift+Tab mode swtchr; exec ~/.cargo/bin/swtchr
+
+mode swtchr bindsym Backspace mode default

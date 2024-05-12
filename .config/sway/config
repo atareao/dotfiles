@@ -14,7 +14,8 @@ set $term wezterm
 # Note: pass the final command to swaymsg so that the resulting window can be
 # opened on the original workspace that the command was run on.
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu "/bin/bash ~/.config/sway/scripts/rofi.sh"
+#set $menu "/bin/bash ~/.config/sway/scripts/rofi.sh"
+set $menu onagre
 
 ###############################################################################
 
