@@ -2,4 +2,5 @@
 # Tools
 ###############################################################################
 
-exec_always /home/lorenzo/.local/bin/sway-plugins -c /home/lorenzo/.config/sway/sway-plugins.yml
+exec_always ~/.cargo/bin/swtchrd
+exec_always /home/lorenzo/.cargo/bin/sway-plugins -c /home/lorenzo/.config/sway/sway-plugins.yml
