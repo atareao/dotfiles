@@ -3,10 +3,23 @@ local act = wezterm.action
 return {
     enable_wayland = true,
     window_background_opacity = 0.90,
-    font = wezterm.font({
-        family="JetBrainsMono Nerd Font Mono",
-        harfbuzz_features={"calt=1", "clig=1", "liga=1"}
+    font = wezterm.font_with_fallback({
+      -- /usr/share/fonts/TTF/JetBrainsMonoNerdFontMono-Regular.ttf, FontConfig
+      -- AKA: "JetBrainsMono NFM"
+      {family="JetBrainsMono Nerd Font Mono", harfbuzz_features={"calt=1", "clig=1", "liga=1"}},
+      -- /usr/share/fonts/TTF/JetBrainsMono-Regular.ttf, FontConfig
+      "JetBrains Mono",
+      -- /usr/share/fonts/noto/NotoColorEmoji.ttf, FontConfig
+      -- Assumed to have Emoji Presentation
+      -- Pixel sizes: [128]
+      "Noto Color Emoji",
+      -- /usr/share/fonts/TTF/SymbolsNerdFontMono-Regular.ttf, FontConfig
+      "Symbols Nerd Font Mono",
     }),
+    -- font = wezterm.font({
+    --     family="JetBrainsMono Nerd Font Mono",
+    --     harfbuzz_features={"calt=1", "clig=1", "liga=1"}
+    -- }),
     font_size = 12,
     color_scheme = "Ayu Dark (Gogh)",
     use_fancy_tab_bar = true,

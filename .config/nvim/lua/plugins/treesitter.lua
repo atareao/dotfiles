@@ -13,7 +13,7 @@ return {
             ensure_installed = {
                 "vim", "regex", "lua", "bash", "markdown", "markdown_inline",
                 "python", "rust", "sql", "php", "javascript", "http", "json",
-                "latex", "commonlisp"
+                "commonlisp"
             },
             sync_install = false,
             highlight = {
