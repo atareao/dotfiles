@@ -56,7 +56,7 @@ format_alt = "$icon$path$available/$total"
 block = "docker"
 interval = 5
 format = "$icon$running/$total($images)"
-socket_path = "$XDG_RUNTIME_DIR/docker.sock"
+#socket_path = "$XDG_RUNTIME_DIR/docker.sock"
 
 [[block]]
 block = "custom"
