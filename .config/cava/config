@@ -61,7 +61,7 @@
 ;source = auto
 ;method = alsa
 method = pipewire
-source = 173
+source = 95
 ;source = auto
 ;source = alsa:pcm:5:m2_mono_in:M2,0,1:capture
 
@@ -97,7 +97,7 @@ source = 173
 # 'stereo' mirrors both channels with low frequencies in center.
 # 'mono' outputs left to right lowest to highest frequencies.
 # 'mono_option' set mono to either take input from 'left', 'right' or 'average'.
-; channels = stereo
+channels = mono
 ; mono_option = average
 
 # Raw output target. A fifo will be created if target does not exist.
