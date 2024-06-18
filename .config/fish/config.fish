@@ -5,7 +5,7 @@ if status is-interactive
     # remove welcome message
     set -g fish_greeting
     # set TERM
-    set -g TERM wezterm
+    set -g TERM kitty
     # Theme
     fish_config theme choose "ayu Mirage"
     # starship
