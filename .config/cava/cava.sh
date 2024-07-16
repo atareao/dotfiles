@@ -21,8 +21,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-M2='M Series Stereo Mic In 1L+2R'
-item=$(wpctl status | grep "$M2" | sed -E "s/[^0-9]+([0-9]+)\.\s+M Series Stereo Mic In 1L\+2R.*/\1/")
+#M2='M Series Stereo Mic In 1L+2R'
+#item=$(wpctl status | grep "$M2" | sed -E "s/[^0-9]+([0-9]+)\.\s+M Series Stereo Mic In 1L\+2R.*/\1/")
+M2='M Series Mic In 2R'
+item=$(wpctl status | grep "$M2" | sed -E "s/[^0-9]+([0-9]+)\.\s+M Series Mic In 2R.*/\1/")
 echo $item
 source=$(wpctl inspect "${item}" | grep object.serial | sed -E 's/.* = "([^"]*)"/\1/')
 sed -iE "s/^source = .*/source = ${source}/g" /home/lorenzo/.config/cava/config
