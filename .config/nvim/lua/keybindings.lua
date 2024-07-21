@@ -2,14 +2,14 @@
 local wk = require("which-key")
 wk.add({
     {
-        {mode = "i"},
+        mode = "i",
         {"<C-h>", "<left>",  desc = "Movements"},
         {"<C-j>", "<down>",  desc = "Movements"},
         {"<C-k>", "<up>",    desc = "Movements"},
         {"<C-l>", "<right>", desc = "Movements"},
     },
     {
-        {mode = "n"},
+        mode = "n",
         {"<leader>0", "<Plug>(cokeline-focus-0)", desc = "Focus 0"},
         {"<leader>1", "<Plug>(cokeline-focus-1)", desc = "Focus 1"},
         {"<leader>2", "<Plug>(cokeline-focus-2)", desc = "Focus 2"},
@@ -20,8 +20,23 @@ wk.add({
         {"<leader>7", "<Plug>(cokeline-focus-7)", desc = "Focus 7"},
         {"<leader>8", "<Plug>(cokeline-focus-8)", desc = "Focus 8"},
         {"<leader>9", "<Plug>(cokeline-focus-9)", desc = "Focus 0"},
-        --
-        {"<leader>c", "<md>nohl<cr>", desc="Clearing search highlighting"},
+        -- ChatGPT
+        {
+            mode = {"n", "v"},
+            {"<leader>c", group="GhatGTP"},
+            {"<leader>ca", "<cmd>ChatGPTRun add_tests<CR>",          desc = "Add Tests"},
+            {"<leader>cd", "<cmd>ChatGPTRun docstring<CR>",          desc = "Docstring"},
+            {"<leader>ce", "<cmd>ChatGPTEditWithInstruction<CR>",    desc = "Edit with instruction"},
+            {"<leader>cf", "<cmd>ChatGPTRun fix_bugs<CR>",           desc = "Fix Bugs"},
+            {"<leader>cg", "<cmd>ChatGPTRun grammar_correction<CR>", desc = "Grammar Correction"},
+            {"<leader>ck", "<cmd>ChatGPTRun keywords<CR>",           desc = "Keywords"},
+            {"<leader>cl", "<cmd>ChatGPTRun code_readability_analysis<CR>", desc = "Code Readability Analysis"},
+            {"<leader>co", "<cmd>ChatGPTRun optimize_code<CR>",      desc = "Optimize Code"},
+            {"<leader>cr", "<cmd>ChatGPTRun roxygen_edit<CR>",       desc = "Roxygen Edit"},
+            {"<leader>cs", "<cmd>ChatGPTRun summarize<CR>",          desc = "Summarize"},
+            {"<leader>ct", "<cmd>ChatGPTRun translate<CR>",          desc = "Translate"},
+            {"<leader>cx", "<cmd>ChatGPTRun explain_code<CR>",       desc = "Explain Code"},
+        },
         -- DEBUG
         {"<leader>d", group="Debug"},
         {"<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", desc = "Breakpoint"},
@@ -108,6 +123,8 @@ wk.add({
         {"<leader>lS", "<cmd>lua vim.lsp.buf.signature_help()<cr>", desc = "Signature", },
         {"<leader>lu", "<cmd>LuaSnipUnlinkCurrent<cr>", desc = "Unlink Snippet" },
         {"<leader>lx", "<cmd>TroubleToggle<cr>", desc = "Diagnostics" },
+        --
+        {"<leader>n", "<md>nohl<cr>", desc="Clearing search highlighting"},
         -- TROUBLE
         {"<leader>x", group = "Trouble"},
         {"<leader>xd", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", desc = "Definitions"},
