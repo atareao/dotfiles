@@ -14,6 +14,16 @@ return {
         },
         errors = {
             view = "mini"
+        },
+        routes = {
+            {
+                filter = {
+                    event = 'msg_show',
+                    kind = '',
+                    find = 'more line',
+                },
+                opts = { skip = true },
+            },
         }
     }
 }
