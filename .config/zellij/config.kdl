@@ -1,14 +1,16 @@
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
 keybinds {
+    unbind "Ctrl n"
     normal {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
+        bind "Ctrl r" { SwitchToMode "Resize"; }
     }
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
     }
     resize {
-        bind "Ctrl n" { SwitchToMode "Normal"; }
+        bind "Ctrl r" { SwitchToMode "Normal"; }
         bind "h" "Left" { Resize "Increase Left"; }
         bind "j" "Down" { Resize "Increase Down"; }
         bind "k" "Up" { Resize "Increase Up"; }
@@ -149,7 +151,7 @@ keybinds {
         bind "Ctrl p" { SwitchToMode "Pane"; }
     }
     shared_except "resize" "locked" {
-        bind "Ctrl n" { SwitchToMode "Resize"; }
+        bind "Ctrl r" { SwitchToMode "Resize"; }
     }
     shared_except "scroll" "locked" {
         bind "Ctrl s" { SwitchToMode "Scroll"; }
@@ -191,16 +193,16 @@ keybinds {
                 "brake pane left"       "ctrl + t + ["
                 "brake pane right"      "ctrl + t + ]"
                 "toggle tab"            "ctrl + t + tab"
-                "increase pane size"    "ctrl + n + +"
-                "decrease pane size"    "ctrl + n + -"
-                "increase pane top"     "ctrl + n + k"
-                "increase pane right"   "ctrl + n + l"
-                "increase pane bottom"  "ctrl + n + j"
-                "increase pane left"    "ctrl + n + h"
-                "decrease pane top"     "ctrl + n + K"
-                "decrease pane right"   "ctrl + n + L"
-                "decrease pane bottom"  "ctrl + n + J"
-                "decrease pane left"    "ctrl + n + H"
+                "increase pane size"    "ctrl + r + +"
+                "decrease pane size"    "ctrl + r + -"
+                "increase pane top"     "ctrl + r + k"
+                "increase pane right"   "ctrl + r + l"
+                "increase pane bottom"  "ctrl + r + j"
+                "increase pane left"    "ctrl + r + h"
+                "decrease pane top"     "ctrl + r + K"
+                "decrease pane right"   "ctrl + r + L"
+                "decrease pane bottom"  "ctrl + r + J"
+                "decrease pane left"    "ctrl + r + H"
                 "move pane to top"      "ctrl + h + k"
                 "move pane to right"    "ctrl + h + l"
                 "move pane to bottom"   "ctrl + h + j"
