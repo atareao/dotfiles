@@ -108,6 +108,14 @@ wk.add({
         {"<leader>lS", "<cmd>lua vim.lsp.buf.signature_help()<cr>", desc = "Signature", },
         {"<leader>lu", "<cmd>LuaSnipUnlinkCurrent<cr>", desc = "Unlink Snippet" },
         {"<leader>lx", "<cmd>TroubleToggle<cr>", desc = "Diagnostics" },
+        -- TROUBLE
+        {"<leader>x", group = "Trouble"},
+        {"<leader>xd", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", desc = "Definitions"},
+        {"<leader>xl", "<cmd>Trouble loclist toggle<cr>", desc = "List"},
+        {"<leader>xq", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix"},
+        {"<leader>xs", "<cmd>Trouble symbols toggle focus=false<cr>", desc = "Symbols"},
+        {"<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics"},
+        {"<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics"},
         --
         {"<C-h>", "<C-w>h", desc = "Movements"},
         {"<C-j>", "<C-w>j", desc = "Movements"},

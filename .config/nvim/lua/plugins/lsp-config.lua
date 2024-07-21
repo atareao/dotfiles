@@ -23,7 +23,7 @@ return {
             pyright = {},
             --pylyzer = {},
             pylsp = {},
-            ruff_lsp = {},
+            --ruff_lsp = {},
             sqlls = {},
             taplo = {},
             svelte = {},
@@ -80,5 +80,13 @@ return {
                 require("lint").try_lint()
             end,
         })
+        require('lspconfig').ruff_lsp.setup {
+            init_options = {
+                settings = {
+                    -- Any extra CLI arguments for `ruff` go here.
+                    args = {},
+                }
+            }
+        }
     end
 }
