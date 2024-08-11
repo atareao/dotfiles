@@ -1,0 +1,819 @@
+| Command | Parameter                          | Descripton                                                                                                      |
+| convert | -adaptive-blur geometry            | adaptively blur pixels; decrease effect near edges                                                              |
+| convert | -adaptive-resize geometry          | adaptively resize image with data dependent triangulation.                                                      |
+| convert | -adaptive-sharpen geometry         | adaptively sharpen pixels; increase effect near edges                                                           |
+| convert | -adjoin                            | join images into a single multi-image file                                                                      |
+| convert | -affine matrix                     | affine transform matrix                                                                                         |
+| convert | -alpha                             | on, activate, off, deactivate, set, opaque, copy", transparent, extract, background, or shape the alpha channel |
+| convert | -annotate geometry text            | annotate the image with text                                                                                    |
+| convert | -antialias                         | remove pixel-aliasing                                                                                           |
+| convert | -append                            | append an image sequence                                                                                        |
+| convert | -authenticate value                | decipher image with this password                                                                               |
+| convert | -auto-gamma                        | automagically adjust gamma level of image                                                                       |
+| convert | -auto-level                        | automagically adjust color levels of image                                                                      |
+| convert | -auto-orient                       | automagically orient image                                                                                      |
+| convert | -auto-threshold method             | automatically perform image thresholding                                                                        |
+| convert | -background color                  | background color                                                                                                |
+| convert | -bench iterations                  | measure performance                                                                                             |
+| convert | -bias value                        | add bias when convolving an image                                                                               |
+| convert | -black-threshold value             | force all pixels below the threshold into black                                                                 |
+| convert | -blue-primary point                | chromaticity blue primary point                                                                                 |
+| convert | -blue-shift factor                 | simulate a scene at nighttime in the moonlight                                                                  |
+| convert | -blur geometry                     | reduce image noise and reduce detail levels                                                                     |
+| convert | -border geometry                   | surround image with a border of color                                                                           |
+| convert | -bordercolor color                 | border color                                                                                                    |
+| convert | -brightness-contrast geometry      | improve brightness / contrast of the image                                                                      |
+| convert | -canny geometry                    | use a multi-stage algorithm to detect a wide range of edges in the image                                        |
+| convert | -caption string                    | assign a caption to an image                                                                                    |
+| convert | -cdl filename                      | color correct with a color decision list                                                                        |
+| convert | -channel type                      | apply option to select image channels                                                                           |
+| convert | -charcoal radius                   | simulate a charcoal drawing                                                                                     |
+| convert | -chop geometry                     | remove pixels from the image interior                                                                           |
+| convert | -clahe geometry                    | contrast limited adaptive histogram equalization                                                                |
+| convert | -clip                              | clip along the first path from the 8BIM profile                                                                 |
+| convert | -clip-mask filename                | associate clip mask with the image                                                                              |
+| convert | -clip-path id                      | clip along a named path from the 8BIM profile                                                                   |
+| convert | -clone index                       | clone an image                                                                                                  |
+| convert | -clut                              | apply a color lookup table to the image                                                                         |
+| convert | -connected-components connectivity | connected-components uniquely labeled, choose from 4 or 8 way connectivity                                      |
+| convert | -contrast-stretch geometry         | improve the contrast in an image by `stretching' the range of intensity value                                   |
+| convert | -coalesce                          | merge a sequence of images                                                                                      |
+| convert | -colorize value                    | colorize the image with the fill color                                                                          |
+| convert | -color-matrix matrix               | apply color correction to the image.                                                                            |
+| convert | -colors value                      | preferred number of colors in the image                                                                         |
+| convert | -colorspace type                   | set image colorspace                                                                                            |
+| convert | -combine                           | combine a sequence of images                                                                                    |
+| convert | -comment string                    | annotate image with comment                                                                                     |
+| convert | -compare                           | compare image                                                                                                   |
+| convert | -complexoperator                   | perform complex mathematics on an image sequence                                                                |
+| convert | -compose operator                  | set image composite operator                                                                                    |
+| convert | -composite                         | composite image                                                                                                 |
+| convert | -compress type                     | image compression type                                                                                          |
+| convert | -contrast                          | enhance or reduce the image contrast                                                                            |
+| convert | -convolve coefficients             | apply a convolution kernel to the image                                                                         |
+| convert | -copy geometry offset              | copy pixels from one area of an image to another                                                                |
+| convert | -crop geometry                     | crop the image                                                                                                  |
+| convert | -cycle amount                      | cycle the image colormap                                                                                        |
+| convert | -decipher filename                 | convert cipher pixels to plain                                                                                  |
+| convert | -debug events                      | display copious debugging information                                                                           |
+| convert | -define format:option              | define one or more image format options                                                                         |
+| convert | -deconstruct                       | break down an image sequence into constituent parts                                                             |
+| convert | -delay value                       | display the next image after pausing                                                                            |
+| convert | -delete index                      | delete the image from the image sequence                                                                        |
+| convert | -density geometry                  | horizontal and vertical density of the image                                                                    |
+| convert | -depth value                       | image depth                                                                                                     |
+| convert | -despeckle                         | reduce the speckles within an image                                                                             |
+| convert | -direction type                    | render text right-to-left or left-to-right                                                                      |
+| convert | -display server                    | get image or font from this X server                                                                            |
+| convert | -dispose method                    | layer disposal method                                                                                           |
+| convert | -distribute-cache port             | launch a distributed pixel cache server                                                                         |
+| convert | -distort type coefficients         | distort image                                                                                                   |
+| convert | -dither method                     | apply error diffusion to image                                                                                  |
+| convert | -draw string                       | annotate the image with a graphic primitive                                                                     |
+| convert | -duplicate count,indexes           | duplicate an image one or more times                                                                            |
+| convert | -edge radius                       | apply a filter to detect edges in the image                                                                     |
+| convert | -emboss radius                     | emboss an image                                                                                                 |
+| convert | -encipher filename                 | convert plain pixels to cipher pixels                                                                           |
+| convert | -encoding type                     | text encoding type                                                                                              |
+| convert | -endian type                       | endianness (MSB or LSB) of the image                                                                            |
+| convert | -enhance                           | apply a digital filter to enhance a noisy image                                                                 |
+| convert | -equalize                          | perform histogram equalization to an image                                                                      |
+| convert | -evaluate operator value           | evaluate an arithmetic, relational, or logical expression                                                       |
+| convert | -evaluate-sequence operator        | evaluate an arithmetic, relational, or logical expression for an image sequence                                 |
+| convert | -extent geometry                   | set the image size                                                                                              |
+| convert | -extract geometry                  | extract area from image                                                                                         |
+| convert | -family name                       | render text with this font family                                                                               |
+| convert | -features distance                 | analyze image features (e.g. contract, correlations, etc.).                                                     |
+| convert | -fft                               | implements the discrete Fourier transform (DFT)                                                                 |
+| convert | -fill color                        | color to use when filling a graphic primitive                                                                   |
+| convert | -filter type                       | use this filter when resizing an image                                                                          |
+| convert | -flatten                           | flatten a sequence of images                                                                                    |
+| convert | -flip                              | flip image in the vertical direction                                                                            |
+| convert | -floodfill geometry color          | floodfill the image with color                                                                                  |
+| convert | -flop                              | flop image in the horizontal direction                                                                          |
+| convert | -font name                         | render text with this font                                                                                      |
+| convert | -format string                     | output formatted image characteristics                                                                          |
+| convert | -frame geometry                    | surround image with an ornamental border                                                                        |
+| convert | -function name                     | apply a function to the image                                                                                   |
+| convert | -fuzz distance                     | colors within this distance are considered equal                                                                |
+| convert | -fx expression                     | apply mathematical expression to an image channel(s)                                                            |
+| convert | -gamma value                       | level of gamma correction                                                                                       |
+| convert | -gaussian-blur geometry            | reduce image noise and reduce detail levels                                                                     |
+| convert | -geometry geometry                 | preferred size or location of the image                                                                         |
+| convert | -gravity type                      | horizontal and vertical text placement                                                                          |
+| convert | -grayscale method                  | convert image to grayscale                                                                                      |
+| convert | -green-primary point               | chromaticity green primary point                                                                                |
+| convert | -help                              | print program options                                                                                           |
+| convert | -hough-lines geometry              | identify lines in the image                                                                                     |
+| convert | -identify                          | identify the format and characteristics of the image                                                            |
+| convert | -ift                               | implements the inverse discrete Fourier transform (DFT)                                                         |
+| convert | -implode amount                    | implode image pixels about the center                                                                           |
+| convert | -insert index                      | insert last image into the image sequence                                                                       |
+| convert | -intensity method                  | method to generate an intensity value from a pixel                                                              |
+| convert | -intent type                       | type of rendering intent when managing the image color                                                          |
+| convert | -interlace type                    | type of image interlacing scheme                                                                                |
+| convert | -interline-spacing value           | the space between two text lines                                                                                |
+| convert | -interpolate method                | pixel color interpolation method                                                                                |
+| convert | -interword-spacing value           | the space between two words                                                                                     |
+| convert | -kerning value                     | the space between two characters                                                                                |
+| convert | -kuwahara geometry                 | edge preserving noise reduction filter                                                                          |
+| convert | -label string                      | assign a label to an image                                                                                      |
+| convert | -lat geometry                      | local adaptive thresholding                                                                                     |
+| convert | -layers method                     | optimize or compare image layers                                                                                |
+| convert | -level value                       | adjust the level of image contrast                                                                              |
+| convert | -limit type value                  | pixel cache resource limit                                                                                      |
+| convert | -linear-stretch geometry           | linear with saturation histogram stretch                                                                        |
+| convert | -liquid-rescale geometry           | rescale image with seam-carving                                                                                 |
+| convert | -list type                         | Color, Configure, Delegate, Format, Magic, Module, Resource, or Type                                            |
+| convert | -log format                        | format of debugging information                                                                                 |
+| convert | -loop iterations                   | add Netscape loop extension to your GIF animation                                                               |
+| convert | -mattecolor color                  | frame color                                                                                                     |
+| convert | -median radius                     | apply a median filter to the image                                                                              |
+| convert | -mean-shift geometry               | delineate arbitrarily shaped clusters in the image                                                              |
+| convert | -metric type                       | measure differences between images with this metric                                                             |
+| convert | -mode radius                       | make each pixel the 'predominant color' of the neighborhood                                                     |
+| convert | -modulate value                    | vary the brightness, saturation, and hue                                                                        |
+| convert | -moments                           | display image moments.                                                                                          |
+| convert | -monitor                           | monitor progress                                                                                                |
+| convert | -monochrome                        | transform image to black and white                                                                              |
+| convert | -morph value                       | morph an image sequence                                                                                         |
+| convert | -morphology method kernel          | apply a morphology method to the image                                                                          |
+| convert | -motion-blur geometry              | simulate motion blur                                                                                            |
+| convert | -negate                            | replace each pixel with its complementary color                                                                 |
+| convert | -noise radius                      | add or reduce noise in an image                                                                                 |
+| convert | -normalize                         | transform image to span the full range of colors                                                                |
+| convert | -opaque color                      | change this color to the fill color                                                                             |
+| convert | -ordered-dither NxN                | ordered dither the image                                                                                        |
+| convert | -orient type                       | image orientation                                                                                               |
+| convert | -page geometry                     | size and location of an image canvas (setting)                                                                  |
+| convert | -paint radius                      | simulate an oil painting                                                                                        |
+| convert | -ping                              | efficiently determine image attributes                                                                          |
+| convert | -pointsize value                   | font point size                                                                                                 |
+| convert | -polaroid angle                    | simulate a Polaroid picture                                                                                     |
+| convert | -poly terms                        | build a polynomial from the image sequence and the corresponding terms (coefficients and degree pairs).         |
+| convert | -posterize levels                  | reduce the image to a limited number of color levels                                                            |
+| convert | -precision value                   | set the maximum number of significant digits to be printed                                                      |
+| convert | -preview type                      | image preview type                                                                                              |
+| convert | -print string                      | interpret string and print to console                                                                           |
+| convert | -process image-filter              | process the image with a custom image filter                                                                    |
+| convert | -profile filename                  | add, delete, or apply an image profile                                                                          |
+| convert | -quality value                     | JPEG/MIFF/PNG compression level                                                                                 |
+| convert | -quantize colorspace               | reduce image colors in this colorspace                                                                          |
+| convert | -quiet                             | suppress all warning messages                                                                                   |
+| convert | -radial-blur angle                 | radial blur the image                                                                                           |
+| convert | -raise value                       | lighten/darken image edges to create a 3-D effect                                                               |
+| convert | -random-threshold low, high        | random threshold the image                                                                                      |
+| convert | -read-mask filename                | associate a read mask with the image                                                                            |
+| convert | -red-primary point                 | chromaticity red primary point                                                                                  |
+| convert | -regard-warnings                   | pay attention to warning messages.                                                                              |
+| convert | -region geometry                   | apply options to a portion of the image                                                                         |
+| convert | -remap filename                    | transform image colors to match this set of colors                                                              |
+| convert | -render                            | render vector graphics                                                                                          |
+| convert | -repage geometry                   | size and location of an image canvas                                                                            |
+| convert | -resample geometry                 | change the resolution of an image                                                                               |
+| convert | -resize geometry                   | resize the image                                                                                                |
+| convert | -respect-parentheses               | settings remain in effect until parenthesis boundary.                                                           |
+| convert | -roll geometry                     | roll an image vertically or horizontally                                                                        |
+| convert | -rotate degrees                    | apply Paeth rotation to the image                                                                               |
+| convert | -sample geometry                   | scale image with pixel sampling                                                                                 |
+| convert | -sampling-factor geometry          | horizontal and vertical sampling factor                                                                         |
+| convert | -scale geometry                    | scale the image                                                                                                 |
+| convert | -scene value                       | image scene number                                                                                              |
+| convert | -seed value                        | seed a new sequence of pseudo-random numbers                                                                    |
+| convert | -segment values                    | segment an image                                                                                                |
+| convert | -selective-blur geometry           | selectively blur pixels within a contrast threshold                                                             |
+| convert | -separate                          | separate an image channel into a grayscale image                                                                |
+| convert | -sepia-tone threshold              | simulate a sepia-toned photo                                                                                    |
+| convert | -set attribute value               | set an image attribute                                                                                          |
+| convert | -shade degrees                     | shade the image using a distant light source                                                                    |
+| convert | -shadow geometry                   | simulate an image shadow                                                                                        |
+| convert | -sharpen geometry                  | sharpen the image                                                                                               |
+| convert | -shave geometry                    | shave pixels from the image edges                                                                               |
+| convert | -shear geometry                    | slide one edge of the image along the X or Y axis                                                               |
+| convert | -sigmoidal-contrast geometry       | increase the contrast without saturating highlights or shadows                                                  |
+| convert | -smush offset                      | smush an image sequence together                                                                                |
+| convert | -size geometry                     | width and height of image                                                                                       |
+| convert | -sketch geometry                   | simulate a pencil sketch                                                                                        |
+| convert | -solarize threshold                | negate all pixels above the threshold level                                                                     |
+| convert | -splice geometry                   | splice the background color into the image                                                                      |
+| convert | -spread radius                     | displace image pixels by a random amount                                                                        |
+| convert | -statistic type geometry           | replace each pixel with corresponding statistic from the neighborhood                                           |
+| convert | -strip                             | strip image of all profiles and comments                                                                        |
+| convert | -stroke color                      | graphic primitive stroke color                                                                                  |
+| convert | -strokewidth value                 | graphic primitive stroke width                                                                                  |
+| convert | -stretch type                      | render text with this font stretch                                                                              |
+| convert | -style type                        | render text with this font style                                                                                |
+| convert | -swap indexes                      | swap two images in the image sequence                                                                           |
+| convert | -swirl degrees                     | swirl image pixels about the center                                                                             |
+| convert | -synchronize                       | synchronize image to storage device                                                                             |
+| convert | -taint                             | mark the image as modified                                                                                      |
+| convert | -texture filename                  | name of texture to tile onto the image background                                                               |
+| convert | -threshold value                   | threshold the image                                                                                             |
+| convert | -thumbnail geometry                | create a thumbnail of the image                                                                                 |
+| convert | -tile filename                     | tile image when filling a graphic primitive                                                                     |
+| convert | -tile-offset geometry              | set the image tile offset                                                                                       |
+| convert | -tint value                        | tint the image with the fill color                                                                              |
+| convert | -transform                         | affine transform image                                                                                          |
+| convert | -transparent color                 | make this color transparent within the image                                                                    |
+| convert | -transparent-color color           | transparent color                                                                                               |
+| convert | -transpose                         | flip image in the vertical direction and rotate 90 degrees                                                      |
+| convert | -transverse                        | flop image in the horizontal direction and rotate 270 degrees                                                   |
+| convert | -treedepth value                   | color tree depth                                                                                                |
+| convert | -trim                              | trim image edges                                                                                                |
+| convert | -type type                         | image type                                                                                                      |
+| convert | -undercolor color                  | annotation bounding box color                                                                                   |
+| convert | -unique-colors                     | discard all but one of any pixel color.                                                                         |
+| convert | -units type                        | the units of image resolution                                                                                   |
+| convert | -unsharp geometry                  | sharpen the image                                                                                               |
+| convert | -verbose                           | print detailed information about the image                                                                      |
+| convert | -version                           | print version information                                                                                       |
+| convert | -view                              | FlashPix viewing transforms                                                                                     |
+| convert | -vignette geometry                 | soften the edges of the image in vignette style                                                                 |
+| convert | -virtual-pixel method              | access method for pixels outside the boundaries of the image                                                    |
+| convert | -wave geometry                     | alter an image along a sine wave                                                                                |
+| convert | -wavelet-denoise threshold         | removes noise from the image using a wavelet transform                                                          |
+| convert | -weight type                       | render text with this font weight                                                                               |
+| convert | -white-point point                 | chromaticity white point                                                                                        |
+| convert | -white-threshold value             | force all pixels above the threshold into white                                                                 |
+| convert | -write filename                    | write images to this file                                                                                       |
+| convert | -write-mask filename               | associate a write mask with the image                                                                           |
+| Command | Parameter               | Description                                                                                                                                                                                                                                                                           | Note                                                                                                                                                                                                                                                                                                                                             |
+| dtrx    | -r, --recursive         | With this option, dtrx will search inside the archives you specify to see if any of the contents are themselves archives, and extract those as well.                                                                                                                                  |                                                                                                                                                                                                                                                                                                                                                  |
+| dtrx    | --one, --one-entry      | Normally, if an archive only contains one file or directory with a name that doesn't match the archive's, dtrx will ask you how to handle it. With this option, you can specify ahead of time what should happen.                                                                     | Possible values are: \n\n\t inside\n\t\t Extract the file/directory inside another directory named after the archive.  This is the default.\n\n\t rename\n\t\t Extract the file/directory in the current directory, and then rename it to match the name of the archive. \n\n\t here \n\t\t Extract the file/directory in the current directory. |
+| dtrx    | -o, --overwrite         | Normally, dtrx will avoid extracting into a directory that already exists, and instead try to find an alternative name to use.  If this option is listed, dtrx will use the default directory name no matter what.                                                                    |                                                                                                                                                                                                                                                                                                                                                  |
+| dtrx    | -f, --flat              | Extract all archive contents into the current directory, instead of their own dedicated directory.  This is handy if you have multiple archive files which all need to be extracted into the same directory structure.  Note that existing files may be overwritten with this option. |                                                                                                                                                                                                                                                                                                                                                  |
+| dtrx    | -n, --noninteractive    | dtrx will normally ask the user how to handle certain corner cases, such as how to handle an archive that only contains one file.  This option suppresses those questions; dtrx will instead use sane, conservative defaults.                                                         |                                                                                                                                                                                                                                                                                                                                                  |
+| dtrx    | -l, -t, --list, --table | Don't extract the archives; just list their contents on standard output.                                                                                                                                                                                                              |                                                                                                                                                                                                                                                                                                                                                  |
+| dtrx    | -m, --metadata          | Extract the metadata from .deb and .gem archives, instead of their normal contents.                                                                                                                                                                                                   |                                                                                                                                                                                                                                                                                                                                                  |
+| dtrx    | -q, --quiet             | Suppress warning messages.  List this option twice to make dtrx silent.                                                                                                                                                                                                               |                                                                                                                                                                                                                                                                                                                                                  |
+| dtrx    | -v, --verbose           | Show the files that are being extracted.  List this option twice to print debugging information.                                                                                                                                                                                      |                                                                                                                                                                                                                                                                                                                                                  |
+| dtrx    | --help                  | Display basic help.                                                                                                                                                                                                                                                                   |                                                                                                                                                                                                                                                                                                                                                  |
+| dtrx    | --version               | Display dtrx's version, copyright, and license information.                                                                                                                                                                                                                           |                                                                                                                                                                                                                                                                                                                                                  |
+| Command | Parameter                                    | Descripton                                                           |
+| git     | config --global user.name "[name]"           | Sets the name you want attached to your commit transactions          |
+| git     | config --global user.email "[email address]" | Sets the email you want attached to your commit transactions         |
+| git     | config --global color.ui auto                | Enables helpful colorization of command line output                  |
+| git     | init [project-name]                          | Creates a new local repository with the specified name               |
+| git     | clone [url]                                  | Downloads a project and its entire version history                   |
+| git     | status                                       | Lists all new or modified files to be committed                      |
+| git     | add [file]                                   | Snapshots the file in preparation for versioning                     |
+| git     | reset [file]                                 | Unstages the file, but preserve its contents                         |
+| git     | diff                                         | Shows file differences not yet staged                                |
+| git     | diff --staged                                | Shows file differences between staging and the last file version     |
+| git     | commit -m "[descriptive message]"            | Records file snapshots permanently in version history                |
+| git     | branch                                       | Lists all local branches in the current repository                   |
+| git     | branch [branch-name]                         | Creates a new branch                                                 |
+| git     | checkout [branch-name]                       | Switches to the specified branch and updates the working directory   |
+| git     | merge [branch]                               | Combines the specified branch’s history into the current branch      |
+| git     | branch -d [branch-name]                      | Deletes the specified branch                                         |
+| git     | rm [file]                                    | Deletes the file from the working directory and stages the deletion  |
+| git     | rm --cached [file]                           | Removes the file from version control but preserves the file locally |
+| git     | mv [file-original] [file-renamed]            | Changes the file name and prepares it for commiit                    |
+| git     | ls-files --other --ignored --exclude-standar | Lists all ignored files in this project                              |
+| git     | stash                                        | Temporarily stores all modified tracked files                        |
+| git     | stash list                                   | Lists all stashed changesets                                         |
+| git     | stash pop                                    | Restores the most recently stashed files                             |
+| git     | stash drop                                   | Discards the most recently stashed changeset                         |
+| git     | fetch [bookmark]                             | Downloads all history from the repository bookmark                   |
+| git     | merge [bookmark]/[branch]                    | Combines bookmark’s branch into current local branch                 |
+| git     | push [alias] [branch]                        | Uploads all local branch commits to gitHub                           |
+| git     | pull                                         | Downloads bookmark history and incorporates changes                  |
+| git     | reset [commit]                               | Undoes all commits after [commit], preserving changes locally        |
+| git     | reset --hard [commit]                        | Discards all history and changes back to the specified commit        |
+| git     | log                                          | Lists version history for the current branch                         |
+| git     | log --follow [file]                          | Lists version history for a file, including renames                  |
+| git     | diff [first-branch]...[second-branch]        | Shows content differences between two branches                       |
+| git     | show [commit]                                | Outputs metadata and content changes of the specified commit         |
+| App | Key                                   | Description                                                                                                                                                                                                                                   |
+| mpv | LEFT and RIGHT                        | Seek backward/forward 5 seconds. Shift+arrow does a 1 second exact seek (see --hr-seek).                                                                                                                                                      |
+| mpv | UP and DOWN                           | Seek forward/backward 1 minute. Shift+arrow does a 5 second exact seek (see --hr-seek).                                                                                                                                                       |
+| mpv | Ctrl+LEFT and Ctrl+RIGHT              | Seek to the previous/next subtitle. Subject to some restrictions and might not always work; see sub-seek command.                                                                                                                             |
+| mpv | Ctrl+Shift+Left and Ctrl+Shift+Right  | Adjust subtitle delay so that the next or previous subtitle is displayed now. This is especially useful to sync subtitles to audio.                                                                                                           |
+| mpv | [ and ]                               | Decrease/increase current playback speed by 10%.                                                                                                                                                                                              |
+| mpv | { and }                               | Halve/double current playback speed.                                                                                                                                                                                                          |
+| mpv | BACKSPACE                             | Reset playback speed to normal.                                                                                                                                                                                                               |
+| mpv | Shift+BACKSPACE                       | Undo the last seek. This works only if the playlist entry was not changed. Hitting it a second time will go back to the original position. See revert-seek command for details.                                                               |
+| mpv | Shift+Ctrl+BACKSPACE                  | Mark the current position. This will then be used by Shift+BACKSPACE as revert position (once you seek back, the marker will be reset). You can use this to seek around in the file and then return to the exact position where you left off. |
+| mpv | < and >                               | Go backward/forward in the playlist.                                                                                                                                                                                                          |
+| mpv | ENTER                                 | Go forward in the playlist.                                                                                                                                                                                                                   |
+| mpv | p / SPACE                             | Pause (pressing again unpauses).                                                                                                                                                                                                              |
+| mpv | .                                     | Step forward. Pressing once will pause, every consecutive press will play one frame and then go into pause mode again.                                                                                                                        |
+| mpv |                                       |                                                                                                                                                                                                                                               |
+| mpv | ,                                     | Step backward. Pressing once will pause, every consecutive press will play one frame in reverse and then go into pause mode again.                                                                                                            |
+| mpv | q                                     | Stop playing and quit.                                                                                                                                                                                                                        |
+| mpv | Q                                     | Like q, but store the current playback position. Playing the same file later will resume at the old playback position if possible.                                                                                                            |
+| mpv | / and *                               | Decrease/increase volume.                                                                                                                                                                                                                     |
+| mpv | 9 and 0                               | Decrease/increase volume.                                                                                                                                                                                                                     |
+| mpv | m                                     | Mute sound.                                                                                                                                                                                                                                   |
+| mpv | _                                     | Cycle through the available video tracks.                                                                                                                                                                                                     |
+| mpv | #                                     | Cycle through the available audio tracks.                                                                                                                                                                                                     |
+| mpv | f                                     | Toggle fullscreen (see also --fs).                                                                                                                                                                                                            |
+| mpv | ESC                                   | Exit fullscreen mode.                                                                                                                                                                                                                         |
+| mpv | T                                     | Toggle stay-on-top (see also --ontop).                                                                                                                                                                                                        |
+| mpv | w and W                               | Decrease/increase pan-and-scan range. The e key does the same as W currently, but use is discouraged.                                                                                                                                         |
+| mpv | o (also P)                            | Show progression bar, elapsed time and total duration on the OSD.                                                                                                                                                                             |
+| mpv | O                                     | Toggle OSD states between normal and playback time/duration.                                                                                                                                                                                  |
+| mpv | v                                     | Toggle subtitle visibility.                                                                                                                                                                                                                   |
+| mpv | j and J                               | Cycle through the available subtitles.                                                                                                                                                                                                        |
+| mpv | z and Z                               | Adjust subtitle delay by +/- 0.1 seconds. The x key does the same as Z currently, but use is discouraged.                                                                                                                                     |
+| mpv | l                                     | Set/clear A-B loop points. See ab-loop command for details.                                                                                                                                                                                   |
+| mpv | L                                     | Toggle infinite looping.                                                                                                                                                                                                                      |
+| mpv | Ctrl + and Ctrl -                     | Adjust audio delay (A/V sync) by +/- 0.1 seconds.                                                                                                                                                                                             |
+| mpv | u                                     | Switch between applying no style overrides to SSA/ASS subtitles, and overriding them almost completely with the normal subtitle style. See --sub-ass-override for more info.                                                                  |
+| mpv | V                                     | Toggle subtitle VSFilter aspect compatibility mode. See --sub-ass-vsfilter-aspect-compat for more info.                                                                                                                                       |
+| mpv | r and R                               | Move subtitles up/down. The t key does the same as R currently, but use is discouraged.                                                                                                                                                       |
+| mpv | s                                     | Take a screenshot.                                                                                                                                                                                                                            |
+| mpv | S                                     | Take a screenshot, without subtitles. (Whether this works depends on VO driver support.)                                                                                                                                                      |
+| mpv | Ctrl s                                | Take a screenshot, as the window shows it (with subtitles, OSD, and scaled video).                                                                                                                                                            |
+| mpv | PGUP and PGDWN                        | Seek to the beginning of the previous/next chapter. In most cases, "previous" will actually go to the beginning of the current chapter; see --chapter-seek-threshold.                                                                         |
+| mpv | Shift+PGUP and Shift+PGDWN            | Seek backward or forward by 10 minutes. (This used to be mapped to PGUP/PGDWN without Shift.)                                                                                                                                                 |
+| mpv | d                                     | Activate/deactivate deinterlacer.                                                                                                                                                                                                             |
+| mpv | A                                     | Cycle aspect ratio override.                                                                                                                                                                                                                  |
+| mpv | Ctrl h                                | Toggle hardware video decoding on/off.                                                                                                                                                                                                        |
+| mpv | Alt+LEFT, Alt+RIGHT, Alt+UP, Alt+DOWN | Move the video rectangle (panning).                                                                                                                                                                                                           |
+| mpv | Alt + and Alt -                       | Combining Alt with the + or - keys changes video zoom.                                                                                                                                                                                        |
+| mpv | Alt+BACKSPACE                         | Reset the pan/zoom settings.                                                                                                                                                                                                                  |
+| mpv | F8                                    | Show the playlist and the current position in it (useful only if a UI window is used, broken on the terminal).                                                                                                                                |
+| mpv | F9                                    | Show the list of audio and subtitle streams (useful only if a UI window is used, broken on the terminal).                                                                                                                                     |
+| mpv | i and I                               | Show/toggle an overlay displaying statistics about the currently playing file such as codec, framerate, number of dropped frames and so on. See STATS for more information.                                                                   |
+| mpv | 1 and 2                               | Adjust contrast.                                                                                                                                                                                                                              |
+| mpv | 3 and 4                               | Adjust brightness.                                                                                                                                                                                                                            |
+| mpv | 5 and 6                               | Adjust gamma.                                                                                                                                                                                                                                 |
+| mpv | 7 and 8                               | Adjust saturation.                                                                                                                                                                                                                            |
+| mpv | Alt+0 (and command+0 on OSX)          | Resize video window to half its original size.                                                                                                                                                                                                |
+| mpv | Alt+1 (and command+1 on OSX)          | Resize video window to its original size.                                                                                                                                                                                                     |
+| mpv | Alt+2 (and command+2 on OSX)          | Resize video window to double its original size.                                                                                                                                                                                              |
+| mpv | command + f (OSX only)                | Toggle fullscreen (see also --fs).                                                                                                                                                                                                            |
+| App     | Key              | Description                                                 |
+| ncmpcpp |                  |                                                             |
+| ncmpcpp | Keys             | Movement                                                    |
+| ncmpcpp | Up k             | Move cursor up                                              |
+| ncmpcpp | Down j           | Move cursor down                                            |
+| ncmpcpp | [                | Move cursor up one album                                    |
+| ncmpcpp | ]                | Move cursor down one album                                  |
+| ncmpcpp | {                | Move cursor up one artist                                   |
+| ncmpcpp | }                | Move cursor down one artist                                 |
+| ncmpcpp | Page Up          | Page up                                                     |
+| ncmpcpp | Page Down        | Page down                                                   |
+| ncmpcpp | Home             | Home                                                        |
+| ncmpcpp | End              | End                                                         |
+| ncmpcpp | Tab              | Switch to next screen in sequence                           |
+| ncmpcpp | Shift-Tab        | Switch to previous screen in sequence                       |
+| ncmpcpp | F1               | Show help                                                   |
+| ncmpcpp | 1                | Show playlist                                               |
+| ncmpcpp | 2                | Show browser                                                |
+| ncmpcpp | 3                | Show search engine                                          |
+| ncmpcpp | 4                | Show media library                                          |
+| ncmpcpp | 5                | Show playlist editor                                        |
+| ncmpcpp | 6                | Show tag editor                                             |
+| ncmpcpp | 7                | Show outputs                                                |
+| ncmpcpp | 8                | Show music visualizer                                       |
+| ncmpcpp | =                | Show clock                                                  |
+| ncmpcpp | @                | Show server info                                            |
+| ncmpcpp | Keys             | Global                                                      |
+| ncmpcpp | s                | Stop                                                        |
+| ncmpcpp | p                | Pause                                                       |
+| ncmpcpp | >                | Next track                                                  |
+| ncmpcpp | <                | Previous track                                              |
+| ncmpcpp | Ctrl-H Backspace | Replay playing song                                         |
+| ncmpcpp | f                | Seek forward in playing song                                |
+| ncmpcpp | b                | Seek backward in playing song                               |
+| ncmpcpp | - Left           | Decrease volume by 2%                                       |
+| ncmpcpp | Right +          | Increase volume by 2%                                       |
+| ncmpcpp | t                | Toggle space mode (select/add)                              |
+| ncmpcpp | T                | Toggle add mode (add or remove/always add)                  |
+| ncmpcpp | vertical bar     | Toggle mouse support                                        |
+| ncmpcpp | v                | Reverse selection                                           |
+| ncmpcpp | V                | Remove selection                                            |
+| ncmpcpp | B                | Select songs of album around the cursor                     |
+| ncmpcpp | a                | Add selected items to playlist                              |
+| ncmpcpp | `                | Add random items to playlist                                |
+| ncmpcpp | r                | Toggle repeat mode                                          |
+| ncmpcpp | z                | Toggle random mode                                          |
+| ncmpcpp | y                | Toggle single mode                                          |
+| ncmpcpp | R                | Toggle consume mode                                         |
+| ncmpcpp | Y                | Toggle replay gain mode                                     |
+| ncmpcpp | #                | Toggle bitrate visibility                                   |
+| ncmpcpp | Z                | Shuffle playlist                                            |
+| ncmpcpp | x                | Toggle crossfade mode                                       |
+| ncmpcpp | X                | Set crossfade                                               |
+| ncmpcpp | u                | Start music database update                                 |
+| ncmpcpp | :                | Execute command                                             |
+| ncmpcpp | Ctrl-F           | Apply filter                                                |
+| ncmpcpp | /                | Find item forward                                           |
+| ncmpcpp | ?                | Find item backward                                          |
+| ncmpcpp | ,                | Jump to previous found item                                 |
+| ncmpcpp | .                | Jump to next found item                                     |
+| ncmpcpp | w                | Toggle find mode (normal/wrapped)                           |
+| ncmpcpp | G                | Locate song in browser                                      |
+| ncmpcpp | ~                | Locate song in media library                                |
+| ncmpcpp | Ctrl-L           | Lock/unlock current screen                                  |
+| ncmpcpp | Left h           | Switch to master screen (left one)                          |
+| ncmpcpp | Right l          | Switch to slave screen (right one)                          |
+| ncmpcpp | E                | Locate song in tag editor                                   |
+| ncmpcpp | P                | Toggle display mode                                         |
+| ncmpcpp | \                | Toggle user interface                                       |
+| ncmpcpp | !                | Toggle displaying separators between albums                 |
+| ncmpcpp | g                | Jump to given position in playing song (formats: mm:ss, x%) |
+| ncmpcpp | i                | Show song info                                              |
+| ncmpcpp | I                | Show artist info                                            |
+| ncmpcpp | L                | Toggle lyrics fetcher                                       |
+| ncmpcpp | F                | Toggle fetching lyrics for playing songs in background      |
+| ncmpcpp | q                | Quit                                                        |
+| ncmpcpp | Keys             | Playlist                                                    |
+| ncmpcpp | Enter            | Play selected item                                          |
+| ncmpcpp | Delete           | Delete selected item(s) from playlist                       |
+| ncmpcpp | c                | Clear playlist                                              |
+| ncmpcpp | C                | Clear playlist except selected item(s)                      |
+| ncmpcpp | Ctrl-P           | Set priority of selected items                              |
+| ncmpcpp | Ctrl-K m         | Move selected item(s) up                                    |
+| ncmpcpp | n Ctrl-J         | Move selected item(s) down                                  |
+| ncmpcpp | M                | Move selected item(s) to cursor position                    |
+| ncmpcpp | A                | Add item to playlist                                        |
+| ncmpcpp | e                | Edit song                                                   |
+| ncmpcpp | S                | Save playlist                                               |
+| ncmpcpp | Ctrl-V           | Sort playlist                                               |
+| ncmpcpp | Ctrl-R           | Reverse playlist                                            |
+| ncmpcpp | o                | Jump to current song                                        |
+| ncmpcpp | U                | Toggle playing song centering                               |
+| ncmpcpp | Keys             | Browser                                                     |
+| ncmpcpp | Enter            | Enter directory/Add item to playlist and play it            |
+| ncmpcpp | Space            | Add item to playlist/select it                              |
+| ncmpcpp | e                | Edit song                                                   |
+| ncmpcpp | e                | Edit directory name                                         |
+| ncmpcpp | e                | Edit playlist name                                          |
+| ncmpcpp | 2                | Browse MPD database/local filesystem                        |
+| ncmpcpp | `                | Toggle sort mode                                            |
+| ncmpcpp | o                | Locate playing song                                         |
+| ncmpcpp | Ctrl-H Backspace | Jump to parent directory                                    |
+| ncmpcpp | Delete           | Delete selected items from disk                             |
+| ncmpcpp | G                | Jump to playlist editor (playlists only)                    |
+| ncmpcpp | Keys             | Search engine                                               |
+| ncmpcpp | Enter            | Add item to playlist and play it/change option              |
+| ncmpcpp | Space            | Add item to playlist                                        |
+| ncmpcpp | e                | Edit song                                                   |
+| ncmpcpp | y                | Start searching                                             |
+| ncmpcpp | 3                | Reset search constraints and clear results                  |
+| ncmpcpp | Keys             | Media library                                               |
+| ncmpcpp | 4                | Switch between two/three columns mode                       |
+| ncmpcpp | Left h           | Previous column                                             |
+| ncmpcpp | Right l          | Next column                                                 |
+| ncmpcpp | Enter            | Add item to playlist and play it                            |
+| ncmpcpp | Space            | Add item to playlist                                        |
+| ncmpcpp | e                | Edit song                                                   |
+| ncmpcpp | e                | Edit tag (left column)/album (middle/right column)          |
+| ncmpcpp | `                | Toggle type of tag used in left column                      |
+| ncmpcpp | m                | Toggle sort mode                                            |
+| ncmpcpp | Keys             | Playlist editor                                             |
+| ncmpcpp | Left h           | Previous column                                             |
+| ncmpcpp | Right l          | Next column                                                 |
+| ncmpcpp | Enter            | Add item to playlist and play it                            |
+| ncmpcpp | Space            | Add item to playlist/select it                              |
+| ncmpcpp | e                | Edit song                                                   |
+| ncmpcpp | e                | Edit playlist name                                          |
+| ncmpcpp | Ctrl-K m         | Move selected item(s) up                                    |
+| ncmpcpp | n Ctrl-J         | Move selected item(s) down                                  |
+| ncmpcpp | Delete           | Delete selected playlists (left column)                     |
+| ncmpcpp | C                | Clear playlist except selected item(s)                      |
+| ncmpcpp | Ctrl-P           | Set priority of selected items                              |
+| ncmpcpp | Ctrl-K m         | Move selected item(s) up                                    |
+| ncmpcpp | n Ctrl-J         | Move selected item(s) down                                  |
+| ncmpcpp | M                | Move selected item(s) to cursor position                    |
+| ncmpcpp | A                | Add item to playlist                                        |
+| ncmpcpp | e                | Edit song                                                   |
+| ncmpcpp | S                | Save playlist                                               |
+| ncmpcpp | Ctrl-V           | Sort playlist                                               |
+| ncmpcpp | Ctrl-R           | Reverse playlist                                            |
+| ncmpcpp | o                | Jump to current song                                        |
+| ncmpcpp | U                | Toggle playing song centering                               |
+| ncmpcpp | Keys             | Browser                                                     |
+| ncmpcpp | Enter            | Enter directory/Add item to playlist and play it            |
+| ncmpcpp | Space            | Add item to playlist/select it                              |
+| ncmpcpp | e                | Edit song                                                   |
+| ncmpcpp | e                | Edit directory name                                         |
+| ncmpcpp | e                | Edit playlist name                                          |
+| ncmpcpp | 2                | Browse MPD database/local filesystem                        |
+| ncmpcpp | `                | Toggle sort mode                                            |
+| ncmpcpp | o                | Locate playing song                                         |
+| ncmpcpp | Ctrl-H Backspace | Jump to parent directory                                    |
+| ncmpcpp | Delete           | Delete selected items from disk                             |
+| ncmpcpp | G                | Jump to playlist editor (playlists only)                    |
+| ncmpcpp | Keys             | Search engine                                               |
+| ncmpcpp | Enter            | Add item to playlist and play it/change option              |
+| ncmpcpp | Space            | Add item to playlist                                        |
+| ncmpcpp | e                | Edit song                                                   |
+| ncmpcpp | y                | Start searching                                             |
+| ncmpcpp | 3                | Reset search constraints and clear results                  |
+| ncmpcpp | Keys             | Media library                                               |
+| ncmpcpp | 4                | Switch between two/three columns mode                       |
+| ncmpcpp | Left h           | Previous column                                             |
+| ncmpcpp | Right l          | Next column                                                 |
+| ncmpcpp | Enter            | Add item to playlist and play it                            |
+| ncmpcpp | Space            | Add item to playlist                                        |
+| ncmpcpp | e                | Edit song                                                   |
+| ncmpcpp | e                | Edit tag (left column)/album (middle/right column)          |
+| ncmpcpp | `                | Toggle type of tag used in left column                      |
+| ncmpcpp | m                | Toggle sort mode                                            |
+| ncmpcpp | Keys             | Playlist editor                                             |
+| ncmpcpp | Left h           | Previous column                                             |
+| ncmpcpp | Right l          | Next column                                                 |
+| ncmpcpp | Enter            | Add item to playlist and play it                            |
+| ncmpcpp | Space            | Add item to playlist/select it                              |
+| ncmpcpp | e                | Edit song                                                   |
+| ncmpcpp | e                | Edit playlist name                                          |
+| ncmpcpp | Ctrl-K m         | Move selected item(s) up                                    |
+| ncmpcpp | n Ctrl-J         | Move selected item(s) down                                  |
+| ncmpcpp | Delete           | Delete selected playlists (left column)                     |
+| ncmpcpp | Delete           | Delete selected item(s) from playlist (right column)        |
+| ncmpcpp | c                | Clear playlist                                              |
+| ncmpcpp | C                | Clear playlist except selected items                        |
+| ncmpcpp | Keys             | Lyrics                                                      |
+| ncmpcpp | Space            | Toggle reloading lyrics upon song change                    |
+| ncmpcpp | e                | Open lyrics in external editor                              |
+| ncmpcpp | `                | Refetch lyrics                                              |
+| ncmpcpp | Keys             | Tiny tag editor                                             |
+| ncmpcpp | Enter            | Edit tag                                                    |
+| ncmpcpp | y                | Save                                                        |
+| ncmpcpp | Keys             | Tag editor                                                  |
+| ncmpcpp | Enter            | Edit tag/filename of selected item (left column)            |
+| ncmpcpp | Enter            | Perform operation on all/selected items (middle column)     |
+| ncmpcpp | Space            | Switch to albums/directories view (left column)             |
+| ncmpcpp | Space            | Select item (right column)                                  |
+| ncmpcpp | Left h           | Previous column                                             |
+| ncmpcpp | Right l          | Next column                                                 |
+| ncmpcpp | Ctrl-H Backspace | Jump to parent directory (left column, directories view)    |
+| App      | Key                     | Description                                       | Detail               |
+| org-mode | =M-x org-info=          | To read the on-line documentation try             |                      |
+| org-mode | =TAB=                   | rotate current subtree between states             |                      |
+| org-mode | =S-TAB=                 | rotate entire buffer between states               |                      |
+| org-mode | =C-u C-u TAB=           | restore property-dependent startup visibility     |                      |
+| org-mode | =C-u C-u C-u TAB=       | show the whole file, including drawers            |                      |
+| org-mode | =C-c C-r=               | reveal context around point                       |                      |
+| org-mode | =C-c C-n/p=             | next/previous heading                             |                      |
+| org-mode | =C-c C-f/b=             | next/previous heading, same level                 |                      |
+| org-mode | =C-c C-u=               | backward to higher level heading                  |                      |
+| org-mode | =C-c C-j=               | jump to another place in document                 |                      |
+| org-mode | =S-UP/DOWN=             | previous/next plain list item                     |                      |
+| org-mode | =M-RET=                 | insert new heading/item at current level          |                      |
+| org-mode | =C-RET=                 | insert new heading after subtree                  |                      |
+| org-mode | =M-S-RET=               | insert new TODO entry/checkbox item               |                      |
+| org-mode | =C-S-RET=               | insert TODO entry/ckbx after subtree              |                      |
+| org-mode | =C-c -=                 | turn (head)line into item, cycle item type        |                      |
+| org-mode | =C-c *=                 | turn item/line into headline                      |                      |
+| org-mode | =M-LEFT/RIGHT=          | promote/demote heading                            |                      |
+| org-mode | =M-S-LEFT/RIGHT=        | promote/demote current subtree                    |                      |
+| org-mode | =M-S-UP/DOWN=           | move subtree/list item up/down                    |                      |
+| org-mode | =C-c ^=                 | sort subtree/region/plain-list                    |                      |
+| org-mode | =C-c C-x c=             | clone a subtree                                   |                      |
+| org-mode | =C-c C-x v=             | copy visible text                                 |                      |
+| org-mode | =C-c C-x C-w/M-w=       | kill/copy subtree                                 |                      |
+| org-mode | =C-c C-x C-y or C-y=    | yank subtree                                      |                      |
+| org-mode | =C-x n s/w=             | narrow buffer to subtree / widen                  |                      |
+| org-mode | =C-c c=                 | capture a new item (C-u C-u = goto last)          |                      |
+| org-mode | =C-c C-w=               | refile subtree (C-u C-u = goto last)              |                      |
+| org-mode | =C-c C-x C-a=           | archive subtree using the default command         |                      |
+| org-mode | =C-c C-x C-s=           | move subtree to archive file                      |                      |
+| org-mode | =C-c C-x a/A=           | toggle ARCHIVE tag / to ARCHIVE sibling           |                      |
+| org-mode | =C-TAB=                 | force cycling of an ARCHIVEd tree                 |                      |
+| org-mode | =C-c /=                 | construct a sparse tree by various criteria       |                      |
+| org-mode | =C-c / t/T=             | view TODO's in sparse tree                        |                      |
+| org-mode | =C-c a t=               | global TODO list in agenda mode                   |                      |
+| org-mode | =C-c a L=               | time sorted view of current org file              |                      |
+| org-mode | =C-c C-c=               | re-align the table without moving the cursor      |                      |
+| org-mode | =TAB=                   | re-align the table, move to next field            |                      |
+| org-mode | =S-TAB=                 | move to previous field                            |                      |
+| org-mode | =RET=                   | re-align the table, move to next row              |                      |
+| org-mode | =M-a/e=                 | move to beginning/end of field                    |                      |
+| org-mode | =M-LEFT/RIGHT=          | move the current column left                      |                      |
+| org-mode | =M-S-LEFT=              | kill the current column                           |                      |
+| org-mode | =M-S-RIGHT=             | insert new column to left of cursor position      |                      |
+| org-mode | =M-UP/DOWN=             | move the current row up/down                      |                      |
+| org-mode | =M-S-UP=                | kill the current row or horizontal line           |                      |
+| org-mode | =M-S-DOWN=              | insert new row above the current row              |                      |
+| org-mode | =C-c -=                 | insert hline below (C-u : above) current row      |                      |
+| org-mode | =C-c RET=               | insert hline and move to line below it            |                      |
+| org-mode | =C-c ^=                 | sort lines in region                              |                      |
+| org-mode | =C-c C-x C-w/M-w/C-y=   | cut/copy/paste rectangular region                 |                      |
+| org-mode | =C-c C-q=               | fill paragraph across selected cells              |                      |
+| org-mode | =C-c `=                 | edit the current field in a separate window       |                      |
+| org-mode | =C-u TAB=               | make current field fully visible                  |                      |
+| org-mode | =M-x org-table-export=  | export as tab-separated file                      |                      |
+| org-mode | =M-x org-table-import=  | import tab-separated file                         |                      |
+| org-mode | =C-c +=                 | sum numbers in current column/rectangle           |                      |
+| org-mode | =C-c ~=                 | insert a new table.el table                       |                      |
+| org-mode | =C-c C-c=               | recognize existing table.el table                 |                      |
+| org-mode | =C-c ~=                 | convert table (Org-mode <-> table.el)             |                      |
+| org-mode | ~=~                     | apply current column formula                      |                      |
+| org-mode | ~C-c =~                 | set and eval column formula                       |                      |
+| org-mode | ~C-u C-c #~             | set and eval field formula                        |                      |
+| org-mode | =C-c *=                 | re-apply all stored equations to current line     |                      |
+| org-mode | =C-u C-c *=             | re-apply all stored equations to entire table     |                      |
+| org-mode | =C-u C-u C-c *=         | iterate table to stability                        |                      |
+| org-mode | =C-#=                   | rotate calculation mark through # * ! ^ _         |                      |
+| org-mode | =C-c ?=                 | show line, column, formula reference              |                      |
+| org-mode | =C-c }/{=               | toggle grid / debugger                            |                      |
+| org-mode | =C-c '=                 | edit formulas in separate buffer                  |                      |
+| org-mode | =C-c C-c=               | exit and install new formulas                     |                      |
+| org-mode | =C-u C-c C-c=           | exit, install, and apply new formulas             |                      |
+| org-mode | =C-c C-q=               | abort                                             |                      |
+| org-mode | =C-c C-r=               | toggle reference style                            |                      |
+| org-mode | =TAB=                   | pretty-print Lisp formula                         |                      |
+| org-mode | =M-TAB=                 | complete Lisp symbol                              |                      |
+| org-mode | =S-cursor=              | shift reference point                             |                      |
+| org-mode | =M-up/down=             | shift test line for column references             |                      |
+| org-mode | =M-S-up/down=           | scroll the window showing the table               |                      |
+| org-mode | =C-c }=                 | toggle table coordinate grid                      |                      |
+| org-mode | =C-c l=                 | globally store link to the current location       |                      |
+| org-mode | =C-c C-l=               | insert a link (TAB completes stored links)        |                      |
+| org-mode | =C-u C-c C-l=           | insert file link with file name completion        |                      |
+| org-mode | =C-c C-l=               | edit (also hidden part of) link at point          |                      |
+| org-mode | =C-c C-o=               | open file links in emacs                          |                      |
+| org-mode | =C-u C-c C-o=           | ...force open in emacs/other window               |                      |
+| org-mode | =mouse-1/2=             | open link at point                                |                      |
+| org-mode | =mouse-3=               | ...force open in emacs/other window               |                      |
+| org-mode | =C-c %=                 | record a position in mark ring                    |                      |
+| org-mode | =C-c &=                 | jump back to last followed link(s)                |                      |
+| org-mode | =C-c C-x C-n=           | find next link                                    |                      |
+| org-mode | =C-c C-x C-p=           | find previous link                                |                      |
+| org-mode | =C-c '=                 | edit code snippet of file at point                |                      |
+| org-mode | =C-c C-x C-v=           | toggle inline display of linked images            |                      |
+| org-mode | =C-c C-c=               | execute code block at point                       |                      |
+| org-mode | =C-c C-o=               | open results of code block at point               |                      |
+| org-mode | =C-c C-v c=             | check code block at point for errors              |                      |
+| org-mode | =C-c C-v j=             | insert a header argument with completion          |                      |
+| org-mode | =C-c C-v v=             | view expanded body of code block at point         |                      |
+| org-mode | =C-c C-v I=             | view information about code block at point        |                      |
+| org-mode | =C-c C-v g=             | go to named code block                            |                      |
+| org-mode | =C-c C-v r=             | go to named result                                |                      |
+| org-mode | =C-c C-v u=             | go to the head of the current code block          |                      |
+| org-mode | =C-c C-v n=             | go to the next code block                         |                      |
+| org-mode | =C-c C-v p=             | go to the previous code block                     |                      |
+| org-mode | =C-c C-v d=             | demarcate a code block                            |                      |
+| org-mode | =C-c C-v x=             | execute the next key sequence in the code edit bu |                      |
+| org-mode | =C-c C-v b=             | execute all code blocks in current buffer         |                      |
+| org-mode | =C-c C-v s=             | execute all code blocks in current subtree        |                      |
+| org-mode | =C-c C-v t=             | tangle code blocks in current file                |                      |
+| org-mode | =C-c C-v f=             | tangle code blocks in supplied file               |                      |
+| org-mode | =C-c C-v i=             | ingest all code blocks in supplied file into the  |                      |
+| org-mode | =C-c C-v z=             | switch to the session of the current code block   |                      |
+| org-mode | =C-c C-v l=             | load the current code block into a session        |                      |
+| org-mode | =C-c C-v a=             | view sha1 hash of the current code block          |                      |
+| org-mode | =M-TAB=                 | complete word at point                            |                      |
+| org-mode | =C-c C-t=               | rotate the state of the current item              |                      |
+| org-mode | =S-LEFT/RIGHT=          | select next/previous state                        |                      |
+| org-mode | =C-S-LEFT/RIGHT=        | select next/previous set                          |                      |
+| org-mode | =C-c C-x o=             | toggle ORDERED property                           |                      |
+| org-mode | =C-c C-v=               | view TODO items in a sparse tree                  |                      |
+| org-mode | =C-3 C-c C-v=           | view 3rd TODO keyword's sparse tree               |                      |
+| org-mode | =C-c , [ABC]=           | set the priority of the current item              |                      |
+| org-mode | =C-c , SPC=             | remove priority cookie from current item          |                      |
+| org-mode | =S-UP/DOWN=             | raise/lower priority of current item              |                      |
+| org-mode | =M-S-RET=               | insert new checkbox item in plain list            |                      |
+| org-mode | =C-c C-x C-b=           | toggle checkbox(es) in region/entry/at point      |                      |
+| org-mode | =C-c C-c=               | toggle checkbox at point                          |                      |
+| org-mode | =C-c #=                 | update checkbox statistics (C-u : whole file)     |                      |
+| org-mode | =C-c C-q=               | set tags for current heading                      |                      |
+| org-mode | =C-u C-c C-q=           | realign tags in all headings                      |                      |
+| org-mode | =C-c \\=                | create sparse tree with matching tags             |                      |
+| org-mode | =C-c C-o=               | globally (agenda) match tags at cursor            |                      |
+| org-mode | =C-c C-x p/e=           | set property/effort                               |                      |
+| org-mode | =C-c C-c=               | special commands in property lines                |                      |
+| org-mode | =S-left/right=          | next/previous allowed value                       |                      |
+| org-mode | =C-c C-x C-c=           | turn on column view                               |                      |
+| org-mode | =C-c C-x i=             | capture columns view in dynamic block             |                      |
+| org-mode | =q=                     | quit column view                                  |                      |
+| org-mode | =v=                     | show full value                                   |                      |
+| org-mode | =e=                     | edit value                                        |                      |
+| org-mode | =n/p= or =S-left/right= | next/previous allowed value                       |                      |
+| org-mode | =a=                     | edit allowed values list                          |                      |
+| org-mode | => / <=                 | make column wider/narrower                        |                      |
+| org-mode | =M-left/right=          | move column left/right                            |                      |
+| org-mode | =M-S-right=             | add new column                                    |                      |
+| org-mode | =M-S-left=              | Delete current column                             |                      |
+| org-mode | =C-c .=                 | prompt for date and insert timestamp              |                      |
+| org-mode | =C-u C-c .=             | like C-c . but insert date and time format        |                      |
+| org-mode | =C-c !=                 | like C-c . but make stamp inactive                |                      |
+| org-mode | =C-c C-d=               | insert DEADLINE timestamp                         |                      |
+| org-mode | =C-c C-s=               | insert SCHEDULED timestamp                        |                      |
+| org-mode | =C-c / d=               | create sparse tree with all deadlines due         |                      |
+| org-mode | =C-c C-y=               | the time between 2 dates in a time range          |                      |
+| org-mode | =S-RIGHT/LEFT=          | change timestamp at cursor ±1 day                 |                      |
+| org-mode | =S-UP/DOWN=             | change year/month/day at cursor by ±1             |                      |
+| org-mode | =C-c >=                 | access the calendar for the current date          |                      |
+| org-mode | =C-c <=                 | insert timestamp matching date in calendar        |                      |
+| org-mode | =C-c C-o=               | access agenda for current date                    |                      |
+| org-mode | =mouse-1/RET=           | select date while prompted                        |                      |
+| org-mode | =C-c C-x C-t=           | toggle custom format display for dates/times      |                      |
+| org-mode | =C-c C-x C-i=           | start clock on current item                       |                      |
+| org-mode | =C-c C-x C-o/x=         | stop/cancel clock on current item                 |                      |
+| org-mode | =C-c C-x C-d=           | display total subtree times                       |                      |
+| org-mode | =C-c C-c=               | remove displayed times                            |                      |
+| org-mode | =C-c C-x C-r=           | insert/update table with clock report             |                      |
+| org-mode | =C-c [=                 | add/move current file to front of agenda          |                      |
+| org-mode | =C-c ]=                 | remove current file from your agenda              |                      |
+| org-mode | =C-'=                   | cycle through agenda file list                    |                      |
+| org-mode | =C-c C-x </>=           | set/remove restriction lock                       |                      |
+| org-mode | =C-c a a=               | compile agenda for the current week               |                      |
+| org-mode | =C-c a t=               | compile global TODO list                          |                      |
+| org-mode | =C-c a T=               | compile TODO list for specific keyword            |                      |
+| org-mode | =C-c a m=               | match tags, TODO kwds, properties                 |                      |
+| org-mode | =C-c a M=               | match only in TODO entries                        |                      |
+| org-mode | =C-c a #=               | find stuck projects                               |                      |
+| org-mode | =C-c a L=               | show timeline of current org file                 |                      |
+| org-mode | =C-c a C=               | configure custom commands                         |                      |
+| org-mode | =C-c C-o=               | agenda for date at cursor                         |                      |
+| org-mode | =SPC/mouse-3=           | show original location of item                    |                      |
+| org-mode | =L=                     | show and recenter window                          |                      |
+| org-mode | =TAB/mouse-2=           | goto original location in other window            |                      |
+| org-mode | =RET=                   | goto original location, delete other windows      |                      |
+| org-mode | =C-c C-x b=             | show subtree in indirect buffer, ded.\ frame      |                      |
+| org-mode | =F=                     | toggle follow-mode                                |                      |
+| org-mode | =o=                     | delete other windows                              |                      |
+| org-mode | =v=                     | view mode dispatcher                              |                      |
+| org-mode | =d w vm vy vSP=         | switch to day/week/month/year/def view            |                      |
+| org-mode | =D / G / K=             | toggle diary entries / time grid / habits         |                      |
+| org-mode | =E / R=                 | toggle entry text / clock report                  |                      |
+| org-mode | =l / v l/L/c=           | toggle display of logbook entries                 |                      |
+| org-mode | =v a/A=                 | toggle inclusion of archived trees/files          |                      |
+| org-mode | =r / g=                 | refresh agenda buffer with any changes            |                      |
+| org-mode | =/=                     | filter with respect to a tag                      |                      |
+| org-mode | =s=                     | save all org-mode buffers                         |                      |
+| org-mode | =f / b=                 | display next/previous day,week,...                |                      |
+| org-mode | =. / j=                 | goto today / some date (prompt)                   |                      |
+| org-mode | =0-9=                   | digit argument                                    |                      |
+| org-mode | =t=                     | change state of current TODO item                 |                      |
+| org-mode | =C-k=                   | kill item and source                              |                      |
+| org-mode | =/ a=                   | archive default                                   |                      |
+| org-mode | =C-c C-w=               | refile the subtree                                |                      |
+| org-mode | =: / T=                 | set/show tags of current headline                 |                      |
+| org-mode | =e=                     | set effort property (prefix=nth)                  |                      |
+| org-mode | =, / P=                 | set / compute priority of current item            |                      |
+| org-mode | =S-UP/DOWN=             | raise/lower priority of current item              |                      |
+| org-mode | =C-c C-a=               | run an attachment command                         |                      |
+| org-mode | =C-c C-s/d=             | schedule/set deadline for this item               |                      |
+| org-mode | =S-LEFT/RIGHT=          | change timestamp one day earlier/later            |                      |
+| org-mode | =>=                     | change timestamp to today                         |                      |
+| org-mode | =i=                     | insert new entry into diary                       |                      |
+| org-mode | =I / O / X=             | start/stop/cancel the clock on current item       |                      |
+| org-mode | =J=                     | jump to running clock entry                       |                      |
+| org-mode | =m / u / B=             | mark / unmark / execute bulk action               |                      |
+| org-mode | =C-c C-o=               | follow one or offer all links in current entry    |                      |
+| org-mode | =c=                     | find agenda cursor date in calendar               |                      |
+| org-mode | =c=                     | compute agenda for calendar cursor date           |                      |
+| org-mode | =M=                     | show phases of the moon                           |                      |
+| org-mode | =S=                     | show sunrise/sunset times                         |                      |
+| org-mode | =H=                     | show holidays                                     |                      |
+| org-mode | =C=                     | convert date to other calendars                   |                      |
+| org-mode | =q=                     | quit agenda, remove agenda buffer                 |                      |
+| org-mode | =x=                     | exit agenda, remove all agenda buffers            |                      |
+| org-mode | =C-c C-x C-l=           | preview LaTeX fragment                            |                      |
+| org-mode | =TAB=                   | expand abbreviation (cdlatex-mode)                |                      |
+| org-mode | =` / '=                 | insert/modify math symbol (cdlatex-mode)          |                      |
+| org-mode | =C-c C-x [=             | insert citation using RefTeX                      |                      |
+| org-mode | =C-c C-e=               | export/publish dispatcher                         |                      |
+| org-mode | =C-c C-e v=             | export visible part only                          |                      |
+| org-mode | =C-c C-e t=             | insert template of export options                 |                      |
+| org-mode | =C-c :=                 | toggle fixed width for entry or region            |                      |
+| org-mode | =C-c C-x {\tt\char`\}=  | toggle pretty display of scripts, entities        |                      |
+| org-mode | =C-c ;=                 | toggle COMMENT keyword on entry                   |                      |
+| org-mode | =C-c C-x C-u=           | update dynamic block at point                     |                      |
+| org-mode | =C-u C-c C-x C-u=       | update all dynamic blocks                         |                      |
+| App      | Shortcut                | Description                                       | Detail               |
+| ranger   | `Q`                     | Quit Ranger                                       | 这里可以是备注之类的    |
+| ranger   | `R`                     | Reload current directory                          |                      |
+| ranger   | `?`                     | Ranger Manpages / Shortcuts                       |                      |
+| ranger   | `k`                     | up                                                |                      |
+| ranger   | `j`                     | down                                              |                      |
+| ranger   | `h`                     | parent directory                                  |                      |
+| ranger   | `l`                     | subdirectory                                      |                      |
+| ranger   | `gg`                    | go to top of list                                 |                      |
+| ranger   | `G`                     | go t bottom of list                               |                      |
+| ranger   | `J`                     | half page down                                    |                      |
+| ranger   | `K`                     | half page up                                      |                      |
+| ranger   | `H`                     | History Back                                      |                      |
+| ranger   | `L`                     | History Forward                                   |                      |
+| ranger   | `<Enter>`               | Open                                              |                      |
+| ranger   | `r`                     | open file with                                    |                      |
+| ranger   | `z`                     | toggle settings                                   |                      |
+| ranger   | `o`                     | change sort order                                 |                      |
+| ranger   | `zh`                    | view hidden files                                 |                      |
+| ranger   | `cw`                    | rename current file                               |                      |
+| ranger   | `yy`                    | yank / copy                                       |                      |
+| ranger   | `/`                     | search for files `:search`                        |                      |
+| ranger   | `n`                     | next match                                        |                      |
+| ranger   | `N``                    | prev match                                        |                      |
+| ranger   | `<delete>`              | Delete                                            |                      |
+| ranger   | `:`                     | Execute Range Command                             |                      |
+| ranger   | `!`                     | Execute Shell Command                             |                      |
+| ranger   | `chmod`                 | Change file Permissions                           |                      |
+| ranger   | `du`                    | Disk Usage Current Directory                      |                      |
+| ranger   | `C-n`                   | Create new tab                                    |                      |
+| ranger   | `C-w`                   | Close current tab                                 |                      |
+| ranger   | tab                     | Next tab                                          |                      |
+| ranger   | shift + tab             | Previous tab                                      |                      |
+| ranger   | alt + [n]               | goto / create [n] tab                             |                      |
+| ranger   | `%f`                    | Substitute highlighted file                       |                      |
+| ranger   | `%d`                    | Substitute current directory                      |                      |
+| ranger   | `%s`                    | Substitute currently selected files               |                      |
+| ranger   | `%t`                    | Substitute currently tagged files                 |                      |
+| ranger   | `:bulkrename %s`        |                                                   |                      |

@@ -1,0 +1,17 @@
+.ssh/ansible.pem
+.ssh/ansible_id_rsa
+.ssh/ata.pem
+.ssh/atareao_id
+.ssh/default.pem
+.ssh/ejemplo
+.ssh/example
+.ssh/id_ed25519
+.ssh/id_ed25519_colaboratorio
+.ssh/id_gitlab
+.ssh/id_rsa
+.ssh/nada
+.ssh/pamusb_rsa
+.ssh/temporal
+.ssh/test
+.ssh/zn_rsa
+.config/rclone/rclone.conf

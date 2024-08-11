@@ -1,0 +1,87 @@
+###############################################################################
+# Sway Theme Settings
+###############################################################################
+
+
+
+###############################################################################
+# Basic Definitions
+###############################################################################
+
+###############################################################################
+# Gaps
+###############################################################################
+
+gaps inner 15
+gaps outer 15
+
+###############################################################################
+# Borders
+###############################################################################
+
+default_border pixel 4
+default_floating_border pixel 5
+
+# border & title.. Must be set to border pixel for gaps to work
+for_window [title="^.*"] border pixel 2, title_format "%class >> %title"
+
+###############################################################################
+# Color Theme
+###############################################################################
+
+# class                 border   backgr.  text    indicator child_border
+
+client.focused          #900000  #94a8a7  #ffffff #cf7479   #cf7479
+client.focused_inactive #445767  #445767  #888888 #6c6e70   #445767
+client.unfocused        #2e3440  #2e3440  #888888 #474d51   #2e3440
+client.urgent           #2f343a  #900000  #ffffff #900000   #2f343a
+client.background       #ffffff
+
+###############################################################################
+# Appearance
+###############################################################################
+
+corner_radius 15
+
+# Window background blur
+blur on
+blur_xray on
+blur_passes 2
+blur_radius 5
+
+# Shadows
+shadows on
+shadows_on_csd on
+shadow_blur_radius 20
+shadow_color #0000007F
+
+# inactive window fade amount. 0.0 = no dimming, 1.0 = fully dimmed
+default_dim_inactive 0.5
+dim_inactive_colors.unfocused #000000FF
+dim_inactive_colors.urgent #900000FF
+
+#layer_effects "waybar" blur enable; shadows enable; corner_radius 10
+
+
+###############################################################################
+# Gnome Theme Settings
+###############################################################################
+
+# Set Gnome Theme
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Breeze-Dark'
+        gsettings set $gnome-schema icon-theme 'Obsidian'
+        gsettings set $gnome-schema cursor-theme 'Breeze_Snow'
+        gsettings set $gnome-schema font-name 'DejaVu Sans 10'
+        gsettings set $gnome-schema monospace-font-name 'Hack 10'
+}
+
+# Import Gnome settings
+exec_always import-gsettings \
+    gtk-theme:gtk-theme-name \
+    icon-theme:gtk-icon-theme-name \
+    cursor-theme:gtk-cursor-theme-name
+
+exec_always gsettings set org.gnome.desktop.interface \
+    cursor-theme 'Bibata-Modern-Amber'

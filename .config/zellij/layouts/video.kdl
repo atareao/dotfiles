@@ -1,0 +1,20 @@
+layout {
+    pane split_direction="vertical" {
+        pane split_direction="horizontal"{
+            pane {
+                borderless true
+                command "/bin/bash"
+                args "/home/lorenzo/.config/cava/cava.sh"
+            }
+            pane {
+                borderless true
+                command "btm"
+            }
+        }
+        pane {
+            borderless true
+            command "rusty-rain"
+            args "-C" "0,139,139" "-H" "255,255,255" "-s"
+        }
+    }
+}

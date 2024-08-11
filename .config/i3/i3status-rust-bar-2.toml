@@ -1,0 +1,8 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "nord-dark"
+
+[icons]
+icons = "awesome6"
+

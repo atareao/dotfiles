@@ -1,0 +1,31 @@
+# Docker compose Package
+
+matches:
+  - trigger: ",guc"
+    replace: "reset --soft HEAD~1"
+
+  - trigger: ",gus"
+    replace: "reset"
+
+  - trigger: ",bug"
+    replace: "🐛"
+
+  - trigger: ",docu"
+    replace: "📝"
+
+  - trigger: ",upgrade"
+    replace: "⬆️"
+
+  - trigger: ",feature"
+    replace: "✨"
+
+  - trigger: ",fix"
+    replace: "🩹"
+
+  - trigger: ",refactor"
+    replace: "♻️"
+
+
+
+
+

@@ -1,0 +1,4 @@
+[yadm]
+	gpg-recipient = atareao@atareao.es
+[pull]
+	rebase = false
