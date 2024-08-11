@@ -1,3 +1,2 @@
 # dotfiles
 
-No se
