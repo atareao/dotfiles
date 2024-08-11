@@ -12,7 +12,6 @@ vim.g.copilot_no_tab_map = true
 wk.add({
     {
         mode = "i",
-        --{"<C-d", "<cmd>copilot#Accept<CR>"},
         {"<C-h>", "<left>",  desc = "Movements"},
         {"<C-j>", "<down>",  desc = "Movements"},
         {"<C-k>", "<up>",    desc = "Movements"},
