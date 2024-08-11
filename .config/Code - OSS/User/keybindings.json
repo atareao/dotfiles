@@ -1,0 +1,91 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "ctrl+shift+[BracketRight]",
+        "command": "workbench.action.zoomIn"
+    },
+    {
+        "key": "ctrl+[BracketRight]",
+        "command": "-workbench.action.zoomIn"
+    },
+    {
+        "key": "ctrl+shift+-",
+        "command": "workbench.action.zoomOut"
+    },
+    {
+        "key": "ctrl+-",
+        "command": "-workbench.action.zoomOut"
+    },
+    {
+        "key": "ctrl+shift+0",
+        "command": "workbench.action.zoomReset"
+    },
+    {
+        "key": "ctrl+numpad0",
+        "command": "-workbench.action.zoomReset"
+    },
+    {
+        "key": "ctrl+shift+0",
+        "command": "-workbench.action.zoomIn"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "-extension.vim_navigateCtrlL",
+        "when": "editorTextFocus && vim.active && vim.use<C-l> && !inDebugRepl"
+    },
+    {
+        "key": "h",
+        "command": "editor.action.scrollLeftHover",
+        "when": "editorHoverFocused"
+      },
+      {
+        "key": "j",
+        "command": "editor.action.scrollDownHover",
+        "when": "editorHoverFocused"
+      },
+      {
+        "key": "k",
+        "command": "editor.action.scrollUpHover",
+        "when": "editorHoverFocused"
+      },
+      {
+        "key": "l",
+        "command": "editor.action.scrollRightHover",
+        "when": "editorHoverFocused"
+      },
+      {
+        "key": ", e",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "filesExplorerFocus && !inputFocus"
+      },
+      {
+        "key": "a",
+        "command": "explorer.newFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+      },
+      {
+        "key": "f",
+        "command": "explorer.newFolder",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+      },
+      {
+        "key": "r",
+        "command": "renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+      },
+      {
+        "key": "x",
+        "command": "filesExplorer.cut",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+      },
+      {
+        "key": "y",
+        "command": "filesExplorer.copy",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+      },
+      {
+        "key": "p",
+        "command": "filesExplorer.paste",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+      },
+  ]
