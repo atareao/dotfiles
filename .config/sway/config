@@ -1,0 +1,22 @@
+###############################################################################
+# Set variables
+###############################################################################
+
+set $mod Mod4
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+# Your preferred terminal emulator
+set $term wezterm
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be
+# opened on the original workspace that the command was run on.
+#set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu "/bin/bash ~/.config/sway/scripts/rofi.sh"
+#set $menu onagre
+
+###############################################################################
+
+include ~/.config/sway/config.d/*

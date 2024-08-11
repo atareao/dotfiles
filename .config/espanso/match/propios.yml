@@ -1,0 +1,58 @@
+
+matches:
+  # Simple text replacement
+  - trigger: ",^"
+    replace: "☝️"
+  - trigger: ",v"
+    replace: "👇"
+  - trigger: ",>"
+    replace: "👉"
+  - trigger: ",<"
+    replace: "👈"
+  - trigger: ",pie"
+    replace: |
+      🌐  Aquí lo puedes encontrar todo 👉 https://atareao.es
+      ✈️   Telegram (el grupo) 👉 https://t.me/atareao_con_linux
+      ✈️   Telegram (el canal) 👉 https://t.me/canal_atareao
+      🦣  Mastodon 👉 https://mastodon.social/@atareao
+      🐦  Twitter 👉 https://twitter.com/atareao
+      🐙  GitHub 👉 https://github.com/atareao
+  - trigger: ",pye"
+    form: |
+      Más información, enlaces y notas en https://atareao.es/podcast/[[episode]]
+
+      🌐  Aquí lo puedes encontrar todo 👉 https://atareao.es
+      ✈️   Telegram (el grupo) 👉 https://t.me/atareao_con_linux
+      ✈️   Telegram (el canal) 👉 https://t.me/canal_atareao
+      🦣  Mastodon 👉 https://mastodon.social/@atareao
+      🐦  Twitter 👉 https://twitter.com/atareao
+      🐙  GitHub 👉 https://github.com/atareao
+  - trigger: ",traduce"
+    replace: "{{traduce}}"
+    vars:
+      - name: form1
+        type: form
+        params:
+          layout: traduce [[texto]]
+          fields:
+            texto:
+              multiline: true
+      - name: traduce
+        type: shell
+        params:
+          cmd: $HOME/.cargo/bin/tradu -t "{{form1.texto}}" -s "ES" -d "EN"
+  - trigger: ",translate"
+    replace: "{{translate}}"
+    vars:
+      - name: form1
+        type: form
+        params:
+          layout: translate [[texto]]
+          fields:
+            texto:
+              multiline: true
+      - name: translate
+        type: shell
+        params:
+          cmd: $HOME/.cargo/bin/tradu -t "{{form1.texto}}" -s "EN" -d "ES"
+

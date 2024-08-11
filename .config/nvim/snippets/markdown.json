@@ -1,0 +1,261 @@
+{
+    "date": {
+        "prefix": "date",
+        "body": [
+            "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $0"
+        ]
+    },
+    "inline code": {
+        "prefix": "ic",
+        "body": [
+            "`$1`$0"
+        ]
+    },
+    "code block lua": {
+        "prefix": "cl",
+        "body": [
+            "```lua",
+            "$1```",
+            "$0"
+        ]
+    },
+    "code block javascript": {
+        "prefix": "cj",
+        "body": [
+            "```javascript",
+            "$1```",
+            "$0"
+        ]
+    },
+    "code block typescript": {
+        "prefix": "ct",
+        "body": [
+            "```typescript",
+            "$1```",
+            "$0"
+        ]
+    },
+    "code block python": {
+        "prefix": "cp",
+        "body": [
+            "```python",
+            "$1```",
+            "$0"
+        ]
+    },
+    "code block bash": {
+        "prefix": "cb",
+        "body": [
+            "```bash",
+            "$1```",
+            "$0"
+        ]
+    },
+    "zettel note": {
+        "prefix": "zn",
+        "body": [
+            "---",
+            "title: $1",
+            "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "tags: $2",
+            "---",
+            "[Índice](../indice.md)",
+            "",
+            "# $1",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $1",
+            "",
+            "---",
+            "Mas información,",
+            ""
+        ]
+    },
+    "zettel indice": {
+        "prefix": "zi",
+        "body": [
+            "* [[indice|indice]]",
+            "tags: $1",
+            "---",
+            "# Indice",
+            "",
+            "* [] $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE | $2",
+            "---",
+            "Mas información,",
+            ""
+        ]
+    },
+    "zettel pyldoras": {
+        "prefix": "zpp",
+        "body": [
+            "* [[pyldoras/indice|Pyldoras Pythonicas]]",
+            "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "tags: $1",
+            "---",
+            "# $2",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $2",
+            "",
+            "---",
+            "Mas información,",
+            ""
+        ]
+    },
+    "zettel pythonico": {
+        "prefix": "zpy",
+        "body": [
+            "* [[python/indice|Historias de un pythonico]]",
+            "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "tags: $1",
+            "---",
+            "# $2",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $2",
+            "",
+            "---",
+            "Mas información,",
+            ""
+        ]
+    },
+    "zettel arch": {
+        "prefix": "za",
+        "body": [
+            "* [[arch/indice|El camino del archero]]",
+            "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "tags: $1",
+            "---",
+            "# $2",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $2",
+            "",
+            "---",
+            "Mas información,",
+            ""
+        ]
+    },
+    "zettel rust": {
+        "prefix": "zr",
+        "body": [
+            "* [[rust/indice|Diario de un crustáceo]]",
+            "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "tags: $1",
+            "---",
+            "# $2",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $2",
+            "",
+            "---",
+            "Mas información,",
+            ""
+        ]
+    },
+    "zettel docker": {
+        "prefix": "zd",
+        "body": [
+            "* [[docker/indice|Memorias de una ballena]]",
+            "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "tags: $1",
+            "---",
+            "# $2",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $2",
+            "",
+            "---",
+            "Mas información,",
+            ""
+        ]
+    },
+    "zettel podcast": {
+        "prefix": "zp",
+        "body": [
+            "* [[podcasts/indice|Podcast]]",
+            "* episodio: $1",
+            "* created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "* updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "* tags: $2",
+            "---",
+            "# $3",
+            "",
+            "Hola, soy Lorenzo y esto es **atareao con Linux** episodio número $1",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $3",
+            "",
+            "---",
+            "",
+            "Espero que te haya gustado este nuevo episodio del podcast. Si puedes, te agradecería una valoración en [iVoox](https://www.ivoox.com/podcast-atareao-version-podcast_sq_f1618463_1.html) y/o en [Apple Podcast](https://podcasts.apple.com/podcast/id1437197202).",
+            "",
+            "Recuerda que este es un podcast suscrito a la red de podcast de **Sospechoso habituales**",
+            "",
+            "Te puedes suscribir a esa **fantástica red de podcast** en feedpress.me/sospechososhabituales",
+            "",
+            "Por último y como te digo siempre, recuerda que la vida son dos días y uno ya ha pasado.",
+            "",
+            "Disfruta como si no hubiera un mañana y si puede ser con Linux, **mejor que mejor**."
+        ]
+    },
+    "zettel comandos": {
+        "prefix": "zc",
+        "body": [
+            "* [[comandos-linux/indice|Comandos Linux]]",
+            "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "tags: $1",
+            "---",
+            "# $2",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $2",
+            "",
+            "---",
+            "Mas información,",
+            ""
+        ]
+    },
+    "zettel self hosted": {
+        "prefix": "zs",
+        "body": [
+            "* [[self-hosted/indice|Self Hosted]]",
+            "created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "tags: $1",
+            "---",
+            "# $2",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $2",
+            "",
+            "---",
+            "Mas información,",
+            ""
+        ]
+    }
+}

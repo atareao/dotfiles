@@ -1,0 +1,89 @@
+###############################################################################
+# Sway Window Rules
+###############################################################################
+
+###############################################################################
+# Default workspaces for common programs
+###############################################################################
+
+# Workspace 8 - Social
+assign [app_id="(telegram|TelegramDesktop)"] 8
+
+###############################################################################
+# Auto float apps
+###############################################################################
+
+for_window [app_id="(?i)mpv"] floating enable
+for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="(?i)thunar"] floating enable
+for_window [app_id="vlc"] floating enable
+for_window [app_id="tlp-ui"] floating enable
+for_window [app_id="pamac-manager"] floating enable
+for_window [app_id="nm-connection-editor$"] floating enable
+for_window [app_id="simple-scan"] floating enable
+for_window [app_id="firetools"] floating enable
+for_window [app_id="firewall-config"] floating enable
+for_window [app_id="gnome-(calendar|calculator|power-statistics|control-center)"] floating enable
+for_window [app_id="org.gnome.(Nautilus|Weather)"] floating enable
+for_window [app_id="(pavucontrol|psensor)"] floating enable
+for_window [app_id="soffice"] floating enable
+for_window [title="^Open File$"] floating enable
+for_window [title="Weather report: 44240 - qutebrowser"] floating enable
+for_window [title="nmtui - Kitty"] floating enable
+for_window [title="Update Check|Cryptomator"] floating enable, resize set 800 600
+for_window [window_role="GtkFileChooserDialog"] resize set 800 600
+for_window [window_role="GtkFiileChooserDialog"] move position center
+
+###############################################################################
+# default floating
+###############################################################################
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+for_window [instance="update_installer"] floating enable	
+
+###############################################################################
+# float terminal menu
+###############################################################################
+
+for_window [title="^launcher$"] floating enable, border none, opacity 0.8, resize set 400 300, move position center
+
+###############################################################################
+# Tag xwayland windows as such
+###############################################################################
+
+for_window [shell="xwayland"] title_format "<span>[X] %title</span>"
+
+###############################################################################
+# ScratchPad - Dropdown Windows
+###############################################################################
+
+###############################################################################
+# General dropdown window traits. The order can matter.
+###############################################################################
+
+for_window [title="Dropdown *"] floating enable
+for_window [title="Dropdown *"] move scratchpad
+for_window [title="Dropdown *"] sticky enable
+for_window [title="Dropdown *"] scratchpad show
+for_window [title="Dropdown *"] resize set width 625
+for_window [title="Dropdown *"] resize set height 400
+for_window [title="Dropdown *"] border pixel 3
+for_window [title="Dropdown *"] move position center	
+
+###############################################################################
+# General dropdown window traits. The order can matter.
+###############################################################################
+
+for_window [title="Dropdown Launcher*"] floating enable
+for_window [title="Dropdown Launcher*"] move scratchpad
+for_window [title="Dropdown Launcher*"] sticky enable
+for_window [title="Dropdown Launcher*"] scratchpad show
+for_window [title="Dropdown Launcher*"] resize set width 225
+for_window [title="Dropdown Launcher*"] resize set height 100
+for_window [title="Dropdown Launcher*"] border pixel 0
+for_window [title="Dropdown Launcher*"] move position center

@@ -1,0 +1,42 @@
+[box]
+type = box
+token = {"access_token":"{{ env.BOX_ACCESS_TOKEN }}","token_type":"bearer","refresh_token":"{{ env.BOX_REFRESH_TOKEN }}","expiry":"2021-11-10T05:43:52.147052524Z"}
+
+[gdrive]
+type = drive
+scope = drive
+token = {"access_token":"{{ env.DRIVE_ACCESS_TOKEN }}","token_type":"Bearer","refresh_token":"{{ env.DRIVE_REFRESH_TOKEN }}","expiry":"2022-05-28T15:23:40.903623286Z"}
+team_drive = 
+
+[gphotos]
+type = google photos
+token = {"access_token":"{{ env.GOOGLE_PHOTOS_ACCESS_TOKEN }}","token_type":"Bearer","refresh_token":"{{ env.GOOGLE_PHOTOS_REFRESH_TOKEN }}","expiry":"2022-01-25T22:39:44.118472468Z"}
+
+[pcloud]
+type = pcloud
+hostname = eapi.pcloud.com
+token = {"access_token":"{{ env.PCLOUD_TOKEN }}","token_type":"bearer","expiry":"0001-01-01T00:00:00Z"}
+
+[pcloud_cifrado]
+type = crypt
+remote = pcloud:cifrado
+password = {{ env.PCLOUD_PASSWORD }}
+
+[5d44cd8d-397c-4107-b79b-17f2b6a071e8]
+type = alias
+remote = /storage/emulated/0
+
+[WebDAV Territorio Linux]
+type = webdav
+vendor = other
+user = {{ env.WEBDAV_USER }}
+pass = {{ env.WEBDAV_PASSWORD }}
+url = https://webdav.territoriolinux.es
+
+[Photoprism]
+type = webdav
+url = {{ env.PHOTOPRISM_URL }}
+vendor = nextcloud
+user = {{ env.PHOTOPRISM_USER }}
+pass = {{ env.PHOTOPRISM_PASSWORD }}
+

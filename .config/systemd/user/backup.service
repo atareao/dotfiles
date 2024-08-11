@@ -1,0 +1,10 @@
+[Unit]
+Description=Borg Backup
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /home/lorenzo/.local/bin/launch_backup.sh
+
+[Install]
+WantedBy=multi-user.target

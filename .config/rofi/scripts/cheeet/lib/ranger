@@ -1,0 +1,39 @@
+| App      | Shortcut                | Description                                       | Detail               |
+| ranger   | `Q`                     | Quit Ranger                                       | 这里可以是备注之类的    |
+| ranger   | `R`                     | Reload current directory                          |                      |
+| ranger   | `?`                     | Ranger Manpages / Shortcuts                       |                      |
+| ranger   | `k`                     | up                                                |                      |
+| ranger   | `j`                     | down                                              |                      |
+| ranger   | `h`                     | parent directory                                  |                      |
+| ranger   | `l`                     | subdirectory                                      |                      |
+| ranger   | `gg`                    | go to top of list                                 |                      |
+| ranger   | `G`                     | go t bottom of list                               |                      |
+| ranger   | `J`                     | half page down                                    |                      |
+| ranger   | `K`                     | half page up                                      |                      |
+| ranger   | `H`                     | History Back                                      |                      |
+| ranger   | `L`                     | History Forward                                   |                      |
+| ranger   | `<Enter>`               | Open                                              |                      |
+| ranger   | `r`                     | open file with                                    |                      |
+| ranger   | `z`                     | toggle settings                                   |                      |
+| ranger   | `o`                     | change sort order                                 |                      |
+| ranger   | `zh`                    | view hidden files                                 |                      |
+| ranger   | `cw`                    | rename current file                               |                      |
+| ranger   | `yy`                    | yank / copy                                       |                      |
+| ranger   | `/`                     | search for files `:search`                        |                      |
+| ranger   | `n`                     | next match                                        |                      |
+| ranger   | `N``                    | prev match                                        |                      |
+| ranger   | `<delete>`              | Delete                                            |                      |
+| ranger   | `:`                     | Execute Range Command                             |                      |
+| ranger   | `!`                     | Execute Shell Command                             |                      |
+| ranger   | `chmod`                 | Change file Permissions                           |                      |
+| ranger   | `du`                    | Disk Usage Current Directory                      |                      |
+| ranger   | `C-n`                   | Create new tab                                    |                      |
+| ranger   | `C-w`                   | Close current tab                                 |                      |
+| ranger   | tab                     | Next tab                                          |                      |
+| ranger   | shift + tab             | Previous tab                                      |                      |
+| ranger   | alt + [n]               | goto / create [n] tab                             |                      |
+| ranger   | `%f`                    | Substitute highlighted file                       |                      |
+| ranger   | `%d`                    | Substitute current directory                      |                      |
+| ranger   | `%s`                    | Substitute currently selected files               |                      |
+| ranger   | `%t`                    | Substitute currently tagged files                 |                      |
+| ranger   | `:bulkrename %s`        |                                                   |                      |

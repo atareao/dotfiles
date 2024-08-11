@@ -1,0 +1,239 @@
+| Command | Parameter                          | Descripton                                                                                                      |
+| convert | -adaptive-blur geometry            | adaptively blur pixels; decrease effect near edges                                                              |
+| convert | -adaptive-resize geometry          | adaptively resize image with data dependent triangulation.                                                      |
+| convert | -adaptive-sharpen geometry         | adaptively sharpen pixels; increase effect near edges                                                           |
+| convert | -adjoin                            | join images into a single multi-image file                                                                      |
+| convert | -affine matrix                     | affine transform matrix                                                                                         |
+| convert | -alpha                             | on, activate, off, deactivate, set, opaque, copy", transparent, extract, background, or shape the alpha channel |
+| convert | -annotate geometry text            | annotate the image with text                                                                                    |
+| convert | -antialias                         | remove pixel-aliasing                                                                                           |
+| convert | -append                            | append an image sequence                                                                                        |
+| convert | -authenticate value                | decipher image with this password                                                                               |
+| convert | -auto-gamma                        | automagically adjust gamma level of image                                                                       |
+| convert | -auto-level                        | automagically adjust color levels of image                                                                      |
+| convert | -auto-orient                       | automagically orient image                                                                                      |
+| convert | -auto-threshold method             | automatically perform image thresholding                                                                        |
+| convert | -background color                  | background color                                                                                                |
+| convert | -bench iterations                  | measure performance                                                                                             |
+| convert | -bias value                        | add bias when convolving an image                                                                               |
+| convert | -black-threshold value             | force all pixels below the threshold into black                                                                 |
+| convert | -blue-primary point                | chromaticity blue primary point                                                                                 |
+| convert | -blue-shift factor                 | simulate a scene at nighttime in the moonlight                                                                  |
+| convert | -blur geometry                     | reduce image noise and reduce detail levels                                                                     |
+| convert | -border geometry                   | surround image with a border of color                                                                           |
+| convert | -bordercolor color                 | border color                                                                                                    |
+| convert | -brightness-contrast geometry      | improve brightness / contrast of the image                                                                      |
+| convert | -canny geometry                    | use a multi-stage algorithm to detect a wide range of edges in the image                                        |
+| convert | -caption string                    | assign a caption to an image                                                                                    |
+| convert | -cdl filename                      | color correct with a color decision list                                                                        |
+| convert | -channel type                      | apply option to select image channels                                                                           |
+| convert | -charcoal radius                   | simulate a charcoal drawing                                                                                     |
+| convert | -chop geometry                     | remove pixels from the image interior                                                                           |
+| convert | -clahe geometry                    | contrast limited adaptive histogram equalization                                                                |
+| convert | -clip                              | clip along the first path from the 8BIM profile                                                                 |
+| convert | -clip-mask filename                | associate clip mask with the image                                                                              |
+| convert | -clip-path id                      | clip along a named path from the 8BIM profile                                                                   |
+| convert | -clone index                       | clone an image                                                                                                  |
+| convert | -clut                              | apply a color lookup table to the image                                                                         |
+| convert | -connected-components connectivity | connected-components uniquely labeled, choose from 4 or 8 way connectivity                                      |
+| convert | -contrast-stretch geometry         | improve the contrast in an image by `stretching' the range of intensity value                                   |
+| convert | -coalesce                          | merge a sequence of images                                                                                      |
+| convert | -colorize value                    | colorize the image with the fill color                                                                          |
+| convert | -color-matrix matrix               | apply color correction to the image.                                                                            |
+| convert | -colors value                      | preferred number of colors in the image                                                                         |
+| convert | -colorspace type                   | set image colorspace                                                                                            |
+| convert | -combine                           | combine a sequence of images                                                                                    |
+| convert | -comment string                    | annotate image with comment                                                                                     |
+| convert | -compare                           | compare image                                                                                                   |
+| convert | -complexoperator                   | perform complex mathematics on an image sequence                                                                |
+| convert | -compose operator                  | set image composite operator                                                                                    |
+| convert | -composite                         | composite image                                                                                                 |
+| convert | -compress type                     | image compression type                                                                                          |
+| convert | -contrast                          | enhance or reduce the image contrast                                                                            |
+| convert | -convolve coefficients             | apply a convolution kernel to the image                                                                         |
+| convert | -copy geometry offset              | copy pixels from one area of an image to another                                                                |
+| convert | -crop geometry                     | crop the image                                                                                                  |
+| convert | -cycle amount                      | cycle the image colormap                                                                                        |
+| convert | -decipher filename                 | convert cipher pixels to plain                                                                                  |
+| convert | -debug events                      | display copious debugging information                                                                           |
+| convert | -define format:option              | define one or more image format options                                                                         |
+| convert | -deconstruct                       | break down an image sequence into constituent parts                                                             |
+| convert | -delay value                       | display the next image after pausing                                                                            |
+| convert | -delete index                      | delete the image from the image sequence                                                                        |
+| convert | -density geometry                  | horizontal and vertical density of the image                                                                    |
+| convert | -depth value                       | image depth                                                                                                     |
+| convert | -despeckle                         | reduce the speckles within an image                                                                             |
+| convert | -direction type                    | render text right-to-left or left-to-right                                                                      |
+| convert | -display server                    | get image or font from this X server                                                                            |
+| convert | -dispose method                    | layer disposal method                                                                                           |
+| convert | -distribute-cache port             | launch a distributed pixel cache server                                                                         |
+| convert | -distort type coefficients         | distort image                                                                                                   |
+| convert | -dither method                     | apply error diffusion to image                                                                                  |
+| convert | -draw string                       | annotate the image with a graphic primitive                                                                     |
+| convert | -duplicate count,indexes           | duplicate an image one or more times                                                                            |
+| convert | -edge radius                       | apply a filter to detect edges in the image                                                                     |
+| convert | -emboss radius                     | emboss an image                                                                                                 |
+| convert | -encipher filename                 | convert plain pixels to cipher pixels                                                                           |
+| convert | -encoding type                     | text encoding type                                                                                              |
+| convert | -endian type                       | endianness (MSB or LSB) of the image                                                                            |
+| convert | -enhance                           | apply a digital filter to enhance a noisy image                                                                 |
+| convert | -equalize                          | perform histogram equalization to an image                                                                      |
+| convert | -evaluate operator value           | evaluate an arithmetic, relational, or logical expression                                                       |
+| convert | -evaluate-sequence operator        | evaluate an arithmetic, relational, or logical expression for an image sequence                                 |
+| convert | -extent geometry                   | set the image size                                                                                              |
+| convert | -extract geometry                  | extract area from image                                                                                         |
+| convert | -family name                       | render text with this font family                                                                               |
+| convert | -features distance                 | analyze image features (e.g. contract, correlations, etc.).                                                     |
+| convert | -fft                               | implements the discrete Fourier transform (DFT)                                                                 |
+| convert | -fill color                        | color to use when filling a graphic primitive                                                                   |
+| convert | -filter type                       | use this filter when resizing an image                                                                          |
+| convert | -flatten                           | flatten a sequence of images                                                                                    |
+| convert | -flip                              | flip image in the vertical direction                                                                            |
+| convert | -floodfill geometry color          | floodfill the image with color                                                                                  |
+| convert | -flop                              | flop image in the horizontal direction                                                                          |
+| convert | -font name                         | render text with this font                                                                                      |
+| convert | -format string                     | output formatted image characteristics                                                                          |
+| convert | -frame geometry                    | surround image with an ornamental border                                                                        |
+| convert | -function name                     | apply a function to the image                                                                                   |
+| convert | -fuzz distance                     | colors within this distance are considered equal                                                                |
+| convert | -fx expression                     | apply mathematical expression to an image channel(s)                                                            |
+| convert | -gamma value                       | level of gamma correction                                                                                       |
+| convert | -gaussian-blur geometry            | reduce image noise and reduce detail levels                                                                     |
+| convert | -geometry geometry                 | preferred size or location of the image                                                                         |
+| convert | -gravity type                      | horizontal and vertical text placement                                                                          |
+| convert | -grayscale method                  | convert image to grayscale                                                                                      |
+| convert | -green-primary point               | chromaticity green primary point                                                                                |
+| convert | -help                              | print program options                                                                                           |
+| convert | -hough-lines geometry              | identify lines in the image                                                                                     |
+| convert | -identify                          | identify the format and characteristics of the image                                                            |
+| convert | -ift                               | implements the inverse discrete Fourier transform (DFT)                                                         |
+| convert | -implode amount                    | implode image pixels about the center                                                                           |
+| convert | -insert index                      | insert last image into the image sequence                                                                       |
+| convert | -intensity method                  | method to generate an intensity value from a pixel                                                              |
+| convert | -intent type                       | type of rendering intent when managing the image color                                                          |
+| convert | -interlace type                    | type of image interlacing scheme                                                                                |
+| convert | -interline-spacing value           | the space between two text lines                                                                                |
+| convert | -interpolate method                | pixel color interpolation method                                                                                |
+| convert | -interword-spacing value           | the space between two words                                                                                     |
+| convert | -kerning value                     | the space between two characters                                                                                |
+| convert | -kuwahara geometry                 | edge preserving noise reduction filter                                                                          |
+| convert | -label string                      | assign a label to an image                                                                                      |
+| convert | -lat geometry                      | local adaptive thresholding                                                                                     |
+| convert | -layers method                     | optimize or compare image layers                                                                                |
+| convert | -level value                       | adjust the level of image contrast                                                                              |
+| convert | -limit type value                  | pixel cache resource limit                                                                                      |
+| convert | -linear-stretch geometry           | linear with saturation histogram stretch                                                                        |
+| convert | -liquid-rescale geometry           | rescale image with seam-carving                                                                                 |
+| convert | -list type                         | Color, Configure, Delegate, Format, Magic, Module, Resource, or Type                                            |
+| convert | -log format                        | format of debugging information                                                                                 |
+| convert | -loop iterations                   | add Netscape loop extension to your GIF animation                                                               |
+| convert | -mattecolor color                  | frame color                                                                                                     |
+| convert | -median radius                     | apply a median filter to the image                                                                              |
+| convert | -mean-shift geometry               | delineate arbitrarily shaped clusters in the image                                                              |
+| convert | -metric type                       | measure differences between images with this metric                                                             |
+| convert | -mode radius                       | make each pixel the 'predominant color' of the neighborhood                                                     |
+| convert | -modulate value                    | vary the brightness, saturation, and hue                                                                        |
+| convert | -moments                           | display image moments.                                                                                          |
+| convert | -monitor                           | monitor progress                                                                                                |
+| convert | -monochrome                        | transform image to black and white                                                                              |
+| convert | -morph value                       | morph an image sequence                                                                                         |
+| convert | -morphology method kernel          | apply a morphology method to the image                                                                          |
+| convert | -motion-blur geometry              | simulate motion blur                                                                                            |
+| convert | -negate                            | replace each pixel with its complementary color                                                                 |
+| convert | -noise radius                      | add or reduce noise in an image                                                                                 |
+| convert | -normalize                         | transform image to span the full range of colors                                                                |
+| convert | -opaque color                      | change this color to the fill color                                                                             |
+| convert | -ordered-dither NxN                | ordered dither the image                                                                                        |
+| convert | -orient type                       | image orientation                                                                                               |
+| convert | -page geometry                     | size and location of an image canvas (setting)                                                                  |
+| convert | -paint radius                      | simulate an oil painting                                                                                        |
+| convert | -ping                              | efficiently determine image attributes                                                                          |
+| convert | -pointsize value                   | font point size                                                                                                 |
+| convert | -polaroid angle                    | simulate a Polaroid picture                                                                                     |
+| convert | -poly terms                        | build a polynomial from the image sequence and the corresponding terms (coefficients and degree pairs).         |
+| convert | -posterize levels                  | reduce the image to a limited number of color levels                                                            |
+| convert | -precision value                   | set the maximum number of significant digits to be printed                                                      |
+| convert | -preview type                      | image preview type                                                                                              |
+| convert | -print string                      | interpret string and print to console                                                                           |
+| convert | -process image-filter              | process the image with a custom image filter                                                                    |
+| convert | -profile filename                  | add, delete, or apply an image profile                                                                          |
+| convert | -quality value                     | JPEG/MIFF/PNG compression level                                                                                 |
+| convert | -quantize colorspace               | reduce image colors in this colorspace                                                                          |
+| convert | -quiet                             | suppress all warning messages                                                                                   |
+| convert | -radial-blur angle                 | radial blur the image                                                                                           |
+| convert | -raise value                       | lighten/darken image edges to create a 3-D effect                                                               |
+| convert | -random-threshold low, high        | random threshold the image                                                                                      |
+| convert | -read-mask filename                | associate a read mask with the image                                                                            |
+| convert | -red-primary point                 | chromaticity red primary point                                                                                  |
+| convert | -regard-warnings                   | pay attention to warning messages.                                                                              |
+| convert | -region geometry                   | apply options to a portion of the image                                                                         |
+| convert | -remap filename                    | transform image colors to match this set of colors                                                              |
+| convert | -render                            | render vector graphics                                                                                          |
+| convert | -repage geometry                   | size and location of an image canvas                                                                            |
+| convert | -resample geometry                 | change the resolution of an image                                                                               |
+| convert | -resize geometry                   | resize the image                                                                                                |
+| convert | -respect-parentheses               | settings remain in effect until parenthesis boundary.                                                           |
+| convert | -roll geometry                     | roll an image vertically or horizontally                                                                        |
+| convert | -rotate degrees                    | apply Paeth rotation to the image                                                                               |
+| convert | -sample geometry                   | scale image with pixel sampling                                                                                 |
+| convert | -sampling-factor geometry          | horizontal and vertical sampling factor                                                                         |
+| convert | -scale geometry                    | scale the image                                                                                                 |
+| convert | -scene value                       | image scene number                                                                                              |
+| convert | -seed value                        | seed a new sequence of pseudo-random numbers                                                                    |
+| convert | -segment values                    | segment an image                                                                                                |
+| convert | -selective-blur geometry           | selectively blur pixels within a contrast threshold                                                             |
+| convert | -separate                          | separate an image channel into a grayscale image                                                                |
+| convert | -sepia-tone threshold              | simulate a sepia-toned photo                                                                                    |
+| convert | -set attribute value               | set an image attribute                                                                                          |
+| convert | -shade degrees                     | shade the image using a distant light source                                                                    |
+| convert | -shadow geometry                   | simulate an image shadow                                                                                        |
+| convert | -sharpen geometry                  | sharpen the image                                                                                               |
+| convert | -shave geometry                    | shave pixels from the image edges                                                                               |
+| convert | -shear geometry                    | slide one edge of the image along the X or Y axis                                                               |
+| convert | -sigmoidal-contrast geometry       | increase the contrast without saturating highlights or shadows                                                  |
+| convert | -smush offset                      | smush an image sequence together                                                                                |
+| convert | -size geometry                     | width and height of image                                                                                       |
+| convert | -sketch geometry                   | simulate a pencil sketch                                                                                        |
+| convert | -solarize threshold                | negate all pixels above the threshold level                                                                     |
+| convert | -splice geometry                   | splice the background color into the image                                                                      |
+| convert | -spread radius                     | displace image pixels by a random amount                                                                        |
+| convert | -statistic type geometry           | replace each pixel with corresponding statistic from the neighborhood                                           |
+| convert | -strip                             | strip image of all profiles and comments                                                                        |
+| convert | -stroke color                      | graphic primitive stroke color                                                                                  |
+| convert | -strokewidth value                 | graphic primitive stroke width                                                                                  |
+| convert | -stretch type                      | render text with this font stretch                                                                              |
+| convert | -style type                        | render text with this font style                                                                                |
+| convert | -swap indexes                      | swap two images in the image sequence                                                                           |
+| convert | -swirl degrees                     | swirl image pixels about the center                                                                             |
+| convert | -synchronize                       | synchronize image to storage device                                                                             |
+| convert | -taint                             | mark the image as modified                                                                                      |
+| convert | -texture filename                  | name of texture to tile onto the image background                                                               |
+| convert | -threshold value                   | threshold the image                                                                                             |
+| convert | -thumbnail geometry                | create a thumbnail of the image                                                                                 |
+| convert | -tile filename                     | tile image when filling a graphic primitive                                                                     |
+| convert | -tile-offset geometry              | set the image tile offset                                                                                       |
+| convert | -tint value                        | tint the image with the fill color                                                                              |
+| convert | -transform                         | affine transform image                                                                                          |
+| convert | -transparent color                 | make this color transparent within the image                                                                    |
+| convert | -transparent-color color           | transparent color                                                                                               |
+| convert | -transpose                         | flip image in the vertical direction and rotate 90 degrees                                                      |
+| convert | -transverse                        | flop image in the horizontal direction and rotate 270 degrees                                                   |
+| convert | -treedepth value                   | color tree depth                                                                                                |
+| convert | -trim                              | trim image edges                                                                                                |
+| convert | -type type                         | image type                                                                                                      |
+| convert | -undercolor color                  | annotation bounding box color                                                                                   |
+| convert | -unique-colors                     | discard all but one of any pixel color.                                                                         |
+| convert | -units type                        | the units of image resolution                                                                                   |
+| convert | -unsharp geometry                  | sharpen the image                                                                                               |
+| convert | -verbose                           | print detailed information about the image                                                                      |
+| convert | -version                           | print version information                                                                                       |
+| convert | -view                              | FlashPix viewing transforms                                                                                     |
+| convert | -vignette geometry                 | soften the edges of the image in vignette style                                                                 |
+| convert | -virtual-pixel method              | access method for pixels outside the boundaries of the image                                                    |
+| convert | -wave geometry                     | alter an image along a sine wave                                                                                |
+| convert | -wavelet-denoise threshold         | removes noise from the image using a wavelet transform                                                          |
+| convert | -weight type                       | render text with this font weight                                                                               |
+| convert | -white-point point                 | chromaticity white point                                                                                        |
+| convert | -white-threshold value             | force all pixels above the threshold into white                                                                 |
+| convert | -write filename                    | write images to this file                                                                                       |
+| convert | -write-mask filename               | associate a write mask with the image                                                                           |

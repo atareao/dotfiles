@@ -1,0 +1,4 @@
+[mounts]
+	path = /home/lorenzo/.config/tomb
+[recipients]
+	hash = c50110300d2a56481ccca9e8a4b6ead95bf61e03026dd50a7a12ec8316abeb34

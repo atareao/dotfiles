@@ -1,0 +1,6 @@
+###############################################################################
+# Background
+###############################################################################
+
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+output * bg ~/Imágenes/backgrounds/ian-parker-TLcLDigmTKE-unsplash.jpg fill

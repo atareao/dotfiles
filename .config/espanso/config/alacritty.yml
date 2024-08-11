@@ -1,0 +1,5 @@
+filter_class: "alacritty"
+
+backend: Clipboard
+fast_inject: false
+paste_shortcut: "CTRL+SHIFT+V"

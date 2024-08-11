@@ -1,0 +1,28 @@
+{% for tag in workspace.tags %}
+{% if tag.mine %}
+%{A1:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}}:}
+%{A3:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}} && $SCRIPTPATH/default_app:}
+%{T1}%{B#80000000}%{F#ffffff}  {{tag.name}}  %{F-}
+%{A}%{A}
+{% elsif tag.focused  %}
+%{A1:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}}:}
+%{A3:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}} && $SCRIPTPATH/default_app:}
+%{T1}%{B#80000000}%{F#53e2ae}  {{tag.name}}  %{F-}
+%{A}%{A}
+{% elsif tag.visible  %}
+%{A1:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}}:}
+%{A3:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}} && $SCRIPTPATH/default_app:}
+%{T1}%{B#80000000}%{F#f1fa8c}  {{tag.name}}  %{F-}
+%{A}%{A}
+{% elsif tag.busy  %}
+%{A1:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}}:}
+%{A3:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}} && $SCRIPTPATH/default_app:}
+%{T1}%{B#68000000}%{F#ffffff}  {{tag.name}}  %{F-}
+%{A}%{A}
+{% else tag.visible  %}
+%{A1:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}}:}
+%{A3:$SCRIPTPATH/change_to_tag {{workspace.index}} {{tag.index}} && $SCRIPTPATH/default_app:}
+%{T1}%{B#68000000}%{F#555555}  {{tag.name}}  %{F-}
+%{A}%{A}
+{% endif %}
+{% endfor %}

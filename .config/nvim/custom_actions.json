@@ -1,0 +1,28 @@
+{
+  "action_name": {
+    "type": "chat",
+    "opts": {
+      "template": "A template using possible variable: {{lang}} (language being used), {{filetype}} (neovim filetype), {{input}} (the selected text)",
+      "strategy": "replace",
+      "params": {
+        "model": "gpt-3.5-turbo",
+        "stop": [
+          "```"
+        ]
+      }
+    }
+  },
+  "conversacion": {
+    "type": "edit",
+    "opts": {
+      "template": "A template using possible variable: {{lang}} (language being used), {{filetype}} (neovim filetype), {{input}} (the selected text)",
+      "strategy": "replace",
+      "params": {
+        "model": "gpt-3.5-turbo",
+        "stop": [
+          "```"
+        ]
+      }
+    }
+  }
+}

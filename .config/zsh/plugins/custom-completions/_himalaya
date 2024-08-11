@@ -1,0 +1,1831 @@
+#compdef himalaya
+
+autoload -U is-at-least
+
+_himalaya() {
+    typeset -A opt_args
+    typeset -a _arguments_options
+    local ret=1
+
+    if is-at-least 5.2; then
+        _arguments_options=(-s -S -C)
+    else
+        _arguments_options=(-s -C)
+    fi
+
+    local context curcontext="$curcontext" state line
+    _arguments "${_arguments_options[@]}" \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+":: :_himalaya_commands" \
+"*::: :->himalaya" \
+&& ret=0
+    case $state in
+    (himalaya)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:himalaya-command-$line[1]:"
+        case $line[1] in
+            (completion)
+_arguments "${_arguments_options[@]}" \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+':shell:(bash elvish fish powershell zsh)' \
+&& ret=0
+;;
+(man)
+_arguments "${_arguments_options[@]}" \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+':dir -- Directory to generate man files in:' \
+&& ret=0
+;;
+(accounts)
+_arguments "${_arguments_options[@]}" \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+":: :_himalaya__accounts_commands" \
+"*::: :->accounts" \
+&& ret=0
+
+    case $state in
+    (accounts)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:himalaya-accounts-command-$line[1]:"
+        case $line[1] in
+            (list)
+_arguments "${_arguments_options[@]}" \
+'-w+[Defines a maximum width for the table]:INT: ' \
+'--max-width=[Defines a maximum width for the table]:INT: ' \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+&& ret=0
+;;
+(sync)
+_arguments "${_arguments_options[@]}" \
+'(-f --folder -A --all-folders -x --exclude-folder)*-F+[Synchronize only the given folders]:FOLDER: ' \
+'(-f --folder -A --all-folders -x --exclude-folder)*--include-folder=[Synchronize only the given folders]:FOLDER: ' \
+'(-f --folder -A --all-folders -F --include-folder)*-x+[Synchronize all folders except the given ones]:FOLDER: ' \
+'(-f --folder -A --all-folders -F --include-folder)*--exclude-folder=[Synchronize all folders except the given ones]:FOLDER: ' \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'(-f --folder -F --include-folder -x --exclude-folder)-A[Synchronize all folders]' \
+'(-f --folder -F --include-folder -x --exclude-folder)--all-folders[Synchronize all folders]' \
+'-d[Do not apply changes of the synchronization]' \
+'--dry-run[Do not apply changes of the synchronization]' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+&& ret=0
+;;
+(configure)
+_arguments "${_arguments_options[@]}" \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'-r[Reset the configuration]' \
+'--reset[Reset the configuration]' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" \
+":: :_himalaya__accounts__help_commands" \
+"*::: :->help" \
+&& ret=0
+
+    case $state in
+    (help)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:himalaya-accounts-help-command-$line[1]:"
+        case $line[1] in
+            (list)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(sync)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(configure)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+;;
+        esac
+    ;;
+esac
+;;
+(folders)
+_arguments "${_arguments_options[@]}" \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+":: :_himalaya__folders_commands" \
+"*::: :->folders" \
+&& ret=0
+
+    case $state in
+    (folders)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:himalaya-folders-command-$line[1]:"
+        case $line[1] in
+            (expunge)
+_arguments "${_arguments_options[@]}" \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+&& ret=0
+;;
+(create)
+_arguments "${_arguments_options[@]}" \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+&& ret=0
+;;
+(list)
+_arguments "${_arguments_options[@]}" \
+'-w+[Defines a maximum width for the table]:INT: ' \
+'--max-width=[Defines a maximum width for the table]:INT: ' \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+&& ret=0
+;;
+(delete)
+_arguments "${_arguments_options[@]}" \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" \
+":: :_himalaya__folders__help_commands" \
+"*::: :->help" \
+&& ret=0
+
+    case $state in
+    (help)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:himalaya-folders-help-command-$line[1]:"
+        case $line[1] in
+            (expunge)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(create)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(list)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(delete)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+;;
+        esac
+    ;;
+esac
+;;
+(flags)
+_arguments "${_arguments_options[@]}" \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+":: :_himalaya__flags_commands" \
+"*::: :->flags" \
+&& ret=0
+
+    case $state in
+    (flags)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:himalaya-flags-command-$line[1]:"
+        case $line[1] in
+            (add)
+_arguments "${_arguments_options[@]}" \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+'*::ids -- Email ids:' \
+&& ret=0
+;;
+(remove)
+_arguments "${_arguments_options[@]}" \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+'*::ids -- Email ids:' \
+&& ret=0
+;;
+(set)
+_arguments "${_arguments_options[@]}" \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+'*::ids -- Email ids:' \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" \
+":: :_himalaya__flags__help_commands" \
+"*::: :->help" \
+&& ret=0
+
+    case $state in
+    (help)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:himalaya-flags-help-command-$line[1]:"
+        case $line[1] in
+            (add)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(remove)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(set)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+;;
+        esac
+    ;;
+esac
+;;
+(template)
+_arguments "${_arguments_options[@]}" \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+":: :_himalaya__template_commands" \
+"*::: :->template" \
+&& ret=0
+
+    case $state in
+    (template)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:himalaya-template-command-$line[1]:"
+        case $line[1] in
+            (forward)
+_arguments "${_arguments_options[@]}" \
+'*-H+[Overrides a specific header]:KEY:VAL: ' \
+'*--header=[Overrides a specific header]:KEY:VAL: ' \
+'-B+[Overrides the body]:STRING: ' \
+'--body=[Overrides the body]:STRING: ' \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+':id -- Specifies the target email:' \
+&& ret=0
+;;
+(reply)
+_arguments "${_arguments_options[@]}" \
+'*-H+[Overrides a specific header]:KEY:VAL: ' \
+'*--header=[Overrides a specific header]:KEY:VAL: ' \
+'-B+[Overrides the body]:STRING: ' \
+'--body=[Overrides the body]:STRING: ' \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'-A[Include all recipients]' \
+'--all[Include all recipients]' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+':id -- Specifies the target email:' \
+&& ret=0
+;;
+(save)
+_arguments "${_arguments_options[@]}" \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+'*::template:' \
+&& ret=0
+;;
+(send)
+_arguments "${_arguments_options[@]}" \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+'*::template:' \
+&& ret=0
+;;
+(write)
+_arguments "${_arguments_options[@]}" \
+'*-H+[Overrides a specific header]:KEY:VAL: ' \
+'*--header=[Overrides a specific header]:KEY:VAL: ' \
+'-B+[Overrides the body]:STRING: ' \
+'--body=[Overrides the body]:STRING: ' \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" \
+":: :_himalaya__template__help_commands" \
+"*::: :->help" \
+&& ret=0
+
+    case $state in
+    (help)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:himalaya-template-help-command-$line[1]:"
+        case $line[1] in
+            (forward)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(reply)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(save)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(send)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(write)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+;;
+        esac
+    ;;
+esac
+;;
+(attachments)
+_arguments "${_arguments_options[@]}" \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+'*::ids -- Email ids:' \
+&& ret=0
+;;
+(list)
+_arguments "${_arguments_options[@]}" \
+'-s+[Page size]:INT: ' \
+'--page-size=[Page size]:INT: ' \
+'-p+[Page number]:INT: ' \
+'--page=[Page number]:INT: ' \
+'-w+[Defines a maximum width for the table]:INT: ' \
+'--max-width=[Defines a maximum width for the table]:INT: ' \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+&& ret=0
+;;
+(search)
+_arguments "${_arguments_options[@]}" \
+'-s+[Page size]:INT: ' \
+'--page-size=[Page size]:INT: ' \
+'-p+[Page number]:INT: ' \
+'--page=[Page number]:INT: ' \
+'-w+[Defines a maximum width for the table]:INT: ' \
+'--max-width=[Defines a maximum width for the table]:INT: ' \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+'*::query:' \
+&& ret=0
+;;
+(sort)
+_arguments "${_arguments_options[@]}" \
+'-s+[Page size]:INT: ' \
+'--page-size=[Page size]:INT: ' \
+'-p+[Page number]:INT: ' \
+'--page=[Page number]:INT: ' \
+'-w+[Defines a maximum width for the table]:INT: ' \
+'--max-width=[Defines a maximum width for the table]:INT: ' \
+'*-c+[Email sorting preferences]:CRITERION:ORDER:(arrival arrival:asc arrival:desc cc cc:asc cc:desc date date:asc date:desc from from:asc from:desc size size:asc size:desc subject subject:asc subject:desc to to:asc to:desc)' \
+'*--criterion=[Email sorting preferences]:CRITERION:ORDER:(arrival arrival:asc arrival:desc cc cc:asc cc:desc date date:asc date:desc from from:asc from:desc size size:asc size:desc subject subject:asc subject:desc to to:asc to:desc)' \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+'*::query:' \
+&& ret=0
+;;
+(write)
+_arguments "${_arguments_options[@]}" \
+'*-H+[Overrides a specific header]:KEY:VAL: ' \
+'*--header=[Overrides a specific header]:KEY:VAL: ' \
+'-B+[Overrides the body]:STRING: ' \
+'--body=[Overrides the body]:STRING: ' \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+&& ret=0
+;;
+(send)
+_arguments "${_arguments_options[@]}" \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+'*::raw:' \
+&& ret=0
+;;
+(save)
+_arguments "${_arguments_options[@]}" \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+'*::raw:' \
+&& ret=0
+;;
+(read)
+_arguments "${_arguments_options[@]}" \
+'-t+[MIME type to use]:MIME:(plain html)' \
+'--mime-type=[MIME type to use]:MIME:(plain html)' \
+'*-H+[Shows additional headers with the email]:STRING: ' \
+'*--header=[Shows additional headers with the email]:STRING: ' \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'-r[Returns raw version of email]' \
+'--raw[Returns raw version of email]' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+'*::ids -- Email ids:' \
+&& ret=0
+;;
+(reply)
+_arguments "${_arguments_options[@]}" \
+'*-H+[Overrides a specific header]:KEY:VAL: ' \
+'*--header=[Overrides a specific header]:KEY:VAL: ' \
+'-B+[Overrides the body]:STRING: ' \
+'--body=[Overrides the body]:STRING: ' \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'-A[Include all recipients]' \
+'--all[Include all recipients]' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+':id -- Specifies the target email:' \
+&& ret=0
+;;
+(forward)
+_arguments "${_arguments_options[@]}" \
+'*-H+[Overrides a specific header]:KEY:VAL: ' \
+'*--header=[Overrides a specific header]:KEY:VAL: ' \
+'-B+[Overrides the body]:STRING: ' \
+'--body=[Overrides the body]:STRING: ' \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+':id -- Specifies the target email:' \
+&& ret=0
+;;
+(copy)
+_arguments "${_arguments_options[@]}" \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+':target -- Specifies the target folder:' \
+'*::ids -- Email ids:' \
+&& ret=0
+;;
+(move)
+_arguments "${_arguments_options[@]}" \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+':target -- Specifies the target folder:' \
+'*::ids -- Email ids:' \
+&& ret=0
+;;
+(delete)
+_arguments "${_arguments_options[@]}" \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+'*::ids -- Email ids:' \
+&& ret=0
+;;
+(notify)
+_arguments "${_arguments_options[@]}" \
+'-k+[Specifies the keepalive duration.]:SECS: ' \
+'--keepalive=[Specifies the keepalive duration.]:SECS: ' \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+&& ret=0
+;;
+(watch)
+_arguments "${_arguments_options[@]}" \
+'-k+[Specifies the keepalive duration.]:SECS: ' \
+'--keepalive=[Specifies the keepalive duration.]:SECS: ' \
+'-c+[Set a custom configuration file path]:PATH: ' \
+'--config=[Set a custom configuration file path]:PATH: ' \
+'-a+[Set the account]:STRING: ' \
+'--account=[Set the account]:STRING: ' \
+'-o+[Set the output format]:FMT:(plain json)' \
+'--output=[Set the output format]:FMT:(plain json)' \
+'-C+[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'--color=[Control when to use colors.]:WHEN:(never auto always ansi)' \
+'-f+[Set the source folder]:SOURCE: ' \
+'--folder=[Set the source folder]:SOURCE: ' \
+'--disable-cache[Disable any sort of cache]' \
+'-h[Print help (see more with '\''--help'\'')]' \
+'--help[Print help (see more with '\''--help'\'')]' \
+'-V[Print version]' \
+'--version[Print version]' \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" \
+":: :_himalaya__help_commands" \
+"*::: :->help" \
+&& ret=0
+
+    case $state in
+    (help)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:himalaya-help-command-$line[1]:"
+        case $line[1] in
+            (completion)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(man)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(accounts)
+_arguments "${_arguments_options[@]}" \
+":: :_himalaya__help__accounts_commands" \
+"*::: :->accounts" \
+&& ret=0
+
+    case $state in
+    (accounts)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:himalaya-help-accounts-command-$line[1]:"
+        case $line[1] in
+            (list)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(sync)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(configure)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+;;
+(folders)
+_arguments "${_arguments_options[@]}" \
+":: :_himalaya__help__folders_commands" \
+"*::: :->folders" \
+&& ret=0
+
+    case $state in
+    (folders)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:himalaya-help-folders-command-$line[1]:"
+        case $line[1] in
+            (expunge)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(create)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(list)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(delete)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+;;
+(flags)
+_arguments "${_arguments_options[@]}" \
+":: :_himalaya__help__flags_commands" \
+"*::: :->flags" \
+&& ret=0
+
+    case $state in
+    (flags)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:himalaya-help-flags-command-$line[1]:"
+        case $line[1] in
+            (add)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(remove)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(set)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+;;
+(template)
+_arguments "${_arguments_options[@]}" \
+":: :_himalaya__help__template_commands" \
+"*::: :->template" \
+&& ret=0
+
+    case $state in
+    (template)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:himalaya-help-template-command-$line[1]:"
+        case $line[1] in
+            (forward)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(reply)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(save)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(send)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(write)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+;;
+(attachments)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(list)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(search)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(sort)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(write)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(send)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(save)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(read)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(reply)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(forward)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(copy)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(move)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(delete)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(notify)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(watch)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+;;
+        esac
+    ;;
+esac
+}
+
+(( $+functions[_himalaya_commands] )) ||
+_himalaya_commands() {
+    local commands; commands=(
+'completion:Generates the completion script for the given shell' \
+'man:Generate all man pages to the given directory' \
+'accounts:Manage accounts' \
+'folders:Manage folders' \
+'flags:Handles email flags' \
+'template:Handles email templates' \
+'attachments:Downloads all emails attachments' \
+'list:List envelopes' \
+'search:Filter envelopes matching the given query' \
+'sort:Sort envelopes by the given criteria and matching the given query' \
+'write:Write a new email' \
+'send:Send a raw email' \
+'save:Save a raw email' \
+'read:Read text bodies of emails' \
+'reply:Answer to an email' \
+'forward:Forward an email' \
+'copy:Copy emails to the given folder' \
+'move:Move emails to the given folder' \
+'delete:Delete emails' \
+'notify:Notifies when new messages arrive in the given folder' \
+'watch:Watches IMAP server changes' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'himalaya commands' commands "$@"
+}
+(( $+functions[_himalaya__accounts_commands] )) ||
+_himalaya__accounts_commands() {
+    local commands; commands=(
+'list:List all accounts from the config file' \
+'sync:Synchronize the given account locally' \
+'configure:Configure the current selected account' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'himalaya accounts commands' commands "$@"
+}
+(( $+functions[_himalaya__help__accounts_commands] )) ||
+_himalaya__help__accounts_commands() {
+    local commands; commands=(
+'list:List all accounts from the config file' \
+'sync:Synchronize the given account locally' \
+'configure:Configure the current selected account' \
+    )
+    _describe -t commands 'himalaya help accounts commands' commands "$@"
+}
+(( $+functions[_himalaya__flags__add_commands] )) ||
+_himalaya__flags__add_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya flags add commands' commands "$@"
+}
+(( $+functions[_himalaya__flags__help__add_commands] )) ||
+_himalaya__flags__help__add_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya flags help add commands' commands "$@"
+}
+(( $+functions[_himalaya__help__flags__add_commands] )) ||
+_himalaya__help__flags__add_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help flags add commands' commands "$@"
+}
+(( $+functions[_himalaya__attachments_commands] )) ||
+_himalaya__attachments_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya attachments commands' commands "$@"
+}
+(( $+functions[_himalaya__help__attachments_commands] )) ||
+_himalaya__help__attachments_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help attachments commands' commands "$@"
+}
+(( $+functions[_himalaya__completion_commands] )) ||
+_himalaya__completion_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya completion commands' commands "$@"
+}
+(( $+functions[_himalaya__help__completion_commands] )) ||
+_himalaya__help__completion_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help completion commands' commands "$@"
+}
+(( $+functions[_himalaya__accounts__configure_commands] )) ||
+_himalaya__accounts__configure_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya accounts configure commands' commands "$@"
+}
+(( $+functions[_himalaya__accounts__help__configure_commands] )) ||
+_himalaya__accounts__help__configure_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya accounts help configure commands' commands "$@"
+}
+(( $+functions[_himalaya__help__accounts__configure_commands] )) ||
+_himalaya__help__accounts__configure_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help accounts configure commands' commands "$@"
+}
+(( $+functions[_himalaya__copy_commands] )) ||
+_himalaya__copy_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya copy commands' commands "$@"
+}
+(( $+functions[_himalaya__help__copy_commands] )) ||
+_himalaya__help__copy_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help copy commands' commands "$@"
+}
+(( $+functions[_himalaya__folders__create_commands] )) ||
+_himalaya__folders__create_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya folders create commands' commands "$@"
+}
+(( $+functions[_himalaya__folders__help__create_commands] )) ||
+_himalaya__folders__help__create_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya folders help create commands' commands "$@"
+}
+(( $+functions[_himalaya__help__folders__create_commands] )) ||
+_himalaya__help__folders__create_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help folders create commands' commands "$@"
+}
+(( $+functions[_himalaya__delete_commands] )) ||
+_himalaya__delete_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya delete commands' commands "$@"
+}
+(( $+functions[_himalaya__folders__delete_commands] )) ||
+_himalaya__folders__delete_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya folders delete commands' commands "$@"
+}
+(( $+functions[_himalaya__folders__help__delete_commands] )) ||
+_himalaya__folders__help__delete_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya folders help delete commands' commands "$@"
+}
+(( $+functions[_himalaya__help__delete_commands] )) ||
+_himalaya__help__delete_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help delete commands' commands "$@"
+}
+(( $+functions[_himalaya__help__folders__delete_commands] )) ||
+_himalaya__help__folders__delete_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help folders delete commands' commands "$@"
+}
+(( $+functions[_himalaya__folders__expunge_commands] )) ||
+_himalaya__folders__expunge_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya folders expunge commands' commands "$@"
+}
+(( $+functions[_himalaya__folders__help__expunge_commands] )) ||
+_himalaya__folders__help__expunge_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya folders help expunge commands' commands "$@"
+}
+(( $+functions[_himalaya__help__folders__expunge_commands] )) ||
+_himalaya__help__folders__expunge_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help folders expunge commands' commands "$@"
+}
+(( $+functions[_himalaya__flags_commands] )) ||
+_himalaya__flags_commands() {
+    local commands; commands=(
+'add:Adds flags to an email' \
+'remove:Removes flags from an email' \
+'set:Sets flags of an email' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'himalaya flags commands' commands "$@"
+}
+(( $+functions[_himalaya__help__flags_commands] )) ||
+_himalaya__help__flags_commands() {
+    local commands; commands=(
+'add:Adds flags to an email' \
+'remove:Removes flags from an email' \
+'set:Sets flags of an email' \
+    )
+    _describe -t commands 'himalaya help flags commands' commands "$@"
+}
+(( $+functions[_himalaya__folders_commands] )) ||
+_himalaya__folders_commands() {
+    local commands; commands=(
+'expunge:Delete emails marked for deletion' \
+'create:Create a new folder' \
+'list:List folders' \
+'delete:Delete a folder with all its emails' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'himalaya folders commands' commands "$@"
+}
+(( $+functions[_himalaya__help__folders_commands] )) ||
+_himalaya__help__folders_commands() {
+    local commands; commands=(
+'expunge:Delete emails marked for deletion' \
+'create:Create a new folder' \
+'list:List folders' \
+'delete:Delete a folder with all its emails' \
+    )
+    _describe -t commands 'himalaya help folders commands' commands "$@"
+}
+(( $+functions[_himalaya__forward_commands] )) ||
+_himalaya__forward_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya forward commands' commands "$@"
+}
+(( $+functions[_himalaya__help__forward_commands] )) ||
+_himalaya__help__forward_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help forward commands' commands "$@"
+}
+(( $+functions[_himalaya__help__template__forward_commands] )) ||
+_himalaya__help__template__forward_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help template forward commands' commands "$@"
+}
+(( $+functions[_himalaya__template__forward_commands] )) ||
+_himalaya__template__forward_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya template forward commands' commands "$@"
+}
+(( $+functions[_himalaya__template__help__forward_commands] )) ||
+_himalaya__template__help__forward_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya template help forward commands' commands "$@"
+}
+(( $+functions[_himalaya__accounts__help_commands] )) ||
+_himalaya__accounts__help_commands() {
+    local commands; commands=(
+'list:List all accounts from the config file' \
+'sync:Synchronize the given account locally' \
+'configure:Configure the current selected account' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'himalaya accounts help commands' commands "$@"
+}
+(( $+functions[_himalaya__accounts__help__help_commands] )) ||
+_himalaya__accounts__help__help_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya accounts help help commands' commands "$@"
+}
+(( $+functions[_himalaya__flags__help_commands] )) ||
+_himalaya__flags__help_commands() {
+    local commands; commands=(
+'add:Adds flags to an email' \
+'remove:Removes flags from an email' \
+'set:Sets flags of an email' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'himalaya flags help commands' commands "$@"
+}
+(( $+functions[_himalaya__flags__help__help_commands] )) ||
+_himalaya__flags__help__help_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya flags help help commands' commands "$@"
+}
+(( $+functions[_himalaya__folders__help_commands] )) ||
+_himalaya__folders__help_commands() {
+    local commands; commands=(
+'expunge:Delete emails marked for deletion' \
+'create:Create a new folder' \
+'list:List folders' \
+'delete:Delete a folder with all its emails' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'himalaya folders help commands' commands "$@"
+}
+(( $+functions[_himalaya__folders__help__help_commands] )) ||
+_himalaya__folders__help__help_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya folders help help commands' commands "$@"
+}
+(( $+functions[_himalaya__help_commands] )) ||
+_himalaya__help_commands() {
+    local commands; commands=(
+'completion:Generates the completion script for the given shell' \
+'man:Generate all man pages to the given directory' \
+'accounts:Manage accounts' \
+'folders:Manage folders' \
+'flags:Handles email flags' \
+'template:Handles email templates' \
+'attachments:Downloads all emails attachments' \
+'list:List envelopes' \
+'search:Filter envelopes matching the given query' \
+'sort:Sort envelopes by the given criteria and matching the given query' \
+'write:Write a new email' \
+'send:Send a raw email' \
+'save:Save a raw email' \
+'read:Read text bodies of emails' \
+'reply:Answer to an email' \
+'forward:Forward an email' \
+'copy:Copy emails to the given folder' \
+'move:Move emails to the given folder' \
+'delete:Delete emails' \
+'notify:Notifies when new messages arrive in the given folder' \
+'watch:Watches IMAP server changes' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'himalaya help commands' commands "$@"
+}
+(( $+functions[_himalaya__help__help_commands] )) ||
+_himalaya__help__help_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help help commands' commands "$@"
+}
+(( $+functions[_himalaya__template__help_commands] )) ||
+_himalaya__template__help_commands() {
+    local commands; commands=(
+'forward:Generates a template for forwarding an email' \
+'reply:Generates a template for replying to an email' \
+'save:Compiles the template into a valid email then saves it' \
+'send:Compiles the template into a valid email then sends it' \
+'write:Generates a template for writing a new email' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'himalaya template help commands' commands "$@"
+}
+(( $+functions[_himalaya__template__help__help_commands] )) ||
+_himalaya__template__help__help_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya template help help commands' commands "$@"
+}
+(( $+functions[_himalaya__accounts__help__list_commands] )) ||
+_himalaya__accounts__help__list_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya accounts help list commands' commands "$@"
+}
+(( $+functions[_himalaya__accounts__list_commands] )) ||
+_himalaya__accounts__list_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya accounts list commands' commands "$@"
+}
+(( $+functions[_himalaya__folders__help__list_commands] )) ||
+_himalaya__folders__help__list_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya folders help list commands' commands "$@"
+}
+(( $+functions[_himalaya__folders__list_commands] )) ||
+_himalaya__folders__list_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya folders list commands' commands "$@"
+}
+(( $+functions[_himalaya__help__accounts__list_commands] )) ||
+_himalaya__help__accounts__list_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help accounts list commands' commands "$@"
+}
+(( $+functions[_himalaya__help__folders__list_commands] )) ||
+_himalaya__help__folders__list_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help folders list commands' commands "$@"
+}
+(( $+functions[_himalaya__help__list_commands] )) ||
+_himalaya__help__list_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help list commands' commands "$@"
+}
+(( $+functions[_himalaya__list_commands] )) ||
+_himalaya__list_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya list commands' commands "$@"
+}
+(( $+functions[_himalaya__help__man_commands] )) ||
+_himalaya__help__man_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help man commands' commands "$@"
+}
+(( $+functions[_himalaya__man_commands] )) ||
+_himalaya__man_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya man commands' commands "$@"
+}
+(( $+functions[_himalaya__help__move_commands] )) ||
+_himalaya__help__move_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help move commands' commands "$@"
+}
+(( $+functions[_himalaya__move_commands] )) ||
+_himalaya__move_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya move commands' commands "$@"
+}
+(( $+functions[_himalaya__help__notify_commands] )) ||
+_himalaya__help__notify_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help notify commands' commands "$@"
+}
+(( $+functions[_himalaya__notify_commands] )) ||
+_himalaya__notify_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya notify commands' commands "$@"
+}
+(( $+functions[_himalaya__help__read_commands] )) ||
+_himalaya__help__read_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help read commands' commands "$@"
+}
+(( $+functions[_himalaya__read_commands] )) ||
+_himalaya__read_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya read commands' commands "$@"
+}
+(( $+functions[_himalaya__flags__help__remove_commands] )) ||
+_himalaya__flags__help__remove_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya flags help remove commands' commands "$@"
+}
+(( $+functions[_himalaya__flags__remove_commands] )) ||
+_himalaya__flags__remove_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya flags remove commands' commands "$@"
+}
+(( $+functions[_himalaya__help__flags__remove_commands] )) ||
+_himalaya__help__flags__remove_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help flags remove commands' commands "$@"
+}
+(( $+functions[_himalaya__help__reply_commands] )) ||
+_himalaya__help__reply_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help reply commands' commands "$@"
+}
+(( $+functions[_himalaya__help__template__reply_commands] )) ||
+_himalaya__help__template__reply_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help template reply commands' commands "$@"
+}
+(( $+functions[_himalaya__reply_commands] )) ||
+_himalaya__reply_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya reply commands' commands "$@"
+}
+(( $+functions[_himalaya__template__help__reply_commands] )) ||
+_himalaya__template__help__reply_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya template help reply commands' commands "$@"
+}
+(( $+functions[_himalaya__template__reply_commands] )) ||
+_himalaya__template__reply_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya template reply commands' commands "$@"
+}
+(( $+functions[_himalaya__help__save_commands] )) ||
+_himalaya__help__save_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help save commands' commands "$@"
+}
+(( $+functions[_himalaya__help__template__save_commands] )) ||
+_himalaya__help__template__save_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help template save commands' commands "$@"
+}
+(( $+functions[_himalaya__save_commands] )) ||
+_himalaya__save_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya save commands' commands "$@"
+}
+(( $+functions[_himalaya__template__help__save_commands] )) ||
+_himalaya__template__help__save_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya template help save commands' commands "$@"
+}
+(( $+functions[_himalaya__template__save_commands] )) ||
+_himalaya__template__save_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya template save commands' commands "$@"
+}
+(( $+functions[_himalaya__help__search_commands] )) ||
+_himalaya__help__search_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help search commands' commands "$@"
+}
+(( $+functions[_himalaya__search_commands] )) ||
+_himalaya__search_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya search commands' commands "$@"
+}
+(( $+functions[_himalaya__help__send_commands] )) ||
+_himalaya__help__send_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help send commands' commands "$@"
+}
+(( $+functions[_himalaya__help__template__send_commands] )) ||
+_himalaya__help__template__send_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help template send commands' commands "$@"
+}
+(( $+functions[_himalaya__send_commands] )) ||
+_himalaya__send_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya send commands' commands "$@"
+}
+(( $+functions[_himalaya__template__help__send_commands] )) ||
+_himalaya__template__help__send_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya template help send commands' commands "$@"
+}
+(( $+functions[_himalaya__template__send_commands] )) ||
+_himalaya__template__send_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya template send commands' commands "$@"
+}
+(( $+functions[_himalaya__flags__help__set_commands] )) ||
+_himalaya__flags__help__set_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya flags help set commands' commands "$@"
+}
+(( $+functions[_himalaya__flags__set_commands] )) ||
+_himalaya__flags__set_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya flags set commands' commands "$@"
+}
+(( $+functions[_himalaya__help__flags__set_commands] )) ||
+_himalaya__help__flags__set_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help flags set commands' commands "$@"
+}
+(( $+functions[_himalaya__help__sort_commands] )) ||
+_himalaya__help__sort_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help sort commands' commands "$@"
+}
+(( $+functions[_himalaya__sort_commands] )) ||
+_himalaya__sort_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya sort commands' commands "$@"
+}
+(( $+functions[_himalaya__accounts__help__sync_commands] )) ||
+_himalaya__accounts__help__sync_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya accounts help sync commands' commands "$@"
+}
+(( $+functions[_himalaya__accounts__sync_commands] )) ||
+_himalaya__accounts__sync_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya accounts sync commands' commands "$@"
+}
+(( $+functions[_himalaya__help__accounts__sync_commands] )) ||
+_himalaya__help__accounts__sync_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help accounts sync commands' commands "$@"
+}
+(( $+functions[_himalaya__help__template_commands] )) ||
+_himalaya__help__template_commands() {
+    local commands; commands=(
+'forward:Generates a template for forwarding an email' \
+'reply:Generates a template for replying to an email' \
+'save:Compiles the template into a valid email then saves it' \
+'send:Compiles the template into a valid email then sends it' \
+'write:Generates a template for writing a new email' \
+    )
+    _describe -t commands 'himalaya help template commands' commands "$@"
+}
+(( $+functions[_himalaya__template_commands] )) ||
+_himalaya__template_commands() {
+    local commands; commands=(
+'forward:Generates a template for forwarding an email' \
+'reply:Generates a template for replying to an email' \
+'save:Compiles the template into a valid email then saves it' \
+'send:Compiles the template into a valid email then sends it' \
+'write:Generates a template for writing a new email' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'himalaya template commands' commands "$@"
+}
+(( $+functions[_himalaya__help__watch_commands] )) ||
+_himalaya__help__watch_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help watch commands' commands "$@"
+}
+(( $+functions[_himalaya__watch_commands] )) ||
+_himalaya__watch_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya watch commands' commands "$@"
+}
+(( $+functions[_himalaya__help__template__write_commands] )) ||
+_himalaya__help__template__write_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help template write commands' commands "$@"
+}
+(( $+functions[_himalaya__help__write_commands] )) ||
+_himalaya__help__write_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya help write commands' commands "$@"
+}
+(( $+functions[_himalaya__template__help__write_commands] )) ||
+_himalaya__template__help__write_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya template help write commands' commands "$@"
+}
+(( $+functions[_himalaya__template__write_commands] )) ||
+_himalaya__template__write_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya template write commands' commands "$@"
+}
+(( $+functions[_himalaya__write_commands] )) ||
+_himalaya__write_commands() {
+    local commands; commands=()
+    _describe -t commands 'himalaya write commands' commands "$@"
+}
+
+if [ "$funcstack[1]" = "_himalaya" ]; then
+    _himalaya "$@"
+else
+    compdef _himalaya himalaya
+fi
