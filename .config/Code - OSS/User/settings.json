@@ -67,4 +67,24 @@
       "commands": ["editor.action.peekTypeDefinition"]
     },
   ],
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
+  "cSpell.language": "es-ES,en",
+  "cSpell.enableFiletypes": [
+    "markdown"
+  ],
+  "cSpell.enabled": true,
+  "rust-analyzer.inlayHints.bindingModeHints.enable": true,
+  "rust-analyzer.inlayHints.closureCaptureHints.enable": true,
+  "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "always",
+  "rust-analyzer.inlayHints.genericParameterHints.type.enable": true,
+  "rust-analyzer.inlayHints.rangeExclusiveHints.enable": true,
+  "rust-analyzer.inlayHints.typeHints.hideNamedConstructor": true,
+  "rust-analyzer.inlayHints.expressionAdjustmentHints.enable": "always",
+  "rust-analyzer.inlayHints.genericParameterHints.lifetime.enable": true,
+  "rust-analyzer.inlayHints.closingBraceHints.minLines": 0,
 }

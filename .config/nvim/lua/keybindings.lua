@@ -1,7 +1,7 @@
 --
 local wk = require("which-key")
 
-vim.keymap.set('i', '<C-e>', 'copilot#Accept("\\<CR>")', {
+vim.keymap.set('i', '<Right>', 'copilot#Accept("\\<CR>")', {
           expr = true,
           replace_keycodes = false
         })
