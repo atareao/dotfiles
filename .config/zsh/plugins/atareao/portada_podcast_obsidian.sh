@@ -66,8 +66,6 @@ function portada_podcast(){
     echo "Notas: ${MD_FILE}"
     echo "Título: ${title}"
     echo '================'
-    return 0
-
     NUMBER=$(date +%d)
     TEMPLATE="${RESOURCESDIR}/plantilla_podcast_${NUMBER}.svg" 
     if [[ ! -f "$TEMPLATE" ]]; then
