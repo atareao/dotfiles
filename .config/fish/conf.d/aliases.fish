@@ -26,6 +26,14 @@ function gpush -d "git push"
     git push
 end
 
+function gpull -d "git pull"
+    git pull
+end
+
+function gstatus -d "git status"
+    git status
+end
+
 function gmerge -d "git merge --no-edit --no-ff development"
     git switch main
     git merge --no-edit --no-ff development
