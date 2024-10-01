@@ -16,7 +16,6 @@ return {
             docker_compose_language_service = {},
             html = {},
             jsonls = {},
-            tsserver = {},
             jqls = {},
             lua_ls = {},
             intelephense = {},
@@ -27,6 +26,7 @@ return {
             sqlls = {},
             taplo = {},
             svelte = {},
+            --ts_ls = {},
             typst_lsp = {
                 Typst = {
                     exportPdf = "onSave",
