@@ -24,7 +24,12 @@ function portada_podcast(){
     MAINDIR="/data/podcasts"
     IMAGEDIR="${MAINDIR}/image"
     RESOURCESDIR="/data/Vídeos/recursos"
-    EPISODIO="$1"
+    NUMBER="$1"
+    DIA="$2"
+
+    if [[ -z $DIA ]]; then
+        DIA=$(date +%d)
+    fi
     NEED_EXIT=0
 
     if [[ ! -d "$MAINDIR" ]]
@@ -35,7 +40,7 @@ function portada_podcast(){
     then
         rm "${IMAGEDIR}/podcast_image.jpg"
     fi
-    if [[ -z $EPISODIO ]]
+    if [[ -z $NUMBER ]]
     then
         echo "No has introducido el número del episodio"
         NEED_EXIT=1
@@ -46,14 +51,15 @@ function portada_podcast(){
         echo No existe la portada JPG
         NEED_EXIT=1
     fi
-    MD_FILE=$(rg -l "^episode: ${EPISODIO}" /data/vaults/Notas)
+    MD_FILE=$(rg -l "^episode: ${NUMBER}" /data/vaults/Notas)
     if [[ ! -f "${MD_FILE}" ]];then
         echo "No existe el archivo ${MD_FILE}"
         NEED_EXIT=1
     fi
-    title=$(grep "^title: " "${MD_FILE}" | head -n1)
-    title="${title//title: /}"
-    if [[ -z $title ]];then
+    TITLE=$(grep "^TITLE: " "${MD_FILE}" | head -n1)
+    TITLE="${TITLE//TITLE: /}"
+    TITLE="${TITLE^^}"
+    if [[ -z $TITLE ]];then
         echo "No hay título"
         NEED_EXIT=1
     fi
@@ -64,10 +70,11 @@ function portada_podcast(){
     echo '================'
     echo "Portada: ${PORTADAJPG}"
     echo "Notas: ${MD_FILE}"
-    echo "Título: ${title}"
+    echo "Título: ${TITLE}"
     echo '================'
     NUMBER=$(date +%d)
     TEMPLATE="${RESOURCESDIR}/plantilla_podcast_${NUMBER}.svg" 
+    TEMPLATE="${RESOURCESDIR}/plantilla_podcast.svg" 
     if [[ ! -f "$TEMPLATE" ]]; then
         TEMPLATE="${RESOURCESDIR}/plantilla_podcast.svg" 
     fi
@@ -76,21 +83,21 @@ function portada_podcast(){
         TEMPLATE="${RESOURCESDIR}/plantilla_podcast_2000.svg" 
     fi
     mv "${PORTADAJPG}" "${IMAGEDIR}/temporal.jpg"
-    convert -resize 2000x2000! "${IMAGEDIR}/temporal.jpg" "${IMAGEDIR}/portada_sqr.jpg"
-    convert -resize 1920x1080! "${IMAGEDIR}/temporal.jpg" "${IMAGEDIR}/portada.jpg"
+    magick -resize 2000x2000! "${IMAGEDIR}/temporal.jpg" "${IMAGEDIR}/portada_sqr.jpg"
+    magick -resize 1920x1080! "${IMAGEDIR}/temporal.jpg" "${IMAGEDIR}/portada.jpg"
     rm "${IMAGEDIR}/temporal.jpg"
 
-    cp "$TEMPLATE_2000" "${IMAGEDIR}/plantilla_podcast_2000.svg"
-    sed -i "s/||NUMBER||/$EPISODIO/g" "${IMAGEDIR}/plantilla_podcast_2000.svg"
-    sed -i "s/||TITLE||/$title/g" "${IMAGEDIR}/plantilla_podcast_2000.svg"
-    inkscape --export-type="png" "${IMAGEDIR}/plantilla_podcast_2000.svg" -o "${IMAGEDIR}/plantilla_podcast_2000.png"
-    convert "${IMAGEDIR}/plantilla_podcast_2000.png" "${IMAGEDIR}/e${EPISODIO}_sqr.jpg"
+    export NUMBER
+    export TITLE
+    export DIA
 
-    cp "$TEMPLATE" "${IMAGEDIR}/plantilla_podcast.svg"
-    sed -i "s/||NUMBER||/$EPISODIO/g" "${IMAGEDIR}/plantilla_podcast.svg"
-    sed -i "s/||TITLE||/$title/g" "${IMAGEDIR}/plantilla_podcast.svg"
+    jinrender -j "$TEMPLATE_2000" -o "${IMAGEDIR}/plantilla_podcast_2000.svg"
+    inkscape --export-type="png" "${IMAGEDIR}/plantilla_podcast_2000.svg" -o "${IMAGEDIR}/plantilla_podcast_2000.png"
+    magick "${IMAGEDIR}/plantilla_podcast_2000.png" "${IMAGEDIR}/e${NUMBER}_sqr.jpg"
+
+    jinrender -j "$TEMPLATE" -o "${IMAGEDIR}/plantilla_podcast.svg"
     inkscape --export-type="png" "${IMAGEDIR}/plantilla_podcast.svg" -o "${IMAGEDIR}/plantilla_podcast.png"
-    convert "${IMAGEDIR}/plantilla_podcast.png" "${IMAGEDIR}/e${EPISODIO}.jpg"
+    magick "${IMAGEDIR}/plantilla_podcast.png" "${IMAGEDIR}/e${NUMBER}.jpg"
 
     if [[ -f "${IMAGEDIR}/plantilla_podcast_2000.svg" ]]; then
         rm "${IMAGEDIR}/plantilla_podcast_2000.svg"
