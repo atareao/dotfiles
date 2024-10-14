@@ -56,8 +56,8 @@ function portada_podcast(){
         echo "No existe el archivo ${MD_FILE}"
         NEED_EXIT=1
     fi
-    TITLE=$(grep "^TITLE: " "${MD_FILE}" | head -n1)
-    TITLE="${TITLE//TITLE: /}"
+    TITLE=$(grep "^title: " "${MD_FILE}" | head -n1)
+    TITLE="${TITLE//title: /}"
     TITLE="${TITLE^^}"
     if [[ -z $TITLE ]];then
         echo "No hay título"
@@ -72,19 +72,12 @@ function portada_podcast(){
     echo "Notas: ${MD_FILE}"
     echo "Título: ${TITLE}"
     echo '================'
-    NUMBER=$(date +%d)
-    TEMPLATE="${RESOURCESDIR}/plantilla_podcast_${NUMBER}.svg" 
     TEMPLATE="${RESOURCESDIR}/plantilla_podcast.svg" 
-    if [[ ! -f "$TEMPLATE" ]]; then
-        TEMPLATE="${RESOURCESDIR}/plantilla_podcast.svg" 
-    fi
-    TEMPLATE_2000="${RESOURCESDIR}/plantilla_podcast_2000_${NUMBER}.svg" 
-    if [[ ! -f "$TEMPLATE_2000" ]]; then
-        TEMPLATE="${RESOURCESDIR}/plantilla_podcast_2000.svg" 
-    fi
+    TEMPLATE_2000="${RESOURCESDIR}/plantilla_podcast_2000.svg" 
+
     mv "${PORTADAJPG}" "${IMAGEDIR}/temporal.jpg"
-    magick -resize 2000x2000! "${IMAGEDIR}/temporal.jpg" "${IMAGEDIR}/portada_sqr.jpg"
-    magick -resize 1920x1080! "${IMAGEDIR}/temporal.jpg" "${IMAGEDIR}/portada.jpg"
+    magick "${IMAGEDIR}/temporal.jpg" -resize 2000x2000! "${IMAGEDIR}/portada_sqr.jpg"
+    magick "${IMAGEDIR}/temporal.jpg" -resize 1920x1080! "${IMAGEDIR}/portada.jpg"
     rm "${IMAGEDIR}/temporal.jpg"
 
     export NUMBER

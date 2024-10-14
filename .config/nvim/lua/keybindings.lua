@@ -1,21 +1,16 @@
 --
 local wk = require("which-key")
 
-vim.keymap.set('i', '<Right>', 'copilot#Accept("\\<CR>")', {
-          expr = true,
-          replace_keycodes = false
-        })
-vim.g.copilot_no_tab_map = true
 --vim.g.tabby_keybinding_accept = '<C-e>'
 --vim.g.tabby_keybinding_trigger_or_dismiss = '<C-d>'
 
 wk.add({
     {
         mode = "i",
-        {"<C-h>", "<left>",  desc = "Movements"},
-        {"<C-j>", "<down>",  desc = "Movements"},
-        {"<C-k>", "<up>",    desc = "Movements"},
-        {"<C-l>", "<right>", desc = "Movements"},
+        {"<left>",  desc = "Movements"},
+        {"<down>",  desc = "Movements"},
+        {"<up>",    desc = "Movements"},
+        {"<right>", desc = "Movements"},
     },
     {
         mode = "n",
