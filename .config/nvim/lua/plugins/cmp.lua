@@ -20,14 +20,11 @@ return {
         "onsails/lspkind-nvim",
         "rafamadriz/friendly-snippets",
         "SergioRibera/cmp-dotenv",
-        "zbirenbaum/copilot-cmp",
     },
     config = function()
         local cmp = require 'cmp'
         local luasnip = require 'luasnip'
         local compare = require('cmp.config.compare')
-        local lspkind = require('lspkind')
-        require("copilot_cmp").setup()
 
         cmp.setup {
             -- load snippet support
@@ -89,7 +86,6 @@ return {
                 { name = 'buffer' },
                 { name = 'spell' },
                 { name = "dotenv" },
-                { name = "copilot"},
                 --{ name = 'cmp_tabnine' },
             },
             sorting = {
@@ -106,13 +102,6 @@ return {
                     compare.order,
                 },
             },
-            formatting = {
-                format = lspkind.cmp_format({
-                    mode = "symbol_text",
-                    maxwidth = 50,
-                    symbol_map = { Copilot = "" }
-                }),
-            }
         }
 
         require("cmp").setup.filetype(

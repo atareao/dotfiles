@@ -16,7 +16,7 @@ return {
             docker_compose_language_service = {},
             html = {},
             jsonls = {},
-            jqls = {},
+            tsserver = {},
             lua_ls = {},
             intelephense = {},
             pyright = {},
@@ -26,7 +26,6 @@ return {
             sqlls = {},
             taplo = {},
             svelte = {},
-            --ts_ls = {},
             typst_lsp = {
                 Typst = {
                     exportPdf = "onSave",
@@ -80,37 +79,5 @@ return {
                 require("lint").try_lint()
             end,
         })
-        require('lspconfig').ruff_lsp.setup {
-            init_options = {
-                settings = {
-                    -- Any extra CLI arguments for `ruff` go here.
-                    args = {},
-                }
-            },
-            commands = {
-                RuffAutofix = {
-                  function()
-                    vim.lsp.buf.execute_command {
-                      command = 'ruff.applyAutofix',
-                      arguments = {
-                        { uri = vim.uri_from_bufnr(0) },
-                      },
-                    }
-                  end,
-                  description = 'Ruff: Fix all auto-fixable problems',
-                },
-                RuffOrganizeImports = {
-                  function()
-                    vim.lsp.buf.execute_command {
-                      command = 'ruff.applyOrganizeImports',
-                      arguments = {
-                        { uri = vim.uri_from_bufnr(0) },
-                      },
-                    }
-                  end,
-                  description = 'Ruff: Format imports',
-                },
-            },
-        }
     end
 }
