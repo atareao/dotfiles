@@ -9,6 +9,24 @@ return     {
         local lsp = require('feline.providers.lsp')
         local vi_mode_utils = require('feline.providers.vi_mode')
 
+        local function lazy_require(require_path)
+            return setmetatable({}, {
+                __index = function(_, key)
+                    return require(require_path)[key]
+                end,
+
+                __newindex = function(_, key, value)
+                    require(require_path)[key] = value
+                end,
+            })
+        end
+
+        local copilot_client = lazy_require("copilot.client")
+        local copilot_api = lazy_require("copilot.api")
+        local is_current_buffer_attached = function()
+            return copilot_client.buf_is_attached(vim.api.nvim_get_current_buf())
+        end
+
         local force_inactive = {
           filetypes = {},
           buftypes = {},
@@ -221,8 +239,30 @@ return     {
           },
           right_sep = ' '
         }
-        -- fileIcon
+        -- copilot
         components.active[3][2] = {
+          provider = function()
+                if copilot_client.is_disabled() or not is_current_buffer_attached() then
+                    return ''
+                end
+                local data = copilot_api.status.data.status
+                local msg = ""
+                if data == "Warning" then
+                    msg = "⚠"
+                elseif data == "InProgress" then
+                    msg = "⌛"
+                end
+                return "" .. " " .. msg
+          end,
+          hl = {
+            fg = 'cyan',
+            bg = colors.bg,
+            style = 'bold'
+          },
+          right_sep = ' '
+        }
+        -- fileIcon
+        components.active[3][3] = {
           provider = function()
             local filename  = vim.fn.expand('%:t')
             local extension = vim.fn.expand('%:e')
@@ -249,7 +289,7 @@ return     {
           right_sep = ' '
         }
         -- fileType
-        components.active[3][3] = {
+        components.active[3][4] = {
           provider = 'file_type',
           hl = function()
             local val        = {}
@@ -268,7 +308,7 @@ return     {
           right_sep = ' '
         }
         -- fileSize
-        components.active[3][4] = {
+        components.active[3][5] = {
           provider = 'file_size',
           enabled = function() return vim.fn.getfsize(vim.fn.expand('%:t')) > 0 end,
           hl = {
@@ -279,7 +319,7 @@ return     {
           right_sep = ' '
         }
         -- fileFormat
-        components.active[3][5] = {
+        components.active[3][6] = {
           provider = function() return '' .. vim.bo.fileformat:upper() .. '' end,
           hl = {
             fg = 'white',
@@ -289,7 +329,7 @@ return     {
           right_sep = ' '
         }
         -- fileEncode
-        components.active[3][6] = {
+        components.active[3][7] = {
           provider = 'file_encoding',
           hl = {
             fg = 'white',
@@ -299,7 +339,7 @@ return     {
           right_sep = ' '
         }
         -- WordCount
-        components.active[3][7] = {
+        components.active[3][8] = {
           provider = function()
             return ' ' .. tostring(vim.fn.wordcount().words)
           end,
@@ -310,7 +350,7 @@ return     {
           right_sep = ' '
         }
         -- lineInfo
-        components.active[3][8] = {
+        components.active[3][9] = {
           provider = 'position',
           hl = {
             fg = 'white',
@@ -320,7 +360,7 @@ return     {
           right_sep = ' '
         }
         -- linePercent
-        components.active[3][9] = {
+        components.active[3][10] = {
           provider = 'line_percentage',
           hl = {
             fg = 'white',
@@ -330,7 +370,7 @@ return     {
           right_sep = ' '
         }
         -- scrollBar
-        components.active[3][10] = {
+        components.active[3][11] = {
           provider = 'scroll_bar',
           hl = {
             fg = 'yellow',

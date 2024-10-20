@@ -17,14 +17,15 @@ return {
         "f3fora/cmp-spell",
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
-        "onsails/lspkind-nvim",
         "rafamadriz/friendly-snippets",
         "SergioRibera/cmp-dotenv",
+        "onsails/lspkind-nvim",
     },
     config = function()
         local cmp = require 'cmp'
         local luasnip = require 'luasnip'
         local compare = require('cmp.config.compare')
+        local lspkind = require('lspkind')
 
         cmp.setup {
             -- load snippet support
@@ -87,11 +88,12 @@ return {
                 { name = 'spell' },
                 { name = "dotenv" },
                 --{ name = 'cmp_tabnine' },
+                { name = "copilot" },
             },
             sorting = {
                 priority_weight = 2,
                 comparators = {
-                    --require('cmp_tabnine.compare'),
+                    require("copilot_cmp.comparators").prioritize,
                     compare.offset,
                     compare.exact,
                     compare.score,
@@ -102,6 +104,42 @@ return {
                     compare.order,
                 },
             },
+            formatting = {
+                format = lspkind.cmp_format({
+                    mode = "symbol_text",
+                    max_width = 100,
+                    ellipsis_char = '...',
+                    show_labelDetails = true,
+                    symbol_map = {
+                        Copilot = "",
+                        Text = "",
+                        Method = "",
+                        Function = "",
+                        Constructor = "",
+                        Field = "",
+                        Variable = "",
+                        Class = "",
+                        Interface = "",
+                        Module = "",
+                        Property = "",
+                        Unit = "",
+                        Value = "",
+                        Enum = "",
+                        Keyword = "",
+                        Snippet = "",
+                        Color = "",
+                        File = "",
+                        Reference = "",
+                        Folder = "",
+                        EnumMember = "",
+                        Constant = "",
+                        Struct = "",
+                        Event = "",
+                        Operator = "",
+                        TypeParameter = "",
+                    }
+                })
+            }
         }
 
         require("cmp").setup.filetype(

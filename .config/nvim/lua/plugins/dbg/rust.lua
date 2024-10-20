@@ -1,7 +1,7 @@
 local dap = require "dap"
 dap.adapters.lldb = {
   type = 'executable',
-  command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
+  command = 'codelldb', -- adjust as needed, must be absolute path
   name = 'lldb'
 }
 dap.adapters.rust = {
@@ -10,7 +10,7 @@ dap.adapters.rust = {
         pidProperty = "pid",
         pidSelect = "ask"
     },
-    command = '/usr/bin/rust-lldb', -- my binary was called 'lldb-vscode-11'
+    command = 'rust-lldb',
     env = {
         LLDB_LAUNCH_FLAG_LAUNCH_IN_TTY = "YES"
     },

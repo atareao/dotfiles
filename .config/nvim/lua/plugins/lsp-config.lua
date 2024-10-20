@@ -16,8 +16,12 @@ return {
             docker_compose_language_service = {},
             html = {},
             jsonls = {},
-            tsserver = {},
-            lua_ls = {},
+            --tsserver = {},
+            lua_ls = {
+                Lua = {
+                diagnostics = { globals = {'vim'} }
+              }
+            },
             intelephense = {},
             pyright = {},
             --pylyzer = {},
