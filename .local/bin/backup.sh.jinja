@@ -1,0 +1,115 @@
+#!/usr/bin/env bash
+# -*- coding: utf-8 -*-
+
+# Copyright (c) 2021 Lorenzo Carbonell <a.k.a. atareao>
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+#!/bin/sh
+
+function publish(){
+    repository="$1"
+    action="$2"
+    data="$3"
+    result=""
+    while read line;do
+        if [[ -z $result ]]; then
+            result="${line}"
+        else
+            result="${result}|${line}"
+        fi
+    done< <(echo $data)
+    echo $output
+    curl -X 'POST' \
+        "https://{{ env.ZINCOBSERVE_URL }}/api/default/archi_backup/_json" \
+        -H "accept: application/json" \
+        -H "Authorization: Basic {{ env.ZINCOBSERVE_TOKEN }}" \
+        -H "Content-Type: application/json" \
+        -d "[
+                {
+                    \"repository\": \"${repository}\",
+                    \"action\": \"${action}\",
+                    \"result\": \"${result}\"
+                }
+            ]"
+}
+
+REPO_A='/data/borgbackup|/usr/bin/borg'
+REPO_B='{{ env.BORG_NAS }}:/var/services/homes/lorenzo/backup/repo_manjaro|/usr/local/bin/borg'
+REPO_C='{{ env.BORG_SERVER }}:/home/lorenzo/backup/repo_manjaro|/usr/bin/borg'
+REPOS=("$REPO_A" "$REPO_B" "$REPO_C")
+
+#Bail if borg is already running, maybe previous run didn't finish
+if pidof -x borg >/dev/null; then
+    echo "Backup already running"
+    exit
+fi
+
+export BORG_PASSPHRASE="{{ env.BORG_PASS }}"
+for ITEM in "${REPOS[@]}"
+do
+    REPOSITORY=${ITEM%%|*}
+    BORGPATH=${ITEM##*|}
+    echo "=== Start backup at $REPOSITORY ==="
+    create_ouput=$(borg create -v --stats                          \
+                        "$REPOSITORY"::'{hostname}-{now:%Y-%m-%d}' \
+                        /data/ansible                              \
+                        /data/appimage                             \
+                        /data/atareao.es                           \
+                        /data/bash                                 \
+                        /data/dockers                              \
+                        /data/flatpak                              \
+                        /data/javascript                           \
+                        /data/notas                                \
+                        /data/php                                  \
+                        /data/podcasts                             \
+                        /data/python                               \
+                        /data/rust                                 \
+                        /data/secreto                              \
+                        /data/semaphore                            \
+                        /data/Vídeos                               \
+                        /data/webdav                               \
+                        /home/lorenzo/.ssh                         \
+                        /home/lorenzo/.config                      \
+                        /home/lorenzo/.gnupg                       \
+                        --exclude '*.aup'                          \
+                        --exclude '*.au'                           \
+                        --exclude '*.mkv'                          \
+                        --exclude '*.mp3'                          \
+                        --exclude '/data/rust/*/target'            \
+                        --exclude '/data/rust/*/.git'              \
+                        --exclude '/data/python/*/.git'            \
+                        --exclude '/data/python/*/__pycache__'     \
+                        --remote-path "${BORGPATH}"                \
+                        --info 2>&1 > /dev/null)
+    echo "$create_output"
+    publish "${REPOSITORY}" "create" "${create_output}"
+    # Use the `prune` subcommand to maintain 3 daily, 2 weekly and 3 monthly
+    prune_output=$(borg prune -v                    \
+                        --stats                     \
+                        --list                      \
+                        --keep-within=5d            \
+                        --keep-weekly=2             \
+                        --keep-monthly=2            \
+                        --remote-path "${BORGPATH}" \
+                        -- "${REPOSITORY}" 2>&1 > /dev/null)
+    echo "$prune_output"
+    publish "${REPOSITORY}" "prune" "${prune_output}"
+    echo "=== End backup at $REPOSITORY ==="
+done

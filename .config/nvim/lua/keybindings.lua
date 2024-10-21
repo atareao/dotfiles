@@ -139,6 +139,9 @@ keymap("n", "<leader>lt", '<cmd>lua require("user.functions").toggle_diagnostics
 keymap("n", "<leader>lu", "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet")
 keymap("n", "<leader>lx", "<cmd>TroubleToggle<cr>", "Diagnostics")
 
+-- Neotree
+keymap("n", "<C-n>", "<cmd>Neotree filesystem reveal left<cr>", "NeoTree")
+
 -- Options
 keymap("n", "<leader>o", "", "Options")
 keymap("n", "<leader>ow", '<cmd>lua require("user.functions").toggle_option("wrap")<cr>', "Wrap")
@@ -175,6 +178,7 @@ keymap("n", "<leader>sx", "<cmd>SnipTerminate<cr>", "Terminate")
 
 -- Terminal
 keymap("n", "<leader>t", "", "Terminal")
+keymap("n", "<C-t>", "<cmd>ToggleTerm<cr>", "Toggle Term")
 keymap("n", "<leader>1", ":1ToggleTerm<cr>", "1")
 keymap("n", "<leader>2", ":2ToggleTerm<cr>", "2")
 keymap("n", "<leader>3", ":3ToggleTerm<cr>", "3")
