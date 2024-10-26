@@ -2,3 +2,5 @@
 	gpg-recipient = atareao@atareao.es
 [pull]
 	rebase = false
+[user]
+	signingkey = 907245000ED25C82C4E914BFB5E8FC9484B82CA9
