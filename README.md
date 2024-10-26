@@ -1,2 +1,3 @@
 # dotfiles
 
+yadm config
