@@ -14,7 +14,7 @@ layout {
         pane {
             borderless true
             command "rusty-rain"
-            args "-C" "0,139,139" "-H" "255,255,255" "-s"
+            args "-C" "0,139,139" "-H" "255,255,255" "-s" "-c" "jap"
         }
     }
 }

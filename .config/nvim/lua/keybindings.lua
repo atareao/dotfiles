@@ -140,7 +140,7 @@ keymap("n", "<leader>lu", "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet")
 keymap("n", "<leader>lx", "<cmd>TroubleToggle<cr>", "Diagnostics")
 
 -- Neotree
-keymap("n", "<C-n>", "<cmd>Neotree filesystem reveal left<cr>", "NeoTree")
+keymap("n", "<C-n>", "<cmd>Neotree toggle<cr>", "NeoTree")
 
 -- Options
 keymap("n", "<leader>o", "", "Options")
@@ -166,23 +166,13 @@ keymap("n", "<leader>rr", "<Plug>RestNvim", "Run rest")
 keymap("n", "<leader>rp", "<Plug>RestNvimPreview", "Run rest preview")
 keymap("n", "<leader>rl", "<Plug>RestNvimLast", "Run rest last")
 
--- Telescope
-keymap("n", "<leader>s", "", "Telescope")
-keymap("n", "<leader>sc", "<cmd>Telescope eomoji<cr>", "Close")
-keymap("n", "<leader>sf", "<cmd>%SnipRun<cr>", "Run File")
-keymap("n", "<leader>si", "<cmd>SnipInfo<cr>", "Info")
-keymap("n", "<leader>sm", "<cmd>SnipReplMemoryClean<cr>", "Mem Clean")
-keymap("n", "<leader>sr", "<cmd>SnipReset<cr>", "Reset")
-keymap("n", "<leader>st", "<cmd>SnipRunToggle<cr>", "Toggle")
-keymap("n", "<leader>sx", "<cmd>SnipTerminate<cr>", "Terminate")
-
 -- Terminal
 keymap("n", "<leader>t", "", "Terminal")
 keymap("n", "<C-t>", "<cmd>ToggleTerm<cr>", "Toggle Term")
-keymap("n", "<leader>1", ":1ToggleTerm<cr>", "1")
-keymap("n", "<leader>2", ":2ToggleTerm<cr>", "2")
-keymap("n", "<leader>3", ":3ToggleTerm<cr>", "3")
-keymap("n", "<leader>4", ":4ToggleTerm<cr>", "4")
+keymap("n", "<leader>t1", ":1ToggleTerm<cr>", "1")
+keymap("n", "<leader>t2", ":2ToggleTerm<cr>", "2")
+keymap("n", "<leader>t3", ":3ToggleTerm<cr>", "3")
+keymap("n", "<leader>t4", ":4ToggleTerm<cr>", "4")
 keymap("n", "<leader>f", "<cmd>ToggleTerm direction=float<cr>", "Float")
 keymap("n", "<leader>h", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal")
 keymap("n", "<leader>j", "<cmd>TermExec cmd='gjs %'<cr>", "Execute JavaScript")
