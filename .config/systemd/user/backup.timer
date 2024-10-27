@@ -2,7 +2,7 @@
 Description=Runs every 1 time a day backup.sh
 
 [Timer]
-OnCalendar=*-*-* 23:00:00
+OnCalendar=*-*-* 20:00:00
 
 [Install]
 WantedBy=timers.target
