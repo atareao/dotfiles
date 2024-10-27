@@ -3,7 +3,7 @@ function unjinja --description="Fill scripts"
     echo $STORE_PATH
     fd -g "*.gpg" $STORE_PATH | while read -l item
         set key $(string replace "$STORE_PATH/" "" $item | path change-extension '')
-        set variable $(path basename $key | string upper)
+        set variable $(string upper $key | string replace "/" "_")
         set -xg $variable "$(pass $key)"
     end
     yadm list -a | while read -l item

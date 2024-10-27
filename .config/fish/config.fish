@@ -6,6 +6,7 @@ if status is-interactive
     set -g fish_greeting
     # set TERM
     set -g TERM kitty
+    set -g STARSHIP_CONFIG ~/.config/starship/starship.toml
     # Theme
     fish_config theme choose "ayu Mirage"
     # starship
