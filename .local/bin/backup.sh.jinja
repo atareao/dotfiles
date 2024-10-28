@@ -50,11 +50,11 @@ function publish(){
             ]"
 }
 
-{% if env.MACHINE == "archi" %-}
+{% if env.MACHINE == "archi" -%}
 REPO_A='/data/borgbackup|/usr/bin/borg'
 REPO_B='{{ env.BORG_NAS }}:/var/services/homes/lorenzo/backup/repo_manjaro|/usr/local/bin/borg'
 REPO_C='{{ env.BORG_SERVER }}:/home/lorenzo/backup/repo_manjaro|/usr/bin/borg'
-{% endif %}
+{% endif -%}
 REPOS=("$REPO_A" "$REPO_B" "$REPO_C")
 
 #Bail if borg is already running, maybe previous run didn't finish
