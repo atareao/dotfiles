@@ -50,9 +50,11 @@ function publish(){
             ]"
 }
 
+{% if env.MACHINE == "archi" %-}
 REPO_A='/data/borgbackup|/usr/bin/borg'
 REPO_B='{{ env.BORG_NAS }}:/var/services/homes/lorenzo/backup/repo_manjaro|/usr/local/bin/borg'
 REPO_C='{{ env.BORG_SERVER }}:/home/lorenzo/backup/repo_manjaro|/usr/bin/borg'
+{% endif %}
 REPOS=("$REPO_A" "$REPO_B" "$REPO_C")
 
 #Bail if borg is already running, maybe previous run didn't finish
@@ -75,6 +77,7 @@ do
                         /data/bash                                 \
                         /data/dockers                              \
                         /data/flatpak                              \
+                        /data/gnome                                \
                         /data/javascript                           \
                         /data/notas                                \
                         /data/php                                  \
@@ -83,8 +86,10 @@ do
                         /data/rust                                 \
                         /data/secreto                              \
                         /data/semaphore                            \
+                        /data/typescript                           \
+                        /data/typst                                \
+                        /data/vaults                               \
                         /data/Vídeos                               \
-                        /data/webdav                               \
                         /home/lorenzo/.ssh                         \
                         /home/lorenzo/.config                      \
                         /home/lorenzo/.gnupg                       \
