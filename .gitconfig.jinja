@@ -1,5 +1,5 @@
 [user]
-	email = {{ env.GMAIL_EMAIL }}
+	email = {{ env.GMAIL_USER }}
 	name = Lorenzo Carbonell <a.k.a. atareao>
 	signingkey = 907245000ED25C82C4E914BFB5E8FC9484B82CA9
 [commit]
@@ -9,6 +9,7 @@
 	st = status -sb
 	ll = log --oneline
 	last = log -1 HEAD --stat
+	ca = commit -am
 	cm = commit -m
 	rv = remote -v
 	d = diff
