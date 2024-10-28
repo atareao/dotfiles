@@ -2,6 +2,7 @@
 Description=Runs every 1 time a day backup.sh
 
 [Timer]
+OnBootSec=5min
 OnCalendar=*-*-* 20:00:00
 
 [Install]
