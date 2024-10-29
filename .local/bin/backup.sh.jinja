@@ -77,7 +77,7 @@ do
     echo "=== Start backup at $REPOSITORY ==="
     create_ouput=$(borg create -v --stats                          \
                         "$REPOSITORY"::'{hostname}-{now:%Y-%m-%d}' \
-{% if env.MACHINE == "archi" -%}
+{%- if env.MACHINE == "archi" %}
                         /data/ansible                              \
                         /data/appimage                             \
                         /data/atareao.es                           \
@@ -97,12 +97,12 @@ do
                         /data/typst                                \
                         /data/vaults                               \
                         /data/Vídeos                               \
-{% elif env.MACHINE == "termux" -%}
+{%- elif env.MACHINE == "termux" %}
                         {{ CUSTOM_HOME }}/.termux                  \
                         {{ CUSTOM_HOME }}/storage/audiobooks       \
                         {{ CUSTOM_HOME }}/storage/documents        \
                         {{ CUSTOM_HOME }}/storage/documents        \
-{% endif -%}
+{%- endif %}
                         {{ CUSTOM_HOME }}/.password-store          \
                         {{ CUSTOM_HOME }}/.ssh                     \
                         {{ CUSTOM_HOME }}/.config                  \
