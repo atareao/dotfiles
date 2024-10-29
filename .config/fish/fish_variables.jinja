@@ -4,7 +4,7 @@
 SETUVAR DOCKER_HOST:/run/user/1000/docker\x2esock
 SETUVAR --export MACHINE:archi
 SETUVAR --export TERM:kitty
-{$ elif env.MACHINE == "termux -%"}
+{% elif env.MACHINE == "termux -%"}
 SETUVAR --export MACHINE:termux
 {% endif -%}
 SETUVAR MY_ABBR_SET:true
