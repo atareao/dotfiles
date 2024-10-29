@@ -57,7 +57,7 @@ REPO_B='{{ env.BORG_NAS }}:/var/services/homes/lorenzo/backup/repo_manjaro|/usr/
 REPO_C='{{ env.BORG_SERVER }}:/home/lorenzo/backup/repo_manjaro|/usr/bin/borg'
 {% elif env.MACHINE == "termux" -%}
 {% set CUSTOM_HOME = "/data/data/com.termux/files/home" -%}
-REPO_A='{{ CUSTOM_HOME }}/storage/backup|{{ CUSTOM_HOME}}/usr/bin/borg'
+REPO_A='{{ CUSTOM_HOME }}/storage/backup/termux|{{ CUSTOM_HOME}}/usr/bin/borg'
 REPO_B='{{ env.BORG_NAS }}:/var/services/homes/lorenzo/backup/termux|/usr/local/bin/borg'
 REPO_C='{{ env.BORG_SERVER }}:/home/lorenzo/backup/termux|/usr/bin/borg'
 {% endif -%}
