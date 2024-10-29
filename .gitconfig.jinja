@@ -6,14 +6,15 @@
 	gpgSign = true
 [alias]
     br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
-	ca = commit -am
     co = checkout
 	cm = commit -m
+	cma = commit -am
 	d = diff
 	dv = difftool -t vimdiff -y
 	gl = config --global -l
 	last = log -1 HEAD --stat
 	lo = log --oneline
+    l5 = log --online -5
 	lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
     lg2 = !git log --pretty=format:\"%C(magenta)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) [%an]\" --abbrev-commit -30
 	mg = merge --no-edit --no-ff
@@ -23,6 +24,7 @@
 	se = !git rev-list --all | xargs git grep -F
 	s = status -sb
 	sw = switch
+    unadd = restore --staged
     undo = reset HEAD~1 --mixed
 [help]
 	autocorrect = 20
