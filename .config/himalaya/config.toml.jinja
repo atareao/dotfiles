@@ -14,7 +14,7 @@ imap-host = "mail.territoriolinux.es"
 imap-port = 993
 imap-login = "{{ env.TERRITORIO_USER }}"
 imap-auth = "passwd"
-imap-passwd = { cmd = "gopass show -o territorio/pass" }
+imap-passwd = { cmd = "pass territorio/pass" }
 
 sender = "smtp" # smtp or sendmail
 smtp-host = "mail.territoriolinux.es"
@@ -22,7 +22,7 @@ smtp-port = 587
 smtp-starttls = true
 smtp-login = "{{ env.TERRITORIO_USER }}"
 smtp-auth = "passwd"
-smtp-passwd = { cmd = "gopass show -o territorio/pass" }
+smtp-passwd = { cmd = "pass territorio/pass" }
 
 [atareao]
 email = "{{ env.ATAREAO_EMAIL }}"
@@ -32,14 +32,14 @@ imap-host = "mail.atareao.es"
 imap-port = 993
 imap-login = "{{ env.ATAREAO_EMAIL }}"
 imap-auth = "passwd"
-imap-passwd = { cmd = "gopass show -o atareao/pass" }
+imap-passwd = { cmd = "pass atareao/pass" }
 
 sender = "smtp" # smtp or sendmail
 smtp-host = "mail.atareao.es"
 smtp-port = 465
 smtp-login = "{{ env.ATAREAO_EMAIL }}"
 smtp-auth = "passwd"
-smtp-passwd = { cmd = "gopass show -o atareao/pass" }
+smtp-passwd = { cmd = "pass atareao/pass" }
 
 [atareao.folder-aliases]
 sent = "INBOX.Sent"
@@ -52,11 +52,11 @@ imap-host = "imap.gmail.com"
 imap-port = 993
 imap-login = "{{ env.USER_EMAIL }}"
 imap-auth = "passwd"
-imap-passwd = { cmd = "gopass show -o gmail/pass" }
+imap-passwd = { cmd = "pass gmail/pass" }
 
 sender = "smtp" # smtp or sendmail
 smtp-host = "smtp.gmail.com"
 smtp-port = 465
 smtp-login = "{{ env.USER_EMAIL }}"
 smtp-auth = "passwd"
-smtp-passwd = { cmd = "gopass show -o gmail/pass" }
+smtp-passwd = { cmd = "pass gmail/pass" }
