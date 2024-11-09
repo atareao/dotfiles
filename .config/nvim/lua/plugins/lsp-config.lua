@@ -26,7 +26,7 @@ return {
             pyright = {},
             --pylyzer = {},
             pylsp = {},
-            ruff_lsp = {},
+            ruff = {},
             sqlls = {},
             taplo = {},
             svelte = {},
