@@ -119,6 +119,7 @@ templates = [
 "Textpattern",
 "TurboGears2",
 "TwinCAT3",
+"TypeScript",
 "Typo3",
 "Unity",
 "UnrealEngine",
