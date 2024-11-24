@@ -9,6 +9,7 @@ return {
         "olacin/telescope-gitmoji.nvim",
         "xiyaowong/telescope-emoji.nvim",
         "LinArcX/telescope-command-palette.nvim",
+        "nvim-telescope/telescope-fzy-native.nvim",
     },
     config = function()
         local lga_actions = require("telescope-live-grep-args.actions")
@@ -23,7 +24,10 @@ return {
                         -- e.g. git_{create, delete, ...}_branch for the git_branches picker
                         ["<C-h>"] = "which_key"
                     }
-                }
+                },
+                file_ignore_patterns = { "node_modules/.*", ".git/.*", "dist/.*", ".yarn/.*", ".docker-volumes/.*" },
+                dynamic_preview_title = true,
+                path_display = { "truncate" },
             },
             pickers = {
                 -- Default configuration for builtin pickers goes here:
@@ -41,7 +45,7 @@ return {
                 live_grep_args = {
                     auto_quoting = true, -- enable/disable auto-quoting
                     -- define mappings, e.g.
-                    mappings = { -- extend mappings
+                    mappings = {         -- extend mappings
                         i = {
                             ["<C-k>"] = lga_actions.quote_prompt(),
                             ["<C-i>"] = lga_actions.quote_prompt({ postfix = " --iglob " }),
@@ -116,6 +120,7 @@ return {
                 },
             }
         }
+        require("telescope").load_extension("fzy_native")
         require("telescope").load_extension("gitmoji")
         require("telescope").load_extension("emoji")
         require("telescope").load_extension("command_palette")
