@@ -81,7 +81,14 @@ return {
 
             -- load sources, see: https://github.com/topics/nvim-cmp
             sources = {
-                { name = 'nvim_lsp' },
+                {
+                    name = 'nvim_lsp',
+                    option = {
+                        markdown_oxide = {
+                            keyword_pattern = [[\(\k\| \|\/\|#\)\+]]
+                        }
+                    }
+                },
                 { name = 'luasnip', option = { use_show_condition = false } },
                 { name = 'path' },
                 { name = 'buffer' },

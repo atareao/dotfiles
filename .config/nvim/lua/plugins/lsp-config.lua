@@ -8,6 +8,7 @@ return {
         "mfussenegger/nvim-lint",
     },
     config = function()
+        local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
         local servers = {
             ansiblels = {},
             bashls = {},
@@ -19,11 +20,25 @@ return {
             --tsserver = {},
             lua_ls = {
                 Lua = {
-                diagnostics = { globals = {'vim'} }
-              }
+                    diagnostics = { globals = { 'vim' } }
+                }
             },
             intelephense = {},
             pyright = {},
+            markdown_oxide = {
+                capabilities = vim.tbl_deep_extend(
+                    'force',
+                    capabilities,
+                    {
+                        workspace = {
+                            didChangeWatchedFiles = {
+                                dynamicRegistration = true,
+                            },
+                        },
+                    }
+                ),
+                on_attach = on_attach -- configure your on attach config
+            },
             --pylyzer = {},
             pylsp = {},
             ruff = {},
@@ -48,8 +63,6 @@ return {
             log_level = vim.log.levels.INFO,
             max_concurrent_installers = 4,
         })
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities = require("cmp_nvim_lsp").default_capabilities()
 
         local mason_lspconfig = require("mason-lspconfig")
         mason_lspconfig.setup({
