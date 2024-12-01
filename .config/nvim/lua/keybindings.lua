@@ -15,6 +15,7 @@ keymap("n", "<A-9>", "<cmd>BufferGoto 9<cr>", "Tab 9")
 keymap("n", "<A-,>", "<cmd>BufferPrevious<cr>", "Previous Buffer")
 keymap("n", "<A-.>", "<cmd>BufferNext<cr>", "Next Buffer")
 keymap("n", "<A-c>", "<cmd>BufferClose<cr>", "Close Buffer")
+keymap("n", "<A-p>", "<cmd>BufferPick<cr>", "Buffer Pick")
 -- Bookmarks
 keymap("n", "<leader>B", "", "Bookmarks")
 keymap("n", "<leader>Ba", "<Plug>(cokeline-focus-prev)", "Annotate")
