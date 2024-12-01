@@ -10,6 +10,8 @@ return {
         "xiyaowong/telescope-emoji.nvim",
         "LinArcX/telescope-command-palette.nvim",
         "nvim-telescope/telescope-fzy-native.nvim",
+        "nvim-telescope/telescope-media-files.nvim",
+        "nvim-telescope/telescope-ui-select.nvim",
     },
     config = function()
         local lga_actions = require("telescope-live-grep-args.actions")
@@ -39,6 +41,13 @@ return {
                 -- builtin picker
             },
             extensions = {
+                ["ui-select"] = {
+                    require("telescope.themes").get_dropdown({})
+                },
+                media_files = {
+                    filetypes = { "png", "jpg", "mp4", "webm", "pdf" },
+                    find_cmd = "rg",
+                },
                 workspaces = {
                     keep_insert = true,
                 },
@@ -121,10 +130,12 @@ return {
             }
         }
         require("telescope").load_extension("file_browser")
+        require("telescope").load_extension("media_files")
         require("telescope").load_extension("fzy_native")
         require("telescope").load_extension("gitmoji")
         require("telescope").load_extension("emoji")
         require("telescope").load_extension("command_palette")
+        require("telescope").load_extension("ui-select")
 
         -- Using Lua functions
         local opts = { noremap = true, silent = true }
