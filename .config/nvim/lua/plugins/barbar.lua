@@ -11,6 +11,7 @@ return {
             -- animation = true,
             -- insert_at_start = true,
             -- …etc.
+            current = {buffer_index = true},
             sidebar_filetypes = {
                 ['neo-tree'] = { event = 'BufWipeout' }
             },
