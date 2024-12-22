@@ -45,11 +45,6 @@ return {
             sqlls = {},
             taplo = {},
             svelte = {},
-            typst_lsp = {
-                Typst = {
-                    exportPdf = "onSave",
-                }
-            }
         }
         require("mason").setup({
             ui = {

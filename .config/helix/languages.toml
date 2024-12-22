@@ -1487,6 +1487,7 @@ roots = [".marksman.toml"]
 language-servers = [ "marksman", "markdown-oxide" ]
 indent = { tab-width = 2, unit = "  " }
 block-comment-tokens = { start = "<!--", end = "-->" }
+formatter = { command = "dprint", args = [ "-c", "~/.config/dprint/dprint.json", "fmt", "--stdin", "md"]}
 
 [[grammar]]
 name = "markdown"

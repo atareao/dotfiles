@@ -11,6 +11,9 @@ line-number = "relative"
 mouse = false
 cursorline = true
 
+[editor.soft-wrap]
+enable = true
+
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
