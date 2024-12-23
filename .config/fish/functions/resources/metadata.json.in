@@ -1,0 +1,13 @@
+{
+    "name": "{{ env.name }}",
+    "description": "{{ env.description }}",
+    "uuid": "{{ env.uuid }}",
+    "url": "https://github.com/{{ env.owner }}/{{ env.project }}",
+    "donations": {
+        "github": "{{ env.owner }}"
+    },
+    "shell-version": [
+        "{{ env.gs_version }}"
+    ],
+    "settings-schema": "org.gnome.shell.extensions.{{ env.project }}"
+}

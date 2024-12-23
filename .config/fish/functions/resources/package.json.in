@@ -1,0 +1,31 @@
+{
+  "name": "{{ env.project }}",
+  "version": "1",
+  "description": "{{ env.description }}",
+  "type": "module",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/{{ env.owner }}/{{ env.project }}.git"
+  },
+  "author": "{{ env.owner }}",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/{{ env.owner }}/{{ env.project }}/issues"
+  },
+  "homepage": "https://github.com/{{ env.owner }}/{{ env.project }}#readme",
+  "sideEffects": false,
+  "devDependencies": {
+    "eslint": "^9.15.0",
+    "eslint-plugin-jsdoc": "^50.5.0",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@girs/clutter-15": "15.0.0-4.0.0-beta.19",
+    "@girs/gjs": "4.0.0-beta.19",
+    "@girs/gnome-shell": "^47.0.0",
+    "@girs/gobject-2.0": "2.82.2-4.0.0-beta.19",
+    "@girs/soup-3.0": "3.6.0-4.0.0-beta.19",
+    "@girs/st-15": "15.0.0-4.0.0-beta.19"
+  }
+}

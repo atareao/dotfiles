@@ -47,11 +47,11 @@ keymap = [
     { on = [ "G" ],      run = "arrow 99999999",  desc = "Move cursor to the bottom" },
 
     # Selection
-    { on = [ "<Space>" ], run = [ "select --state=none", "arrow 1" ], desc = "Toggle the current selection state" },
+    { on = [ "<Space>" ], run = [ "toggle --state=none", "arrow 1" ], desc = "Toggle the current selection state" },
     { on = [ "v" ],       run = "visual_mode",                        desc = "Enter visual mode (selection mode)" },
     { on = [ "V" ],       run = "visual_mode --unset",                desc = "Enter visual mode (unset mode)" },
-    { on = [ "<C-a>" ],   run = "select_all --state=true",            desc = "Select all files" },
-    { on = [ "<C-r>" ],   run = "select_all --state=none",            desc = "Inverse selection of all files" },
+    { on = [ "<C-a>" ],   run = "toggle_all --state=true",            desc = "Select all files" },
+    { on = [ "<C-r>" ],   run = "toggle_all --state=none",            desc = "Inverse selection of all files" },
 
     # Operation
     { on = [ "o" ],         run = "open",                                                 desc = "Open the selected files" },
@@ -143,6 +143,36 @@ keymap = [
 
     # Help
     { on = [ "~" ], run = "help", desc = "Open help" },
+]
+
+prepend_keymap = [
+    { on = [ "t", "t" ], run = "plugin test --args='hola --foo --bar=baz'", desc = "Plugin test" },
+    { on   = [ "c", "j" ], run  = "plugin convert --args='--extension=jpg'", desc = "Convert image to JPG" },
+    { on   = [ "c", "p" ], run  = "plugin convert --args='--extension=png'", desc = "Convert image to PNG" },
+    { on   = [ "c", "w" ], run  = "plugin convert --args='--extension=webp'", desc = "Convert image to WEBP" },
+    { on = [ "b", "t" ], run = "plugin --sync dual-pane --args=toggle", desc = "Dual-pane: toggle" },
+    { on = [ "b", "b" ], run = "plugin --sync dual-pane --args=toggle_zoom", desc = "Dual-pane: toggle zoom" },
+    { on = "<Tab>", run = "plugin --sync dual-pane --args=next_pane",  desc = "Dual-pane: switch to the other pane" },
+    { on = "[", run = "plugin --sync dual-pane --args='tab_switch -1 --relative'",  desc = "Dual-pane: switch active to previous tab" },
+    { on = "]", run = "plugin --sync dual-pane --args='tab_switch 1 --relative'",  desc = "Dual-pane: switch active to next tab" },
+    { on = "1", run = "plugin --sync dual-pane --args='tab_switch 0'", desc = "Switch to the first tab" },
+    { on = "2", run = "plugin --sync dual-pane --args='tab_switch 1'", desc = "Switch to the second tab" },
+    { on = "3", run = "plugin --sync dual-pane --args='tab_switch 2'", desc = "Switch to the third tab" },
+    { on = "4", run = "plugin --sync dual-pane --args='tab_switch 3'", desc = "Switch to the fourth tab" },
+    { on = "5", run = "plugin --sync dual-pane --args='tab_switch 4'", desc = "Switch to the fifth tab" },
+    { on = "6", run = "plugin --sync dual-pane --args='tab_switch 5'", desc = "Switch to the sixth tab" },
+    { on = "7", run = "plugin --sync dual-pane --args='tab_switch 6'", desc = "Switch to the seventh tab" },
+    { on = "8", run = "plugin --sync dual-pane --args='tab_switch 7'", desc = "Switch to the eighth tab" },
+    { on = "9", run = "plugin --sync dual-pane --args='tab_switch 8'", desc = "Switch to the ninth tab" },
+    { on = "t", run = "plugin --sync dual-pane --args='tab_create --current'",  desc = "Dual-pane: create a new tab with CWD" },
+    { on = "<F5>", run = "plugin --sync dual-pane --args='copy_files --follow'",  desc = "Dual-pane: copy selected files from active to inactive pane" },
+    { on = "<F6>", run = "plugin --sync dual-pane --args='move_files --follow'",  desc = "Dual-pane: move selected files from active to inactive pane" },
+    { on = [ "b", "s" ], run = "plugin --sync dual-pane --args=save_config", desc = "Dual-pane: save current configuration" },
+    { on = [ "b", "l" ], run = "plugin --sync dual-pane --args=load_config", desc = "Dual-pane: load saved configuration" },
+    { on = [ "b", "r" ], run = "plugin --sync dual-pane --args=reset_config", desc = "Dual-pane: reset saved configuration" },
+    { on = [ "b", "c" ], run = "plugin dual-pane --args='shell_fzf /home/dawsers/.config/yazi/dual-pane.txt'", desc = "Dual-pane: run command (use fzf)" },
+    { on = [ "b", "i" ], run = "plugin dual-pane --args='shell_fzf --interactive /home/dawsers/.config/yazi/dual-pane.txt'", desc = "Dual-pane: run command interactively (use fzf)" },
+
 ]
 
 [tasks]

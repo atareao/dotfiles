@@ -1,0 +1,5 @@
+[plugin]
+deps = [{ use = "atareao/mdcat", rev = "d82f690" }]
+
+[flavor]
+deps = []
