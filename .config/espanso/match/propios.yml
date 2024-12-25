@@ -27,6 +27,19 @@ matches:
       🦣  Mastodon 👉 https://mastodon.social/@atareao
       🐦  Twitter 👉 https://twitter.com/atareao
       🐙  GitHub 👉 https://github.com/atareao
+  - trigger: ",pyh"
+    form: |
+      <br>
+      <p>Más información y enlaces en las <a href="https://atareao.es/podcast/[[episode]]" target="_blank" rel="noopener noreferer">notas del episodio</a></p>
+      <ul>
+      <li>🌐  Aquí lo puedes encontrar todo 👉 <a href="https://atareao.es" target="_blank" rel="noopener noreferer">https://atareao.es</a></li>
+      <li>✈️   Telegram (el grupo) 👉 <a href="https://t.me/atareao_con_linux" target="_blank" rel="noopener noreferer">https://t.me/atareao_con_linux</a></li>
+      <li>✈️   Telegram (el canal) 👉 <a href="https://t.me/canal_atareao" target="_blank" rel="noopener noreferer">https://t.me/canal_atareao</a></li>
+      <li>🦣  Mastodon 👉 <a href="https://mastodon.social/@atareao" target="_blank" rel="noopener noreferer">https://mastodon.social/@atareao</a></li>
+      <li>🐦  Twitter 👉 <a href="https://twitter.com/atareao" target="_blank" rel="noopener noreferer">https://twitter.com/atareao</a></li>
+      <li>🐙  GitHub 👉 <a href="https://github.com/atareao" target="_blank" rel="noopener noreferer">https://github.com/atareao</a></li>
+      </ul>
+      <br>
   - trigger: ",traduce"
     replace: "{{traduce}}"
     vars:
