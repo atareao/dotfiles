@@ -1,0 +1,4 @@
+theme = ayu
+background-opacity = 0.8
+background-blur-radius = 40
+copy-on-select = clipboard
