@@ -1,6 +1,6 @@
 set -U MY_ABBR_SET true
 # applications
-abbr --add nv nvim
+abbr --add n nvim
 abbr --add vimd nvim -d
 abbr --add play ansible-playbook
 abbr --add dlm 'yt-dlp --ignore-errors --format bestaudio --extract-audio --audio-format mp3 --audio-quality 160K --output "%(title)s.%(ext)s" --yes-playlist' 
