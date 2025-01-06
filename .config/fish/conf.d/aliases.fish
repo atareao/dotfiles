@@ -26,11 +26,15 @@ function gpush -d "git push"
     git push
 end
 
+function gadd -d "git add"
+    git add $argv
+end
+
 function gpull -d "git pull"
     git pull
 end
 
-function gstatus -d "git status"
+function gstat -d "git status"
     git status
 end
 
