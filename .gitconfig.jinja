@@ -2,8 +2,10 @@
 	email = {{ env.GMAIL_USER }}
 	name = Lorenzo Carbonell <a.k.a. atareao>
 	signingkey = 907245000ED25C82C4E914BFB5E8FC9484B82CA9
+
 [commit]
 	gpgSign = true
+
 [alias]
     br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
     co = checkout
@@ -26,7 +28,24 @@
 	sw = switch
     unadd = restore --staged
     undo = reset HEAD~1 --mixed
+
 [help]
 	autocorrect = 20
+
 [push]
 	autoSetupRemote = true
+
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    dark = true      # or light = true, or omit for auto-detection
+    side-by-side = true
+
+[merge]
+    conflictstyle = zdiff3
+
