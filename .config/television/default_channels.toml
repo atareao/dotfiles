@@ -1,29 +1,44 @@
 # GIT
 [[cable_channel]]
-name = "git-diff"
+name = "diff"
 source_command = "git diff --name-only"
 preview_command = "git diff --color=always {0}"
 
 [[cable_channel]]
-name = "git-reflog"
+name = "reflog"
 source_command = 'git reflog'
 preview_command = 'git show -p --stat --pretty=fuller --color=always {0}'
 
 [[cable_channel]]
-name = "git-log"
+name = "log"
 source_command = "git log --oneline --date=short --pretty=\"format:%h %s %an %cd\" \"$@\""
 preview_command = "git show -p --stat --pretty=fuller --color=always {0}"
 
 [[cable_channel]]
-name = "git-branch"
+name = "branch"
 source_command = "git --no-pager branch --all --format=\"%(refname:short)\""
 preview_command = "git show -p --stat --pretty=fuller --color=always {0}"
 
 # Docker
 [[cable_channel]]
-name = "docker-images"
+name = "images"
 source_command = "docker image list --format \"{{.ID}}\""
 preview_command = "docker image inspect {0} | jq -C"
+
+[[cable_channel]]
+name = "containers"
+source_command = "docker container list"
+preview_command = "docker container inspect {0} | jq -C"
+
+[[cable_channel]]
+name = "networks"
+source_command = "docker network list --format \"{{.Name}} - {{.Driver}}\""
+preview_command = "docker network inspect {0} | jq -C"
+
+[[cable_channel]]
+name = "volumes"
+source_command = "docker volume list --format \"{{.Name}} - {{.Driver}}\""
+preview_command = "docker volume inspect {0} | jq -C"
 
 # S3
 [[cable_channel]]
@@ -33,7 +48,7 @@ preview_command = "aws s3 ls s3://{0}"
 
 # Dotfiles
 [[cable_channel]]
-name = "dotfiles"
+name = "my-dotfiles"
 source_command = "fd -t f . $HOME/.config"
 preview_command = ":files:"
 
@@ -47,5 +62,5 @@ name = "bash-history"
 source_command = "sed '1!G;h;$!d' $HOME/.bash_history"
 
 [[cable_channel]]
-name = "history"
+name = "fish-history"
 source_command = "fish -c 'history'"
