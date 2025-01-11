@@ -15,9 +15,37 @@ return {
             }
         },
         prompt_library = {
-            ["ejemplo"] = {
+            ["react"] = {
                 strategy = "chat",
-                description = "Ejemplo de chat",
+                description = "Experto en React",
+                prompts = {
+                    {
+                        role = "system",
+                        content = "Eres un experimentado desarrollador de React enfocado en Typescript."
+                    },
+                    {
+                        role = "user",
+                        content = ""
+                    }
+                }
+            },
+            ["python"] = {
+                strategy = "chat",
+                description = "Experto en Python",
+                prompts = {
+                    {
+                        role = "system",
+                        content = "Eres un experimentado desarrollador de Python"
+                    },
+                    {
+                        role = "user",
+                        content = ""
+                    }
+                }
+            },
+            ["rust"] = {
+                strategy = "chat",
+                description = "Experto en Rust",
                 prompts = {
                     {
                         role = "system",
@@ -25,7 +53,21 @@ return {
                     },
                     {
                         role = "user",
-                        content = "Puedes explicarme porque ..."
+                        content = ""
+                    }
+                }
+            },
+            ["linux"] = {
+                strategy = "chat",
+                description = "Experto en Linux",
+                prompts = {
+                    {
+                        role = "system",
+                        content = "Eres un administrador de sistemas Linux. Estás especializado en mantenimiento de sistemas y en scripting en cualquier shell",
+                    },
+                    {
+                        role = "user",
+                        content = ""
                     }
                 }
             }
