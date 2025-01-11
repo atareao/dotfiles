@@ -19,7 +19,7 @@ function dv -d "Docker volume"
 end
 
 function gcom -d "git commit with chatgpt"
-    git commit -am "$(dime -i "Eres un fantástico desarrollador, especializado en gestionar proyectos con control de versiones" -q "genera un mensaje conciso para un `git commit` que resuma los cambios producidos en ```$(git diff)```. Solo me tienes que dar el mensaje, ni la descripción, ni una explicación. Únicamente un mensaje en español, que comience con un gitmoji y sin comillas")"
+    git commit -am "$(dime -i "Eres un fantástico desarrollador, especializado en gestionar proyectos con control de versiones" -q "genera un mensaje conciso para un `git commit` que resuma los cambios producidos en ```$(git -P diff)```. Solo me tienes que dar el mensaje, ni la descripción, ni una explicación. Únicamente un mensaje en español, que comience con un gitmoji y sin comillas")"
 end
 
 function gpush -d "git push"
