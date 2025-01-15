@@ -25,6 +25,12 @@ return {
             },
             intelephense = {},
             pyright = {},
+            pylyzer = {
+                python = {
+                    inlayHints = true,
+                    smartCompletion = true,
+                }
+            },
             markdown_oxide = {
                 capabilities = vim.tbl_deep_extend(
                     'force',
