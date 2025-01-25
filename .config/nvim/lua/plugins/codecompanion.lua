@@ -5,7 +5,7 @@ return {
         "nvim-treesitter/nvim-treesitter",
         -- The following are optional:
         "nvim-telescope/telescope.nvim", -- For using slash commands
-        { "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } },
+       { "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } },
     },
     opts = {
         language = "Spanish",
