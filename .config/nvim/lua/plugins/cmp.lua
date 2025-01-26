@@ -89,7 +89,6 @@ return {
                         }
                     }
                 },
-                { name = 'render-markdown' },
                 { name = 'cmdline' },
                 { name = 'luasnip', option = { use_show_condition = false } },
                 { name = 'path' },
