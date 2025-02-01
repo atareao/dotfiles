@@ -1,3 +1,4 @@
+return {}
 return     {
     "freddiehaddad/feline.nvim",
     event = "VeryLazy",
