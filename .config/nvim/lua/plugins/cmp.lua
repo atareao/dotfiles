@@ -96,7 +96,12 @@ return {
                 { name = 'spell' },
                 { name = "dotenv" },
                 --{ name = 'cmp_tabnine' },
-                { name = "copilot" },
+                { name = "copilot",
+                    priority = 100,
+                },
+            },
+            performance = {
+                fetching_timeout = 2000, -- for minuet
             },
             sorting = {
                 priority_weight = 2,

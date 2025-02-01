@@ -207,12 +207,12 @@ keymap("n", "<leader>wm", "MaximizerToggle<CR>", "Toggle Maximizer")
 
 -- Trouble
 keymap("n", "<leader>x", "", "Trouble")
-keymap("n", "<leader>xx", "<cmd>Trouble<cr>", "Open Trouble window")
-keymap("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", "Diagnostics")
-keymap("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", "Documents")
-keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>", "List")
-keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", "QuickFix")
-
+keymap("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", "Diagnostics (Trouble)")
+keymap("n", "<leader>xb", "<cmd>Trouble diagnostics toggle.buf=0<cr>", "Buffer Diagnostics (Trouble)")
+keymap("n", "<leader>xs", "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols (Trouble)")
+keymap("n", "<leader>xf", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>","LSP Definitions / references / ... (Trouble)")
+keymap("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>", "Location List (Trouble)")
+keymap("n", "<leader>xq","<cmd>Trouble qflist toggle<cr>", "Quickfix List (Trouble)")
 
 keymap("t", "<C-t>1", "<cmd>1ToggleTerm<cr>", "ToggleTerm")
 keymap("t", "<C-t>2", "<cmd>2ToggleTerm<cr>", "ToggleTerm")
