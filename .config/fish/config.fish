@@ -18,6 +18,8 @@ if status is-interactive
     zoxide init fish | source
     # direnv
     direnv hook fish | source
+    # uv
+    uv generate-shell-completion fish | source
 end
 
 # pnpm
