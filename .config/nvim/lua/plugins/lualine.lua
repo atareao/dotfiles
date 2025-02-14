@@ -76,7 +76,12 @@ return {
                     update_in_insert = true,
                 }
             },
-            lualine_x = { 'copilot', 'encoding', 'fileformat', 'filetype' },
+            lualine_x = {
+                --require('util.lualine').cmp_source('supermaven', '󰰣'),
+                'copilot',
+                'encoding',
+                'fileformat',
+            },
             lualine_y = {
                 { clients_lsp },
                 { getWords },

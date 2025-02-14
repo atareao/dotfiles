@@ -89,6 +89,7 @@ return {
                         }
                     }
                 },
+                { name = 'supermaven'},
                 { name = 'cmdline' },
                 { name = 'luasnip', option = { use_show_condition = false } },
                 { name = 'path' },
@@ -124,6 +125,7 @@ return {
                     ellipsis_char = '...',
                     show_labelDetails = true,
                     symbol_map = {
+                        Supermaven = "",
                         Copilot = "",
                         Text = "",
                         Method = "",
