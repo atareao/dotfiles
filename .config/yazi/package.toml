@@ -1,24 +1,24 @@
 [[plugin.deps]]
 use = "atareao/mdcat"
-rev = "d82f690"
+rev = "c4d6f8b"
 hash = "794667b1e3e57e8d308e24dee9fa988d"
 
 [[plugin.deps]]
 use = "atareao/convert"
-rev = "ca88f17"
+rev = "7c18342"
 hash = "cc6f6db11762ed3ee8c14c276e7cfb4b"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "71c4fc2"
-hash = "a61bb2d21a08bf1d18f0a549e5eb1475"
+rev = "beb586a"
+hash = "ae9e1d0c6bfd68cdebc98cc684c22b45"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-frappe"
-rev = "8458d25"
-hash = "4ac6d107876dae72ee51f3eaece95ffc"
+rev = "1a419b2"
+hash = "e88895e8f8b7926f20946f273ecc7348"
 
 [[flavor.deps]]
 use = "kmlupreti/ayu-dark"
-rev = "441a38d"
-hash = "80fbe38dcb5885ab03d1bf84e03da9d2"
+rev = "5412a78"
+hash = "60690920e8c0f9f81ff02009de5d156f"

@@ -23,14 +23,13 @@ return {
                     diagnostics = { globals = { 'vim' } }
                 }
             },
-            intelephense = {},
             pyright = {},
-            pylyzer = {
-                python = {
-                    inlayHints = true,
-                    smartCompletion = true,
-                }
-            },
+            --pylyzer = {
+            --    python = {
+            --        inlayHints = true,
+            --        smartCompletion = true,
+            --    }
+            --},
             markdown_oxide = {
                 capabilities = vim.tbl_deep_extend(
                     'force',
@@ -49,7 +48,6 @@ return {
             ruff = {},
             sqlls = {},
             taplo = {},
-            svelte = {},
         }
         require("mason").setup({
             ui = {
@@ -88,7 +86,7 @@ return {
             end,
         }
         require('lint').linters_by_ft = {
-            python = { 'golangcilint', 'flake8', 'ruff' },
+            python = { 'ruff' },
             typescript = { 'eslint' },
         }
         vim.api.nvim_create_autocmd({ "BufWritePost" }, {
