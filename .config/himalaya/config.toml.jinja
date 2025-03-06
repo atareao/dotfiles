@@ -5,58 +5,45 @@ Un saludo,
 Lorenzo
 """
 
-[territorio]
-default = true
-email = "{{ env.TERRITORIO_EMAIL }}"
-
-backend = "imap" # imap, maildir or notmuch
-imap-host = "mail.territoriolinux.es"
-imap-port = 993
-imap-login = "{{ env.TERRITORIO_USER }}"
-imap-auth = "passwd"
-imap-passwd = { cmd = "pass territorio/pass" }
-
-sender = "smtp" # smtp or sendmail
-smtp-host = "mail.territoriolinux.es"
-smtp-port = 587
-smtp-starttls = true
-smtp-login = "{{ env.TERRITORIO_USER }}"
-smtp-auth = "passwd"
-smtp-passwd = { cmd = "pass territorio/pass" }
-
-[atareao]
+[accounts.atareao]
 email = "{{ env.ATAREAO_EMAIL }}"
 
-backend = "imap" # imap, maildir or notmuch
-imap-host = "mail.atareao.es"
-imap-port = 993
-imap-login = "{{ env.ATAREAO_EMAIL }}"
-imap-auth = "passwd"
-imap-passwd = { cmd = "pass atareao/pass" }
+backend.type = "imap" # imap, maildir or notmuch
+backend.host = "mail.atareao.es"
+backend.port = 993
+backend.login = "{{ env.ATAREAO_EMAIL }}"
+backend.auth.type = "password"
+backend.auth.cmd = "pass show atareao/pass"
 
-sender = "smtp" # smtp or sendmail
-smtp-host = "mail.atareao.es"
-smtp-port = 465
-smtp-login = "{{ env.ATAREAO_EMAIL }}"
-smtp-auth = "passwd"
-smtp-passwd = { cmd = "pass atareao/pass" }
+message.send.backend.type = "smtp"
+message.send.backend.host = "mail.atareao.es"
+message.send.backend.port = 465
+message.send.backend.login = "{{ env.ATAREAO_EMAIL }}"
+message.send.backend.auth.type = "password"
+message.send.backend.auth.cmd = "pass show atareao/pass"
 
-[atareao.folder-aliases]
-sent = "INBOX.Sent"
+folder.aliases.sent = "INBOX.Sent"
 
-[gmail]
+[accounts.gmail]
+default = true
 email = "{{ env.USER_EMAIL }}"
 
-backend = "imap" # imap, maildir or notmuch
-imap-host = "imap.gmail.com"
-imap-port = 993
+backend.type = "imap" # imap, maildir or notmuch
+backend.host = "imap.gmail.com"
+backend.port = 993
 imap-login = "{{ env.USER_EMAIL }}"
-imap-auth = "passwd"
-imap-passwd = { cmd = "pass gmail/pass" }
+backend.auth.type = "password"
+backend.auth.cmd = "pass show gmail/pass"
 
-sender = "smtp" # smtp or sendmail
-smtp-host = "smtp.gmail.com"
-smtp-port = 465
-smtp-login = "{{ env.USER_EMAIL }}"
-smtp-auth = "passwd"
-smtp-passwd = { cmd = "pass gmail/pass" }
+message.send.backend.type = "smtp" # smtp or sendmail
+message.send.backend.host = "smtp.gmail.com"
+message.send.backend.port = 465
+smtp-login = "lorenzo.carbonell.cerezo@gmail.com"
+message.send.backend.auth.type = "password"
+message.send.backend.auth.cmd = "pass show gmail/pass"
+
+folder.aliases.inbox = "INBOX"
+folder.aliases.sent = "[Gmail]/Sent Mail"
+folder.aliases.drafts = "[Gmail]/Drafts"
+folder.aliases.trash = "[Gmail]/Trash"
+
