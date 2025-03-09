@@ -144,4 +144,5 @@ do
     publish "${profile}" "check" "${check_output}"
     cleanup_output=$(resticprofile ${profile} forget --prune --keep-daily 7 --keep-weekly 4 --keep-monthly 6)
     publish "${profile}" "cleanup" "${cleanup_output}"
+done
 {% endif -%}
