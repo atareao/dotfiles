@@ -28,6 +28,7 @@ function publish(){
     action="$2"
     data="$3"
     result=""
+    ok="$4"
     while read line;do
         if [[ -z $result ]]; then
             result="${line}"
@@ -45,6 +46,7 @@ function publish(){
                 {
                     \"repository\": \"${repository}\",
                     \"action\": \"${action}\",
+                    \"ok\": \"${ok}\",
                     \"result\": \"${result}\"
                 }
             ]"
@@ -118,8 +120,9 @@ do
                         --exclude '/data/python/*/__pycache__'     \
                         --remote-path "${BORGPATH}"                \
                         --info 2>&1 > /dev/null)
+    ok=$?
+    publish "${REPOSITORY}" "create" "${create_output}" "${ok}"
     echo "$create_output"
-    publish "${REPOSITORY}" "create" "${create_output}"
     # Use the `prune` subcommand to maintain 3 daily, 2 weekly and 3 monthly
     prune_output=$(borg prune -v                    \
                         --stats                     \
@@ -129,8 +132,9 @@ do
                         --keep-monthly=2            \
                         --remote-path "${BORGPATH}" \
                         -- "${REPOSITORY}" 2>&1 > /dev/null)
+    ok=$?
+    publish "${REPOSITORY}" "prune" "${prune_output}" "${ok}"
     echo "$prune_output"
-    publish "${REPOSITORY}" "prune" "${prune_output}"
     echo "=== End backup at $REPOSITORY ==="
 done
 {% if env.MACHINE == "archi" -%}
@@ -143,10 +147,13 @@ for profile in "${PROFILES[@]}"
 do
     echo "=== Backup ${profile} ==="
     create_output=$(resticprofile ${profile}.backup)
-    publish "${profile}" "create" "${create_output}"
+    ok=$?
+    publish "${profile}" "create" "${create_output}" "${ok}"
     check_output=$(resticprofile ${profile}.check)
-    publish "${profile}" "check" "${check_output}"
+    ok=$?
+    publish "${profile}" "check" "${check_output}" "${ok}"
     cleanup_output=$(resticprofile ${profile}.forget --prune --keep-daily 7 --keep-weekly 4 --keep-monthly 6)
-    publish "${profile}" "cleanup" "${cleanup_output}"
+    ok=$?
+    publish "${profile}" "cleanup" "${cleanup_output}" "${ok}"
 done
 {% endif -%}
