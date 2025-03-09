@@ -133,3 +133,17 @@ do
     publish "${REPOSITORY}" "prune" "${prune_output}"
     echo "=== End backup at $REPOSITORY ==="
 done
+{% if env.MACHINE == "archi" -%}
+PROFILES=(default s3 s3one)
+echo "=== Local backup ==="
+resticprofile backup
+for profile in "${PROFILES[@]}"
+do
+    echo "=== Backup ${profile} ==="
+    create_output=$(resticprofile ${profile} backup)
+    publish "${profile}" "create" "${create_output}"
+    check_output=$(resticprofile ${profile} check)
+    publish "${profile}" "check" "${check_output}"
+    cleanup_output=$(resticprofile ${profile} forget --prune --keep-daily 7 --keep-weekly 4 --keep-monthly 6)
+    publish "${profile}" "cleanup" "${cleanup_output}"
+{% endif -%}
