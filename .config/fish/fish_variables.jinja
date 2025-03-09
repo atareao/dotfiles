@@ -7,6 +7,8 @@ SETUVAR --export TERM:kitty
 SETUVAR --export ANTHROPIC_API_KEY:{{ env.ANTHROPIC_TOKEN }}
 SETUVAR --export RESTIC_PASSWORD:{{ env.RESTIC_PASSWORD }}
 SETUVAR --export RESTIC_REPOSITORY:/data/resticbackup
+SETUVAR --export AWS_ACCESS_KEY_ID:{{ env.RESTIC_AWS_ACCESS_KEY_ID }}
+SETUVAR --export AWS_SECRET_ACCESS_KEY:{{ env.RESTIC_AWS_SECRET_ACCESS_KEY }}
 {% elif env.MACHINE == "termux" -%}
 SETUVAR --export MACHINE:termux
 {% endif -%}

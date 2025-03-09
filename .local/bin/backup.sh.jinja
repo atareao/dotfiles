@@ -134,9 +134,9 @@ do
     echo "=== End backup at $REPOSITORY ==="
 done
 {% if env.MACHINE == "archi" -%}
+"{{ env.ZINCOBSERVE_TOKEN }}"
+
 PROFILES=(default s3 s3one)
-echo "=== Local backup ==="
-resticprofile backup
 for profile in "${PROFILES[@]}"
 do
     echo "=== Backup ${profile} ==="
