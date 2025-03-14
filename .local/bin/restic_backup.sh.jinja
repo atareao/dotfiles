@@ -94,7 +94,7 @@ done
 for REPO in "${REPOS[@]}"
 do
     echo "=== Start list $REPO ==="
-    restic -r "$REPO" list snapshots
+    restic -r "$REPO" snapshots -c
     echo "=== End prune $REPO ==="
 done
 {% endif -%}
