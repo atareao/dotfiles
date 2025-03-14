@@ -74,15 +74,28 @@ do
                   --exclude '/data/**/.cargo/'           \
                   --exclude '/data/**/__pycache__/'
     echo "=== End backup at $REPO ==="
+done
+for REPO in "${REPOS[@]}"
+do
     echo "=== Start check $REPO ==="
     restic check -r "$REPO"
     echo "=== End check $REPO ==="
+done
+for REPO in "${REPOS[@]}"
+do
     echo "=== Start prune $REPO ==="
     restic forget -r "$REPO"                            \
                   --prune                               \
                   --keep-daily 7                        \
                   --keep-weekly 4                       \
                   --keep-monthly 6
+    echo "=== End prune $REPO ==="
+done
+done
+for REPO in "${REPOS[@]}"
+do
+    echo "=== Start list $REPO ==="
+    restic list -r "$REPO"                            \
     echo "=== End prune $REPO ==="
 done
 {% endif -%}
