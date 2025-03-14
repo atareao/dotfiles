@@ -29,7 +29,7 @@ function publish(){
     ok="$4"
     while read line;do
         if [[ -z $result ]]; then
-            result="${line}"
+            result=$(echo "${line}" | tr '"' "'")
         else
             result="${result}|${line}"
         fi
