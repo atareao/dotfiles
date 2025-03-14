@@ -33,6 +33,7 @@ REPO3="s3:https://{{ env.RESTIC_S3_ONE_SERVER }}/restic-one"
 RESPOS=("$REPO1" "$REPO2" "$REPO3")
 
 for REPO in "${REPOS[@]}"
+do
     echo "=== Start backup at $REPOSITORY ==="
     restic backup -r "$REPO"                             \
                   --verbose                              \
