@@ -23,18 +23,18 @@
 
 #!/bin/sh
 {% if env.MACHINE == "archi" -%}
-export RESTIC_REPOSITORY="/data/restic"
+export RESTIC_REPO="/data/restic"
 export RESTIC_PASSWORD="{{ env.RESTIC_PASSWORD }}"
 export AWS_ACCESS_KEY_ID="{{ env.AWS_ACCESS_KEY_ID }}"
 export AWS_SECRET_ACCESS_KEY="{{ env.AWS_SECRET_ACCESS_KEY }}"
 REPO1="local:/data/resticbackup"
 REPO2="s3:https://{{ env.RESTIC_S3_SERVER }}/restic-archi"
 REPO3="s3:https://{{ env.RESTIC_S3_ONE_SERVER }}/restic-one"
-RESPOS=("$REPO1" "$REPO2" "$REPO3")
+REPOS=("$REPO1" "$REPO2" "$REPO3")
 
 for REPO in "${REPOS[@]}"
 do
-    echo "=== Start backup at $REPOSITORY ==="
+    echo "=== Start backup at $REPO ==="
     restic backup -r "$REPO"                             \
                   --verbose                              \
                   --skip-if-unchanged                    \
@@ -73,16 +73,16 @@ do
                   --exclude '/data/**/.pnpm/'            \
                   --exclude '/data/**/.cargo/'           \
                   --exclude '/data/**/__pycache__/'
-    echo "=== End backup at $REPOSITORY ==="
-    echo "=== Start check $REPOSITORY ==="
+    echo "=== End backup at $REPO ==="
+    echo "=== Start check $REPO ==="
     restic check -r "$REPO"
-    echo "=== End check $REPOSITORY ==="
-    echo "=== Start prune $REPOSITORY ==="
+    echo "=== End check $REPO ==="
+    echo "=== Start prune $REPO ==="
     restic forget -r "$REPO"                            \
                   --prune                               \
                   --keep-daily 7                        \
                   --keep-weekly 4                       \
                   --keep-monthly 6
-    echo "=== End prune $REPOSITORY ==="
+    echo "=== End prune $REPO ==="
 done
 {% endif -%}
