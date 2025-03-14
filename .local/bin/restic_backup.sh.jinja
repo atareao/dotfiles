@@ -35,7 +35,7 @@ REPOS=("$REPO1" "$REPO2" "$REPO3")
 for REPO in "${REPOS[@]}"
 do
     echo "=== Start backup at $REPO ==="
-    restic backup -r "$REPO"                             \
+    restic -r "$REPO" backup                             \
                   --verbose                              \
                   --skip-if-unchanged                    \
                   /data/ansible                          \
@@ -78,13 +78,13 @@ done
 for REPO in "${REPOS[@]}"
 do
     echo "=== Start check $REPO ==="
-    restic check -r "$REPO"
+    restic -r "$REPO" check --read-data
     echo "=== End check $REPO ==="
 done
 for REPO in "${REPOS[@]}"
 do
     echo "=== Start prune $REPO ==="
-    restic forget -r "$REPO"                            \
+    restic -r "$REPO" forget                            \
                   --prune                               \
                   --keep-daily 7                        \
                   --keep-weekly 4                       \
@@ -94,7 +94,7 @@ done
 for REPO in "${REPOS[@]}"
 do
     echo "=== Start list $REPO ==="
-    restic list -r "$REPO"                            \
+    restic -r "$REPO" list snapshots
     echo "=== End prune $REPO ==="
 done
 {% endif -%}
