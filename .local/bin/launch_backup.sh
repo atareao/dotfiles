@@ -9,3 +9,4 @@
 # 
 # /bin/bash "$HOME/.local/bin/backup.sh"
 /bin/bash "$HOME/.local/bin/backup.sh"
+/bin/bash "$HOME/.local/bin/restic_backup.sh"
