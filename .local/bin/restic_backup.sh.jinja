@@ -21,23 +21,58 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-#!/bin/sh
-{% if env.MACHINE == "archi" -%}
-export RESTIC_REPO="/data/restic"
+function publish(){
+    repository="$1"
+    action="$2"
+    data="$3"
+    result=""
+    ok="$4"
+    while read line;do
+        if [[ -z $result ]]; then
+            result="${line}"
+        else
+            result="${result}|${line}"
+        fi
+    done< <(echo $data)
+    echo $output
+    curl -X 'POST' \
+        "https://{{ env.ZINCOBSERVE_URL }}/api/default/archi_backup/_json" \
+        -H "accept: application/json" \
+        -H "Authorization: Basic {{ env.ZINCOBSERVE_TOKEN }}" \
+        -H "Content-Type: application/json" \
+        -d "[
+                {
+                    \"repository\": \"${repository}\",
+                    \"action\": \"${action}\",
+                    \"ok\": \"${ok}\",
+                    \"result\": \"${result}\"
+                }
+            ]"
+}
+
 export RESTIC_PASSWORD="{{ env.RESTIC_PASSWORD }}"
 export AWS_ACCESS_KEY_ID="{{ env.AWS_ACCESS_KEY_ID }}"
 export AWS_SECRET_ACCESS_KEY="{{ env.AWS_SECRET_ACCESS_KEY }}"
+{% if env.MACHINE == "archi" -%}
+{% set CUSTOM_HOME = "/home/lorenzo" -%}
 REPO1="local:/data/resticbackup"
 REPO2="s3:https://{{ env.RESTIC_S3_SERVER }}/restic-archi"
 REPO3="s3:https://{{ env.RESTIC_S3_ONE_SERVER }}/restic-one"
+{% elif env.MACHINE == "termux" -%}
+{% set CUSTOM_HOME = "/data/data/com.termux/files/home" -%}
+REPO1="local:{{ CUSTOM_HOME }}/storage/backup/restic"
+REPO2="s3:https://{{ env.RESTIC_S3_SERVER }}/restic-termux"
+REPO3="s3:https://{{ env.RESTIC_S3_ONE_SERVER }}/restic-termux"
+{% endif -%}
 REPOS=("$REPO1" "$REPO2" "$REPO3")
 
 for REPO in "${REPOS[@]}"
 do
     echo "=== Start backup at $REPO ==="
-    restic -r "$REPO" backup                             \
+    create_output=$(restic -r "$REPO" backup             \
                   --verbose                              \
                   --skip-if-unchanged                    \
+{%- if env.MACHINE == "archi" %}
                   /data/ansible                          \
                   /data/appimage                         \
                   /data/atareao.es                       \
@@ -57,11 +92,16 @@ do
                   /data/typst                            \
                   /data/vaults                           \
                   /data/Vídeos                           \
-                  /home/lorenzo/.password-store          \
-                  /home/lorenzo/.ssh                     \
-                  /home/lorenzo/.config                  \
-                  /home/lorenzo/.gnupg                   \
-                  /home/lorenzo/.gnupg                   \
+{%- elif env.MACHINE == "termux" %}
+                  {{ CUSTOM_HOME }}/.termux              \
+                  {{ CUSTOM_HOME }}/storage/audiobooks   \
+                  {{ CUSTOM_HOME }}/storage/documents    \
+                  {{ CUSTOM_HOME }}/storage/documents    \
+{%- endif %}
+                  {{ CUSTOM_HOME }}/.password-store      \
+                  {{ CUSTOM_HOME }}/.ssh                 \
+                  {{ CUSTOM_HOME }}/.config              \
+                  {{ CUSTOM_HOME }}/.gnupg               \
                   --exclude '*.aup'                      \
                   --exclude '*.au'                       \
                   --exclude '*.mkv'                      \
@@ -72,29 +112,39 @@ do
                   --exclude '/data/**/.git/'             \
                   --exclude '/data/**/.pnpm/'            \
                   --exclude '/data/**/.cargo/'           \
-                  --exclude '/data/**/__pycache__/'
+                  --exclude '/data/**/__pycache__/')
+    ok=$?
+    publish "${REPOSITORY}" "create" "${create_output}" "${ok}"
+    echo "$create_output"
     echo "=== End backup at $REPO ==="
 done
 for REPO in "${REPOS[@]}"
 do
     echo "=== Start check $REPO ==="
-    restic -r "$REPO" check --read-data
+    check_output=$(restic -r "$REPO" check)
+    ok=$?
+    publish "${REPOSITORY}" "check" "${check_output}" "${ok}"
+    echo "$create_output"
     echo "=== End check $REPO ==="
 done
 for REPO in "${REPOS[@]}"
 do
     echo "=== Start prune $REPO ==="
-    restic -r "$REPO" forget                            \
+    prune_output=$(restic -r "$REPO" forget             \
                   --prune                               \
                   --keep-daily 7                        \
                   --keep-weekly 4                       \
-                  --keep-monthly 6
+                  --keep-monthly 6)
+    ok=$?
+    publish "${REPOSITORY}" "prune" "${prune_output}" "${ok}"
     echo "=== End prune $REPO ==="
 done
 for REPO in "${REPOS[@]}"
 do
     echo "=== Start list $REPO ==="
-    restic -r "$REPO" snapshots -c
+    snapshots_output=$(restic -r "$REPO" snapshots -c)
+    ok=$?
+    publish "${REPOSITORY}" "snapshots" "${snapshots_output}" "${ok}"
     echo "=== End prune $REPO ==="
 done
 {% endif -%}
