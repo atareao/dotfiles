@@ -11,6 +11,8 @@ SETUVAR --export RESTIC_PASSWORD:{{ env.RESTIC_PASSWORD }}
 SETUVAR --export RESTIC_REPOSITORY:/data/resticbackup
 {% elif env.MACHINE == "termux" -%}
 SETUVAR --export MACHINE:termux
+SETUVAR --export AWS_ACCESS_KEY_ID:{{ env.RESTIC_AWS_ACCESS_KEY_ID }}
+SETUVAR --export AWS_SECRET_ACCESS_KEY:{{ env.RESTIC_AWS_SECRET_ACCESS_KEY }}
 {% endif -%}
 SETUVAR MY_ABBR_SET:true
 SETUVAR __fish_initialized:3400
