@@ -5,10 +5,10 @@ password = "{{ env.RESTIC_PASSWORD }}"
 [repository.options]
 root = "/"
 bucket = "restic-archi"
-endpoint = "https://{{ env.RESTIC_SERVER }}"
+endpoint = "https://{{ env.RESTIC_S3_SERVER }}"
 region = "s3"
-access_key_id = "{{ env.AWS_ACCESS_KEY_ID }}"
-secret_access_key = "{{ env.AWS_SECRET_ACCESS_KEY }}"
+access_key_id = "{{ env.RESTIC_AWS_ACCESS_KEY_ID }}"
+secret_access_key = "{{ env.RESTIC_AWS_SECRET_ACCESS_KEY }}"
 
 [forget]
 keep-daily = 7
