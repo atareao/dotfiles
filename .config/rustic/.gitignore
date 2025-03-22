@@ -1,0 +1,3 @@
+local.toml
+minio_local.toml
+minio_server.toml
