@@ -1,0 +1,18 @@
+[/]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/']
+screensaver=@as []
+
+[custom-keybindings/custom0]
+binding='<Super>Return'
+command='kitty'
+name='Terminal'
+
+[custom-keybindings/custom1]
+binding='<Super>z'
+command='mpv /data/atareao.es/podcasts/recursos/entrada.mp3'
+name='Entrada mp3'
+
+[custom-keybindings/custom2]
+binding='<Super>x'
+command='mpv /data/atareao.es/podcasts/recursos/salida_corta.mp3'
+name='Salida mp3'
