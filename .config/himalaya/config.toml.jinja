@@ -6,17 +6,19 @@ Lorenzo
 """
 
 [accounts.atareao]
+default = true
 email = "{{ env.ATAREAO_EMAIL }}"
 
 backend.type = "imap" # imap, maildir or notmuch
-backend.host = "mail.atareao.es"
+backend.host = "imap.dondominio.com"
 backend.port = 993
 backend.login = "{{ env.ATAREAO_EMAIL }}"
 backend.auth.type = "password"
 backend.auth.cmd = "pass show atareao/pass"
+backend.encryption.type = "tls" # ssl, tls or none
 
 message.send.backend.type = "smtp"
-message.send.backend.host = "mail.atareao.es"
+message.send.backend.host = "smpt.dondominio.com"
 message.send.backend.port = 465
 message.send.backend.login = "{{ env.ATAREAO_EMAIL }}"
 message.send.backend.auth.type = "password"
@@ -25,20 +27,20 @@ message.send.backend.auth.cmd = "pass show atareao/pass"
 folder.aliases.sent = "INBOX.Sent"
 
 [accounts.gmail]
-default = true
 email = "{{ env.USER_EMAIL }}"
 
 backend.type = "imap" # imap, maildir or notmuch
 backend.host = "imap.gmail.com"
 backend.port = 993
-imap-login = "{{ env.USER_EMAIL }}"
+backend.login = "{{ env.USER_EMAIL }}
 backend.auth.type = "password"
 backend.auth.cmd = "pass show gmail/pass"
+backend.encryption.type = "tls" # ssl, tls or none
 
 message.send.backend.type = "smtp" # smtp or sendmail
 message.send.backend.host = "smtp.gmail.com"
 message.send.backend.port = 465
-smtp-login = "lorenzo.carbonell.cerezo@gmail.com"
+message.send.backend.login = "{{ env.USER_EMAIL }}"
 message.send.backend.auth.type = "password"
 message.send.backend.auth.cmd = "pass show gmail/pass"
 
