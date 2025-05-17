@@ -170,17 +170,16 @@ keymap("n", "<leader>rp", "<Plug>RestNvimPreview", "Run rest preview")
 keymap("n", "<leader>rl", "<Plug>RestNvimLast", "Run rest last")
 
 -- Terminal
-keymap("n", "<leader>t", "", "Terminal")
+keymap("n", "<leader>tt", "", "Terminal")
 keymap("n", "<C-t>", "<cmd>ToggleTerm<cr>", "Toggle Term")
-keymap("n", "<leader>t1", ":1ToggleTerm<cr>", "1")
-keymap("n", "<leader>t2", ":2ToggleTerm<cr>", "2")
-keymap("n", "<leader>t3", ":3ToggleTerm<cr>", "3")
-keymap("n", "<leader>t4", ":4ToggleTerm<cr>", "4")
+keymap("n", "<leader>tt1", ":1ToggleTerm<cr>", "1")
+keymap("n", "<leader>tt2", ":2ToggleTerm<cr>", "2")
+keymap("n", "<leader>tt3", ":3ToggleTerm<cr>", "3")
+keymap("n", "<leader>tt4", ":4ToggleTerm<cr>", "4")
 keymap("n", "<leader>f", "<cmd>ToggleTerm direction=float<cr>", "Float")
 keymap("n", "<leader>h", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal")
 keymap("n", "<leader>j", "<cmd>TermExec cmd='gjs %'<cr>", "Execute JavaScript")
 keymap("n", "<leader>p", "<cmd>TermExec cmd='python %'<cr>", "Execute Python")
-keymap("n", "<leader>t", "<cmd> ToggleTerm<cr>", "Open terminal")
 
 -- Treesitter
 keymap("n", "<leader>T", "", "Treesitter")
@@ -194,6 +193,7 @@ keymap("n", "<leader>ut", "<cmd>TodoTelescope<CR>", "Show Comments")
 keymap("n", "<leader>uq", "<cmd>TodoQuickFix<CR>", "Quick Fix")
 keymap("n", "<leader>ul", "<cmd>TodoLocList<CR>", "List Comments")
 
+
 --
 keymap("n", "<leader>v", "<cmd>Outline<cr>", "Outline")
 
@@ -206,13 +206,13 @@ keymap("n", "<leader>wq", "close<CR>", "Close Split")
 keymap("n", "<leader>wm", "MaximizerToggle<CR>", "Toggle Maximizer")
 
 -- Trouble
-keymap("n", "<leader>x", "", "Trouble")
+keymap("n", "<leader>xt", "", "Trouble")
 keymap("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", "Diagnostics (Trouble)")
-keymap("n", "<leader>xb", "<cmd>Trouble diagnostics toggle.buf=0<cr>", "Buffer Diagnostics (Trouble)")
-keymap("n", "<leader>xs", "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols (Trouble)")
-keymap("n", "<leader>xf", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>","LSP Definitions / references / ... (Trouble)")
-keymap("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>", "Location List (Trouble)")
-keymap("n", "<leader>xq","<cmd>Trouble qflist toggle<cr>", "Quickfix List (Trouble)")
+keymap("n", "<leader>xxb", "<cmd>Trouble diagnostics toggle.buf=0<cr>", "Buffer Diagnostics (Trouble)")
+keymap("n", "<leader>xxs", "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols (Trouble)")
+keymap("n", "<leader>xxf", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>","LSP Definitions / references / ... (Trouble)")
+keymap("n", "<leader>xxL", "<cmd>Trouble loclist toggle<cr>", "Location List (Trouble)")
+keymap("n", "<leader>xxq","<cmd>Trouble qflist toggle<cr>", "Quickfix List (Trouble)")
 
 keymap("t", "<C-t>1", "<cmd>1ToggleTerm<cr>", "ToggleTerm")
 keymap("t", "<C-t>2", "<cmd>2ToggleTerm<cr>", "ToggleTerm")
