@@ -17,6 +17,7 @@ abbr --add tls trasher --trash-dir ~/.trashdir ls
 abbr --add trm trasher --trash-dir ~/.trashdir rm
 abbr --add tcl trasher --trash-dir ~/.trashdir clear
 # docker
+abbr --add compose docker compose $argv
 abbr --add dcu docker compose up -d --force-recreate
 abbr --add dcl docker compose logs -d
 abbr --add dcd docker compose down
