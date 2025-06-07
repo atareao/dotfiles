@@ -11,16 +11,34 @@
 
     // Choose the order of the modules
 
-    "modules-left":[  "sway/workspaces", "wlr/taskbar"],
-    "modules-right":["custom/media",  "sway/mode", "idle_inhibitor", "custom/updater", "pulseaudio", "cpu", "memory", "temperature", "custom/layout", "backlight", "keyboard-state",  "battery", "battery#bat2", "network", "tray", "clock", "custom/power"],
+    "modules-left":[  "niri/workspaces", "wlr/taskbar"],
+    "modules-right":["custom/media",  "sway/mode", "idle_inhibitor", "custom/updater", "pulseaudio", "cpu", "memory", "temperature", "custom/layout", "backlight", "keyboard-state",  "niri/language", "battery", "battery#bat2", "network", "tray", "custom/notification", "clock", "custom/power"],
     // Modules configuration
     "sway/mode": {
          "format": " {}",
         "max-length": 50
     },
-    "sway/workspaces": {
-      "format": "{index}{icon}",
-      "on-click": "activate",
+    "niri/workspaces": {
+        "all-outputs": true,
+    "format": "{}",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "0",
+    },
+    //"on-scroll-up": "hyprctl dispatch workspace e+1 1>/dev/null",
+    //"on-scroll-down": "hyprctl dispatch workspace e-1 1>/dev/null",
+    "sort-by-number": true,
+    "active-only": false,
+    "justify": "center",
+
     },
     "wlr/taskbar": {
         "format": "{icon}",
@@ -55,30 +73,57 @@
         "spacing": 10
     },
     "clock": {
-        // "timezone": "Europe/Madrid",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format": "🕙 {:%H:%M  📅 %d-%m %a}", // Icon: calendar-alt
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#eebebe'><b>{}</b></span>",
+        "days": "<span color='#ffe6ff'><b>{}</b></span>",
+        "weeks": "<span color='#c6a0f6'><b>W{}</b></span>",
+        "weekdays": "<span color='#eebebe'><b>{}</b></span>",
+        "today": "<span color='#ed8796'><b><u>{}</u></b></span>"
+      }
+    },
+    "justify": "center"
     },
     "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
-    },
+    "format": "💻 {usage}% {max_frequency:0.1f}GHz",
+    "on-click": "ghostty -e btop",
+    "interval": 3,
+    //"max-length": 14,
+    //"min-length": 14,
+    "justify": "center",
+    "tooltip": false
+  },
     "memory": {
         "format": "{}% "
     },
-    "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
-    },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", ""]
-    },
+     "temperature": {
+    "thermal-zone": 1,
+    "interval": 3,
+    "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon/hwmon6",
+		"input-filename": "temp1_input",
+    "critical-threshold": 80,
+    "format-critical": " {temperatureC}°C",
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": [""],
+    //"max-length": 20,
+    //"min-length": 7,
+    "tooltip": false
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}{percent}%",
+    "format-icons": ["󰃞 ","󰃟 ","󰃠 "],
+    "on-scroll-down": "brightnessctl s 5%-",
+    "on-scroll-up": "brightnessctl s +5%",
+    "justify": "center",
+    "tooltip": false
+  },
     "battery": {
         "states": {
             // "good": 95,
@@ -138,6 +183,26 @@
         "escape": true,
         "exec": "$HOME/.config/system_scripts/mediaplayer.py 2> /dev/null",
         "on-click": "playerctl play-pause"
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{} {icon}",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": "",
+            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
     },
     "custom/power":{
         "format": "",

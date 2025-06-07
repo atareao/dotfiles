@@ -78,6 +78,10 @@ workspaces,
     padding: 0 10px;
     color: #ffffff;
 }
+#custom-notification{
+    background-color: #3f3c40;
+    padding: 0 10px;
+}
 
 #window,
 #workspaces {
