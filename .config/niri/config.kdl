@@ -422,7 +422,6 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
-    Mod+Space hotkey-overlay-title="Run an Application: rofi" { spawn "rofi" "-combi-modi" "drun,window,ssh" "-show" "combi" "-modi" "combi" "-matching fuzzy"; }
     Ctrl+Space { spawn "ulauncher-toggle"; }
     Mod+Z {spawn "mpv" "/data/atareao.es/podcasts/recursos/entrada.mp3"; } 
     Mod+X {spawn "mpv" "/data/atareao.es/podcasts/recursos/salida_corta.mp3"; } 
