@@ -7,6 +7,17 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "agent": {
+    "model_parameters": [],
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4"
+    },
+    "version": "2"
+  },
   "vim_mode": true,
   "buffer_font_family": "IosevkaTerm Nerd Font Mono",
   "ui_font_size": 16,
@@ -16,9 +27,11 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "One Dark"
+    "dark": "Ayu Mirage"
   },
   "inlay_hints": {
     "enabled": true
-  }
+  },
+  "autosave": "on_focus_change",
+  "format_on_save": "on"
 }

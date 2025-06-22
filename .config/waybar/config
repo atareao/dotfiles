@@ -11,12 +11,19 @@
 
     // Choose the order of the modules
 
-    "modules-left":[  "niri/workspaces", "wlr/taskbar"],
+    "modules-left":[  "niri/workspaces", "wlr/taskbar", "niri/window"],
     "modules-right":["custom/media",  "sway/mode", "idle_inhibitor", "custom/updater", "pulseaudio", "cpu", "memory", "temperature", "custom/layout", "backlight", "keyboard-state",  "niri/language", "battery", "battery#bat2", "network", "tray", "custom/notification", "clock", "custom/power"],
     // Modules configuration
     "sway/mode": {
          "format": " {}",
         "max-length": 50
+    },
+    "niri/window": {
+        "format": "{}",
+        "rewrite": {
+            "(.*) - Mozilla Firefox": "🌎 $1",
+            "(.*) - zsh": "> [$1]"
+        }
     },
     "niri/workspaces": {
         "all-outputs": true,

@@ -276,8 +276,8 @@ layout {
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "DISPLAY WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=GNOME"
 spawn-at-startup "swaync"
 spawn-at-startup "waybar"
-spawn-at-startup "mpvpaper" "-vp" "-o" "no-audio loop" "DP-1" "~/backgrounds/the-last-of-us-sunset-moewalls-com.mp4"
-spawn-at-startup "mpvpaper" "-vp" "-o" "no-audio loop" "HDMI-A-1" "~/backgrounds/the-last-of-us-sunset-moewalls-com.mp4"
+spawn-at-startup "mpvpaper" "-vp" "-o" "no-audio loop" "DP-1" "~/backgrounds/wavy-grass-moewalls-com.mp4"
+spawn-at-startup "mpvpaper" "-vp" "-o" "no-audio loop" "HDMI-A-1" "~/backgrounds/wavy-grass-moewalls-com.mp4"
 // Apaga las pantallas después de 30 minutos de inactividad.
 spawn-at-startup "swayidle" "-w" "timeout" "1800" "niri msg action power-off-monitors"
 spawn-at-startup "ulauncher"
