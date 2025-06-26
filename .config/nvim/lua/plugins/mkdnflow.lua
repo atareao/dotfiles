@@ -11,6 +11,9 @@ return {
             priority = 'root',
             root_tell = ".git",
         },
+        links = {
+            style = "wiki"
+        },
         new_file_template = {
             use_template = true,
             placeholders = {
@@ -23,12 +26,22 @@ return {
             template = [[
 ---
 title: {{ title }}
-created_at: {{ date }}
+season: 7
+episode: 
+created: {{ date }}
+updated: {{ date }}
 tags:
+  - T07
+  - atareao-con-linu
+  - 
 ---
 # {{ title }}
+
+
 <!--more-->
+
 ## {{ title }}
+
 ---
 Más información,
 ]]
