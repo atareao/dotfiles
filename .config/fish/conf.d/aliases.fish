@@ -48,3 +48,13 @@ function gmer -d "git merge --no-edit --no-ff development"
     git push
     git switch development
 end
+
+function gc -d "gemini-cli-interactive"
+    gemini -m "gemini-2.5-flash" -yp "$argv"
+end
+
+function gcli -d "gemini-cli"
+    gemini -m "gemini-2.5-flash" -yp
+end
+
+

@@ -88,7 +88,7 @@ shell_directory_timeout=900
 
 [Layout]
 output_lines=0
-left_panel_size=91
+left_panel_size=52
 top_panel_size=0
 message_visible=true
 keybar_visible=true
@@ -117,6 +117,7 @@ base_color=
 xterm-kitty=
 color_terminals=
 wezterm=
+kitty=
 
 [Panels]
 show_mini_info=true
@@ -140,7 +141,7 @@ quick_search_mode=2
 select_flags=6
 
 [Panelize]
-Buscar programas con SUID y SGID=find . \\( \\( -perm -04000 -a -perm /011 \\) -o \\( -perm -02000 -a -perm /01 \\) \\) -print
-Buscar archivos originales después de aplicar parches=find . -name \\*.orig -print
-Archivos git modificados=git ls-files --modified
 Buscar archivos rechazados después de aplicar parches=find . -name \\*.rej -print
+Archivos git modificados=git ls-files --modified
+Buscar archivos originales después de aplicar parches=find . -name \\*.orig -print
+Buscar programas con SUID y SGID=find . \\( \\( -perm -04000 -a -perm /011 \\) -o \\( -perm -02000 -a -perm /01 \\) \\) -print
