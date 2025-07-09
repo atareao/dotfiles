@@ -32,7 +32,7 @@ created: {{ date }}
 updated: {{ date }}
 tags:
   - T07
-  - atareao-con-linu
+  - atareao-con-linux
   - 
 ---
 # {{ title }}
