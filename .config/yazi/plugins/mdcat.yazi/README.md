@@ -3,7 +3,7 @@
 Plugin for [Yazi](https://github.com/sxyazi/yazi) to preview markdown files with [mdcat](https://github.com/swsnr/mdcat). To install, run the below mentioned command:
 
 ```bash
-ya pack -a atareao/mdcat
+ya pkg add atareao/mdcat
 ```
 
 then include it in your `yazi.toml` to use:

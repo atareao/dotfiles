@@ -1,24 +1,34 @@
 [[plugin.deps]]
 use = "atareao/mdcat"
-rev = "c4d6f8b"
-hash = "794667b1e3e57e8d308e24dee9fa988d"
+rev = "485fafc"
+hash = "35aa47114658c135124f9ba7f44b9b43"
 
 [[plugin.deps]]
 use = "atareao/convert"
-rev = "7c18342"
-hash = "cc6f6db11762ed3ee8c14c276e7cfb4b"
+rev = "ce060d9"
+hash = "1c0465351f2a344e842f065ab316f265"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:full-border"
-rev = "beb586a"
-hash = "ae9e1d0c6bfd68cdebc98cc684c22b45"
+rev = "b886025"
+hash = "3996fc74044bc44144b323686f887e1"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:piper"
+rev = "b886025"
+hash = "2143a53182dbbe935a1abd1623424aa5"
+
+[[plugin.deps]]
+use = "macydnah/office"
+rev = "4002d36"
+hash = "9c68763dd4f2799f7cfee1e9c3e819a9"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-frappe"
-rev = "1a419b2"
-hash = "e88895e8f8b7926f20946f273ecc7348"
+rev = "d3fd3a5"
+hash = "d659c6fde5148fb5c066518d7fdecddc"
 
 [[flavor.deps]]
 use = "kmlupreti/ayu-dark"
-rev = "5412a78"
-hash = "60690920e8c0f9f81ff02009de5d156f"
+rev = "5f600aa"
+hash = "a05f94b9a20b64d814c7631074d65c4a"

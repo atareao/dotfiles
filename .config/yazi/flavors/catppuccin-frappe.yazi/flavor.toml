@@ -2,7 +2,7 @@
 
 # : Manager {{{
 
-[manager]
+[mgr]
 cwd = { fg = "#81c8be" }
 
 # Hovered
@@ -36,6 +36,15 @@ border_style  = { fg = "#838ba7" }
 # : }}}
 
 
+# : Tabs {{{
+
+[tabs]
+active   = { fg = "#303446", bg = "#8caaee", bold = true }
+inactive = { fg = "#8caaee", bg = "#414559" }
+
+# : }}}
+
+
 # : Mode {{{
 
 [mode]
@@ -57,20 +66,17 @@ unset_alt  = { fg = "#eebebe", bg = "#414559" }
 # : Status bar {{{
 
 [status]
-separator_open  = ""
-separator_close = ""
-
-# Progress
-progress_label  = { fg = "#ffffff", bold = true }
-progress_normal = { fg = "#8caaee", bg = "#51576d" }
-progress_error  = { fg = "#e78284", bg = "#51576d" }
-
 # Permissions
 perm_sep   = { fg = "#838ba7" }
 perm_type  = { fg = "#8caaee" }
 perm_read  = { fg = "#e5c890" }
 perm_write = { fg = "#e78284" }
 perm_exec  = { fg = "#a6d189" }
+
+# Progress
+progress_label  = { fg = "#ffffff", bold = true }
+progress_normal = { fg = "#8caaee", bg = "#51576d" }
+progress_error  = { fg = "#e78284", bg = "#51576d" }
 
 # : }}}
 
@@ -98,7 +104,7 @@ selected = { reversed = true }
 
 # : Completion {{{
 
-[completion]
+[cmp]
 border = { fg = "#8caaee" }
 
 # : }}}

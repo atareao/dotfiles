@@ -8,8 +8,9 @@ return {
     opts = {
         rocks = 'luautf8', -- Ensures optional luautf8 dependency is installed
         perspective = {
-            priority = 'root',
-            root_tell = ".git",
+            priority = 'current',
+            root_tell = false,
+            fallback = 'current'
         },
         links = {
             style = "wiki"

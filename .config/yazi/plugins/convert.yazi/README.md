@@ -3,11 +3,11 @@
 ## Requirements
 
 - [yazi](https://github.com/sxyazi/yazi)
-- [magick](https://archlinux.org/packages/extra/x86_64/thunar/)
+- [magick](https://archlinux.org/packages/extra/x86_64/imagemagick/)
 
 ## Installation
 
-### Linux 
+### Linux
 
 ```sh
 git clone https://github.com/atareao/convert.yazi ~/.config/yazi/plugins/convert.yazi
@@ -16,18 +16,28 @@ git clone https://github.com/atareao/convert.yazi ~/.config/yazi/plugins/convert
 or
 
 ```sh
-ya pack -a atareao/convert
+ya pkg add atareao/convert
 ```
 
 ## Usage
 
-Add this to your ~/.config/yazi/keymap.toml, inside of `[manager]`
-
+Add this to your ~/.config/yazi/keymap.toml
 
 ```toml
-prepend_keymap = [
-    { on   = [ "c", "j" ], run  = "plugin convert --args='--extension=jpg'", desc = "Convert image to JPG" },
-    { on   = [ "c", "p" ], run  = "plugin convert --args='--extension=png'", desc = "Convert image to PNG" },
-    { on   = [ "c", "w" ], run  = "plugin convert --args='--extension=webp'", desc = "Convert image to WEBP" },
-]
+
+[[mgr.prepend_keymap]]
+on = ["c", "p"]
+run = "plugin convert -- --extension='png'"
+desc = "Convert selected files to PNG"
+
+[[mgr.prepend_keymap]]
+on = ["c", "j"]
+run = "plugin convert -- --extension='jpg'"
+desc = "Convert selected files to JPG"
+
+[[mgr.prepend_keymap]]
+on = ["c", "w"]
+run = "plugin convert -- --extension='webp'"
+desc = "Convert selected files to WebP"
+
 ```

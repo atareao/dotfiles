@@ -112,8 +112,30 @@ previewers = [
 	{ name = "*", run = "file" },
 ]
 
+#prepend_preloaders = [
+#    # Office Documents
+#    { mime = "application/openxmlformats-officedocument.*", run = "office" },
+#    { mime = "application/oasis.opendocument.*", run = "office" },
+#    { mime = "application/ms-*", run = "office" },
+#    { mime = "application/msword", run = "office" },
+#    { name = "*.docx", run = "office" },
+#]
+
 prepend_previewers = [
-  { name = "*.md", run = "mdcat" },
+  { name = "*.md", run  = 'piper -- CLICOLOR_FORCE=1 mdcat "$1"' },
+  { name = "*.tar*", run  = 'piper --format=url -- tar tf "$1"' },
+  { name = "*.csv", run  = 'piper -- bat -p --color=always "$1"' },
+  { name = "*/", run  = 'piper -- eza -TL=3 --color=always --icons=always --group-directories-first --no-quotes "$1"' },
+  {name = "*.rss", run = 'piper -- tidy -xml -i -q "$1"'},
+  # Office Documents
+    { mime = "application/openxmlformats-officedocument.*", run = "office" },
+    { mime = "application/oasis.opendocument.*", run = "office" },
+    { mime = "application/ms-*", run = "office" },
+    { mime = "application/msword", run = "office" },
+    { name = "*.docx", run = "office" },
+]
+append_previewers = [
+  { name = "*", run  = 'piper -- hexyl --border=none --terminal-width=$w "$1"' }
 ]
 
 [input]

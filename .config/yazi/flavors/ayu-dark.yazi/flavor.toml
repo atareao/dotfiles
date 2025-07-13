@@ -41,7 +41,7 @@ separator_close = ""
 separator_style = { bg = "#2d3640", fg = "#c2a05c" }
 
 # Progress
-progress_label = { fg = "#c2a05c", bold = true }
+progress_label = { fg = "#0a0e14", bold = true }
 progress_normal = { fg = "#c2a05c", bg = "#0a0e14" }
 progress_error = { fg = "#a85361", bg = "#0a0e14" }
 
