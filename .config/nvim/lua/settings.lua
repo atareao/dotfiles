@@ -6,7 +6,6 @@
 -- Neovim API aliases
 -----------------------------------------------------------
 local cmd = vim.cmd                    -- execute Vim commands
-local exec = vim.api.nvim_exec         -- execute Vimscript
 local fn = vim.fn                      -- call Vim functions
 local g = vim.g                        -- global variables
 local opt = vim.opt                    -- global/buffer/windows-scoped options
@@ -29,6 +28,8 @@ g.himalaya_mailbox_picker = 'native'
 g.typst_conceal = 1
 g.typst_pdf_viewer = "zathura"
 g.typst_embedded_languages = { "typescript" }
+-- Configuracion para wiki
+g.wiki_root = "/data/vaults/obsidian"
 
 -----------------------------------------------------------
 -- Neovim UI
