@@ -23,6 +23,26 @@ use = "macydnah/office"
 rev = "4002d36"
 hash = "9c68763dd4f2799f7cfee1e9c3e819a9"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:diff"
+rev = "b886025"
+hash = "47865a70cade14a0b9b6bc6a54f16bdb"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:git"
+rev = "b886025"
+hash = "63b6c222bf2103b3023389dde5e2ecfe"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-filter"
+rev = "b886025"
+hash = "a9d553bd19a3cd7f4eab3abaac5d67ff"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:zoom"
+rev = "b886025"
+hash = "23d704e18d864036fc65c188bc6b2e47"
+
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-frappe"
 rev = "d3fd3a5"
