@@ -30,6 +30,12 @@ g.typst_pdf_viewer = "zathura"
 g.typst_embedded_languages = { "typescript" }
 -- Configuracion para wiki
 g.wiki_root = "/data/vaults/obsidian"
+--g.wiki_select_method = {
+--      pages = require("wiki.telescope").pages,
+--      tags = require("wiki.telescope").tags,
+--      toc = require("wiki.telescope").toc,
+--      links = require("wiki.telescope").links,
+--    }
 
 -----------------------------------------------------------
 -- Neovim UI

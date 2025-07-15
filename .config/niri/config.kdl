@@ -281,7 +281,6 @@ spawn-at-startup "mpvpaper" "-vp" "-o" "no-audio loop" "HDMI-A-1" "~/backgrounds
 // Apaga las pantallas después de 30 minutos de inactividad.
 spawn-at-startup "swayidle" "-w" "timeout" "1800" "niri msg action power-off-monitors"
 spawn-at-startup "ulauncher"
-spawn-at-startup "syncthing"
 
 environment {
 
