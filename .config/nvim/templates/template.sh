@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # -*- coding: utf-8 -*-
 
-# Copyright (c) {{YEAR}} {{NAME}}
+# Copyright (c) {{_lua:os.date("%y")_}} {{_author_}}
 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
