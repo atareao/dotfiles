@@ -28,10 +28,13 @@ edit = [
     { run = '$EDITOR "$@"', block = true,  for = "unix" },
     { run = 'code "%*"',    orphan = true, for = "windows" },
 ]
+pdf = [
+    { run = 'tdf "$@"', desc = "tdf", block = true, for = "unix" },
+]
 open = [
     { run = 'xdg-open "$@"',             desc = "Open", for = "linux" },
     { run = 'open "$@"',                 desc = "Open", for = "macos" },
-    { run = 'start "%1"', orphan = true, desc = "Open", for = "windows" }
+    { run = 'start "%1"', orphan = true, desc = "Open", for = "windows" },
 ]
 reveal = [
     { run = 'open -R "$1"',                       desc = "Reveal", for = "macos" },
@@ -60,6 +63,7 @@ rules = [
 
     { mime = "application/json", use = [ "edit", "reveal" ] },
     { mime = "*/javascript",     use = [ "edit", "reveal" ] },
+    { mime = "application/pdf",  use = [ "pdf" ] },
 
     { mime = "application/zip",             use = [ "extract", "reveal" ] },
     { mime = "application/gzip",            use = [ "extract", "reveal" ] },
