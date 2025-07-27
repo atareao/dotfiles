@@ -2,6 +2,7 @@ local keymap = function(mode, shortcut, command, description)
     vim.keymap.set(mode, shortcut, command, {desc =description, silent = true, noremap = true, nowait = true})
 end
 --
+
 keymap("n", "<A-0>", "<cmd>BufferGoto 0<cr>", "Tab 0")
 keymap("n", "<A-1>", "<cmd>BufferGoto 1<cr>", "Tab 1")
 keymap("n", "<A-2>", "<cmd>BufferGoto 2<cr>", "Tab 2")
