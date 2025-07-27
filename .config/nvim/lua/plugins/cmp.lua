@@ -96,10 +96,9 @@ return {
                 { name = 'buffer' },
                 { name = 'spell' },
                 { name = "dotenv" },
+                --{ name = "minuet" },
                 --{ name = 'cmp_tabnine' },
-                { name = "copilot",
-                    priority = 100,
-                },
+                { name = "copilot", priority = 100, },
             },
             performance = {
                 fetching_timeout = 2000, -- for minuet
