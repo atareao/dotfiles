@@ -46,7 +46,7 @@ function portada_podcast(){
         echo No existe la portada JPG
         NEED_EXIT=1
     fi
-    MD_FILE=$(find /data/notas/podcasts/ -maxdepth 2 -type f -name "e${EPISODIO}.md")
+    MD_FILE=$(find /data/notes/podcasts/ -maxdepth 2 -type f -name "e${EPISODIO}.md")
     if [[ ! -f "${MD_FILE}" ]];then
         echo "No existe el archivo ${MD_FILE}"
         NEED_EXIT=1

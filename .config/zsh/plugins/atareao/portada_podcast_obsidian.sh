@@ -51,7 +51,7 @@ function portada_podcast(){
         echo No existe la portada JPG
         NEED_EXIT=1
     fi
-    MD_FILE=$(rg -l "^episode: ${NUMBER}" "/data/vaults/obsidian/Podcasts/atareao con Linux")
+    MD_FILE=$(rg -l "^episode: ${NUMBER}" "/data/notes/Podcasts/atareao con Linux")
     if [[ ! -f "${MD_FILE}" ]];then
         echo "No existe el archivo ${MD_FILE}"
         NEED_EXIT=1
