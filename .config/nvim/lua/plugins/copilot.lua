@@ -2,7 +2,8 @@ return {
     --"github/copilot.vim"
     "zbirenbaum/copilot.lua",
     dependencies = {
-        'AndreM222/copilot-lualine'
+        'AndreM222/copilot-lualine',
+        --"zbirenbaum/copilot-cmp",
     },
     cmd = "Copilot",
     event = "InsertEnter",
@@ -12,4 +13,5 @@ return {
         },
     },
     config = true,
+    
 }

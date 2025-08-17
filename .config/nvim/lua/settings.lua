@@ -122,6 +122,24 @@ au(
     }
 )
 -----------------------------------------------------------
+-- Blink
+-----------------------------------------------------------
+vim.api.nvim_create_autocmd("User", {
+    pattern = "BlinkCmpMenuOpen",
+    callback = function()
+        vim.b.copilot_suggestion_hidden = true
+    end,
+})
+
+vim.api.nvim_create_autocmd("User", {
+    pattern = "BlinkCmpMenuClose",
+    callback = function()
+        vim.b.copilot_suggestion_hidden = false
+    end,
+})
+
+
+-----------------------------------------------------------
 -- Spell
 -----------------------------------------------------------
 -- enable spanish spell on markdown only
@@ -163,13 +181,14 @@ local gen_template = function()
             lines[#lines + 1] = line
         end
         api.nvim_buf_set_lines(0, 0, 0, false, lines)
+        cmd([[%s/{{DATETIME}}/\=strftime('%Y-%m-%dT%H:%M:%S')/ge]])
         cmd([[%s/{{YEAR}}/\=strftime('%Y')/ge]])
         cmd([[%s/{{NAME}}/\=template_name/ge]])
         cmd([[%s/{{EVAL\s*\([^}]*\)}}/\=eval(submatch(1))/ge]])
         cmd([[%s/{{FILENAME}}/\=expand('%:t')/ge]])
     end
 end
-vim.keymap.set("n", "<leader>ta", gen_template, {silent = true})
+vim.keymap.set("n", "<leader>ta", gen_template, { silent = true })
 au(
     { "BufNewFile" },
     {

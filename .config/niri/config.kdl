@@ -281,7 +281,7 @@ spawn-at-startup "mpvpaper" "-vp" "-o" "no-audio loop" "DP-1" "~/backgrounds/aut
 spawn-at-startup "mpvpaper" "-vp" "-o" "no-audio loop" "HDMI-A-1" "~/backgrounds/autumn-tree-ghost-of-tsushima-moewalls-com.mp4"
 // Apaga las pantallas después de 30 minutos de inactividad.
 spawn-at-startup "swayidle" "-w" "timeout" "1800" "niri msg action power-off-monitors"
-spawn-at-startup "ulauncher"
+//spawn-at-startup "ulauncher"
 
 environment {
 
@@ -291,6 +291,7 @@ environment {
     GDK_BACKEND "wayland,x11,*"
 
     XDG_CURRENT_DESKTOP "wlroots"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
@@ -428,7 +429,7 @@ binds {
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
-    Ctrl+Space { spawn "ulauncher-toggle"; }
+    Mod+Space { spawn "walker"; }
     Mod+Z {spawn "mpv" "/data/atareao.es/podcasts/recursos/entrada.mp3"; } 
     Mod+X {spawn "mpv" "/data/atareao.es/podcasts/recursos/salida_corta.mp3"; } 
     Mod+A {spawn "mpv" "/data/atareao.es/podcasts/recursos/transicion.mp3"; }
