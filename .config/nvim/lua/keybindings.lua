@@ -145,6 +145,12 @@ keymap("n", "<leader>lx", "<cmd>TroubleToggle<cr>", "Diagnostics")
 
 -- Neotree
 keymap("n", "<C-n>", "<cmd>Neotree toggle<cr>", "NeoTree")
+-- MiniMap
+keymap("n", "<leader>nm", "<cmd>Neominimap Toggle<cr>", "Toggle global minimap")
+keymap("n", "<leader>no", "<cmd>Neominimap Enable<cr>", "Enable global minimap")
+keymap("n", "<leader>nc", "<cmd>Neominimap Disable<cr>", "Disable global minimap")
+keymap("n", "<leader>nr", "<cmd>Neominimap Refresh<cr>", "Refresh global minimap")
+keymap("n", "<leader>nf", "<cmd>Neominimap ToggleFocus<cr>", "Switch focus on minimap")
 
 -- Options
 keymap("n", "<leader>o", "", "Options")

@@ -118,6 +118,7 @@ return {
                 follow = true,
                 expand_errors = true,
                 open = "botright vsplit | vertical resize 50",
+                count = true,
                 mappings = {
                     expand = { "<CR>", "<2-LeftMouse>" },
                     expand_all = "e",

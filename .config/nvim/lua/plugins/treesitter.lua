@@ -6,6 +6,13 @@
 --- https://github.com/nvim-treesitter/nvim-treesitter
 return {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        "nvim-treesitter/nvim-treesitter-refactor",
+        "nvim-treesitter/nvim-treesitter-context",
+        "HiPhish/rainbow-delimiters.nvim",
+        "JoosepAlviste/nvim-ts-context-commentstring",
+    },
     build = ":TSUpdate",
     config = function()
         local configs = require("nvim-treesitter.configs")
@@ -15,7 +22,10 @@ return {
                 "python", "rust", "sql", "php", "javascript", "http", "json",
                 "commonlisp"
             },
+            modules = {"Highlight", "ContextCommentString", "RainbowDelimiters", "IncrementalSelection", "TreeDocs"},
             sync_install = false,
+            auto_install = true,
+            ignore_install = { "haskell", "phpdoc" }, -- List of parsers
             highlight = {
                 enable = true,
                 additional_vim_regex_highlighting = { "php", "markdown", "rust", "python" },

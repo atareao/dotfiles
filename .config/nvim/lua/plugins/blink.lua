@@ -16,7 +16,6 @@ return {
     -- build = 'nix run .#build-plugin',
 
     ---@module 'blink.cmp'
-    ---@type blink.cmp.Config
     opts = {
         cmdline = { enabled = true },
         fuzzy = {
@@ -40,7 +39,7 @@ return {
                     opts = {
                         -- options for blink-cmp-avante
                     },
-                    transform_items = function(ctx, items)
+                    transform_items = function(_, items)
                         for _, item in ipairs(items) do
                             item.kind_icon = '💃'
                             item.kind_name = 'Avante'
@@ -53,7 +52,7 @@ return {
                     module = "blink-copilot",
                     score_offset = 100,
                     async = true,
-                    transform_items = function(ctx, items)
+                    transform_items = function(_, items)
                         for _, item in ipairs(items) do
                             item.kind_icon = ''
                             item.kind_name = 'Copilot'
@@ -66,7 +65,6 @@ return {
                     name = "Ripgrep",
                     -- see the full configuration below for all available options
                     ---@module "blink-ripgrep"
-                    ---@type blink-ripgrep.Options
                     opts = {},
                 },
                 buffer = {
