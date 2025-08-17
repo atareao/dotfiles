@@ -257,5 +257,31 @@
             "Mas información,",
             ""
         ]
+    },
+    "podcast": {
+        "prefix": "pc",
+        "body": [
+            "title: $1",
+            "season: ${2:7}",
+            "episodio: $3",
+            "created: ",
+            "updated: ",
+            "tags:",
+            "  - ",
+            "---",
+            "# $1",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $1",
+            "",
+            "",
+            "",
+            "---",
+            "Más información,",
+            "",
+            "- "
+        ]
     }
 }

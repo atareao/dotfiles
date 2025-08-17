@@ -6,6 +6,7 @@ return {
         "mikavilpas/blink-ripgrep.nvim",
         "fang2hou/blink-copilot",
         "onsails/lspkind.nvim",
+        'Kaiser-Yang/blink-cmp-avante',
     },
     -- use a release tag to download pre-built binaries
     version = '1.*',
@@ -18,18 +19,47 @@ return {
     ---@type blink.cmp.Config
     opts = {
         cmdline = { enabled = true },
-        fuzzy = { implementation = "prefer_rust_with_warning" },
+        fuzzy = {
+            implementation = "prefer_rust_with_warning",
+            sorts = {
+                "exact",
+                "score",
+                "sort_text"
+            }
+        },
         keymap = {
-            ['<tab>'] = {'select_accept_and_enter', 'fallback'}
+            ['<tab>'] = { 'select_and_accept', 'fallback' },
+            ['<CR>'] = { 'select_accept_and_enter', 'fallback' }
         },
         sources = {
-            default = { "minuet", "copilot", "lsp", "path", "snippets", "buffer", "ripgrep" },
+            default = { "avante", "copilot", "lsp", "path", "snippets", "buffer", "ripgrep" },
             providers = {
+                avante = {
+                    module = 'blink-cmp-avante',
+                    name = 'Avante',
+                    opts = {
+                        -- options for blink-cmp-avante
+                    },
+                    transform_items = function(ctx, items)
+                        for _, item in ipairs(items) do
+                            item.kind_icon = '💃'
+                            item.kind_name = 'Avante'
+                        end
+                        return items
+                    end
+                },
                 copilot = {
                     name = "copilot",
                     module = "blink-copilot",
                     score_offset = 100,
                     async = true,
+                    transform_items = function(ctx, items)
+                        for _, item in ipairs(items) do
+                            item.kind_icon = ''
+                            item.kind_name = 'Copilot'
+                        end
+                        return items
+                    end
                 },
                 ripgrep = {
                     module = "blink-ripgrep",
@@ -38,15 +68,6 @@ return {
                     ---@module "blink-ripgrep"
                     ---@type blink-ripgrep.Options
                     opts = {},
-                },
-                minuet = {
-                    name = 'minuet',
-                    module = 'minuet.blink',
-                    async = true,
-                    -- Should match minuet.config.request_timeout * 1000,
-                    -- since minuet.config.request_timeout is in seconds
-                    timeout_ms = 3000,
-                    score_offset = 50, -- Gives minuet higher priority among suggestions
                 },
                 buffer = {
                     opts = {
@@ -103,9 +124,7 @@ return {
                                     icon = "🐙"
                                 elseif ctx.kind == "Ripgrep" then
                                     icon = "🔍"
-                                elseif ctx.kind == "minuet" then
-                                    icon = "💃🏻"
-                                elseif ctx.kind == "Minuet" then
+                                elseif ctx.kind == "Avante" then
                                     icon = "💃🏻"
                                 else
                                     icon = require("lspkind").symbolic(ctx.kind, {

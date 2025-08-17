@@ -2,14 +2,8 @@
     "name": "atareao-snippets",
     "contributes": {
         "snippets": [
-            {
-                "language": ["markdown"],
-                "path": "./markdown.json"
-            },
-            {
-                "language": ["rust"],
-                "path": "./rust.json"
-            }
+            { "language": "markdown", "path": "./markdown.json" },
+            { "language": "rust", "path": "./rust.json" }
         ]
     }
 }
