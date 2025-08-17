@@ -3,41 +3,9 @@ return {
     -- optional: provides snippets for the snippet source
     dependencies = {
         "rafamadriz/friendly-snippets",
+        "mikavilpas/blink-ripgrep.nvim",
         "fang2hou/blink-copilot",
-        {
-            "onsails/lspkind.nvim",
-            opts = {
-                symbol_map = {
-                    Copilot = "",
-                    Text = "󰉿",
-                    Method = "󰆧",
-                    Function = "󰊕",
-                    Constructor = "",
-                    Field = "󰜢",
-                    Variable = "󰀫",
-                    Class = "󰠱",
-                    Interface = "",
-                    Module = "",
-                    Property = "󰜢",
-                    Unit = "󰑭",
-                    Value = "󰎠",
-                    Enum = "",
-                    Keyword = "󰌋",
-                    Snippet = "",
-                    Color = "󰏘",
-                    File = "󰈙",
-                    Reference = "󰈇",
-                    Folder = "󰉋",
-                    EnumMember = "",
-                    Constant = "󰏿",
-                    Struct = "󰙅",
-                    Event = "",
-                    Operator = "󰆕",
-                    TypeParameter = "",
-                },
-            }
-
-        },
+        "onsails/lspkind.nvim",
     },
     -- use a release tag to download pre-built binaries
     version = '1.*',
@@ -52,7 +20,7 @@ return {
         cmdline = { enabled = true },
         fuzzy = { implementation = "prefer_rust_with_warning" },
         sources = {
-            default = { "copilot", "lsp", "path", "snippets", "buffer" },
+            default = { "minuet", "copilot", "lsp", "path", "snippets", "buffer", "ripgrep" },
             providers = {
                 copilot = {
                     name = "copilot",
@@ -60,6 +28,35 @@ return {
                     score_offset = 100,
                     async = true,
                 },
+                ripgrep = {
+                    module = "blink-ripgrep",
+                    name = "Ripgrep",
+                    -- see the full configuration below for all available options
+                    ---@module "blink-ripgrep"
+                    ---@type blink-ripgrep.Options
+                    opts = {},
+                },
+                minuet = {
+                    name = 'minuet',
+                    module = 'minuet.blink',
+                    async = true,
+                    -- Should match minuet.config.request_timeout * 1000,
+                    -- since minuet.config.request_timeout is in seconds
+                    timeout_ms = 3000,
+                    score_offset = 50, -- Gives minuet higher priority among suggestions
+                },
+                buffer = {
+                    opts = {
+                        -- get all buffers, even ones like neo-tree
+                        -- get_bufnrs = vim.api.nvim_list_bufs
+                        -- or (recommended) filter to only "normal" buffers
+                        get_bufnrs = function()
+                            return vim.tbl_filter(function(bufnr)
+                                return vim.bo[bufnr].buftype == ''
+                            end, vim.api.nvim_list_bufs())
+                        end
+                    }
+                }
             },
         },
         appearance = {
@@ -73,6 +70,7 @@ return {
             documentation = {
                 auto_show = true,
                 auto_show_delay_ms = 500,
+                window = { border = "single" },
             },
             ghost_text = {
                 enabled = true,
@@ -84,6 +82,7 @@ return {
                 selection = { preselect = true, auto_insert = true }
             },
             menu = {
+                boder = "single",
                 draw = {
                     padding = { 1, 1 }, -- padding only on right side
                     treesitter = { "lsp" },
@@ -97,12 +96,19 @@ return {
                                     if dev_icon then
                                         icon = dev_icon
                                     end
+                                elseif ctx.kind == "Copilot" then
+                                    icon = "🐙"
+                                elseif ctx.kind == "Ripgrep" then
+                                    icon = "🔍"
+                                elseif ctx.kind == "minuet" then
+                                    icon = "💃🏻"
+                                elseif ctx.kind == "Minuet" then
+                                    icon = "💃🏻"
                                 else
                                     icon = require("lspkind").symbolic(ctx.kind, {
                                         mode = "symbol",
                                     })
                                 end
-
                                 return icon .. ctx.icon_gap
                             end,
 

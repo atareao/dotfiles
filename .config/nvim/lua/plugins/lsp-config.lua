@@ -3,6 +3,7 @@ return {
     lazy = false,
     dependencies = {
         "neovim/nvim-lspconfig",
+        "netmute/ctags-lsp.nvim",
         {
             "mason-org/mason.nvim",
             opts = {
