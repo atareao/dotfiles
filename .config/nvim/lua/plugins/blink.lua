@@ -106,7 +106,7 @@ return {
                 selection = { preselect = true, auto_insert = true }
             },
             menu = {
-                boder = "single",
+                border = "single",
                 draw = {
                     padding = { 1, 1 }, -- padding only on right side
                     treesitter = { "lsp" },
