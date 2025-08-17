@@ -19,6 +19,9 @@ return {
     opts = {
         cmdline = { enabled = true },
         fuzzy = { implementation = "prefer_rust_with_warning" },
+        keymap = {
+            ['<tab>'] = {'select_accept_and_enter', 'fallback'}
+        },
         sources = {
             default = { "minuet", "copilot", "lsp", "path", "snippets", "buffer", "ripgrep" },
             providers = {
