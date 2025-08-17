@@ -377,6 +377,11 @@ window-rule {
     default-column-width {}
 }
 
+window-rule {
+    match app-id=r#"smile$"#
+    open-floating true
+}
+
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     // This app-id regular expression will work for both:
@@ -430,6 +435,7 @@ binds {
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+Space { spawn "walker"; }
+    Mod+E { spawn "smile"; }
     Mod+Z {spawn "mpv" "/data/atareao.es/podcasts/recursos/entrada.mp3"; } 
     Mod+X {spawn "mpv" "/data/atareao.es/podcasts/recursos/salida_corta.mp3"; } 
     Mod+A {spawn "mpv" "/data/atareao.es/podcasts/recursos/transicion.mp3"; }
