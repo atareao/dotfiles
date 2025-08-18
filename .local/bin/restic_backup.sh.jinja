@@ -51,8 +51,8 @@ function publish(){
 }
 
 export RESTIC_PASSWORD="{{ env.RESTIC_PASSWORD }}"
-export AWS_ACCESS_KEY_ID="{{ env.AWS_ACCESS_KEY_ID }}"
-export AWS_SECRET_ACCESS_KEY="{{ env.AWS_SECRET_ACCESS_KEY }}"
+export AWS_ACCESS_KEY_ID="{{ env.RESTIC_AWS_ACCESS_KEY_ID }}"
+export AWS_SECRET_ACCESS_KEY="{{ env.RESTIC_AWS_SECRET_ACCESS_KEY }}"
 {% if env.MACHINE == "archi" -%}
 {% set CUSTOM_HOME = "/home/lorenzo" -%}
 REPO1="local:/data/resticbackup"
