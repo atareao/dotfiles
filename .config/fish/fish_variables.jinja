@@ -6,7 +6,7 @@ SETUVAR --export MACHINE:archi
 SETUVAR --export TERM:kitty
 SETUVAR --export ANTHROPIC_API_KEY:{{ env.ANTHROPIC_TOKEN }}
 SETUVAR --export GEMINI_API_KEY:{{ env.GOOGLE_GEMINI_API_KEY }}
-SETUVAR --export MORPH_API_KEY:{{ env.morph/token }}
+SETUVAR --export MORPH_API_KEY:{{ env.MORPH_TOKEN }}
 {% elif env.MACHINE == "termux" -%}
 SETUVAR --export MACHINE:termux
 {% endif -%}
