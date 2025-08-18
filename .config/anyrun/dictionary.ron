@@ -1,0 +1,4 @@
+Config (
+    prefix: ":def",
+    max_entries: 5,
+)
