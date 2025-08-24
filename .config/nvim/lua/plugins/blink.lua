@@ -6,7 +6,7 @@ return {
         "mikavilpas/blink-ripgrep.nvim",
         "fang2hou/blink-copilot",
         "onsails/lspkind.nvim",
-        'Kaiser-Yang/blink-cmp-avante',
+        "saghen/blink.compat",
     },
     -- use a release tag to download pre-built binaries
     version = '1.*',
@@ -28,24 +28,19 @@ return {
         },
         keymap = {
             ['<tab>'] = { 'select_and_accept', 'fallback' },
-            ['<CR>'] = { 'select_accept_and_enter', 'fallback' }
+            ['<CR>'] = { 'select_and_accept', 'fallback' }
         },
         sources = {
-            default = { "avante", "copilot", "lsp", "path", "snippets", "buffer", "ripgrep" },
+            default = { "minuet", "copilot", "lsp", "path", "snippets", "buffer", "ripgrep" },
             providers = {
-                avante = {
-                    module = 'blink-cmp-avante',
-                    name = 'Avante',
-                    opts = {
-                        -- options for blink-cmp-avante
-                    },
-                    transform_items = function(_, items)
-                        for _, item in ipairs(items) do
-                            item.kind_icon = '💃'
-                            item.kind_name = 'Avante'
-                        end
-                        return items
-                    end
+                minuet = {
+                    name = 'minuet',
+                    module = 'minuet.blink',
+                    async = true,
+                    -- Should match minuet.config.request_timeout * 1000,
+                    -- since minuet.config.request_timeout is in seconds
+                    timeout_ms = 3000,
+                    score_offset = 50, -- Gives minuet higher priority among suggestions
                 },
                 copilot = {
                     name = "copilot",
@@ -98,7 +93,8 @@ return {
                 enabled = true,
             },
             trigger = {
-                show_on_keyword = true
+                --show_on_keyword = true,
+                prefetch_on_insert = false
             },
             list = {
                 selection = { preselect = true, auto_insert = true }
@@ -118,11 +114,11 @@ return {
                                     if dev_icon then
                                         icon = dev_icon
                                     end
-                                elseif ctx.kind == "Copilot" then
-                                    icon = "🐙"
-                                elseif ctx.kind == "Ripgrep" then
+                                elseif ctx.source_name == "copilot" then
+                                    icon = "😺"
+                                elseif ctx.source_name == "Ripgrep" then
                                     icon = "🔍"
-                                elseif ctx.kind == "Avante" then
+                                elseif ctx.source_name == "minuet" then
                                     icon = "💃🏻"
                                 else
                                     icon = require("lspkind").symbolic(ctx.kind, {

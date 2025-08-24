@@ -261,11 +261,12 @@
     "podcast": {
         "prefix": "pc",
         "body": [
+            "---",
             "title: $1",
             "season: ${2:7}",
             "episodio: $3",
-            "created: ",
-            "updated: ",
+            "created: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "updated: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
             "tags:",
             "  - ",
             "---",

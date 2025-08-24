@@ -35,7 +35,10 @@ local function diff_source()
 end
 return {
     'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    dependencies = {
+        'nvim-tree/nvim-web-devicons',
+        'AndreM222/copilot-lualine',
+    },
     opts = {
         options = {
             icons_enabled = true,
@@ -78,6 +81,7 @@ return {
             },
             lualine_x = {
                 --require('util.lualine').cmp_source('supermaven', '󰰣'),
+                --require('minuet.lualine'),
                 'copilot',
                 'encoding',
                 'fileformat',
