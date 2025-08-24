@@ -337,6 +337,16 @@ animations {
     curve "ease-out-quad"
   }
 
+   //window-resize {
+   //     custom-shader r"
+   //         vec4 resize_color(vec3 coords_curr_geo, vec3 size_curr_geo) {
+   //             vec3 coords_tex_next = niri_geo_to_tex_next * coords_curr_geo;
+   //             vec4 color = texture2D(niri_tex_next, coords_tex_next.st);
+   //             return color;
+   //         }
+   //     "
+   // }
+
   horizontal-view-movement {
         spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
     }
@@ -361,6 +371,7 @@ animations {
     overview-open-close {
         spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
     }
+
 }
 
 // Window rules let you adjust behavior for individual windows.
@@ -382,6 +393,11 @@ window-rule {
     open-floating true
 }
 
+window-rule {
+    match app-id=r#"org.sparklet.windot$"#
+    open-floating true
+}
+
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     // This app-id regular expression will work for both:
@@ -395,7 +411,8 @@ window-rule {
     // This app-id regular expression will work for both:
     // - host Firefox (app-id is "firefox")
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match app-id=r#"firefox$"# title=r#".*Bitwarden — Mozilla Firefox$"#
+    match app-id=r#"firefox$"# title="Bitwarden"
+    block-out-from "screen-capture"
     open-floating true
 }
 
@@ -446,6 +463,7 @@ binds {
     Mod+Space { spawn "anyrun"; }
     Mod+P {spawn "wlogout"; }
     Mod+E { spawn "smile"; }
+    //Mod+E { spawn "windot"; }
     Mod+Z {spawn "mpv" "/data/atareao.es/podcasts/recursos/entrada.mp3"; } 
     Mod+X {spawn "mpv" "/data/atareao.es/podcasts/recursos/salida_corta.mp3"; } 
     Mod+A {spawn "mpv" "/data/atareao.es/podcasts/recursos/transicion.mp3"; }

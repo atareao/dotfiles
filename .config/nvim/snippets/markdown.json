@@ -191,7 +191,7 @@
         "prefix": "zp",
         "body": [
             "* [[podcasts/indice|Podcast]]",
-            "* episodio: $1",
+            "* episode: $1",
             "* created_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
             "* updated_at: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
             "* tags: $2",
@@ -264,7 +264,7 @@
             "---",
             "title: $1",
             "season: ${2:7}",
-            "episodio: $3",
+            "episode: $3",
             "created: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
             "updated: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
             "tags:",

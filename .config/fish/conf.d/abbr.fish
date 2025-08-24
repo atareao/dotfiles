@@ -34,3 +34,5 @@ abbr --add skg 'sk --ansi -i -c \'grep -rI --color=always --line-number "{}" .\'
 abbr --add skr 'sk --ansi -i -c \'rg --color=always --line-number "{}"\''
 # pnpm
 abbr --add pn pnpm
+# zapzap
+abbr --add zz 'QMLSCENE_DEVICE=softwarecontext QT_OPENGL=software zapzap'

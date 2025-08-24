@@ -38,7 +38,7 @@ function imp3(){
         echo "No existe el archivo ${JPG_FILE}"
         NEED_EXIT=1
     fi
-    MD_FILE=$(rg -l "^episode: ${EPISODE}" "/data/notes/Podcasts/atareao con Linux/")
+    MD_FILE=$(rg -l "^episode: ${EPISODE}" "/data/notas/Podcasts/atareao con Linux/")
     if [[ ! -f "${MD_FILE}" ]];then
         echo "No existe el archivo ${MD_FILE}"
         NEED_EXIT=1

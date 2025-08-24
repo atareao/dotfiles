@@ -51,5 +51,6 @@ Config(
     "libniri_focus.so",
     "librink.so",
     "libwebsearch.so",
+    "libduckduckgo.so",
   ],
 )
