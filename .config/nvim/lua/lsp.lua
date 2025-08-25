@@ -11,7 +11,6 @@ vim.lsp.enable({
     "marksman",
     "oxide",
     "ruff",
-    "ruff_lsp",
     --"rust-analyzer", -- direct from rustaceanvim
     "ts",
     "yaml",

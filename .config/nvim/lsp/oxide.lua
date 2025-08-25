@@ -1,9 +1,7 @@
 return {
-    default_config = {
-        filetypes = { 'markdown' },
-        single_file_support = true,
-        cmd = { 'markdown-oxide' },
-    },
+    filetypes = { 'markdown' },
+    single_file_support = true,
+    cmd = { 'markdown-oxide' },
     docs = {
         description = [[
 https://github.com/Feel-ix-343/markdown-oxide
