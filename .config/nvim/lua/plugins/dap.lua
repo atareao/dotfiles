@@ -4,7 +4,6 @@ return {
         "rcarriga/nvim-dap-ui",
         "nvim-neotest/nvim-nio",
         "mfussenegger/nvim-dap-python",
-        "folke/neodev.nvim",
         "theHamsta/nvim-dap-virtual-text",
     },
     -- -- event = "VeryLazy",
@@ -20,9 +19,6 @@ return {
         dap.listeners.before.event_exited["dapui_config"] = function()
           dapui.close()
         end
-        require("neodev").setup({
-          library = { plugins = { "nvim-dap-ui" }, types = true },
-        })
         require('plugins.dbg.python')
         require('plugins.dbg.rust')
         require("nvim-dap-virtual-text").setup({

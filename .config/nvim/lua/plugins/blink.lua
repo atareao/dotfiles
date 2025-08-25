@@ -104,7 +104,7 @@ return {
                 draw = {
                     padding = { 1, 1 }, -- padding only on right side
                     treesitter = { "lsp" },
-                    columns = { { "kind_icon" }, { "label", gap = 1 } },
+                    columns = { { "kind_icon", gap = 1 }, {gap = 1, "label"},  { "kind", gap = 2 } },
                     components = {
                         kind_icon = {
                             text = function(ctx)
