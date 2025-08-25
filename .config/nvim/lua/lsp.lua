@@ -1,12 +1,17 @@
 -- First enable the LSPs
 vim.lsp.enable({
+    "ansible",
     "basedpyright",
+    "bash",
+    "docker",
     "html",
+    "json",
     "lua",
     "marksman",
     "ruff",
-    --"rust-analyzer",
+    --"rust-analyzer", -- direct from rustaceanvim
     "ts",
+    "yaml",
 
 })
 vim.lsp.inlay_hint.enable(true)
