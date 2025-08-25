@@ -17,7 +17,7 @@ local au = vim.api.nvim_create_autocmd -- create autocomand
 -----------------------------------------------------------
 -- General
 -----------------------------------------------------------
-g.mapleader = ';'             -- change leader to a comma
+g.mapleader = ','             -- change leader to a comma
 opt.mouse = 'a'               -- enable mouse support
 opt.clipboard = 'unnamedplus' -- copy/paste to system clipboard
 opt.swapfile = false          -- don't use swapfile
