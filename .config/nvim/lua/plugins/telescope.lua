@@ -121,6 +121,5 @@ return {
         require("telescope").load_extension("emoji")
         require("telescope").load_extension("command_palette")
         require("telescope").load_extension("ui-select")
-        require("telescope").load_extension("find_template")
     end,
 }
