@@ -462,7 +462,7 @@ binds {
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+Space { spawn "anyrun"; }
     Mod+P {spawn "wlogout"; }
-    Mod+E { spawn "smile"; }
+    Mod+E { spawn "simplemoji" "-s" "-p" "-z" "-o" "-c" "wl-copy"; }
     //Mod+E { spawn "windot"; }
     Mod+Z {spawn "mpv" "/data/atareao.es/podcasts/recursos/entrada.mp3"; } 
     Mod+X {spawn "mpv" "/data/atareao.es/podcasts/recursos/salida_corta.mp3"; } 

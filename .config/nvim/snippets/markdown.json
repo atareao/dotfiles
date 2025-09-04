@@ -263,7 +263,7 @@
         "body": [
             "---",
             "title: $1",
-            "season: ${2:7}",
+            "season: ${2:8}",
             "episode: $3",
             "created: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
             "updated: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",

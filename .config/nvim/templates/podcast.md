@@ -1,6 +1,6 @@
 ---
 title: {{_cursor_}}
-season: 7
+season: 8
 episode: 
 created: {{_lua:os.date("%y-%m-%dT%H:%M")_}}
 updated: {{_lua:os.date("%y-%m-%dT%H:%M")_}}
