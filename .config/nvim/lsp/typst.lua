@@ -53,6 +53,7 @@ return {
         tinymist = {
             formatterMode = "typstyle",
             exportPdf = "onType",
+            outputPath = "$root/target/$dir/output/$name",
             semanticTokens = "disable"
         },
     },
