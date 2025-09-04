@@ -58,7 +58,6 @@ function portada_podcast(){
     fi
     TITLE=$(grep "^title: " "${MD_FILE}" | head -n1)
     TITLE="${TITLE//title: /}"
-    TITLE="${TITLE^^}"
     if [[ -z $TITLE ]];then
         echo "No hay título"
         NEED_EXIT=1
