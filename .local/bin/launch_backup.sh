@@ -9,4 +9,3 @@
 # 
 # /bin/bash "$HOME/.local/bin/backup.sh"
 /bin/bash "$HOME/.local/bin/backup.sh"
-/bin/bash "$HOME/.local/bin/rustic_backup.sh"
