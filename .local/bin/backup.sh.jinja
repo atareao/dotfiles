@@ -136,7 +136,7 @@ do
     echo "=== End backup at $REPOSITORY ==="
 done
 {% if env.MACHINE == "archi" -%}
-PROFILES=(local minio_local minio_server)
+PROFILES=(local minio_local minio_server rustfs_server)
 for profile in "${PROFILES[@]}"
 do
     echo "=== Backup ${profile} ==="
@@ -149,5 +149,8 @@ do
     cleanup_output=$(rustic -P ${profile} forget)
     ok=$?
     publish "${profile}" "forget" "${cleanup_output}" "${ok}"
+    snapshots_output=$(rustic -P ${profile} snapshots)
+    ok=$?
+    publish "${profile}" "snapshots" "${snapshots_output}" "${ok}"
 done
 {% endif -%}
