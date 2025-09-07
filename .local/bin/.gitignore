@@ -1,2 +1,3 @@
 backup.sh
 restic_backup.sh
+rustic_backup.sh
