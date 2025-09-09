@@ -1,8 +1,8 @@
 {
-    "date": {
-        "prefix": "date",
+    "idate": {
+        "prefix": "idate",
         "body": [
-            "$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $0"
+            "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}$0"
         ]
     },
     "inline code": {
@@ -259,14 +259,39 @@
         ]
     },
     "podcast": {
-        "prefix": "pc",
+        "prefix": "podcast",
         "body": [
             "---",
             "title: $1",
             "season: ${2:8}",
             "episode: $3",
-            "created: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
-            "updated: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+            "created: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}",
+            "updated: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}",
+            "tags:",
+            "  - ",
+            "---",
+            "# $1",
+            "",
+            "$0",
+            "",
+            "<!--more-->",
+            "## $1",
+            "",
+            "",
+            "",
+            "---",
+            "Más información,",
+            "",
+            "- "
+        ]
+    },
+    "nota": {
+        "prefix": "nota",
+        "body": [
+            "---",
+            "title: $1",
+            "created: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}",
+            "updated: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}T${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}",
             "tags:",
             "  - ",
             "---",
