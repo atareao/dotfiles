@@ -1,0 +1,45 @@
+fish_add_path -g ~/.cargo/bin ~/.local/bin ~/go/bin/ ~/bin /usr/local/bin
+
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+    # remove welcome message
+    set -g fish_greeting
+    # set starship config
+    set -gx STARSHIP_CONFIG ~/.config/starship/starship.toml
+    # set neovim as editor
+    set -gx EDITOR nvim
+    # Theme
+    fish_config theme choose "ayu Mirage"
+    # starship
+    starship init fish | source
+    # atuin
+    atuin init fish | source
+    # zoxide
+    zoxide init fish | source
+    # direnv
+    direnv hook fish | source
+    # uv
+    uv generate-shell-completion fish | source
+    {% if env.MACHINE == "archi" -%}
+    set -gx MACHINE archi
+    set -gx DOCKER_HOST run/user/1000/docker.sock
+    set -gx TERM kitty
+    set -gx ANTHROPIC_API_KEY $(pass show anthropic/token)
+    set -gx GEMINI_API_KEY $(pass show gemini/api/key)
+    set -gx MORPH_API_KEY $(pass show morph/token)
+    {% elif env.MACHINE == "termux" -%}
+    set -gx MACHINE termux
+    {% endif -%}
+end
+
+# pnpm
+set -gx PNPM_HOME "/home/lorenzo/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /home/lorenzo/.lmstudio/bin
+# End of LM Studio CLI section
+
