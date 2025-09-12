@@ -439,6 +439,10 @@ window-rule {
     match app-id="kitty" is-active=false
     opacity 0.8
 }
+window-rule {
+    match app-id="yazi"
+    opacity 0.8
+}
 
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name

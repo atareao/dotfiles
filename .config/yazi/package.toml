@@ -49,6 +49,11 @@ rev = "d3fd3a5"
 hash = "d659c6fde5148fb5c066518d7fdecddc"
 
 [[flavor.deps]]
+use = "gosxrgxx/flexoki-dark"
+rev = "28e1977"
+hash = "9dbbb64ea20f9f1271c31951dea55c7b"
+
+[[flavor.deps]]
 use = "kmlupreti/ayu-dark"
-rev = "5f600aa"
-hash = "a05f94b9a20b64d814c7631074d65c4a"
+rev = "648a178"
+hash = "1a8af82f6246942bd700316a16c4e14a"

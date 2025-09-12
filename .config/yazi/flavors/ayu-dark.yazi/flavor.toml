@@ -1,14 +1,17 @@
-[manager]
+[mgr]
+# current working dir
 cwd = { fg = "#5c6773" }
 
-# tab
-tab_active = { fg = "#0a0e14", bg = "#c2a05c", bold = true }
-tab_inactive = { fg = "#5c6773", bg = "#0a0e14" }
-tab_width = 1
+# Hovered
+hovered         = { reversed = true }
+preview_hovered = { underline = true }
 
 # find
 find_keyword = { fg = "#1f6f88", bold = true, italic = true, underline = true }
 find_position = { fg = "#1f6f88", bold = true, italic = true }
+
+# Symlink
+symlink_target = { italic = true }
 
 # marker
 marker_copied = { fg = "#0a0e14", bg = "#7e9350" }
@@ -24,6 +27,12 @@ count_selected = { fg = "#0a0e14", bg = "#c2a05c" }
 # border
 border_symbol = " "
 
+[tabs]
+active   = { fg = "#0a0e14", bg = "#c2a05c", bold = true }
+inactive   = { fg = "#c2a05c", bg = "#0a0e14" }
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
+
 [mode]
 normal_main = { fg = "#0a0e14", bg = "#c2a05c", bold = true }
 normal_alt = { fg = "#1f6f88", bg = "#2d3640", bold = true }
@@ -34,11 +43,10 @@ select_alt = { fg = "#0a0e14", bg = "#1f6f88", bold = true }
 unset_main = { fg = "#0a0e14", bg = "#a85361", bold = true }
 unset_alt = { fg = "#0a0e14", bg = "#a85361", bold = true }
 
-
 [status]
-separator_open = ""
-separator_close = ""
-separator_style = { bg = "#2d3640", fg = "#c2a05c" }
+overall   = {}
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
 
 # Progress
 progress_label = { fg = "#0a0e14", bold = true }

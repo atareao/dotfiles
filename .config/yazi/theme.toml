@@ -1,4 +1,3 @@
 [flavor]
-use = "ayu-dark"
-# For upcoming Yazi 0.4 (nightly version):
 dark = "ayu-dark"
+light = "ayu-dark"
