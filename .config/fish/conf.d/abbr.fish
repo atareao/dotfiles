@@ -36,3 +36,13 @@ abbr --add skr 'sk --ansi -i -c \'rg --color=always --line-number "{}"\''
 abbr --add pn pnpm
 # zapzap
 abbr --add zz 'QMLSCENE_DEVICE=softwarecontext QT_OPENGL=software zapzap'
+# yadm
+abbr --add ypus yadm push
+abbr --add yadd yadm add
+abbr --add ypul yadm pull
+abbr --add ysta yadm status
+# git
+abbr --add gpus git push
+abbr --add gadd git add
+abbr --add gpul git pull
+abbr --add gsta git status
