@@ -1,6 +1,8 @@
-function enotas -d "Edit notes"
-    z notas
+function notas -d "Edit notas"
+    set current_dir $PWD
+    cd /data/notas/
     nvim index.md
+    cd $current_dir
 end
 
 function activate

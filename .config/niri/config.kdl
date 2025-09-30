@@ -277,8 +277,8 @@ spawn-at-startup "dbus-update-activation-environment" "--systemd" "DISPLAY WAYLA
 spawn-at-startup "swaync"
 spawn-at-startup "waybar"
 // autumn-tree-ghost-of-tsushima-moewalls-com.mp4
-spawn-at-startup "mpvpaper" "-vp" "-o" "no-audio loop" "DP-1" "~/backgrounds/autumn-tree-ghost-of-tsushima-moewalls-com.mp4"
-spawn-at-startup "mpvpaper" "-vp" "-o" "no-audio loop" "HDMI-A-1" "~/backgrounds/autumn-tree-ghost-of-tsushima-moewalls-com.mp4"
+spawn-at-startup "mpvpaper" "-vp" "-o" "no-audio loop" "DP-1" "~/backgrounds/cat-in-the-swamp-moewalls-com.mp4"
+spawn-at-startup "mpvpaper" "-vp" "-o" "no-audio loop" "HDMI-A-1" "~/backgrounds/cat-in-the-swamp-moewalls-com.mp4"
 // Apaga las pantallas después de 30 minutos de inactividad.
 spawn-at-startup "swayidle" "-w" "timeout" "1800" "niri msg action power-off-monitors"
 //spawn-at-startup "ulauncher"
@@ -642,7 +642,9 @@ binds {
     Mod+Period { expel-window-from-column; }
 
     Mod+R { switch-preset-column-width; }
-    Mod+Shift+R { switch-preset-window-height; }
+    Mod+Shift+R { switch-preset-column-width-back; }
+    Mod+Alt+R { switch-preset-window-height; }
+    Mod+Alt+Shift+R { switch-preset-window-height-back; }
     Mod+Ctrl+R { reset-window-height; }
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
