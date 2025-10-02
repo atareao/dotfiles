@@ -20,6 +20,8 @@ if status is-interactive
     direnv hook fish | source
     # uv
     uv generate-shell-completion fish | source
+    # fclones
+    fclones complete fish | source
     # variables
     {% if env.MACHINE == "archi" -%}
     set -gx MACHINE archi
