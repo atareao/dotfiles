@@ -10,7 +10,6 @@ return {
         "nvim-treesitter/nvim-treesitter-textobjects",
         "nvim-treesitter/nvim-treesitter-refactor",
         "nvim-treesitter/nvim-treesitter-context",
-        "HiPhish/rainbow-delimiters.nvim",
         "JoosepAlviste/nvim-ts-context-commentstring",
     },
     build = ":TSUpdate",
