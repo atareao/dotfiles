@@ -25,11 +25,10 @@ function portada_podcast(){
     IMAGEDIR="${MAINDIR}/image"
     RESOURCESDIR="/data/Vídeos/recursos"
     NUMBER="$1"
-    DIA="$2"
-
-    if [[ -z $DIA ]]; then
-        DIA=$(date +%d)
-    fi
+    TOTAL=$(($(fd "yo-.*\.png" "${RESOURCESDIR}" | wc -l) - 1))
+    SELECTED=$(($RANDOM%${TOTAL} + 1))
+    DIA=$(printf "%0*d" 2 $SELECTED)
+    echo "DIA: ${DIA}"
     NEED_EXIT=0
 
     if [[ ! -d "$MAINDIR" ]]
