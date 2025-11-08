@@ -19,6 +19,7 @@ keymap("n", "<A-c>", "<cmd>BufferClose<cr>", "Close Buffer")
 keymap("n", "<A-p>", "<cmd>BufferPick<cr>", "Buffer Pick")
 keymap("n", "<A-m>", "<cmd>Neominimap Toggle<cr>", "Toggle global minimap")
 keymap("n", "<C-x>", "<cmd>Trouble diagnostics toggle<cr>", "Diagnostics (Trouble)")
+keymap("n", "<C-g>", "<cmd>Neogit<cr>", "Neogit")
 -- Bookmarks
 keymap("n", "<leader>B", "", "Bookmarks")
 keymap("n", "<leader>Ba", "<Plug>(cokeline-focus-prev)", "Annotate")

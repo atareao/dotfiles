@@ -19,7 +19,7 @@ return {
             ensure_installed = {
                 "vim", "regex", "lua", "bash", "markdown", "markdown_inline",
                 "python", "rust", "sql", "php", "javascript", "http", "json",
-                "commonlisp"
+                "commonlisp", "html"
             },
             modules = {"Highlight", "ContextCommentString", "RainbowDelimiters", "IncrementalSelection", "TreeDocs"},
             sync_install = false,

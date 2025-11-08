@@ -32,7 +32,7 @@ vim.lsp.inlay_hint.enable(true)
 
 -- Initial diagnostic config (virtual_text on, virtual_lines off)
 vim.diagnostic.config({
-    virtual_text = true,
+    virtual_text = false,
     -- virtual_lines = false,
     underline = true,
     signs = {
