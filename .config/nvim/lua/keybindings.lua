@@ -21,6 +21,10 @@ keymap("n", "<A-m>", "<cmd>Neominimap Toggle<cr>", "Toggle global minimap")
 keymap("n", "<C-x>", "<cmd>Trouble diagnostics toggle<cr>", "Diagnostics (Trouble)")
 keymap("n", "<C-g>", "<cmd>Neogit<cr>", "Neogit")
 keymap("n", "<C-a>", "<cmd>Atone toggle<cr>", "Atone")
+
+keymap("i", "<C-b>", "****<Left><Left>", "Markdown: Negrita (Operador)")
+keymap("i", "<C-i>", "**<Left>", "Markdown: Cursiva (Operador)")
+
 -- Bookmarks
 keymap("n", "<leader>B", "", "Bookmarks")
 keymap("n", "<leader>Ba", "<Plug>(cokeline-focus-prev)", "Annotate")

@@ -11,44 +11,25 @@
             "`$1`$0"
         ]
     },
-    "code block lua": {
-        "prefix": "cl",
+    "link": {
+        "prefix": "link",
         "body": [
-            "```lua",
-            "$1```",
-            "$0"
+            "[$1]($2)$0"
+        ]
+
+    },
+    "todo": {
+        "prefix": "todo",
+        "body": [
+            "- [ ] $1$0"
         ]
     },
-    "code block javascript": {
-        "prefix": "cj",
+    "code block": {
+        "prefix": "code",
         "body": [
-            "```javascript",
-            "$1```",
-            "$0"
-        ]
-    },
-    "code block typescript": {
-        "prefix": "ct",
-        "body": [
-            "```typescript",
-            "$1```",
-            "$0"
-        ]
-    },
-    "code block python": {
-        "prefix": "cp",
-        "body": [
-            "```python",
-            "$1```",
-            "$0"
-        ]
-    },
-    "code block bash": {
-        "prefix": "cb",
-        "body": [
-            "```bash",
-            "$1```",
-            "$0"
+            "```$1",
+            "$2",
+            "```"
         ]
     },
     "zettel note": {

@@ -6,7 +6,7 @@ return {
         "nvim-telescope/telescope.nvim", -- optional
     },
     opts = {
-        kind = "split_below_all",
+        kind = "floating",
     },
     config = true
 }
