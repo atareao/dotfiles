@@ -22,8 +22,9 @@ keymap("n", "<C-x>", "<cmd>Trouble diagnostics toggle<cr>", "Diagnostics (Troubl
 keymap("n", "<C-g>", "<cmd>Neogit<cr>", "Neogit")
 keymap("n", "<C-a>", "<cmd>Atone toggle<cr>", "Atone")
 
-keymap("i", "<C-b>", "****<Left><Left>", "Markdown: Negrita (Operador)")
-keymap("i", "<C-i>", "**<Left>", "Markdown: Cursiva (Operador)")
+keymap("i", "<C-b>", "**", "Negrita")
+keymap("i", "<C-i>", "*", "Cursiva")
+keymap("i", "<C-c>", "```", "Code")
 
 -- Bookmarks
 keymap("n", "<leader>B", "", "Bookmarks")
