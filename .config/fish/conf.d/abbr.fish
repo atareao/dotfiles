@@ -46,3 +46,7 @@ abbr --add gpus git push
 abbr --add gadd git add
 abbr --add gpul git pull
 abbr --add gsta git status
+# paru
+abbr --add pclean paru -Rns $(paru -Qdtq)
+abbr --add pupdate paru -Syyu
+

@@ -466,7 +466,7 @@ binds {
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+Space { spawn "anyrun"; }
     Mod+P {spawn "wlogout"; }
-    Mod+E { spawn "simplemoji" "-s" "-p" "-z" "-o" "-c" "wl-copy"; }
+    Mod+Period { spawn "simplemoji" "-s" "-p" "-z" "-o" "-c" "wl-copy"; }
     //Mod+E { spawn "windot"; }
     Mod+Z {spawn "mpv" "/data/atareao.es/podcasts/recursos/entrada.mp3"; } 
     Mod+X {spawn "mpv" "/data/atareao.es/podcasts/recursos/salida_corta.mp3"; } 
@@ -633,13 +633,15 @@ binds {
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.
     // If the window is already in a column, they will expel it out.
-    Mod+Shift+Comma  { consume-or-expel-window-left; }
-    Mod+Shift+Period { consume-or-expel-window-right; }
+    //Mod+Shift+Comma  { consume-or-expel-window-left; }
+    //Mod+Shift+Period { consume-or-expel-window-right; }
+    Mod+Shift+Comma  { consume-window-into-column; }
+    Mod+Shift+Period { expel-window-from-column; }
 
     // Consume one window from the right to the bottom of the focused column.
-    Mod+Comma  { consume-window-into-column; }
+    //Mod+Comma  { consume-window-into-column; }
     // Expel the bottom window from the focused column to the right.
-    Mod+Period { expel-window-from-column; }
+    //Mod+Period { expel-window-from-column; }
 
     Mod+R { switch-preset-column-width; }
     Mod+Shift+R { switch-preset-column-width-back; }
