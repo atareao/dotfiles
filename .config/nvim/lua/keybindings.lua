@@ -21,6 +21,7 @@ keymap("n", "<A-m>", "<cmd>Neominimap Toggle<cr>", "Toggle global minimap")
 keymap("n", "<C-x>", "<cmd>Trouble diagnostics toggle<cr>", "Diagnostics (Trouble)")
 keymap("n", "<C-g>", "<cmd>Neogit<cr>", "Neogit")
 keymap("n", "<C-a>", "<cmd>Atone toggle<cr>", "Atone")
+keymap("n", "<C-y>", "<cmd>Yazi toggle<cr>", "Yazi")
 
 keymap("i", "<C-b>", "**", "Negrita")
 keymap("i", "<C-i>", "*", "Cursiva")
