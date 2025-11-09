@@ -24,7 +24,7 @@ keymap("n", "<C-a>", "<cmd>Atone toggle<cr>", "Atone")
 keymap("n", "<C-y>", "<cmd>Yazi toggle<cr>", "Yazi")
 
 keymap("i", "<C-b>", "**", "Negrita")
-keymap("i", "<C-i>", "*", "Cursiva")
+--keymap("i", "<C-i>", "*", "Cursiva")
 keymap("i", "<C-c>", "```", "Code")
 
 -- Bookmarks
