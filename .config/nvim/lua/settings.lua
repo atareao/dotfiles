@@ -40,55 +40,45 @@ g.wiki_root = "/data/vaults/obsidian"
 -----------------------------------------------------------
 -- Neovim UI
 -----------------------------------------------------------
-opt.number = true         -- show line number
-opt.relativenumber = true -- show line number
-opt.showmatch = true      -- highlight matching parenthesis
-opt.foldmethod = 'expr'   -- enable folding (default 'foldmarker')
---opt.colorcolumn = '80'    -- line lenght marker at 80 columns
-opt.splitright = true     -- vertical split to the right
-opt.splitbelow = true     -- orizontal split to the bottom
-opt.ignorecase = true     -- ignore case letters when search
-opt.smartcase = true      -- ignore lowercase for the whole pattern
-opt.linebreak = true      -- wrap on word boundary
-opt.foldlevel = 99        -- should open all folds
-opt.conceallevel = 0
-opt.termguicolors = true
-opt.guifont = "JetBrainsMono Nerd Font"
-
-vim.o.cursorline = true
-vim.o.number = true
-vim.o.termguicolors = true
+opt.number = true                                               -- show line number
+opt.relativenumber = true                                       -- show line number
+opt.cursorline = true                                           -- highlight current line
+opt.showmatch = true                                            -- highlight matching parenthesis
+opt.foldmethod = 'expr'                                         -- enable folding (default 'foldmarker')
+opt.splitright = true                                           -- vertical split to the right
+opt.splitbelow = true                                           -- orizontal split to the bottom
+opt.ignorecase = true                                           -- ignore case letters when search
+opt.smartcase = true                                            -- ignore lowercase for the whole pattern
+opt.linebreak = true                                            -- wrap on word boundary
+opt.foldlevel = 99                                              -- should open all folds
+opt.listchars = "tab:▸\\ ,trail:•,nbsp:%,extends:»,precedes:«"  -- special characters
+opt.list = true                                                 -- show some invisible characters
+opt.conceallevel = 0                                            -- so that `` is visible in markdown files
+opt.termguicolors = true                                        -- enable 24-bit RGB colors
+opt.guifont = "JetBrainsMono Nerd Font"                         -- font for gui neovim clients
 
 -----------------------------------------------------------
 -- Folding
 -----------------------------------------------------------
-opt.foldmethod = 'expr'
-opt.foldexpr = 'nvim_treesitter#foldexpr()'
-
-
-
-opt.list = true
-opt.listchars = 'tab:▸ ,space:·,nbsp:␣,trail:•,precedes:«,extends:»'
-
+opt.foldmethod = 'expr'                                         -- enable folding (default 'foldmarker')
+opt.foldexpr = 'nvim_treesitter#foldexpr()'                     -- set treesitter as fold engine
 
 -----------------------------------------------------------
 -- Memory, CPU
 -----------------------------------------------------------
-opt.hidden = true    -- enable background buffers
-opt.history = 100    -- remember n lines in history
--- opt.lazyredraw = true     -- faster scrolling
-opt.synmaxcol = 1000 -- max column for syntax highlight
+opt.hidden = true                                               -- enable background buffers
+opt.history = 100                                               -- remember n lines in history
+opt.synmaxcol = 1000                                            -- max column for syntax highlight
 
 -----------------------------------------------------------
 -- Tabs, indent
 -----------------------------------------------------------
-opt.expandtab = true   -- use spaces instead of tabs
-opt.shiftwidth = 4     -- shift 4 spaces when tab
-opt.tabstop = 4        -- 1 tab == 4 spaces
-opt.smartindent = true -- autoindent new lines
+opt.expandtab = true                                            -- use spaces instead of tabs
+opt.shiftwidth = 4                                              -- shift 4 spaces when tab
+opt.tabstop = 4                                                 -- 1 tab == 4 spaces
+opt.smartindent = true                                          -- autoindent new lines
 
--- don't auto commenting new lines
-cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
+cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]                     -- don't auto commenting new lines
 
 -- remove line lenght marker for selected filetypes
 cmd [[autocmd FileType text,markdown,xml,html,xhtml,javascript setlocal cc=0]]
