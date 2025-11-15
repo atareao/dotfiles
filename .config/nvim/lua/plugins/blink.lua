@@ -31,17 +31,8 @@ return {
             ['<CR>'] = { 'select_and_accept', 'fallback' }
         },
         sources = {
-            default = { "minuet", "copilot", "lsp", "path", "snippets", "buffer", "ripgrep" },
+            default = { "copilot", "lsp", "path", "snippets", "buffer", "ripgrep" },
             providers = {
-                minuet = {
-                    name = 'minuet',
-                    module = 'minuet.blink',
-                    async = true,
-                    -- Should match minuet.config.request_timeout * 1000,
-                    -- since minuet.config.request_timeout is in seconds
-                    timeout_ms = 3000,
-                    score_offset = 50, -- Gives minuet higher priority among suggestions
-                },
                 copilot = {
                     name = "copilot",
                     module = "blink-copilot",
@@ -118,8 +109,6 @@ return {
                                     icon = "😺"
                                 elseif ctx.source_name == "Ripgrep" then
                                     icon = "🔍"
-                                elseif ctx.source_name == "minuet" then
-                                    icon = "💃🏻"
                                 else
                                     icon = require("lspkind").symbolic(ctx.kind, {
                                         mode = "symbol",

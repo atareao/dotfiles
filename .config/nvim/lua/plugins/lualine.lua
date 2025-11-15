@@ -80,8 +80,6 @@ return {
                 }
             },
             lualine_x = {
-                --require('util.lualine').cmp_source('supermaven', '󰰣'),
-                --require('minuet.lualine'),
                 'copilot',
                 'encoding',
                 'fileformat',
