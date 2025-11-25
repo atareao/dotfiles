@@ -466,10 +466,10 @@ binds {
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
     Mod+Space { spawn "anyrun"; }
     Mod+P {spawn "wlogout"; }
-    Mod+Period { spawn "simplemoji" "-s" "-p" "-z" "-o" "-c" "wl-copy"; }
+    Mod+Period { spawn "simplemoji" "--show-search" "--show-recent" "--show-preview" "--close-on-copy" "--no-close" "--copy-command" "wl-copy"; }
     //Mod+E { spawn "windot"; }
     Mod+Z {spawn "mpv" "/data/atareao.es/podcasts/recursos/entrada.mp3"; } 
-    Mod+X {spawn "mpv" "/data/atareao.es/podcasts/recursos/salida_corta.mp:q!3"; } 
+    Mod+X {spawn "mpv" "/data/atareao.es/podcasts/recursos/salida_corta.mp3"; } 
     Mod+A {spawn "mpv" "/data/atareao.es/podcasts/recursos/transicion.mp3"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
