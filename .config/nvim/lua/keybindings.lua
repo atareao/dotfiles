@@ -18,9 +18,13 @@ keymap("n", "<A-.>", "<cmd>BufferNext<cr>", "Next Buffer")
 keymap("n", "<A-c>", "<cmd>BufferClose<cr>", "Close Buffer")
 keymap("n", "<A-p>", "<cmd>BufferPick<cr>", "Buffer Pick")
 keymap("n", "<A-m>", "<cmd>Neominimap Toggle<cr>", "Toggle global minimap")
-keymap("n", "<C-x>", "<cmd>Trouble diagnostics toggle<cr>", "Diagnostics (Trouble)")
+
+-- Control
 keymap("n", "<C-g>", "<cmd>Neogit<cr>", "Neogit")
-keymap("n", "<C-a>", "<cmd>Atone toggle<cr>", "Atone")
+keymap("n", "<C-n>", "<cmd>Neotree toggle<cr>", "NeoTree")
+keymap("n", "<C-o>", "<cmd>Atone toggle<cr>", "Atone")
+keymap("n", "<C-t>", "<cmd>ToggleTerm<cr>", "Toggle Term")
+keymap("n", "<C-x>", "<cmd>Trouble diagnostics toggle<cr>", "Diagnostics (Trouble)")
 keymap("n", "<C-y>", "<cmd>Yazi toggle<cr>", "Yazi")
 
 keymap("i", "<C-b>", "**", "Negrita")
@@ -156,7 +160,6 @@ keymap("n", "<leader>lu", "<cmd>LuaSnipUnlinkCurrent<cr>", "Unlink Snippet")
 keymap("n", "<leader>lx", "<cmd>TroubleToggle<cr>", "Diagnostics")
 
 -- Neotree
-keymap("n", "<C-n>", "<cmd>Neotree toggle<cr>", "NeoTree")
 -- MiniMap
 keymap("n", "<leader>nm", "<cmd>Neominimap Toggle<cr>", "Toggle global minimap")
 keymap("n", "<leader>no", "<cmd>Neominimap Enable<cr>", "Enable global minimap")
@@ -190,7 +193,6 @@ keymap("n", "<leader>rl", "<Plug>RestNvimLast", "Run rest last")
 
 -- Terminal
 keymap("n", "<leader>tt", "", "Terminal")
-keymap("n", "<C-t>", "<cmd>ToggleTerm<cr>", "Toggle Term")
 keymap("n", "<leader>tt1", ":1ToggleTerm<cr>", "1")
 keymap("n", "<leader>tt2", ":2ToggleTerm<cr>", "2")
 keymap("n", "<leader>tt3", ":3ToggleTerm<cr>", "3")
