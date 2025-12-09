@@ -12,7 +12,7 @@
     // Choose the order of the modules
 
     "modules-left":[  "niri/workspaces", "wlr/taskbar", "niri/window"],
-    "modules-right":["custom/media",  "sway/mode", "idle_inhibitor", "custom/updater", "pulseaudio", "cpu", "memory", "temperature", "custom/layout", "backlight", "keyboard-state",  "niri/language", "battery", "battery#bat2", "network", "tray", "custom/notification", "clock", "custom/power"],
+    "modules-right":["custom/media",  "sway/mode", "idle_inhibitor", "custom/stasis", "custom/updater", "pulseaudio", "cpu", "memory", "temperature", "custom/layout", "backlight", "keyboard-state",  "niri/language", "battery", "battery#bat2", "network", "tray", "custom/notification", "clock", "custom/power"],
     // Modules configuration
     "sway/mode": {
          "format": " {}",
@@ -147,6 +147,21 @@
     },
     "battery#bat2": {
         "bat": "BAT2"
+    },
+    "custom/stasis": {
+      "exec": "stasis info --json",
+      "format": "{icon}",
+      "format-icons": {
+          "idle_active": "🤾",
+          "idle_inhibited": "😪",
+          "manually_inhibited": "👋",
+          "not_running": "😴"
+      },
+      "tooltip": true,
+      "on-click": "stasis toggle-inhibit",
+      "interval": 2,
+      "restart-interval": 2,
+      "return-type": "json"
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface

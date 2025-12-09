@@ -8,7 +8,7 @@ Config(
 
   // The vertical position, works the same as `x`
   //y: Absolute(0),
-  y: Fraction(0.3),
+  y: Fraction(0.5),
 
   // The width of the runner
   width: Absolute(800),
@@ -51,6 +51,34 @@ Config(
     "libniri_focus.so",
     "librink.so",
     "libwebsearch.so",
-    "libduckduckgo.so",
+    //"libduckduckgo.so",
+  ],
+
+  keybinds: [
+    Keybind(
+      key: "Return",
+      action: Select, 
+    ),
+    Keybind(
+      key: "Up",
+      action: Up, 
+    ),
+    Keybind(
+      key: "Down",
+      action: Down, 
+    ),
+    Keybind(
+      key: "ISO_Left_Tab",
+      action: Up,
+      shift: true,
+    ),
+    Keybind(
+      key: "Tab",
+      action: Down, 
+    ),
+    Keybind(
+      key: "Escape",
+      action: Close, 
+    ),
   ],
 )

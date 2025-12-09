@@ -6,6 +6,11 @@
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
+include "dms/binds.kdl"
+include "dms/binds.kdl"
+include "dms/colors.kdl"
+include "dms/layout.kdl"
+include "dms/wpblur.kdl"
 input {
     keyboard {
         xkb {
@@ -271,16 +276,19 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
+//spawn-at-startup "dms" "run"
+//spawn-at-startup "qs" "-c" "noctalia-shell"
 // This line starts waybar, a commonly used bar for Wayland compositors.
 //spawn-at-startup "dbus-update-activation-environment" "--systemd" "DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=GNOME"
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "DISPLAY WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=GNOME"
-spawn-at-startup "swaync"
-spawn-at-startup "waybar"
+//spawn-at-startup "swaync"
+//spawn-at-startup "waybar"
 // autumn-tree-ghost-of-tsushima-moewalls-com.mp4
-spawn-at-startup "mpvpaper" "-vp" "-o" "no-audio loop" "DP-1" "~/backgrounds/window-the-last-of-us-moewalls-com.mp4"
-spawn-at-startup "mpvpaper" "-vp" "-o" "no-audio loop" "HDMI-A-1" "~/backgrounds/window-the-last-of-us-moewalls-com.mp4"
+//spawn-at-startup "mpvpaper" "-vp" "-o" "no-audio loop" "DP-1" "~/backgrounds/window-the-last-of-us-moewalls-com.mp4"
+//spawn-at-startup "mpvpaper" "-vp" "-o" "no-audio loop" "HDMI-A-1" "~/backgrounds/window-the-last-of-us-moewalls-com.mp4"
 // Apaga las pantallas después de 30 minutos de inactividad.
-spawn-at-startup "swayidle" "-w" "timeout" "1800" "niri msg action power-off-monitors"
+//spawn-at-startup "swayidle" "-w" "timeout" "1800" "niri msg action power-off-monitors"
+//vamos con stasis
 //spawn-at-startup "ulauncher"
 
 environment {
@@ -381,6 +389,10 @@ animations {
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
 window-rule {
+    geometry-corner-radius 20
+    clip-to-geometry true
+}
+window-rule {
     // This regular expression is intentionally made as specific as possible,
     // since this is the default config, and we want no false positives.
     // You can get away with just app-id="wezterm" if you want.
@@ -463,10 +475,13 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
-    Mod+Space { spawn "anyrun"; }
-    Mod+P {spawn "wlogout"; }
-    Mod+Period { spawn "simplemoji" "--show-search" "--show-recent" "--show-preview" "--close-on-copy" "--no-close" "--copy-command" "wl-copy"; }
+    //Mod+B { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
+    //Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    //Mod+Space { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    //Mod+Space { spawn "sherlock"; }
+    //Mod+P {spawn "wlogout"; }
+    //Mod+Period { spawn "simplemoji" "--show-search" "--show-recent" "--show-preview" "--close-on-copy" "--no-close" "--copy-command" "wl-copy"; }
+    Mod+Period { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "emoji"; }
     //Mod+E { spawn "windot"; }
     Mod+Z {spawn "mpv" "/data/atareao.es/podcasts/recursos/entrada.mp3"; } 
     Mod+X {spawn "mpv" "/data/atareao.es/podcasts/recursos/salida_corta.mp3"; } 
@@ -714,4 +729,9 @@ binds {
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+}
+
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
 }

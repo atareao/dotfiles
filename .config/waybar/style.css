@@ -63,6 +63,7 @@ window#waybar.hidden {
 #backlight,
 #network,
 #pulseaudio,
+#custom-stasis,
 #custom-media,
 #custom-launcher,
 #custom-power,
@@ -152,6 +153,10 @@ label:focus {
     background-color: #90b1b1;
 }
 
+#custom-stasis {
+    background-color: #3f3c40;
+    color: #ffffff;
+}
 #network {
     background-color: #3f3c40;
     color: #ffffff;
