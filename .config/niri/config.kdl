@@ -11,6 +11,7 @@ include "dms/binds.kdl"
 include "dms/colors.kdl"
 include "dms/layout.kdl"
 include "dms/wpblur.kdl"
+include "custom_dms.kdl"
 input {
     keyboard {
         xkb {

@@ -3,10 +3,6 @@ binds {
         spawn "dms" "ipc" "call" "spotlight" "toggle"; 
     }
 
-    Mod+P hotkey-overlay-title="Power Menu" { 
-        spawn "dms" "ipc" "call" "powermenu" "toggle"; 
-    }
-
     Mod+V hotkey-overlay-title="Clipboard Manager" { 
         spawn "dms" "ipc" "call" "clipboard" "toggle"; 
     }
