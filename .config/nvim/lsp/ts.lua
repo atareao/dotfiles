@@ -9,7 +9,15 @@ return {
         "javascriptreact",
         "javascript.jsx",
     },
-    root_markers = { "package.json", "tsconfig.json", "jsconfig.json" },
+    root_markers = {
+        "tsconfig.json",
+        "jsconfig.json",
+        ".eslintrc",
+        ".eslintrc.js",
+        ".eslintrc.json",
+        "eslint.config.js",
+        "package.json",
+    },
     capabilities = lsp_capabilities,
     settings = {
 

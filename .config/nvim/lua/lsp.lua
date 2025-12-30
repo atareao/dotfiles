@@ -64,7 +64,15 @@ vim.api.nvim_create_autocmd("FileType", {
         local bufname = vim.api.nvim_buf_get_name(buf)
 
         -- Check for Node/TS
-        local node_root = vim.fs.find({ "tsconfig.json", "jsconfig.json" }, { upward = true, path = bufname })[1]
+        local node_root = vim.fs.find({
+            "tsconfig.json",
+            "jsconfig.json",
+            ".eslintrc",
+            ".eslintrc.js",
+            ".eslintrc.json",
+            "eslint.config.js",
+            "package.json",
+        }, { upward = true, path = bufname })[1]
         if node_root then
             vim.lsp.enable("ts", { bufnr = buf })
             return
