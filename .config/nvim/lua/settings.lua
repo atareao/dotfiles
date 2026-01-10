@@ -175,6 +175,7 @@ local gen_template = function()
         cmd([[%s/{{NAME}}/\=template_name/ge]])
         cmd([[%s/{{EVAL\s*\([^}]*\)}}/\=eval(submatch(1))/ge]])
         cmd([[%s/{{FILENAME}}/\=expand('%:t')/ge]])
+        cmd([[%s/{{FILENAME_WITHOUT_EXTENSION}}/\=expand('%:t:r')/ge]])
     end
 end
 vim.keymap.set("n", "<leader>ta", gen_template, { silent = true })
