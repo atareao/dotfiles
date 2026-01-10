@@ -1,27 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR MY_ABBR_SET:true
-SETUVAR __fish_initialized:3800
+SETUVAR __fish_initialized:4300
 SETUVAR ayu_variant:dark
-SETUVAR fish_color_autosuggestion:4D5566
-SETUVAR fish_color_cancel:0A0E14
-SETUVAR fish_color_command:39BAE6
-SETUVAR fish_color_comment:626A73
-SETUVAR fish_color_cwd:59C2FF
-SETUVAR fish_color_end:F29668
-SETUVAR fish_color_error:FF3333
-SETUVAR fish_color_escape:95E6CB
-SETUVAR fish_color_host:FFEE99
-SETUVAR fish_color_host_remote:FFEE99
-SETUVAR fish_color_match:F07178
-SETUVAR fish_color_normal:B3B1AD
-SETUVAR fish_color_operator:E6B450
-SETUVAR fish_color_param:B3B1AD
-SETUVAR fish_color_quote:C2D94C
-SETUVAR fish_color_redirection:FFEE99
-SETUVAR fish_color_search_match:\x2d\x2dbackground\x1eE6B450
-SETUVAR fish_color_selection:E6B450
-SETUVAR fish_color_user:FF8F40
 SETUVAR fish_greeting:\x1d
-SETUVAR fish_key_bindings:fish_vi_key_bindings
 SETUVAR fish_user_paths:/home/lorenzo/\x2ecargo/bin\x1e/home/lorenzo/\x2elocal/bin\x1e/home/lorenzo/bin\x1e/usr/local/bin\x1e/home/lorenzo/\x2erye/shims
