@@ -1,39 +1,23 @@
-local status_ok, util = pcall(require, "lspconfig.util")
-if not status_ok then
-    return {}
-end
-
 return {
-    cmd = { 'rscls' },
+    name = 'rust-analyzer-stscript',
+    cmd = { 'rust-analyzer' },
     filetypes = { 'rustscript' },
-    -- Define el root_dir de forma que no falle si no hay Cargo.toml
+    -- Forzamos que la raíz sea siempre el directorio del script
     root_dir = function(fname)
-        local util = require('lspconfig.util')
-        return util.root_pattern("Cargo.toml")(fname) or util.path.dirname(fname)
+         return vim.fs.dirname(fname)
     end,
     settings = {
         ['rust-analyzer'] = {
-            imports = {
-                group = {
-                    enable = true,
-                },
-                granularity = {
-                    enforce = true,
-                    group = "crate",
-                },
-            },
+            -- Soporte para archivos fuera de un workspace
+            standalone_file_support = true,
+            -- Esto le dice a RA: "No busques más, este archivo es su propio proyecto"
             linkedProjects = {},
             cargo = {
-                buildOutDir = true,
-                buildScripts = {
-                    enable = true,
-                },
+                autoreload = false,
             },
-            checkOnSave = {
+            diagnostics = {
                 enable = true,
-            },
-            procMacro = {
-                enable = true,
+                disabled = { 'unlinked-file' },
             },
         },
     },
