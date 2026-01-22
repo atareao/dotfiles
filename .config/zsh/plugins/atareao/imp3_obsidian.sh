@@ -49,26 +49,24 @@ function imp3(){
     echo "$MP3_FILE"
     echo "$JPG_FILE"
     echo "$MD_FILE"
-    eyeD3 --add-image "$JPG_FILE":FRONT_COVER "$MP3_FILE"
-    eyeD3 -P itunes-podcast --add "$MP3_FILE"
-    eyeD3 -P itunes-podcast "$MP3_FILE"
-    eyeD3 "$MP3_FILE"
     title=$(grep "^title: " "${MD_FILE}" | head -n1)
     title="${title//title: /}"
     date=$(date "+%Y-%m-%d")
     year=$(date "+%Y")
-    mid3v2 "${MP3_FILE}" \
-           --TALB "atareao con Linux" \
-           --TCOM "Lorenzo Carbonell" \
-           --TCON "Podcast" \
-           --TCOP "Copyright © ${year} Lorenzo Carbonell (CC BY 4.0)" \
-           --TDRC "${date}" \
-           --TIT2 "${title}" \
-           --TIT3 "atareao con Linux. El podcast sobre Linux y Open Source" \
-           --TOPE "Lorenzo Carbonell" \
-           --TPE1 "Lorenzo Carbonell" \
-           --TPE2 "Lorenzo Carbonell" \
-           --TRCK "${EPISODE}"
-    mid3v2 "${MP3_FILE}"
+    id3cli --file "${MP3_FILE}" \
+           --album "atareao con Linux" \
+           --composer "Lorenzo Carbonell" \
+           --genre "Podcast" \
+           --copyright "Copyright © $(date "+%Y") Lorenzo Carbonell (CC BY 4.0)" \
+           --date "${date}" \
+           --year "${year}" \
+           --title "${title}" \
+           --subtitle "atareao con Linux. El podcast sobre Linux y Open Source" \
+           --original-artist "Lorenzo Carbonell" \
+           --artist "Lorenzo Carbonell" \
+           --album-artist "Lorenzo Carbonell" \
+           --cover "${JPG_FILE}" \
+           --track "${EPISODE}"
+    id3cli --file "${MP3_FILE}" --show
     ffprobe -hide_banner "${MP3_FILE}" 2>&1 | grep Duration
 }
