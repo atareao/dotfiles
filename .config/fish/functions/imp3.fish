@@ -35,6 +35,7 @@ function imp3
     echo "Procesando: $MP3_FILE"
 
     set -l title (grep "^title: " "$MD_FILE" | head -n1 | string replace "title: " "" | string trim)
+    set -l season (grep "^season: " "$MD_FILE" | head -n1 | string replace "season: " "" | string trim)
     set -l date (date "+%Y-%m-%d")
     set -l year (date "+%Y")
 
@@ -51,7 +52,8 @@ function imp3
            --artist "Lorenzo Carbonell" \
            --album-artist "Lorenzo Carbonell" \
            --cover "$JPG_FILE" \
-           --track "$EPISODE"
+           --track "$EPISODE" \
+           --season "$season"
 
     id3cli --file "$MP3_FILE" --show
     ffprobe -hide_banner "$MP3_FILE" 2>&1 | grep Duration

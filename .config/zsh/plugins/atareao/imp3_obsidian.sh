@@ -51,6 +51,8 @@ function imp3(){
     echo "$MD_FILE"
     title=$(grep "^title: " "${MD_FILE}" | head -n1)
     title="${title//title: /}"
+    season=$(grep "^season: " "${MD_FILE}" | head -n1)
+    season="${season//season: /}"
     date=$(date "+%Y-%m-%d")
     year=$(date "+%Y")
     id3cli --file "${MP3_FILE}" \
@@ -66,7 +68,8 @@ function imp3(){
            --artist "Lorenzo Carbonell" \
            --album-artist "Lorenzo Carbonell" \
            --cover "${JPG_FILE}" \
-           --track "${EPISODE}"
+           --track "${EPISODE}" \
+           --season "${season}"
     id3cli --file "${MP3_FILE}" --show
     ffprobe -hide_banner "${MP3_FILE}" 2>&1 | grep Duration
 }
