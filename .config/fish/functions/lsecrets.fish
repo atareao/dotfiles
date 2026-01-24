@@ -1,5 +1,4 @@
-function yadmalt --description="generate templates with pass variables"
-    # set variables
+function lsecrets --description="Load secrets"
     set -l STORE $HOME/.secrets/secrets.yml
     if not test -f $store
         echo "Error: No se encontró el almacén de contraseñas en $store" >&2
@@ -10,10 +9,4 @@ function yadmalt --description="generate templates with pass variables"
         set -gx $key $value
     end
     echo "🚀 Secretos cargados"
-    # configure templates
-    echo "📝 Templates configurados"
-    yadm alt
-    # unset variables
-    set -e (sops -d $STORE | yq -r 'keys | .[] | select(. != "sops") | ascii_upcase')
-    echo "🧹 Secreto descargados"
 end

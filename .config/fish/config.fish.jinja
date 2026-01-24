@@ -24,9 +24,14 @@ if status is-interactive
     {% if env.MACHINE == "archi" -%}
     set -gx MACHINE archi
     set -gx TERM kitty
-    set -gx ANTHROPIC_API_KEY $(pass show anthropic/token)
-    set -gx GEMINI_API_KEY $(pass show google/gemini_api_key)
-    set -gx MORPH_API_KEY $(pass show morph/token)
+    set -l STORE "$HOME/.secrets/secrets.yml"
+    if test -f $STORE
+        set -l pattern "anthropic_token|gemini_api_key|morph_token"
+        sops -d $STORE | yq -r 'to_entries | .[] | select(.key != "sops") | .key + " " + (.value | tostring)' | grep -E "^($pattern) " | while read -l key value
+            set -l key_up (string upper $key)
+            set -gx $key_up $value
+        end
+    end
     {% elif env.MACHINE == "termux" -%}
     set -gx MACHINE termux
     {% endif -%}
