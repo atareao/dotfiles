@@ -1,4 +1,4 @@
-function show_pass
+function secret-show
     set -l secret_name $argv[1]
     set -l store "$HOME/.secrets/secrets.yml"
 
