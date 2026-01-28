@@ -11,6 +11,7 @@ abbr --add mydiff kitty +kitten diff
 # general
 abbr --add ls lsd
 abbr --add la lsd -la
+abbr --add lt lsd --tree
 abbr --add du dust
 # trasher
 abbr --add tls trasher --trash-dir ~/.trashdir ls
@@ -49,4 +50,10 @@ abbr --add gsta git status
 # paru
 abbr --add pclean paru -Rns $(paru -Qdtq)
 abbr --add pupdate paru -Syyu
-
+# systemctl --user
+abbr --add sysu systemctl --user
+abbr --add sustart systemctl --user start
+abbr --add sustop systemctl --user stop
+abbr --add sustatus systemctl --user status
+abbr --add syreload systemctl --user daemon-reload
+abbr --add ju journalctl --user
