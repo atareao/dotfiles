@@ -488,6 +488,7 @@ binds {
     Mod+X {spawn "mpv" "/data/atareao.es/podcasts/recursos/salida_corta.mp3"; } 
     Mod+A {spawn "mpv" "/data/atareao.es/podcasts/recursos/transicion.mp3"; }
 
+
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
     // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }

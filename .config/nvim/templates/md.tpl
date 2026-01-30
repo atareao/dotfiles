@@ -5,7 +5,7 @@ episode:
 created: {{DATETIME}}
 updated: {{DATETIME}}
 tags:
-  - 
+    - 
 ---
 # {{FILENAME_WITHOUT_EXTENSION}}
 

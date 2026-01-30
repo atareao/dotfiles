@@ -28,8 +28,12 @@ keymap("n", "<C-x>", "<cmd>Trouble diagnostics toggle<cr>", "Diagnostics (Troubl
 keymap("n", "<C-y>", "<cmd>Yazi toggle<cr>", "Yazi")
 
 keymap("i", "<C-b>", "**", "Negrita")
---keymap("i", "<C-i>", "*", "Cursiva")
+--keymap("i", "<C-k>", "*", "Cursiva")
 keymap("i", "<C-c>", "```", "Code")
+keymap('n', '<C-k>', 'viw<esc>a*<esc>hbi*<esc>lel', "Envolver palabra con asteriscos" )
+keymap('v', '<C-k>', [[:<C-u>normal! `>a*<---<C-u>normal! `<i*<CR>]], "Envolver selección con asteriscos" )
+keymap('n', '<C-b>', 'viw<esc>a**<esc>h2bi**<esc>llel', "Envolver palabra con doble asterisco" )
+keymap('v', '<C-b>', [[:<C-u>normal! `>a**<CR>:<C-u>normal! `<i**<CR>]], "Envolver selección con doble asterisco" )
 
 -- Bookmarks
 keymap("n", "<leader>B", "", "Bookmarks")
