@@ -55,8 +55,7 @@ function imp3(){
     season="${season//season: /}"
     date=$(date "+%Y-%m-%d")
     year=$(date "+%Y")
-    id3cli --file "${MP3_FILE}" \
-           --album "atareao con Linux" \
+    id3cli --album "atareao con Linux" \
            --composer "Lorenzo Carbonell" \
            --genre "Podcast" \
            --copyright "Copyright © $(date "+%Y") Lorenzo Carbonell (CC BY 4.0)" \
@@ -69,7 +68,8 @@ function imp3(){
            --album-artist "Lorenzo Carbonell" \
            --cover "${JPG_FILE}" \
            --track "${EPISODE}" \
-           --season "${season}"
-    id3cli --file "${MP3_FILE}" --show
+           --season "${season}" \
+            edit "${MP3_FILE}"
+    id3cli show "${MP3_FILE}"
     ffprobe -hide_banner "${MP3_FILE}" 2>&1 | grep Duration
 }
