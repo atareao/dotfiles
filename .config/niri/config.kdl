@@ -457,6 +457,12 @@ window-rule {
     opacity 0.8
 }
 
+window-rule {
+    match app-id="whatsapp-webapp"
+    // Ajusta el ancho inicial (ej. 25% de la pantalla o un valor fijo)
+    default-column-width { proportion 0.25; }
+}
+
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
     // in the end. To find an XKB name for a particular key, you may use a program
