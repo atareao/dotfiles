@@ -172,6 +172,16 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.bo.filetype = "rustscript.rust"
     end,
 })
+vim.filetype.add({
+    extension = {
+        container = "toml",
+        volume    = "toml",
+        network   = "toml",
+        kube      = "toml",
+        image     = "toml",
+        pod       = "toml",
+    },
+})
 -----------------------------------------------------------
 -- Templates
 -----------------------------------------------------------
