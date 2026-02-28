@@ -20,6 +20,8 @@ if status is-interactive
     uv generate-shell-completion fish | source
     # fclones
     fclones complete fish | source
+    # rbw (bitwarden unofficial cli)
+    rbw get-completions fish | source
     # variables
     {% if env.MACHINE == "archi" -%}
     set -gx MACHINE archi
