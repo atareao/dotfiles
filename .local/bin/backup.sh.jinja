@@ -27,7 +27,8 @@ function publish(){
     data="$3"
     result=""
     ok="$4"
-    while read line;do
+    [[ $ok -eq 1 ]] && status=ko || status=ok
+    while read line; do
         if [[ -z $result ]]; then
             result="${line}"
         else
@@ -45,7 +46,8 @@ function publish(){
                     \"repository\": \"${repository}\",
                     \"action\": \"${action}\",
                     \"ok\": \"${ok}\",
-                    \"result\": \"${result}\"
+                    \"result\": \"${result}\",
+                    \"status\": \"${status}\"
                 }
             ]"
 }
