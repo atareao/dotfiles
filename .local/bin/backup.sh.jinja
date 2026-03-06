@@ -53,7 +53,7 @@ function publish(){
 }
 
 {% if env.MACHINE == "archi" -%}
-PROFILES=(local minio_local rustfs_server)
+PROFILES=(local rustfs_server minio_local)
 for profile in "${PROFILES[@]}"
 do
     echo "=== Backup ${profile} ==="
