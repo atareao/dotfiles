@@ -281,6 +281,12 @@ layout {
 // This line starts waybar, a commonly used bar for Wayland compositors.
 //spawn-at-startup "dbus-update-activation-environment" "--systemd" "DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=GNOME"
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "DISPLAY WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=GNOME"
+spawn-at-startup "systemctl --user restart xdg-desktop-portal"
+spawn-at-startup "systemctl --user restart wireplumber"
+
+// El problema del bluetooth
+spawn-at-startup "rfkiller" "unblock" "bluetooth"
+spawn-at-startup "bluetoothctl" "power" "on"
 //spawn-at-startup "swaync"
 //spawn-at-startup "waybar"
 // autumn-tree-ghost-of-tsushima-moewalls-com.mp4
@@ -300,7 +306,12 @@ environment {
 
     XDG_CURRENT_DESKTOP "wlroots"
     ELECTRON_OZONE_PLATFORM_HINT "auto"
+
+    SSH_AUTH_SOCK "/run/user/1000/gcr/ssh"
 }
+
+spawn-at-startup "systemctl" "--user" "import-environment" "SSH_AUTH_SOCK"
+spawn-at-startup "valent" "--gapplication-service"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
