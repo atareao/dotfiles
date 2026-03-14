@@ -285,8 +285,10 @@ spawn-at-startup "systemctl --user restart xdg-desktop-portal"
 spawn-at-startup "systemctl --user restart wireplumber"
 
 // El problema del bluetooth
-spawn-at-startup "rfkiller" "unblock" "bluetooth"
-spawn-at-startup "bluetoothctl" "power" "on"
+spawn-at-startup "sh" "-c" "rfkill unblock bluetooth && sleep 0.5 && gdbus call --system --dest org.bluez --object-path /org/bluez/hci0 --method org.freedesktop.DBus.Properties.Set org.bluez.Adapter1 Powered '<true>'"
+spawn-at-startup "sh" "-c" "sleep 1 && bluetoothctl connect D9:25:F5:53:0A:CB"
+//spawn-at-startup "rfkiller" "unblock" "bluetooth"
+//spawn-at-startup "bluetoothctl" "power" "on"
 //spawn-at-startup "swaync"
 //spawn-at-startup "waybar"
 // autumn-tree-ghost-of-tsushima-moewalls-com.mp4
