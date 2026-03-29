@@ -7,3 +7,5 @@ bind -M default \el nextd-or-forward-word
 
 bind -M default / history-pager
 bind -M insert \cr history-pager
+
+bind -M insert \cc cancelar_pero_guardar
