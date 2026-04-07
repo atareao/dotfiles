@@ -44,7 +44,16 @@ function portada_podcast(){
         echo "No has introducido el número del episodio"
         NEED_EXIT=1
     fi
-    PORTADAJPG=$(find ~/Descargas -maxdepth 1 -type f -name "*.jpg" -printf '%TY%Tm%Td%TH%TM %p\n' | sort -r | head -1 | awk '{print $2}')
+    if [[ -f "/home/lorenzo/Descargas/episodio-${NUMBER}.jpg" ]]; then
+        PORTADAJPG="/home/lorenzo/Descargas/episodio-${NUMBER}.jpg"
+    else
+        PORTADAJPG=$(find ~/Descargas -maxdepth 1 -type f -name "*.jpg" -printf '%TY%Tm%Td%TH%TM %p\n' | sort -r | head -1 | awk '{print $2}')
+    fi
+    if [[ -f "/home/lorenzo/Descargas/episodio-${NUMBER}-sqr.jpg" ]]; then
+        PORTADAJPG_SQR="/home/lorenzo/Descargas/episodio-${NUMBER}-sqr.jpg"
+    else
+        PORTADAJPG_SQR="$PORTADAJPG"
+    fi
     if [[ ! -f "$PORTADAJPG" ]]
     then
         echo No existe la portada JPG
@@ -74,9 +83,11 @@ function portada_podcast(){
     TEMPLATE_2000="${RESOURCESDIR}/plantilla_podcast_2000.svg" 
 
     mv "${PORTADAJPG}" "${IMAGEDIR}/temporal.jpg"
-    magick "${IMAGEDIR}/temporal.jpg" -resize 2000x2000! "${IMAGEDIR}/portada_sqr.jpg"
+    mv "${PORTADAJPG_SQR}" "${IMAGEDIR}/temporal_sqr.jpg"
     magick "${IMAGEDIR}/temporal.jpg" -resize 1920x1080! "${IMAGEDIR}/portada.jpg"
+    magick "${IMAGEDIR}/temporal_sqr.jpg" -resize 2000x2000! "${IMAGEDIR}/portada_sqr.jpg"
     rm "${IMAGEDIR}/temporal.jpg"
+    rm "${IMAGEDIR}/temporal_sqr.jpg"
 
     export NUMBER
     export TITLE
