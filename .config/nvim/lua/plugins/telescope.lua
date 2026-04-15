@@ -1,6 +1,5 @@
 return {
     "nvim-telescope/telescope.nvim",
-    event = "VeryLazy",
     dependencies = {
         "nvim-telescope/telescope-live-grep-args.nvim",
         "nvim-telescope/telescope-symbols.nvim",
@@ -114,12 +113,14 @@ return {
                 },
             }
         }
-        require("telescope").load_extension("file_browser")
-        require("telescope").load_extension("media_files")
-        require("telescope").load_extension("fzy_native")
-        require("telescope").load_extension("gitmoji")
-        require("telescope").load_extension("emoji")
-        require("telescope").load_extension("command_palette")
-        require("telescope").load_extension("ui-select")
+	vim.schedule(function()
+		require("telescope").load_extension("file_browser")
+		require("telescope").load_extension("media_files")
+		require("telescope").load_extension("fzy_native")
+		require("telescope").load_extension("gitmoji")
+		require("telescope").load_extension("emoji")
+		require("telescope").load_extension("command_palette")
+		require("telescope").load_extension("ui-select")
+	end)
     end,
 }
