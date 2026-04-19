@@ -37,6 +37,8 @@ abbr --add skr 'sk --ansi -i -c \'rg --color=always --line-number "{}"\''
 abbr --add pn pnpm
 # zapzap
 abbr --add zz 'QMLSCENE_DEVICE=softwarecontext QT_OPENGL=software zapzap'
+# ollama
+abbr --add ollama podman exec -it ollama ollama
 # yadm
 abbr --add ypus yadm push
 abbr --add yadd yadm add
