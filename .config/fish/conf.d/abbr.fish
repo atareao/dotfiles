@@ -39,6 +39,7 @@ abbr --add pn pnpm
 abbr --add zz 'QMLSCENE_DEVICE=softwarecontext QT_OPENGL=software zapzap'
 # ollama
 abbr --add ollama podman exec -it ollama ollama
+abbr --add fox podman exec -it fox fox
 # yadm
 abbr --add ypus yadm push
 abbr --add yadd yadm add
