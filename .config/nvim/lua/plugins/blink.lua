@@ -31,7 +31,7 @@ return {
             ['<CR>'] = { 'select_and_accept', 'fallback' }
         },
         sources = {
-            default = { "copilot", "lsp", "path", "snippets", "buffer", "ripgrep" },
+            default = { "copilot", "lsp", "path", "snippets", "buffer", "ripgrep", "minuet", "codecompanion" },
             providers = {
                 copilot = {
                     name = "copilot",
@@ -45,6 +45,20 @@ return {
                         end
                         return items
                     end
+                },
+                codecompanion = {
+                    name = "codecompanion",
+                    module = "codecompanion.providers.completion.blink",
+                    enabled = true
+                },
+                minuet = {
+                    name = 'minuet',
+                    module = 'minuet.blink',
+                    async = true,
+                    -- Should match minuet.config.request_timeout * 1000,
+                    -- since minuet.config.request_timeout is in seconds
+                    timeout_ms = 3000,
+                    score_offset = 50, -- Gives minuet higher priority among suggestions
                 },
                 ripgrep = {
                     module = "blink-ripgrep",
@@ -95,7 +109,7 @@ return {
                 draw = {
                     padding = { 1, 1 }, -- padding only on right side
                     treesitter = { "lsp" },
-                    columns = { { "kind_icon", gap = 1 }, {gap = 1, "label"},  { "kind", gap = 2 } },
+                    columns = { { "kind_icon", gap = 1 }, { gap = 1, "label" }, { "kind", gap = 2 } },
                     components = {
                         kind_icon = {
                             text = function(ctx)
