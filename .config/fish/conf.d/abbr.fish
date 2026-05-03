@@ -46,10 +46,11 @@ abbr --add yadd yadm add
 abbr --add ypul yadm pull
 abbr --add ysta yadm status
 # git
-abbr --add gpus git push
+abbr --add gpus git push --tags
 abbr --add gadd git add
 abbr --add gpul git pull
 abbr --add gsta git status
+abbr --add gtag git tag -a v$(vampus show) -m v$(vampus show)
 # paru
 abbr --add pclean paru -Rns $(paru -Qdtq)
 abbr --add pupdate paru -Syyu
