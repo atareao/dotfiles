@@ -1,0 +1,10 @@
+{
+    "id": "es.atareao.stasis",
+    "name": "Stasis Manager",
+    "version": "1.0.0",
+    "description": "Toggle Stasis idle inhibitor profiles",
+    "author": "Lorenzo Carbonell",
+    "icon": "widgets",
+    "type": "widget",
+    "component": "./StasisWidget.qml"
+}
