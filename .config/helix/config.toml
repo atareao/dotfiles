@@ -8,8 +8,9 @@ theme = "ayu_dark"
 
 [editor]
 line-number = "relative"
-mouse = false
+mouse = true
 cursorline = true
+auto-format = true
 
 [editor.soft-wrap]
 enable = true
@@ -21,6 +22,19 @@ select = "underline"
 
 [editor.file-picker]
 hidden = false
+
+[editor.indent-guides]
+render = true
+character = "|"
+skip-levels = 1
+
+[editor.statusline]
+left = ["mode", "spinner"]
+center = ["file-name"]
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
 
 [editor.whitespace.render]
 space = "all"
