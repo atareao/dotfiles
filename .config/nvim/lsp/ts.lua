@@ -18,7 +18,6 @@ return {
         "eslint.config.js",
         "package.json",
     },
-    capabilities = lsp_capabilities,
     settings = {
 
         javascript = {

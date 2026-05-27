@@ -6,7 +6,7 @@ return {
         "mfussenegger/nvim-dap-python",
         "theHamsta/nvim-dap-virtual-text",
     },
-    -- -- event = "VeryLazy",
+    event = "VeryLazy",
     config = function()
         require('telescope').load_extension('dap')
         local dap, dapui = require("dap"), require("dapui")
@@ -21,6 +21,7 @@ return {
         end
         require('plugins.dbg.python')
         require('plugins.dbg.rust')
+        require('plugins.dbg.javascript')
         require("nvim-dap-virtual-text").setup({
             enabled = true, -- enable this plugin (the default)
             enabled_commands = true, -- create commands DapVirtualTextEnable, DapVirtualTextDisable, DapVirtualTextToggle, (DapVirtualTextForceRefresh for refreshing when debug adapter did not notify its termination)

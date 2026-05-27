@@ -1,14 +1,16 @@
 return {
     "mfussenegger/nvim-lint",
-    -- event = "VeryLazy",
+    event = "VeryLazy",
     config = function()
         require("lint").linters_by_ft = {
             lua = { "luacheck" },
-            python = { "ruff" },
             javascript = { "eslint" },
             typescript = { "eslint" },
+            typescriptreact = { "eslint" },
+            javascriptreact = { "eslint" },
             go = { "golangci_lint" },
             rust = { "cargo_check" },
+            markdown = { "markdownlint" },
         }
 
         -- Auto lint on save

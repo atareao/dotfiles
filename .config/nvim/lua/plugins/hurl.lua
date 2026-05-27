@@ -2,7 +2,6 @@ return {
     "jellydn/hurl.nvim",
     dependencies = { "MunifTanjim/nui.nvim" },
     ft = "hurl",
-    lazy = false,
     opts = {
         -- Show debugging info
         debug = false,

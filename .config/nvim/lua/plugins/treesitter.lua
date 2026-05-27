@@ -15,7 +15,8 @@ return {
             ensure_installed = {
                 "bash", "html", "javascript", "json", "lua", "markdown",
                 "markdown_inline", "python", "query", "regex", "rust", "tsx",
-                "typescript", "vim", "yaml", "dockerfile", "toml"
+                "typescript", "vim", "yaml", "dockerfile", "toml", "fish",
+                "css", "graphql", "go"
             },
             incremental_selection = {
                 enable = true,

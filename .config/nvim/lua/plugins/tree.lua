@@ -311,7 +311,7 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     lazy = false,
-    -- event = "VeryLazy",
+    event = "VeryLazy",
     dependencies = {
         "nvim-lua/plenary.nvim",
         "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
@@ -321,7 +321,6 @@ return {
     --config = true,
     config = function()
         vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
-        vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
 
         -- If you want icons for diagnostic errors, you'll need to define them somewhere:
         vim.fn.sign_define("DiagnosticSignError",

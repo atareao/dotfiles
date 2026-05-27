@@ -1,6 +1,6 @@
 return {
     "ziontee113/icon-picker.nvim",
-    -- event = "VeryLazy",
+    event = "VeryLazy",
     opts = {
         disable_legacy_commands = true
     },

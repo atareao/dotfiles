@@ -1,20 +1,36 @@
 local dap = require("dap")
-dap.adapters.python = {
-    type = "executable",
-    command = vim.fn.getcwd() .. '/bin/python',
-    args = { "-m", "debugpy.adapter"},
-}
+
+require("dap-python").setup("python3")
+
 dap.configurations.python = {
     {
-        name = "Launch",
         type = "python",
         request = "launch",
+        name = "Launch file",
         program = "${file}",
-        -- program = function()
-        --     return vim.fn.input('Ruta al main: ', vim.fn.getcwd() .. '/src/', 'file')
-        -- end,
         cwd = '${workspaceFolder}',
         stopOnEntry = true,
         args = {},
-    }
+    },
+    {
+        type = "python",
+        request = "launch",
+        name = "Launch file (no stop)",
+        program = "${file}",
+        cwd = '${workspaceFolder}',
+        stopOnEntry = false,
+        args = {},
+    },
+    {
+        type = "python",
+        request = "launch",
+        name = "Launch with args",
+        program = "${file}",
+        args = function()
+            local args = vim.fn.input('Args: ')
+            return vim.split(args, " ")
+        end,
+        cwd = '${workspaceFolder}',
+        stopOnEntry = true,
+    },
 }

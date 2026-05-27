@@ -8,8 +8,6 @@ if handle then
         if not stat then
             break
         end
-        vim.notify("file: " .. stat[1].name, vim.log.levels.INFO, { title = "LSP Files" })
-        -- Si es un archivo, lo procesamos
         if stat[1].type == 'file' then
             local filename = stat[1].name
             -- Comprobamos si el archivo tiene extensión .lua
@@ -23,12 +21,18 @@ if handle then
     vim.uv.fs_closedir(handle)
 end
 
--- Mostramos la lista final de archivos sin la extensión.
-local final_list = vim.inspect(lsp_files)
-vim.notify(final_list, vim.log.levels.INFO, { title = "LSP Files" })
--- First enable the LSPs
+-- Enable LSPs
 vim.lsp.enable(lsp_files)
 vim.lsp.inlay_hint.enable(true)
+
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client and client.server_capabilities.documentSymbolProvider then
+            require("nvim-navic").attach(client, args.buf)
+        end
+    end,
+})
 
 -- Initial diagnostic config (virtual_text on, virtual_lines off)
 vim.diagnostic.config({

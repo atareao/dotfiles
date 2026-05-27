@@ -29,7 +29,7 @@ g.typst_conceal = 1
 g.typst_pdf_viewer = "zathura"
 g.typst_embedded_languages = { "typescript" }
 -- Configuracion para wiki
-g.wiki_root = "/data/vaults/obsidian"
+
 --g.wiki_select_method = {
 --      pages = require("wiki.telescope").pages,
 --      tags = require("wiki.telescope").tags,
@@ -51,11 +51,39 @@ opt.ignorecase = true -- ignore case letters when search
 opt.smartcase = true -- ignore lowercase for the whole pattern
 opt.linebreak = true -- wrap on word boundary
 opt.foldlevel = 99 -- should open all folds
-opt.listchars = "tab:▸\\ ,trail:•,nbsp:%,extends:»,precedes:«" -- special characters
+opt.listchars = "tab:▸\\ ,trail:•,nbsp:␣,extends:»,precedes:«,space:⋅"
 opt.list = true -- show some invisible characters
 opt.conceallevel = 0 -- so that `` is visible in markdown files
+opt.showtabline = 2                -- always show tabline
+opt.wrap = false                   -- don't wrap lines by default
+
 opt.termguicolors = true -- enable 24-bit RGB colors
 opt.guifont = "JetBrainsMono Nerd Font" -- font for gui neovim clients
+
+opt.cmdheight = 0
+
+-- evitar lag en hover/resize
+-- Disabled: conflicts with LSP hover and other CursorHold-dependent features
+-- opt.eventignore = 'CursorHold,CursorHoldI'
+
+-- grep con ripgrep
+opt.grepformat = '%f:%l:%c:%m'
+opt.grepprg = 'rg --vimgrep -uu '
+
+-- sesiones
+opt.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,terminal,globals'
+
+-- desplazamiento horizontal
+opt.sidescrolloff = 36
+
+-- default window height
+opt.window = 45
+
+-- formato
+opt.formatoptions = 'tqj'
+
+-- ayuda en español
+opt.helplang = 'es'
 
 -----------------------------------------------------------
 -- Folding
@@ -79,9 +107,6 @@ opt.tabstop = 4                             -- 1 tab == 4 spaces
 opt.smartindent = true                      -- autoindent new lines
 
 cmd [[au BufEnter * set fo-=c fo-=r fo-=o]] -- don't auto commenting new lines
-
--- remove line lenght marker for selected filetypes
-cmd [[autocmd FileType text,markdown,xml,html,xhtml,javascript setlocal cc=0]]
 
 -- IndentLine
 --g.indentLine_setColors = 0  -- set indentLine color
@@ -134,17 +159,6 @@ vim.api.nvim_create_autocmd("User", {
 -- enable spanish spell on markdown only
 local markdown_spell = ag("markdownSpell", {})
 au(
-    "FileType",
-    {
-        pattern = "markdown",
-        callback = function()
-            vim.opt.spelllang = "es"
-            vim.opt.spell = true
-        end,
-        group = markdown_spell
-    }
-)
-au(
     { "BufRead", "BufNewFile" },
     {
         pattern = "*.md",
@@ -161,6 +175,7 @@ au(
 vim.filetype.add({
     extension = {
         rsc = "rustscript",
+        fish = "fish",
     },
 })
 vim.api.nvim_create_autocmd("FileType", {

@@ -2,14 +2,16 @@ return {
     'stevearc/conform.nvim',
     opts = {
         lua = { "stylua" },
-        -- Conform will run multiple formatters sequentially
         python = { "isort", "black" },
-        -- Use a sub-list to run only the first available formatter
+        rust = { "rustfmt" },
         javascript = { { "prettierd", "prettier" } },
+        javascriptreact = { { "prettierd", "prettier" } },
+        typescript = { { "prettierd", "prettier" } },
+        typescriptreact = { { "prettierd", "prettier" } },
         markdown = { { "prettierd", "prettier" } },
-        typescript = { "eslint_d" },
         sh = { "shfmt" },
         bash = { "shfmt" },
+        fish = { "fish_indent" },
     },
     config = function()
         vim.api.nvim_create_user_command("Reformat", function(args)
