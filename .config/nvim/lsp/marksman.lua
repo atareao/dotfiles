@@ -1,6 +1,11 @@
 ---@type vim.lsp.Config
 return {
-    cmd = { "marksman" },
-    root_markers = { ".marksman.toml", ".git" },
-    filetypes = { "markdown" },
+  cmd = { "marksman", "--stdio" },
+  filetypes = { "markdown" },
+  init_options = {
+    -- Enable markdown linting
+    linting = {
+      enable = true,
+    },
+  },
 }

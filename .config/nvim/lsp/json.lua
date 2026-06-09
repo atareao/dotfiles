@@ -1,17 +1,11 @@
--- https://github.com/neovim/nvim-lspconfig/blob/master/lsp/jsonls.lua
+---@type vim.lsp.Config
 return {
-    cmd = {
-        "vscode-json-language-server",
-        "--stdio",
+  cmd = { "json-lsp" },
+  filetypes = { "json" },
+  init_options = {
+    -- Enable schema support
+    validation = {
+      enable = true,
     },
-    filetypes = {
-        "json",
-        "jsonc",
-    },
-    root_markers = {
-        ".git",
-    },
-
-    init_options = { provideFormatter = true },
-    single_file_support = true,
+  },
 }

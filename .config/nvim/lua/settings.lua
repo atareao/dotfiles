@@ -30,13 +30,6 @@ g.typst_pdf_viewer = "zathura"
 g.typst_embedded_languages = { "typescript" }
 -- Configuracion para wiki
 
---g.wiki_select_method = {
---      pages = require("wiki.telescope").pages,
---      tags = require("wiki.telescope").tags,
---      toc = require("wiki.telescope").toc,
---      links = require("wiki.telescope").links,
---    }
-
 -----------------------------------------------------------
 -- Neovim UI
 -----------------------------------------------------------
@@ -176,7 +169,14 @@ vim.filetype.add({
     extension = {
         rsc = "rustscript",
         fish = "fish",
+        ts = "typestript",
     },
+})
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*.ts",
+  callback = function()
+    vim.bo.filetype = "typescript"
+  end,
 })
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "rustscript",
