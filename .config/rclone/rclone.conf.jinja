@@ -40,3 +40,10 @@ vendor = nextcloud
 user = {{ env.PHOTOPRISM_USER }}
 pass = {{ env.PHOTOPRISM_PASSWORD }}
 
+[rustfs]
+type = s3
+provider = Other
+access_key_id = {{ env.ACCESS_KEY_ID_WORKSPACE }}
+secret_access_key = {{ env.SECRET_ACCESS_KEY_WORKSPACE }}
+endpoint = https://s3.territoriolinux.es
+acl = private
