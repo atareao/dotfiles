@@ -22,6 +22,8 @@ if status is-interactive
     fclones complete fish | source
     # rbw (bitwarden unofficial cli)
     rbw gen-completions fish | source
+    # fzf
+    fzf --fish | source
     # variables
     {% if env.MACHINE == "archi" -%}
     set -gx MACHINE archi

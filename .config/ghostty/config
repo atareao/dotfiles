@@ -1,5 +1,5 @@
-#theme = Ayu
-theme = dark:Catppuccin Frappe,light:Catppuccin Latte
+theme = Ayu
+#theme = dark:Catppuccin Frappe,light:Catppuccin Latte
 copy-on-select = clipboard
 #window-decoration = false
 cursor-invert-fg-bg = true
@@ -11,5 +11,6 @@ font-style = Medium
 font-style-bold = Bold
 font-style-italic = Medium Italic
 font-style-bold-italic = Bold Italic
-font-size = 14
+font-size = 12
 shell-integration = fish
+bell-features = border
