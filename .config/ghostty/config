@@ -14,3 +14,4 @@ font-style-bold-italic = Bold Italic
 font-size = 12
 shell-integration = fish
 bell-features = border
+term = xterm-256color

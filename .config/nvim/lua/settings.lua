@@ -49,6 +49,16 @@ opt.list = true -- show some invisible characters
 opt.conceallevel = 0 -- so that `` is visible in markdown files
 opt.showtabline = 2                -- always show tabline
 opt.wrap = false                   -- don't wrap lines by default
+-- Habilita el parpadeo en todos los modos (a) con los tiempos especificados
+-- y mantiene formas de bloque en modos normales
+opt.guicursor = {
+    "n-v-c:block",
+    "i-ci-ve:ver25",
+    "r-cr:hor20",
+    "o:hor50",
+    "sm:block",
+    "a:blinkwait175-blinkoff150-blinkon175-Cursor"
+}
 
 opt.termguicolors = true -- enable 24-bit RGB colors
 opt.guifont = "JetBrainsMono Nerd Font" -- font for gui neovim clients

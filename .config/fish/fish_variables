@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export GTK_IM_MODULE:simple
 SETUVAR MY_ABBR_SET:true
 SETUVAR __fish_initialized:4300
 SETUVAR ayu_variant:dark
