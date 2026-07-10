@@ -1,0 +1,36 @@
+# configuracion desarrollo preferencias fish podman quadlets just
+## Configuración completa de goose para Lorenzo
+
+### 🐟 Shell
+- Fish 4.7.1 (NO Bash)
+- GOOSE_SHELL: fish en config.yaml
+- Config: ~/.config/fish/config.fish
+
+### 🐳 Contenedores
+- Podman 5.8.3 rootless (sin sudo)
+- alias docker=podman en config.fish
+- **NO usar docker-compose ni podman-compose**
+- **Único estándar: Quadlets** (~/.config/containers/systemd/)
+  - Archivos separados: .container, .volume, .network
+  - Health checks obligatorios
+  - Dependencias con After + Requires
+  - systemd --user para gestión
+
+### 📋 Automatización de proyectos
+- **Herramienta principal: just** con .justfile por proyecto
+- just 1.55.1 instalado en /usr/bin/just
+- Cada proyecto tiene su propio .justfile con recetas específicas
+- Usar just para build, test, deploy, sync, etc.
+- Preferir just recipes sobre comandos ad-hoc
+
+### 🛠️ Herramientas modernas (usar siempre)
+fd rg bat eza sd procs dust duf jq yq fzf watchexec hyperfine tldr
+
+### 🦀 Lenguajes/Stacks principales
+- Rust (cargo, clippy, rustfmt)
+- Podman Quadlets para servicios
+- Scripts en Fish (no bash)
+
+### 🔌 Extensiones goose activas
+developer, analyze, code_execution, summarize, summon, memory, todo, apps
+
