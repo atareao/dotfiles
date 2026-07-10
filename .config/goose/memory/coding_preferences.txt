@@ -34,3 +34,26 @@ fd rg bat eza sd procs dust duf jq yq fzf watchexec hyperfine tldr
 ### 🔌 Extensiones goose activas
 developer, analyze, code_execution, summarize, summon, memory, todo, apps
 
+# escritura skills flujo
+Los skills de escritura (brand-voice, writing-plans, writing-skills, avoid-ai-writing, edit-article, research) solo se activan cuando se va a escribir un artículo. No mantenerlos cargados por defecto para no consumir contexto innecesariamente.
+
+# skills programacion rust podman
+Skills de programación instalados: rust-best-practices, rust-async-patterns (15.5K), rust-testing (5.3K), rust-patterns (4.9K), podman (176), tdd, code-review, code-reviewer, codebase-memory, design-an-interface, diagnosing-bugs, request-refactor-plan, docker-expert, sqlite-database-expert, vercel-react-best-practices, modern-tools, just, graphify. Los skills de escritura (brand-voice, writing-plans, writing-skills, avoid-ai-writing, edit-article, research) solo se activan cuando se va a escribir un artículo. No mantenerlos cargados por defecto.
+
+# extensiones perfiles configuración
+## Perfiles de extensiones goose
+
+### Perfil "Desarrollo" (por defecto)
+Siempre activas: developer, memory, todo, extensionmanager, analyze, skills, orchestrator
+
+### Perfil "Escritura" (artículos)
+Activar: summarize, skills (para skills de escritura)
+Mantener: developer, memory, todo, extensionmanager
+Desactivar: analyze, orchestrator
+
+### Perfil "Mínimo" (tareas rápidas)
+Solo: developer, memory, todo, extensionmanager
+
+### Desactivadas por defecto
+summon, tom, apps, tutorial, summarize
+
