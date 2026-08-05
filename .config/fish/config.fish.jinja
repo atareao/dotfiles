@@ -28,13 +28,19 @@ if status is-interactive
     {% if env.MACHINE == "archi" -%}
     set -gx MACHINE archi
     set -gx TERM kitty
-    set -gx SOPS_AGE_KEY_FILE "$HOME/.secrets/sops/age/key.txt"
-    set -l STORE "$HOME/.secrets/secrets.yml"
-    if test -f $STORE
-        set -l pattern "anthropic_token|gemini_api_key|morph_token"
-        sops -d $STORE | yq -r 'to_entries | .[] | select(.key != "sops") | .key + " " + (.value | tostring)' | grep -E "^($pattern) " | while read -l key value
-            set -l key_up (string upper $key)
-            set -gx $key_up $value
+    # Load crypta keys cleanly
+    if type -q crypta
+        # Silence stderr in case crypta prints warning/header messages
+        for key in (crypta ls 2>/dev/null)
+            # Verify $key contains only valid characters (letters, numbers, underscores)
+            if string match -qr '^[a-zA-Z0-9_]+$' -- $key
+                set -l value (crypta lookup $key 2>/dev/null)
+                # Only export if lookup succeeded and returned a non-empty value
+                if test -n "$value"
+                    set -l key_up (string upper $key)
+                    set -gx $key_up $value
+                end
+            end
         end
     end
     {% elif env.MACHINE == "termux" -%}
