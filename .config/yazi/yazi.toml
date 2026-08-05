@@ -30,6 +30,9 @@ ueberzug_scale  = 1
 ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [opener]
+tdf = [
+	{ run = 'tdf "$@"', block = true, for = "unix" }
+]
 edit = [
 	{ run = "${EDITOR:-vi} %s", desc = "$EDITOR",      for = "unix", block = true },
 	{ run = "code %s",          desc = "code",         for = "windows", orphan = true },
@@ -74,6 +77,8 @@ rules = [
 	{ mime = "image/*", use = [ "open", "reveal" ] },
 	# Media
 	{ mime = "{audio,video}/*", use = [ "play", "reveal" ] },
+    # Pdf 
+	{ mime = "application/pdf", use = [ "tdf", "reveal" ] },
 	# Code
 	{ mime = "application/{json,ndjson,javascript,wine-extension-ini}", use = [ "edit", "reveal" ] },
 	# Archive

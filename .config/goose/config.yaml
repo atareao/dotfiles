@@ -9,7 +9,7 @@ extensions:
     bundled: true
     available_tools: []
   summarize:
-    enabled: true
+    enabled: false
     type: platform
     name: summarize
     description: Load files/directories and get an LLM summary in a single call
@@ -25,7 +25,7 @@ extensions:
     bundled: true
     available_tools: []
   skills:
-    enabled: true
+    enabled: false
     type: platform
     name: skills
     description: Discover and provide skill instructions from filesystem and builtins
@@ -41,7 +41,7 @@ extensions:
     bundled: true
     available_tools: []
   tom:
-    enabled: true
+    enabled: false
     type: platform
     name: tom
     description: Inject custom context into every turn via GOOSE_MOIM_MESSAGE_TEXT and GOOSE_MOIM_MESSAGE_FILE environment variables
@@ -49,7 +49,7 @@ extensions:
     bundled: true
     available_tools: []
   analyze:
-    enabled: true
+    enabled: false
     type: platform
     name: analyze
     description: 'Analyze code structure with tree-sitter: directory overviews, file details, symbol call graphs'
@@ -65,7 +65,7 @@ extensions:
     bundled: true
     available_tools: []
   apps:
-    enabled: true
+    enabled: false
     type: platform
     name: apps
     description: Create and manage custom Goose apps through chat. Apps are HTML/CSS/JavaScript and run in sandboxed windows.
@@ -73,7 +73,7 @@ extensions:
     bundled: true
     available_tools: []
   summon:
-    enabled: true
+    enabled: false
     type: platform
     name: summon
     description: Load knowledge and delegate tasks to subagents
@@ -89,7 +89,7 @@ extensions:
     bundled: true
     available_tools: []
   orchestrator:
-    enabled: true
+    enabled: false
     type: platform
     name: orchestrator
     description: 'Manage agent sessions: list, view, start, send messages, interrupt, and stop agents'
@@ -124,7 +124,7 @@ extensions:
     bundled: true
     available_tools: []
   tutorial:
-    enabled: true
+    enabled: false
     type: builtin
     name: tutorial
     description: Access interactive tutorials and guides
@@ -145,6 +145,15 @@ extensions:
     socket: null
     bundled: null
     available_tools: []
+slash_commands:
+  - command: "dev"
+    recipe_path: "/home/lorenzo/.config/goose/recipes/desarrollo.yaml"
+  - command: "escribe"
+    recipe_path: "/home/lorenzo/.config/goose/recipes/escritura.yaml"
+  - command: "minimo"
+    recipe_path: "/home/lorenzo/.config/goose/recipes/minimo.yaml"
+  - command: "ayuda"
+    recipe_path: "/home/lorenzo/.config/goose/recipes/ayuda.yaml"
 OLLAMA_HOST: localhost
 OLLAMA_TIMEOUT: '600'
 providers:

@@ -31,29 +31,56 @@ fd rg bat eza sd procs dust duf jq yq fzf watchexec hyperfine tldr
 - Podman Quadlets para servicios
 - Scripts en Fish (no bash)
 
-### 🔌 Extensiones goose activas
-developer, analyze, code_execution, summarize, summon, memory, todo, apps
-
 # escritura skills flujo
 Los skills de escritura (brand-voice, writing-plans, writing-skills, avoid-ai-writing, edit-article, research) solo se activan cuando se va a escribir un artículo. No mantenerlos cargados por defecto para no consumir contexto innecesariamente.
 
 # skills programacion rust podman
 Skills de programación instalados: rust-best-practices, rust-async-patterns (15.5K), rust-testing (5.3K), rust-patterns (4.9K), podman (176), tdd, code-review, code-reviewer, codebase-memory, design-an-interface, diagnosing-bugs, request-refactor-plan, docker-expert, sqlite-database-expert, vercel-react-best-practices, modern-tools, just, graphify. Los skills de escritura (brand-voice, writing-plans, writing-skills, avoid-ai-writing, edit-article, research) solo se activan cuando se va a escribir un artículo. No mantenerlos cargados por defecto.
 
-# extensiones perfiles configuración
-## Perfiles de extensiones goose
+### desarrollo.yaml
+- Comando: goose run --recipe desarrollo (o /dev en sesión)
+- Extensiones: developer, memory, todo, extensionmanager, analyze, skills, orchestrator
+- Para: programar en Rust, Podman Quadlets, just, code review, depuración
 
-### Perfil "Desarrollo" (por defecto)
-Siempre activas: developer, memory, todo, extensionmanager, analyze, skills, orchestrator
+### escritura.yaml
+- Comando: goose run --recipe escritura (o /escribe en sesión)
+- Extensiones: developer, memory, todo, extensionmanager, summarize, skills
+- Para: escribir artículos técnicos con voice profile "el atareao"
 
-### Perfil "Escritura" (artículos)
-Activar: summarize, skills (para skills de escritura)
-Mantener: developer, memory, todo, extensionmanager
-Desactivar: analyze, orchestrator
+### minimo.yaml
+- Comando: goose run --recipe minimo (o /minimo en sesión)
+- Extensiones: developer, memory, todo, extensionmanager
+- Para: tareas rápidas y comandos simples
 
-### Perfil "Mínimo" (tareas rápidas)
-Solo: developer, memory, todo, extensionmanager
+# ayuda slash-commands recipe
+## Recipe /ayuda
+- Comando: goose run --recipe ayuda (o /ayuda en sesión)
+- Muestra un panel completo con: modos disponibles, slash commands, tips de uso eficiente, tabla de extensiones por perfil, y configuración actual
+- Sin extensiones cargadas (solo muestra info, no ejecuta nada)
 
-### Desactivadas por defecto
-summon, tom, apps, tutorial, summarize
+### Perfil "Mínimo" (por defecto al hacer goose session)
+Siempre activas: developer, memory, todo, extensionmanager
+Desactivadas: analyze, skills, orchestrator, summarize, apps, tutorial, summon, tom, code_execution, computercontroller, autovisualiser, mcp-searxng, chatrecall
+
+### Perfil "Desarrollo" (goose run --recipe desarrollo o /dev)
+Activar: analyze, skills, orchestrator
+Base: developer, memory, todo, extensionmanager
+
+### Perfil "Escritura" (goose run --recipe escritura o /escribe)
+Activar: summarize, skills
+Base: developer, memory, todo, extensionmanager
+Desactivar en este modo: analyze, orchestrator
+
+# gitflow pre-commit ci
+Pre-commit checklist (GIT_FLOW.md):
+Siempre ejecutar en este orden antes de cualquier commit:
+1. cargo fmt --manifest-path backend/Cargo.toml -- --check
+2. cargo clippy --manifest-path backend/Cargo.toml -- -D warnings
+No commitear si cualquiera falla. Esto evita CI failures en main/development.
+
+# skills rust gitflow pre-commit
+Skill creado: rust-pre-commit-checklist
+Ruta: ~/.agents/skills/rust-pre-commit-checklist/SKILL.md
+Descripción: Pre-commit checklist para Rust — cargo fmt --check + clippy antes de cualquier commit
+Actívalo automáticamente en sesiones de Rust
 
