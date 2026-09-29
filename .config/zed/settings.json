@@ -1,26 +1,38 @@
 {
+    "edit_predictions": {
+        "provider": "zed"
+    },
+    "project_panel": {
+        "dock": "left"
+    },
+    "outline_panel": {
+        "dock": "left"
+    },
+    "collaboration_panel": {
+        "dock": "left"
+    },
+    "git_panel": {
+        "dock": "left"
+    },
     "icon_theme": "Colored Zed Icons Theme Dark",
     "wrap_guides": [
         80,
         120
     ],
-    "features": {
-        "edit_prediction_provider": "zed"
-    },
     "agent": {
+        "dock": "right",
         "model_parameters": [],
         "default_model": {
             "provider": "zed.dev",
             "model": "claude-sonnet-4"
         },
-        "version": "2"
     },
     "vim_mode": true,
     "buffer_font_family": "IosevkaTerm Nerd Font Mono",
     "ui_font_size": 16,
     "buffer_font_size": 16,
     "show_whitespaces": "boundary",
-    "relative_line_numbers": true,
+    "relative_line_numbers": "enabled",
     "theme": {
         "mode": "system",
         "light": "One Light",
@@ -33,18 +45,15 @@
     "format_on_save": "on",
     "languages": {
         "Python": {
+            "code_actions_on_format": {
+                "source.organizeImports.ruff": true,
+                "source.fixAll.ruff": true
+            },
             "language_servers": [
                 "ruff"
             ],
             "format_on_save": "on",
-            "formatter": [
-                {
-                    "code_actions": {
-                        "source.fixAll.ruff": true,
-                        "source.organizeImports.ruff": true
-                    }
-                }
-            ]
+            "formatter": []
         }
     },
     "lsp": {

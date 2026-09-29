@@ -25,12 +25,11 @@ abbr --add dcl docker compose logs -d
 abbr --add dcd docker compose down
 abbr --add dc docker compose $argv
 # podman
-abbr --add pc podman compose
-abbr --add pcu podman compose up -d
-abbr --add pcr podman compose up -d --force-recreate
-abbr --add pcp podman compose ps
-abbr --add pcl podman compose logs -f
-abbr --add pcd podman compose dowdown
+abbr --add pc podman-compose
+abbr --add pcu podman-compose up -d --force-recreate
+abbr --add pcp podman-compose ps
+abbr --add pcl podman-compose logs -f
+abbr --add pcd podman-compose down
 # skim
 abbr --add skg 'sk --ansi -i -c \'grep -rI --color=always --line-number "{}" .\''
 abbr --add skr 'sk --ansi -i -c \'rg --color=always --line-number "{}"\''
@@ -38,9 +37,6 @@ abbr --add skr 'sk --ansi -i -c \'rg --color=always --line-number "{}"\''
 abbr --add pn pnpm
 # zapzap
 abbr --add zz 'QMLSCENE_DEVICE=softwarecontext QT_OPENGL=software zapzap'
-# ollama
-abbr --add ollama podman exec -it ollama ollama
-abbr --add fox podman exec -it fox fox
 # yadm
 abbr --add ypus yadm push
 abbr --add yadd yadm add

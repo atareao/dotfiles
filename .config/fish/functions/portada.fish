@@ -28,16 +28,16 @@ function portada --description 'Genera portadas con validación estricta de nota
     set -gx NUMBER $NUMBER
 
     # 2. DETECCIÓN Y ESCALADO IA (Real-ESRGAN) de los PNGs en Descargas
-    set -l png_files (fd . ~/Descargas -e png -X ls -t | head -2)
+    set -l image_files (fd . ~/Descargas -e jpeg -X ls -t | head -2)
     
-    if test (count $png_files) -ne 2
-        echo "Error: Se necesitan exactamente 2 archivos PNG en Descargas (encontrados: "(count $png_files)")."
+    if test (count $image_files) -ne 2
+        echo "Error: Se necesitan exactamente 2 images en Descargas (encontrados: "(count $image_files)")."
         return 1
     end
 
     echo ">>> Analizando y escalando imágenes de Descargas..."
-    echo $png_files
-    for input_file in $png_files
+    echo $image_files
+    for input_file in $image_files
         echo "=== Working on: $input_file ==="
 
         # --- PASO 1: Conversión inicial a JPG ---

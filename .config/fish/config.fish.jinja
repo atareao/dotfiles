@@ -28,6 +28,7 @@ if status is-interactive
     {% if env.MACHINE == "archi" -%}
     set -gx MACHINE archi
     set -gx TERM kitty
+    set -gx PODMAN_COMPOSE_PROVIDER podman-compose
     # Load crypta keys cleanly
     if type -q crypta
         # Silence stderr in case crypta prints warning/header messages
