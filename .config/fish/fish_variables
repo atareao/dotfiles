@@ -2,6 +2,7 @@
 # VERSION: 3.0
 SETUVAR --export GTK_IM_MODULE:simple
 SETUVAR MY_ABBR_SET:true
+SETUVAR --export PNPM_HOME:/home/lorenzo/\x2elocal/share/pnpm
 SETUVAR __fish_initialized:4300
 SETUVAR ayu_variant:dark
 SETUVAR fish_greeting:\x1d

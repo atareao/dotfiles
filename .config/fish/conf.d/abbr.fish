@@ -27,6 +27,7 @@ abbr --add dc docker compose $argv
 # podman
 abbr --add pc podman-compose
 abbr --add pcu podman-compose up -d --force-recreate
+abbr --add pcb podman-compose build
 abbr --add pcp podman-compose ps
 abbr --add pcl podman-compose logs -f
 abbr --add pcd podman-compose down

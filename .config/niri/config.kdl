@@ -461,7 +461,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id="ghostty" is-active=false
+    match app-id="kitty" is-active=false
     opacity 0.8
 }
 window-rule {
