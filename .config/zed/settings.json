@@ -1,4 +1,9 @@
 {
+    "agent_servers": {
+        "antigravity-acp": {
+            "type": "registry"
+        }
+    },
     "edit_predictions": {
         "provider": "zed"
     },
