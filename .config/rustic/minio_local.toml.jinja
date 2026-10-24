@@ -16,8 +16,52 @@ keep-weekly = 4
 keep-monthly = 6
 
 [[backup.snapshots]]
-sources = ["/data/android", "/data/ansible", "/data/appimage", "/data/atareao.es", "/data/bash", "/data/dockers", "/data/flatpak", "/data/gnome", "/data/javascript", "/data/notas", "/data/php", "/data/podcasts", "/data/python", "/data/rust", "/data/secreto", "/data/semaphore", "/data/typescript", "/data/typst", "/data/Vídeos", "/data/yazi", "/home/lorenzo/.password-store", "/home/lorenzo/.ssh", "/home/lorenzo/.config", "/home/lorenzo/.gnupg", "/home/lorenzo/.secrets"]
-iglobs = ["!*.aup", "!*.au", "!*.mkv", "!*.mp4", "!*.mp3", "!*.wav", "!/data/**/venv/", "!/data/**/target/", "!/data/**/.venv/", "!/data/**/.git/", "!/data/**/.pnpm/", "!/data/**/.cargo/", "!/data/**/__pycache__/"]
+sources = [
+  "/data/android",
+  "/data/ansible",
+  "/data/appimage",
+  "/data/atareao.es",
+  "/data/bash",
+  "/data/dockers",
+  "/data/flatpak",
+  "/data/gnome",
+  "/data/javascript",
+  "/data/notas",
+  "/data/php",
+  "/data/podcasts",
+  "/data/python",
+  "/data/rust",
+  "/data/secreto",
+  "/data/semaphore",
+  "/data/typescript",
+  "/data/typst",
+  "/data/Vídeos",
+  "/data/yazi",
+  "/home/lorenzo/.password-store",
+  "/home/lorenzo/.ssh",
+  "/home/lorenzo/.config",
+  "/home/lorenzo/.gnupg",
+  "/home/lorenzo/.secrets"
+]
+
+iglobs = [
+  "!**/*.aup3",
+  "!**/*.aup",
+  "!**/*.au",
+  "!**/*.mkv",
+  "!**/*.mp4",
+  "!**/*.mp3",
+  "!**/*.wav",
+  "!**/*.jpg",
+  "!**/*.png",
+  "!**/venv/**",
+  "!**/.venv/**",
+  "!**/target/**",
+  "!**/.git/**",
+  "!**/.pnpm/**",
+  "!**/.cargo/**",
+  "!**/__pycache__/**"
+]
 
 [backup.snapshots.hooks]
 run-after = ['curl -X "POST" "https://openobserve.territoriolinux.es/api/default/archi_backup/_json"  -H "accept: application/json" -H "Authorization: Basic {{ env.ZINCOBSERVE_TOKEN }}"  -H "Content-Type: application/json"  -d "[{\"repository\": \"s3-local\", \"action\": \"backup\", \"ok\": \"true\"}]"']
