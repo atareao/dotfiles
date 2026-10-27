@@ -1,0 +1,139 @@
+# Nevi Theme Template
+# =====================
+# Copy this file and rename it to create your own theme.
+# Example: mytheme.toml -> available as "mytheme" in theme picker
+#
+# Colors can be:
+# - Hex values: "#e06c75"
+# - Palette references: "red" (defined in [palette] section)
+#
+# Delete this file if you don't need it - it will be recreated on next launch.
+
+# =============================================================================
+# COLOR PALETTE
+# =============================================================================
+# Define reusable colors here. Reference them by name in other sections.
+
+[palette]
+red = "#e06c75"
+green = "#98c379"
+yellow = "#e5c07b"
+blue = "#61afef"
+purple = "#c678dd"
+cyan = "#56b6c2"
+orange = "#d19a66"
+gray = "#5c6370"
+fg = "#abb2bf"
+bg = "#282c34"
+bg_dark = "#21252b"
+bg_lighter = "#2c313c"
+selection = "#3e4451"
+
+# =============================================================================
+# SYNTAX HIGHLIGHTING
+# =============================================================================
+# Colors for code syntax. Each can have: fg, bg, bold, italic
+
+[syntax]
+keyword = { fg = "purple" }              # if, else, fn, let, etc.
+function = { fg = "blue" }               # function names
+type = { fg = "yellow" }                 # type names (String, i32, etc.)
+string = { fg = "green" }                # "string literals"
+number = { fg = "orange" }               # 123, 3.14, 0xff
+comment = { fg = "gray", italic = true } # // comments
+operator = { fg = "cyan" }               # +, -, *, /, =, etc.
+punctuation = { fg = "fg" }              # (), {}, [], ;
+variable = { fg = "red" }                # variable names
+constant = { fg = "orange" }             # CONSTANTS
+attribute = { fg = "yellow" }            # #[derive], @decorator
+namespace = { fg = "blue" }              # module::path
+label = { fg = "red" }                   # 'lifetime, labels
+property = { fg = "red" }                # object.property
+tag = { fg = "red" }                     # HTML/XML tags
+# Rust-specific highlighting groups
+macro = { fg = "cyan" }                  # format!, println!
+method = { fg = "blue" }                 # .clone(), .ok()
+constructor = { fg = "cyan" }            # Some, None, Ok, Err
+boolean = { fg = "orange" }              # true, false
+
+# =============================================================================
+# UI COLORS
+# =============================================================================
+
+[ui]
+background = "bg"                        # main editor background
+foreground = "fg"                        # default text color
+cursor_line = "#2c313c"                  # current line highlight
+selection = "#3e4451"                    # selected text background
+line_number = "gray"                     # line numbers
+line_number_active = "fg"                # current line number
+visual_bg = "#3e4451"                    # visual mode selection
+
+# Status line colors
+[ui.statusline]
+background = "bg_dark"
+foreground = "fg"
+mode_normal = "blue"                     # NORMAL mode indicator
+mode_insert = "green"                    # INSERT mode indicator
+mode_visual = "purple"                   # VISUAL mode indicator
+mode_command = "yellow"                  # COMMAND mode indicator
+mode_replace = "red"                     # REPLACE mode indicator
+
+# Popup menus (hover, etc.)
+[ui.popup]
+background = "bg_dark"
+border = "#373741"
+selection = "#374d5f"
+
+# Autocomplete popup
+[ui.completion]
+background = "#1e1e24"
+border = "#373741"
+selected = "#374d5f"                     # selected item
+match = "yellow"                         # matched characters
+detail = "#64646f"                       # type/detail text
+
+# File finder (Space+ff, Space+fg)
+[ui.finder]
+background = "#19191e"
+border = "#646464"
+selected = "#3c3c64"
+match = "yellow"                         # matched characters
+prompt = "blue"                          # input prompt
+
+# Search highlighting
+[ui.search]
+match_bg = "#b4a03c"                     # search match background
+match_fg = "#000000"                     # search match text
+
+# File explorer (Space+e)
+[ui.explorer]
+background = "bg_dark"
+border = "#373741"
+selected = "#374d5f"
+directory = "blue"                       # directory names
+
+# Harpoon quick switcher
+[ui.harpoon]
+background = "bg_dark"
+border = "#373741"
+selected = "#374d5f"
+
+# =============================================================================
+# DIAGNOSTICS (LSP errors, warnings, etc.)
+# =============================================================================
+
+[diagnostic]
+error = "#ff6464"
+warning = "#ffc864"
+info = "blue"
+hint = "cyan"
+
+# =============================================================================
+# GIT GUTTER SIGNS
+# =============================================================================
+
+[git]
+added = "green"                          # new lines
+modified = "yellow"                      # changed lines
+deleted = "red"                          # deleted lines
