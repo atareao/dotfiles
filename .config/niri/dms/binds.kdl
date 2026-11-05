@@ -15,5 +15,5 @@ binds {
     XF86MonBrightnessDown allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "decrement" "5" ""; }
     XF86MonBrightnessUp allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "increment" "5" ""; }
     Mod+Period { spawn "smile"; }
-    Mod+Return hotkey-overlay-title="Open a Terminal" { spawn "kitty"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal" { spawn "ghostty"; }
 }
